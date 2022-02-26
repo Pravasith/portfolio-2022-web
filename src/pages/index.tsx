@@ -4,6 +4,9 @@ import Image from "next/image"
 import styles from "@styles/Home.module.css"
 import { useEffect, useRef } from "react"
 import { useThree } from "@hooks/useThree"
+// import x from "../hooks/x"
+
+// let an_example_unused_var = 7
 
 const Home: NextPage = () => {
     const threeCanvasRef = useRef<HTMLDivElement>(null)

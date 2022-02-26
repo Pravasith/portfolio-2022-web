@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef, useState } from "react"
+import { RefObject, useEffect, useState } from "react"
 import * as THREE from "three"
 import { ThreeBasicExports, RenderOptions } from "./interface"
 
@@ -8,13 +8,10 @@ const useThree = (
     const [threeBasicExports, setThreeBasicExports] =
         useState<ThreeBasicExports>()
 
-    let requestId: number | undefined,
-        x = 2
+    let requestId: number | undefined
 
     useEffect(() => {
         const container = threeCanvasRef.current
-
-        const xx = () => {}
 
         if (!!container) {
             const scene = new THREE.Scene()
@@ -46,7 +43,7 @@ const useThree = (
         }
     }, [])
 
-    const loop = (_time?: number) => {
+    const loop = () => {
         requestId = undefined
 
         // ...
