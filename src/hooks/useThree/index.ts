@@ -61,7 +61,6 @@ const useThree = (
     }
 
     const start = () => {
-        console.log({ requestId })
         if (!requestId) {
             requestId = window.requestAnimationFrame(loop)
         }
