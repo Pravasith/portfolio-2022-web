@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { useThree } from "@hooks/useThree"
 import Meta from "@components/Meta"
 import Layout from "@components/Layout"
+import Home from "@components/Pages/Home"
 
 const metaProps = {
     pageTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
@@ -46,7 +47,9 @@ const IndexPage: NextPage = () => {
     return (
         <main>
             <Meta {...metaProps} />
-            <Layout></Layout>
+            <Layout>
+                <Home />
+            </Layout>
         </main>
     )
 }
