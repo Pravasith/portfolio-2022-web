@@ -1,174 +1,89 @@
-// FLEXBOX STYLES
-
-// ROW CLASSES
-.flexRow_Centre {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+// CENTER CHILDREN IN A ROW
+.flex-row-center {
+    @apply flex flex-row justify-center items-center;
 }
 
-// DIRECTIONS
-.flexRow_N {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    align-items: flex-start;
+// ALIGN CHILDREN TO THE NORTH IN A ROW
+.flex-row-north {
+    @apply flex flex-row justify-center items-start;
 }
 
-.flexRow_E {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    justify-content: flex-end;
+// ALIGN CHILDREN TO THE EAST IN A ROW
+.flex-row-east {
+    @apply flex flex-row items-center justify-end;
 }
 
-.flexRow_S {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    align-items: flex-end;
+// ALIGN CHILDREN TO THE SOUTH IN A ROW
+.flex-row-south {
+    @apply flex flex-row justify-center items-end;
 }
 
-.flexRow_W {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    justify-content: flex-start;
+// ALIGN CHILDREN TO THE WEST IN A ROW
+.flex-row-west {
+    @apply flex flex-row items-center justify-start;
 }
 
-// SUBDIRECTIONS
-.flexRow_NE {
-    display: flex;
-    flex-direction: row;
-
-    align-items: flex-start;
-    justify-content: flex-end;
+// ALIGN CHILDREN TO THE NORTH-EAST CORNER IN A ROW
+.flex-row-north-east {
+    @apply flex flex-row items-start justify-end;
 }
 
-.flexRow_SE {
-    display: flex;
-    flex-direction: row;
-
-    align-items: flex-end;
-    justify-content: flex-end;
+// ALIGN CHILDREN TO THE NORTH-WEST CORNER IN A ROW
+.flex-row-north-west {
+    @apply flex flex-row justify-start items-start;
 }
 
-.flexRow_SW {
-    display: flex;
-    flex-direction: row;
-
-    align-items: flex-end;
-    justify-content: flex-start;
+// ALIGN CHILDREN TO THE SOUTH-EAST CORNER IN A ROW
+.flex-row-south-east {
+    @apply flex flex-row items-end justify-end;
 }
 
-.flexRow_NW {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: flex-start;
-    align-items: flex-start;
+// ALIGN CHILDREN TO THE SOUTH-WEST CORNER IN A ROW
+.flex-row-south-west {
+    @apply flex flex-row items-end justify-start;
 }
 
-// COLUMN CLASSES
-.flexCol_Centre {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+// CENTER CHILDREN IN A COLUMN
+.flex-col-center {
+    @apply flex flex-col justify-center items-center;
 }
 
-// DIRECTIONS
-.flexCol_N {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    justify-content: flex-start;
+// ALIGN CHILDREN TO THE NORTH IN A COLUMN
+.flex-col-north {
+    @apply flex flex-col items-center justify-start;
 }
 
-.flexCol_E {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    align-items: flex-end;
+// ALIGN CHILDREN TO THE EAST IN A COLUMN
+.flex-col-east {
+    @apply flex flex-col justify-center items-end;
 }
 
-.flexCol_S {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    justify-content: flex-end;
+// ALIGN CHILDREN TO THE SOUTH IN A COLUMN
+.flex-col-south {
+    @apply flex flex-col items-center justify-end;
 }
 
-.flexCol_W {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    align-items: flex-start;
+// ALIGN CHILDREN TO THE WEST IN A COLUMN
+.flex-col-west {
+    @apply flex flex-col justify-center items-start;
 }
 
-// SUBDIRECTIONS
-.flexCol_NE {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: flex-start;
-    align-items: flex-end;
+// ALIGN CHILDREN TO THE NORTH-EAST CORNER IN A COLUMN
+.flex-col-north-east {
+    @apply flex flex-col justify-start items-end;
 }
 
-.flexCol_SE {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: flex-end;
-    align-items: flex-end;
+// ALIGN CHILDREN TO THE SOUTH-EAST CORNER IN A COLUMN
+.flex-col-south {
+    @apply flex flex-col justify-end items-end;
 }
 
-.flexCol_SW {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: flex-end;
-    align-items: flex-start;
+// ALIGN CHILDREN TO THE SOUTH-WEST CORNER IN A COLUMN
+.flex-col-south-west {
+    @apply flex flex-col justify-end items-start;
 }
 
-.flexCol_NW {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-// POSITIONS
-.posAbs_NE {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.posAbs_SE {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.posAbs_SW {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.posAbs_NW {
-    position: absolute;
-    top: 0;
-    left: 0;
+// ALIGN CHILDREN TO THE NORTH-WEST CORNER IN A COLUMN
+.flex-col-north-west {
+    @apply flex flex-col justify-start items-start;
 }

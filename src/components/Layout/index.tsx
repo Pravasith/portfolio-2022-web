@@ -1,11 +1,15 @@
 import React from "react"
 
+import Topbar from "./Topbar"
+
 const Layout: React.FC = ({ children }): JSX.Element => {
     return (
         <>
             <header>
-                {/* Logo */}
-                {/* Theme Toggle button */}
+                {/* Things that go in the top bar, like Navbar */}
+                {/* Banners, notification strips... etc. */}
+
+                <Topbar />
             </header>
 
             <aside>{/* Twitter Stuff */}</aside>
