@@ -3,7 +3,7 @@ import Head from "next/head"
 const seoData = {
     pageTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
     ogSiteName: "pravasith.design",
-    ogTitle: "Pravasith - Creative Web Developer   ",
+    ogTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
     ogType: "website",
     ogUrl: "https://pravasith.design/",
     twitterCreator: "@pravasith",
