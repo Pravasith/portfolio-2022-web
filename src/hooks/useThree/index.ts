@@ -44,20 +44,21 @@ const useThree = (
     }, [threeCanvasRef])
 
     const loop = () => {
-        requestId = undefined
+        if (threeBasicExports?.scene && threeBasicExports?.camera) {
+            requestId = undefined
 
-        // ...
-        // // do stuff
-        // ...
+            // ...
+            // // do stuff
+            // ...
 
-        threeBasicExports?.scene &&
-            threeBasicExports?.camera &&
             threeBasicExports.renderer?.render(
                 threeBasicExports.scene,
                 threeBasicExports.camera
             )
 
-        start()
+            start()
+        }
+        return
     }
 
     const start = () => {

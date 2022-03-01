@@ -5,7 +5,27 @@ import { useThree } from "@hooks/useThree"
 import Meta from "@components/Meta"
 import Layout from "@components/Layout"
 
-const Home: NextPage = () => {
+const metaProps = {
+    pageTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
+    ogSiteName: "pravasith.design",
+    ogTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
+    ogType: "website",
+    ogUrl: "https://pravasith.design/",
+    twitterCreator: "@pravasith",
+    description:
+        "A 🟧🟨 Creative Web Developer 🟩🟦 living in Toronto, Canada. 🇨🇦",
+    twitterDescription:
+        "A 🟧🟨 Creative Web Developer 🟩🟦 living in Toronto, Canada. 🇨🇦",
+    ogDescription:
+        "A 🟧🟨 Creative Web Developer 🟩🟦 living in Toronto, Canada. 🇨🇦",
+    ogImageAlt: "An Illustration of a Creative Web Developer",
+    twitterImageAlt: "An Illustration of a Creative Web Developer",
+    // TODO: CHANGE IMAGES
+    ogImage: "https://cassie.codes/images/meta.jpg",
+    twitterImage: "https://cassie.codes/images/meta.jpg",
+}
+
+const IndexPage: NextPage = () => {
     const threeCanvasRef = useRef<HTMLDivElement>(null)
     const [threeBasics, renderOptions] = useThree(threeCanvasRef)
 
@@ -24,13 +44,11 @@ const Home: NextPage = () => {
     }, [threeBasics, renderOptions])
 
     return (
-        <main style={{ height: "100%", width: "100%", background: "red" }}>
-            <Meta />
-            <Layout>
-                <h1>Hello portfolio 2022!</h1>
-            </Layout>
+        <main>
+            <Meta {...metaProps} />
+            <Layout></Layout>
         </main>
     )
 }
 
-export default Home
+export default IndexPage

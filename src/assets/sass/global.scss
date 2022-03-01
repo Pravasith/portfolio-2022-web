@@ -29,6 +29,7 @@ body {
     font-family: "Calibre", sans-serif;
     width: 100%;
     height: 100%;
+    background: red;
 }
 
 * {
@@ -46,4 +47,8 @@ img {
     image-rendering: -o-crisp-edges; /* Opera */
     image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
     -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+
+p {
+    font-weight: 300;
 }

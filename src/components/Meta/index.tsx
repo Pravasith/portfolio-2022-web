@@ -1,26 +1,7 @@
 import Head from "next/head"
+import { MetaProps } from "./interface"
 
-const seoData = {
-    pageTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
-    ogSiteName: "pravasith.design",
-    ogTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
-    ogType: "website",
-    ogUrl: "https://pravasith.design/",
-    twitterCreator: "@pravasith",
-    description:
-        "A 🟧🟨 Creative Web Developer 🟩🟦 living in Toronto, Canada. 🇨🇦",
-    twitterDescription:
-        "A 🟧🟨 Creative Web Developer 🟩🟦 living in Toronto, Canada. 🇨🇦",
-    ogDescription:
-        "A 🟧🟨 Creative Web Developer 🟩🟦 living in Toronto, Canada. 🇨🇦",
-    ogImageAlt: "An Illustration of a Creative Web Developer",
-    twitterImageAlt: "An Illustration of a Creative Web Developer",
-    // TODO: CHANGE IMAGES
-    ogImage: "https://cassie.codes/images/meta.jpg",
-    twitterImage: "https://cassie.codes/images/meta.jpg",
-}
-
-const Meta = () => {
+const Meta = (props: MetaProps) => {
     return (
         <Head>
             <meta
@@ -93,24 +74,24 @@ const Meta = () => {
                 crossOrigin=""
                 href="/fonts/jenthill.woff"
             />
-            <title>{seoData.pageTitle}</title>
-            <meta property="og:site_name" content={seoData.ogSiteName} />
-            <meta property="og:title" content={seoData.ogTitle} />
-            <meta property="og:type" content={seoData.ogType} />
-            <meta property="og:url" content={seoData.ogUrl} />
-            <meta name="twitter:creator" content={seoData.twitterCreator} />
-            <meta name="description" content={seoData.description} />
+            <title>{props.pageTitle}</title>
+            <meta property="og:site_name" content={props.ogSiteName} />
+            <meta property="og:title" content={props.ogTitle} />
+            <meta property="og:type" content={props.ogType} />
+            <meta property="og:url" content={props.ogUrl} />
+            <meta name="twitter:creator" content={props.twitterCreator} />
+            <meta name="description" content={props.description} />
             <meta
                 name="twitter:description"
-                content={seoData.twitterDescription}
+                content={props.twitterDescription}
             />
-            <meta property="og:description" content={seoData.ogDescription} />
-            <meta property="og:image" content={seoData.ogImage} />
-            <meta name="twitter:image" content={seoData.twitterImage} />
-            <meta property="og:image:alt" content={seoData.ogImageAlt} />
+            <meta property="og:description" content={props.ogDescription} />
+            <meta property="og:image" content={props.ogImage} />
+            <meta name="twitter:image" content={props.twitterImage} />
+            <meta property="og:image:alt" content={props.ogImageAlt} />
             <meta
                 name="twitter:image:alt"
-                content={seoData.twitterImageAlt}
+                content={props.twitterImageAlt}
             ></meta>
         </Head>
     )
