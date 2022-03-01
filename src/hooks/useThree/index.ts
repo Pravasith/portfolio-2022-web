@@ -41,7 +41,7 @@ const useThree = (
 
             setThreeBasicExports({ scene, camera, renderer })
         }
-    }, [])
+    }, [threeCanvasRef])
 
     const loop = () => {
         requestId = undefined
