@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+    reactStrictMode: true,
+    eslint: {
+        dirs: ["."], //or ['pages', 'hooks']
+    },
 }
 
 module.exports = nextConfig
