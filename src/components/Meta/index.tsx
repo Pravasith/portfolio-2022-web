@@ -15,65 +15,33 @@ const Meta = (props: MetaProps) => {
                 title=""
                 href="https://cassie.codes/feed.xml"
             /> */}
+
             <link
                 rel="apple-touch-icon"
                 sizes="180x180"
-                href="/images/apple-touch-icon.png"
+                href="/apple-touch-icon.png"
             />
             <link
                 rel="icon"
                 type="image/png"
                 sizes="32x32"
-                href="/images/favicon-32x32.png"
+                href="/favicon-32x32.png"
             />
             <link
                 rel="icon"
                 type="image/png"
                 sizes="16x16"
-                href="/images/favicon-16x16.png"
+                href="/favicon-16x16.png"
             />
+            <link rel="manifest" href="/site.webmanifest" />
             <link
-                rel="preload"
-                as="font"
-                type="font/woff2"
-                crossOrigin=""
-                href="/fonts/mosk-600.woff2"
+                rel="mask-icon"
+                href="/safari-pinned-tab.svg"
+                color="#5bbad5"
             />
-            <link
-                rel="preload"
-                as="font"
-                type="font/woff"
-                crossOrigin=""
-                href="/fonts/mosk-600.woff"
-            />
-            <link
-                rel="preload"
-                as="font"
-                type="font/woff2"
-                crossOrigin=""
-                href="/fonts/mosk-900.woff2"
-            />
-            <link
-                rel="preload"
-                as="font"
-                type="font/woff"
-                crossOrigin=""
-                href="/fonts/mosk-900.woff"
-            />
-            <link
-                rel="preload"
-                as="font"
-                type="font/woff2"
-                crossOrigin=""
-                href="/fonts/jenthill.woff2"
-            />
-            <link
-                rel="preload"
-                as="font"
-                type="font/woff"
-                crossOrigin=""
-                href="/fonts/jenthill.woff"
-            />
+            <meta name="msapplication-TileColor" content="#da532c" />
+            <meta name="theme-color" content="#ffffff"></meta>
+
             <title>{props.pageTitle}</title>
             <meta property="og:site_name" content={props.ogSiteName} />
             <meta property="og:title" content={props.ogTitle} />
