@@ -1,12 +1,24 @@
-import styles from "./Topbar.module.scss"
+import { EIconSizes } from "@components/UI/Icons/interface"
+import { Icon } from "@components/UI/Icons"
+
+import TopbarIcons from "./Icons"
+
+const { SunMoon, MainLogo } = TopbarIcons
 
 const Topbar = () => {
     return (
         <>
-            <div className={`${styles.container} h-32  flex-row-north-east`}>
-                <div className="bg-green-400 w-10 h-10"></div>
-                <div className="bg-yellow-400 w-10 h-10"></div>
-                <div className="bg-red-400 w-10 h-10"></div>
+            <div className="flex flex-row justify-between items-center my-7">
+                <div className="w-1/5 flex-row-center">
+                    <Icon size={EIconSizes.sm}>
+                        <MainLogo />
+                    </Icon>
+                </div>
+                <div className="w-1/5 flex-row-center">
+                    <Icon size={EIconSizes.lg}>
+                        <SunMoon />
+                    </Icon>
+                </div>
             </div>
         </>
     )

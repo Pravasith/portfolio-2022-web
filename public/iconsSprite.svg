@@ -1,0 +1,37 @@
+<!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="icon-main-logo">
+    <path id="upper-part" fill="#333333" d="M35.6,44.5L35.6,44.5l-23.3,0V23.1h0.2c0-0.1,0-0.3,0-0.4C12.5,10.7,22.6,1,35.1,1
+      s22.6,9.8,22.6,21.8C57.7,34.6,47.8,44.2,35.6,44.5z" />
+    <path id="lower-part" fill="#F9B067"
+      d="M12.6,59.9c0.1,5,4.2,9.1,9.2,9.1s9.1-4,9.2-9.1h0l0-9.8l-18.4,0L12.6,59.9L12.6,59.9z" />
+  </symbol>
+
+  <symbol id="icon-sunmoon">
+    <g id="background">
+      <path id="b-3" fill="#FEFCBB" d="M100.4,49.7H0.4V35.2c0-19.3,15.7-35,35-35h30c19.3,0,35,15.7,35,35V49.7z" />
+      <rect id="b-2" x="0.2" y="36.1" fill="#FFF35F" width="99.8" height="20.1" />
+      <rect id="b-1" x="0.2" y="55.2" fill="#FFEC61" width="99.8" height="15" />
+      <path id="b-0" fill="#FFED85"
+        d="M72.2,97.2H28.1c-15.4,0-27.8-12.5-27.8-27.8v0h99.8v0C100.1,84.7,87.6,97.2,72.2,97.2z" />
+    </g>
+    <g id="sunmoon-small">
+      <circle fill="#FFFF00" cx="50.1" cy="50.4" r="14.3" />
+    </g>
+    <g id="sunmoon-lines">
+
+      <line id="line-1" fill="none" stroke="#F7931E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" x1="46.3" y1="59.8" x2="76.3" y2="59.8" />
+
+      <line id="line-0" fill="none" stroke="#F7931E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+        stroke-miterlimit="10" x1="45.5" y1="65.9" x2="63.1" y2="65.9" />
+    </g>
+    <g id="sunmoon-gradient">
+      <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="50.4311" y1="23.2404" x2="50.4311" y2="59.3071">
+        <stop offset="0.1955" style="stop-color:#F15A24" />
+        <stop offset="1" style="stop-color:#FCEE21" />
+      </linearGradient>
+      <path fill="url(#SVGID_1_)"
+        d="M33.3,55.4c-0.6-1.8-0.9-3.7-0.9-5.7c0-10,8.1-18,18-18s18,8.1,18,18c0,1.9-0.3,3.7-0.8,5.4" />
+    </g>
+  </symbol>
+</svg> -->
