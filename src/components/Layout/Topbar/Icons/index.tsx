@@ -1,28 +1,19 @@
 const SunMoon = () => (
     <>
-        <g id="background">
+        <g>
             <path
-                id="b-3"
                 fill="#FEFCBB"
-                d="M100.4 49.7H.4V35.2c0-19.3 15.7-35 35-35h30c19.3 0 35 15.7 35 35v14.5z"
+                d="M100.4 39.2H.4v-8.7C.4 13.8 13.9.3 30.6.3h39.5c16.7 0 30.2 13.5 30.2 30.2v8.7z"
             ></path>
-            <path id="b-2" fill="#FFF35F" d="M0.2 36.1H100V56.2H0.2z"></path>
-            <path id="b-1" fill="#FFEC61" d="M0.2 55.2H100V70.2H0.2z"></path>
+            <path fill="#FFF35F" d="M0.2 36.1H100V56.2H0.2z"></path>
+            <path fill="#FFEC61" d="M0.2 55.2H100V70.2H0.2z"></path>
             <path
-                id="b-0"
                 fill="#FFED85"
-                d="M72.2 97.2H28.1C12.7 97.2.3 84.7.3 69.4h99.8c0 15.3-12.5 27.8-27.9 27.8z"
+                d="M72.2 100.2H28.1C12.7 100.2.3 87.7.3 72.4v-3h99.8v3c0 15.3-12.5 27.8-27.9 27.8z"
             ></path>
         </g>
-        <circle
-            id="sunmoon-small"
-            cx="50.1"
-            cy="50.4"
-            r="14.3"
-            fill="#FF0"
-        ></circle>
+        <circle cx="50.1" cy="50.4" r="14.3" fill="#FF0"></circle>
         <g
-            id="sunmoon-lines"
             fill="none"
             stroke="#F7931E"
             strokeLinecap="round"
@@ -30,10 +21,10 @@ const SunMoon = () => (
             strokeMiterlimit="10"
             strokeWidth="2.2"
         >
-            <path id="line-1" d="M46.3 59.8L76.3 59.8"></path>
-            <path id="line-0" d="M45.5 65.9L63.1 65.9"></path>
+            <path d="M35.4 60.2L65.4 60.2"></path>
+            <path d="M41.5 65.9L59.1 65.9"></path>
         </g>
-        <g id="sunmoon-gradient">
+        <g>
             <linearGradient
                 id="SVGID_1_"
                 x1="50.431"
