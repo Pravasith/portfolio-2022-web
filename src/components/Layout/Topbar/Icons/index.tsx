@@ -16,10 +16,10 @@ const SunMoon = () => {
             state?.currentTheme === EThemes.DARK ? EThemes.LIGHT : EThemes.DARK
         )
 
-        tl.to("#b-0", { fill: colors.b0, duration: 1 })
-        tl.to("#b-1", { fill: colors.b1, duration: 1 }, "-0.125")
-        tl.to("#b-2", { fill: colors.b2, duration: 1 }, "-0.125")
-        tl.to("#b-3", { fill: colors.b3, duration: 1 }, "-0.125")
+        tl.to("#b-0", { fill: colors.b0, duration: 0.75 })
+        tl.to("#b-1", { fill: colors.b1, duration: 0.75 }, "-0.125")
+        tl.to("#b-2", { fill: colors.b2, duration: 0.75 }, "-0.125")
+        tl.to("#b-3", { fill: colors.b3, duration: 0.75 }, "-0.125")
 
         tl.to("#sunmoon-gradient .stop-0", {
             stopColor: colors.sunmoonGradient.stopColor1,
