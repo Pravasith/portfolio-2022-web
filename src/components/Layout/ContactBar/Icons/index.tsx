@@ -73,5 +73,5 @@ export const EmailIcon = () => (
     </g>
 )
 
-const ContactLinksIcons = { TwitterIcon, GithubIcon, EmailIcon }
-export default ContactLinksIcons
+const ContactBarIcons = { TwitterIcon, GithubIcon, EmailIcon }
+export default ContactBarIcons

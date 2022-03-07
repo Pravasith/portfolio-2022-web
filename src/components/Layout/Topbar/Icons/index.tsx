@@ -1,48 +1,155 @@
-const SunMoon = () => (
-    <>
-        <g>
-            <path
-                fill="#FEFCBB"
-                d="M100.4 39.2H.4v-8.7C.4 13.8 13.9.3 30.6.3h39.5c16.7 0 30.2 13.5 30.2 30.2v8.7z"
-            ></path>
-            <path fill="#FFF35F" d="M0.2 36.1H100V56.2H0.2z"></path>
-            <path fill="#FFEC61" d="M0.2 55.2H100V70.2H0.2z"></path>
-            <path
-                fill="#FFED85"
-                d="M72.2 100.2H28.1C12.7 100.2.3 87.7.3 72.4v-3h99.8v3c0 15.3-12.5 27.8-27.9 27.8z"
-            ></path>
-        </g>
-        <circle cx="50.1" cy="50.4" r="14.3" fill="#FF0"></circle>
-        <g
-            fill="none"
-            stroke="#F7931E"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeMiterlimit="10"
-            strokeWidth="2.2"
-        >
-            <path d="M35.4 60.2L65.4 60.2"></path>
-            <path d="M41.5 65.9L59.1 65.9"></path>
-        </g>
-        <g>
-            <linearGradient
-                id="SVGID_1_"
-                x1="50.431"
-                x2="50.431"
-                y1="23.24"
-                y2="59.307"
-                gradientUnits="userSpaceOnUse"
+import { useContext, useEffect } from "react"
+import gsap from "gsap"
+
+import { ThemeContext } from "@utils/contexts/themeContext"
+import { EThemes } from "@utils/contexts/themeContext/interface"
+
+const SunMoon = () => {
+    const { state } = useContext(ThemeContext)
+
+    const toggleTheme = () => {
+        const tl = gsap.timeline({
+            defaults: { ease: "power4.in" },
+        })
+
+        const colors = getColors(
+            state?.currentTheme === EThemes.DARK ? EThemes.LIGHT : EThemes.DARK
+        )
+
+        tl.to("#b-0", { fill: colors.b0, duration: 1 })
+        tl.to("#b-1", { fill: colors.b1, duration: 1 }, "-0.125")
+        tl.to("#b-2", { fill: colors.b2, duration: 1 }, "-0.125")
+        tl.to("#b-3", { fill: colors.b3, duration: 1 }, "-0.125")
+
+        tl.to("#sunmoon-gradient .stop-0", {
+            stopColor: colors.sunmoonGradient.stopColor1,
+            duration: 0.5,
+        })
+
+        tl.to(
+            "#sunmoon-gradient .stop-1",
+            {
+                stopColor: colors.sunmoonGradient.stopColor2,
+                duration: 0.5,
+            },
+            "<"
+        )
+
+        tl.to(
+            ["#sunmoon-lines .line-0", "#sunmoon-lines .line-1"],
+            {
+                stroke: colors.sunmoonLines,
+                duration: 0.5,
+            },
+            "<"
+        )
+    }
+
+    useEffect(() => {
+        toggleTheme()
+    }, [state?.currentTheme, toggleTheme])
+
+    const getColors = (theme: EThemes) => {
+        const colors = {
+            lightTheme: {
+                b3: "#FEFCBB",
+                b2: "#FFF35F",
+                b1: "#FFEC61",
+                b0: "#FFED85",
+
+                sunmoonLines: "#F7931E",
+                sunmoonGradient: {
+                    stopColor1: "#F15A24",
+                    stopColor2: "#FCEE21",
+                },
+            },
+
+            darkTheme: {
+                b3: "#71E1FF",
+                b2: "#A4DFFF",
+                b1: "#88DBFF",
+                b0: "#8DD1FF",
+
+                sunmoonLines: "#60B2EA",
+                sunmoonGradient: {
+                    stopColor1: "#29ABE2",
+                    stopColor2: "#B3EBFF",
+                },
+            },
+        }
+
+        return theme === EThemes.LIGHT ? colors.lightTheme : colors.darkTheme
+    }
+
+    return (
+        <>
+            <g id="background">
+                <path
+                    id="b-3"
+                    fill="#FEFCBB"
+                    d="M100.4 39.2H.4v-8.7C.4 13.8 13.9.3 30.6.3h39.5c16.7 0 30.2 13.5 30.2 30.2v8.7z"
+                ></path>
+
+                <path
+                    id="b-2"
+                    fill="#FFF35F"
+                    d="M0.2 36.1H100V56.2H0.2z"
+                ></path>
+
+                <path
+                    id="b-1"
+                    fill="#FFEC61"
+                    d="M0.2 55.2H100V70.2H0.2z"
+                ></path>
+
+                <path
+                    id="b-0"
+                    fill="#FFED85"
+                    d="M72.2 100.2H28.1C12.7 100.2.3 87.7.3 72.4v-3h99.8v3c0 15.3-12.5 27.8-27.9 27.8z"
+                ></path>
+            </g>
+
+            <g
+                id="sunmoon-lines"
+                fill="none"
+                stroke="#F7931E"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="2.2"
             >
-                <stop offset="0.196" stopColor="#F15A24"></stop>
-                <stop offset="1" stopColor="#FCEE21"></stop>
-            </linearGradient>
-            <path
-                fill="url(#SVGID_1_)"
-                d="M33.3 55.4c-.6-1.8-.9-3.7-.9-5.7 0-10 8.1-18 18-18s18 8.1 18 18c0 1.9-.3 3.7-.8 5.4"
-            ></path>
-        </g>
-    </>
-)
+                <path className="line-1" d="M35.4 60.2L65.4 60.2"></path>
+                <path className="line-0" d="M41.5 65.9L59.1 65.9"></path>
+            </g>
+
+            <g id="sunmoon-gradient">
+                <linearGradient
+                    id="SVGID_1_"
+                    x1="50.431"
+                    x2="50.431"
+                    y1="23.24"
+                    y2="59.307"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop
+                        className="stop-0"
+                        offset="0.196"
+                        stopColor="#F15A24"
+                    ></stop>
+                    <stop
+                        className="stop-1"
+                        offset="1"
+                        stopColor="#FCEE21"
+                    ></stop>
+                </linearGradient>
+                <path
+                    fill="url(#SVGID_1_)"
+                    d="M33.3 55.4c-.6-1.8-.9-3.7-.9-5.7 0-10 8.1-18 18-18s18 8.1 18 18c0 1.9-.3 3.7-.8 5.4"
+                ></path>
+            </g>
+        </>
+    )
+}
 
 const MainLogo = () => (
     <>

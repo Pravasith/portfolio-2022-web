@@ -1,3 +1,4 @@
+import { EColors } from "@assets/themes/colors"
 import React from "react"
 
 export enum EIconSizes {
@@ -8,7 +9,13 @@ export enum EIconSizes {
     xl = "6rem",
 }
 
-export interface IconProps {
-    size?: EIconSizes
-    children: React.ReactNode
+export enum EScaleDirection {
+    SCALE_UP,
+    SCALE_DOWN,
+}
+
+export interface IconProps extends React.HTMLProps<HTMLDivElement> {
+    iconSize?: EIconSizes
+    hideHoverBackground?: boolean
+    iconBackground?: EColors
 }

@@ -1,21 +1,23 @@
 import gsap from "gsap"
 import React, { useRef } from "react"
-import { EIconSizes, IconProps } from "./interface"
+import { EIconSizes, EScaleDirection, IconProps } from "./interface"
 import styles from "./Icons.module.scss"
+import { EColors } from "@assets/themes/colors"
 
 export const Icon: React.FC<IconProps> = props => {
-    const { size = EIconSizes.md } = props
-    const iconBackground = useRef<HTMLDivElement>(null)
+    const {
+        iconSize = EIconSizes.md,
+        hideHoverBackground,
+        iconBackground,
+        ...rest
+    } = props
 
-    enum EScaleDirection {
-        SCALE_UP,
-        SCALE_DOWN,
-    }
+    const iconBackgroundElement = useRef<HTMLDivElement>(null)
 
     const scaleIcon = (scaleDirection: EScaleDirection) => {
         const isScaleUp = scaleDirection === EScaleDirection.SCALE_UP
 
-        gsap.to(iconBackground.current, {
+        gsap.to(iconBackgroundElement.current, {
             scale: isScaleUp ? 3 : 0,
             duration: 0.2,
         })
@@ -23,7 +25,8 @@ export const Icon: React.FC<IconProps> = props => {
 
     return (
         <div
-            style={{ width: size, height: size }}
+            {...rest}
+            style={{ width: iconSize, height: iconSize }}
             onMouseEnter={() => {
                 scaleIcon(EScaleDirection.SCALE_UP)
             }}
@@ -33,18 +36,24 @@ export const Icon: React.FC<IconProps> = props => {
             className={`${styles.container} relative cursor-pointer`}
         >
             <div
-                ref={iconBackground}
+                ref={iconBackgroundElement}
                 className={`
                     ${styles.iconBackground} 
-                    absolute bg-yellow-200 w-full h-full rounded-full origin-center
+                    absolute w-full h-full rounded-full origin-center
+                    ${hideHoverBackground && "hidden"}
+                    ${
+                        iconBackground
+                            ? iconBackground
+                            : EColors.ICON_BACKGROUND_YELLOW
+                    }
                 `}
             ></div>
 
             <svg
                 className="absolute z-10"
                 xmlns="http://www.w3.org/2000/svg"
-                width={size}
-                height={size}
+                width={iconSize}
+                height={iconSize}
                 x="0"
                 y="0"
                 viewBox="0 0 100 100"
