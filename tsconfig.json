@@ -21,8 +21,7 @@
             "@components/*": ["components/*"],
             "@pages/*": ["pages/*"],
             "@styles/*": ["styles/*"],
-            "@assets/*": ["assets/*"],
-            "@hooks/*": ["hooks/*"],
+            "@hooks/*": ["utils/hooks/*"],
             "@lib/*": ["lib/*"],
             "@ui/*": ["components/UI/*"],
             "@utils/*": ["utils/*"]

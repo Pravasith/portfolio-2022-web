@@ -25,7 +25,7 @@ const Topbar = () => {
 
     return (
         <>
-            <div className="flex flex-row justify-between items-center my-7">
+            <div className="flex flex-row justify-between items-center py-12">
                 <div className="w-1/5 flex-row-center">
                     <Icon iconSize={EIconSizes.sm}>
                         <MainLogo />

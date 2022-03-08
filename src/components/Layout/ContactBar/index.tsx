@@ -1,4 +1,4 @@
-import { EColors } from "@assets/themes/colors"
+import { EColors } from "@lib/themes/colors"
 import { Icon } from "@components/UI/Icons"
 import { EIconSizes } from "@components/UI/Icons/interface"
 import Link from "next/link"
@@ -14,7 +14,7 @@ const ContactBar = () => {
                     <a className="m-2" target={"_blank"}>
                         <Icon
                             iconSize={EIconSizes.xs}
-                            iconBackground={EColors.ICON_BACKGROUND_YELLOW}
+                            iconBackground={EColors.ICON_BACKGROUND_YELLOW_100}
                         >
                             <TwitterIcon />
                         </Icon>

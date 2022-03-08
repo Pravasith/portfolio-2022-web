@@ -2,7 +2,7 @@ import gsap from "gsap"
 import React, { useRef } from "react"
 import { EIconSizes, EScaleDirection, IconProps } from "./interface"
 import styles from "./Icons.module.scss"
-import { EColors } from "@assets/themes/colors"
+import { EColors } from "@lib/themes/colors"
 
 export const Icon: React.FC<IconProps> = props => {
     const {
@@ -26,7 +26,10 @@ export const Icon: React.FC<IconProps> = props => {
     return (
         <div
             {...rest}
-            style={{ width: iconSize, height: iconSize }}
+            style={{
+                width: iconSize,
+                height: iconSize,
+            }}
             onMouseEnter={() => {
                 scaleIcon(EScaleDirection.SCALE_UP)
             }}
@@ -37,15 +40,15 @@ export const Icon: React.FC<IconProps> = props => {
         >
             <div
                 ref={iconBackgroundElement}
+                style={{
+                    backgroundColor: iconBackground
+                        ? iconBackground
+                        : EColors.ICON_BACKGROUND_YELLOW_100,
+                }}
                 className={`
                     ${styles.iconBackground} 
                     absolute w-full h-full rounded-full origin-center
                     ${hideHoverBackground && "hidden"}
-                    ${
-                        iconBackground
-                            ? iconBackground
-                            : EColors.ICON_BACKGROUND_YELLOW
-                    }
                 `}
             ></div>
 

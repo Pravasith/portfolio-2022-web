@@ -1,5 +1,7 @@
-import { EColors } from "@assets/themes/colors"
+import gsap from "gsap"
 import React from "react"
+
+import { EColors } from "@lib/themes/colors"
 
 export enum EIconSizes {
     xs = "1.75rem",
@@ -19,3 +21,5 @@ export interface IconProps extends React.HTMLProps<HTMLDivElement> {
     hideHoverBackground?: boolean
     iconBackground?: EColors
 }
+
+export type TTimeline = gsap.core.Timeline | null
