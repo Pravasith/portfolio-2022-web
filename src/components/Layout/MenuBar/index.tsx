@@ -1,19 +1,36 @@
+import { EColorClassNames } from "@lib/themes/colors"
+import { ThemeContext } from "@utils/contexts/themeContext"
+import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
 import Link from "next/link"
-import { useRef } from "react"
+import { useContext } from "react"
+
+enum EFonts {
+    CALIBRE = "Calibre",
+    CALIBRE_BOLD = "Copyright Klim Type Foundry",
+}
+
+enum EMouseAction {
+    ENTER = "ENTER",
+    LEAVE = "LEAVE",
+}
 
 const MenuBar = () => {
     const pages = ["Home", "Blogs", "Fun"]
-    const background = useRef<HTMLDivElement>(null)
 
-    enum EScale {
-        SCALE_UP = "SCALE_UP",
-        SCALE_DOWN = "SCALE_DOWN",
-    }
+    const { state } = useContext(ThemeContext)
 
-    const showBackground = (scale: EScale) => {
-        gsap.to(background.current, {
-            width: scale === EScale.SCALE_UP ? "100%" : "0",
+    const handleHover = (mouseAction: EMouseAction, index: number) => {
+        const mouseEntered = mouseAction === EMouseAction.ENTER
+
+        gsap.to(`#menuBar-item-${index} .menuBar-item-background`, {
+            scaleX: Number(mouseEntered),
+            duration: 0.2,
+        })
+
+        gsap.to(`#menuBar-item-${index} a`, {
+            fontFamily: mouseEntered ? EFonts.CALIBRE_BOLD : EFonts.CALIBRE,
+            duration: 0.2,
         })
     }
 
@@ -23,23 +40,33 @@ const MenuBar = () => {
                 {pages.map((item, index) => (
                     <li
                         key={"whore-menu-" + index}
-                        className="my-3 cursor-pointer"
+                        className="my-2 cursor-pointer"
                     >
-                        <Link href="/">
+                        <Link href="/" passHref>
                             <div
                                 onMouseEnter={() =>
-                                    showBackground(EScale.SCALE_UP)
+                                    handleHover(EMouseAction.ENTER, index)
                                 }
                                 onMouseLeave={() =>
-                                    showBackground(EScale.SCALE_DOWN)
+                                    handleHover(EMouseAction.LEAVE, index)
                                 }
                                 className="relative"
+                                id={`menuBar-item-${index}`}
                             >
                                 <div
-                                    ref={background}
-                                    className="absolute -z-10 w-full rounded origin-center bg-yellow-200 h-2/3 top-1/2"
+                                    className={`
+                                        menuBar-item-background
+                                        absolute -z-10 w-full rounded origin-center h-2/3 top-1/2 scale-x-0
+                                        ${
+                                            state?.currentTheme ===
+                                            EThemes.LIGHT
+                                                ? EColorClassNames.ICON_BACKGROUND_YELLOW_100
+                                                : EColorClassNames.ICON_BACKGROUND_ORANGE_200
+                                        }
+                                    `}
                                 ></div>
-                                <a className="px-3 font-extrabold">{item}</a>
+
+                                <a className={`px-3 text-lg`}>{item}</a>
                             </div>
                         </Link>
                     </li>

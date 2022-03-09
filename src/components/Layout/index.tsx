@@ -23,11 +23,18 @@ const Layout: React.FC = ({ children }) => {
     const background = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        const isThemeLight = state.currentTheme === EThemes.LIGHT
+
         gsap.to(background.current, {
-            backgroundColor:
-                state.currentTheme === EThemes.LIGHT
-                    ? EColors.LIGHT_SCREEN_BACKGROUND_100
-                    : EColors.DARK_SCREEN_BACKGROUND_200,
+            backgroundColor: isThemeLight
+                ? EColors.LIGHT_SCREEN_BACKGROUND_100
+                : EColors.DARK_SCREEN_BACKGROUND_200,
+        })
+
+        gsap.to("p, a", {
+            color: isThemeLight
+                ? EColors.DARK_SCREEN_BACKGROUND_200
+                : EColors.LIGHT_SCREEN_BACKGROUND_100,
         })
     }, [state.currentTheme])
 
@@ -51,10 +58,8 @@ const Layout: React.FC = ({ children }) => {
                 </aside>
 
                 <section>
-                    {
-                        // CHILDREN GO HERE
-                        children
-                    }
+                    {/* Children */}
+                    {children}
                 </section>
 
                 <aside>
@@ -63,8 +68,8 @@ const Layout: React.FC = ({ children }) => {
                 </aside>
 
                 <footer>
-                    {/* Some footer stuff,
-                maybe a game */}
+                    {/* Some footer stuff, */}
+                    {/* maybe a game */}
                 </footer>
             </ThemeContext.Provider>
         </div>

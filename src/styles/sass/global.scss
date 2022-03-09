@@ -34,10 +34,6 @@ body {
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
-}
-
 img {
     // image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
@@ -45,8 +41,4 @@ img {
     image-rendering: -o-crisp-edges; /* Opera */
     image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
     -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
-}
-
-p {
-    font-weight: 300;
 }

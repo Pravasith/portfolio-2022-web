@@ -6,36 +6,25 @@ import ContactBarIcons from "./Icons"
 const { TwitterIcon, GithubIcon, EmailIcon } = ContactBarIcons
 
 const ContactBar = () => {
+    const linkContent = [
+        { link: "https://twitter.com/pravasith", icon: <TwitterIcon /> },
+        { link: "https://github.com/pravasith", icon: <GithubIcon /> },
+        {
+            link: "mailto:pravasith@gmail.com?subject=Hey%20Pravas!%20A%20message%20for%20you!",
+            icon: <EmailIcon />,
+        },
+    ]
+
     return (
         <div className="w-1/5 fixed top-1/4">
             <div className="flex-col-center">
-                <Link href={"https://twitter.com/pravasith"}>
-                    <a className="m-4" target={"_blank"}>
-                        <Icon iconSize={EIconSizes.xs}>
-                            <TwitterIcon />
-                        </Icon>
-                    </a>
-                </Link>
-
-                <Link href={"https://github.com/pravasith"}>
-                    <a className="m-4" target={"_blank"}>
-                        <Icon iconSize={EIconSizes.xs}>
-                            <GithubIcon />
-                        </Icon>
-                    </a>
-                </Link>
-
-                <Link
-                    href={
-                        "mailto:pravasith@gmail.com?subject=Hey%20Pravas!%20A%20message%20for%20you!"
-                    }
-                >
-                    <a className="m-4" target={"_blank"}>
-                        <Icon iconSize={EIconSizes.xs}>
-                            <EmailIcon />
-                        </Icon>
-                    </a>
-                </Link>
+                {linkContent.map((item, i) => (
+                    <Link key={`contact-link-${i}`} href={item.link}>
+                        <a className="m-3" target={"_blank"}>
+                            <Icon iconSize={EIconSizes.xs}>{item.icon}</Icon>
+                        </a>
+                    </Link>
+                ))}
             </div>
         </div>
     )
