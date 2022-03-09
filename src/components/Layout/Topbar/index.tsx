@@ -6,6 +6,7 @@ import { useContext } from "react"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import { EThemeActions } from "@utils/reducers/interface"
+import { EColors } from "@lib/themes/colors"
 
 const { SunMoon, MainLogo } = TopbarIcons
 
@@ -27,7 +28,10 @@ const Topbar = () => {
         <>
             <div className="flex flex-row justify-between items-center py-12">
                 <div className="w-1/5 flex-row-center">
-                    <Icon iconSize={EIconSizes.sm}>
+                    <Icon
+                        iconSize={EIconSizes.sm}
+                        iconBackground={EColors.ICON_BACKGROUND_YELLOW_100}
+                    >
                         <MainLogo />
                     </Icon>
                 </div>

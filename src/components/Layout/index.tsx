@@ -6,7 +6,9 @@ import {
 } from "@utils/contexts/themeContext"
 
 import ContactBar from "./ContactBar"
-import Topbar from "./Topbar"
+import MenuBar from "./MenuBar"
+import TopBar from "./TopBar"
+
 import { themeReducer } from "@utils/reducers"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
@@ -25,12 +27,12 @@ const Layout: React.FC = ({ children }) => {
             backgroundColor:
                 state.currentTheme === EThemes.LIGHT
                     ? EColors.LIGHT_SCREEN_BACKGROUND_100
-                    : EColors.DARK_SCREEN_BACKGROUND_100,
+                    : EColors.DARK_SCREEN_BACKGROUND_200,
         })
     }, [state.currentTheme])
 
     return (
-        <div ref={background}>
+        <div ref={background} className="h-screen">
             <ThemeContext.Provider
                 value={{
                     state,
@@ -40,7 +42,7 @@ const Layout: React.FC = ({ children }) => {
                 <header>
                     {/* Things that go in the top bar, like Navbar */}
                     {/* Banners, notification strips... etc. */}
-                    <Topbar />
+                    <TopBar />
                 </header>
 
                 <aside>
@@ -55,7 +57,10 @@ const Layout: React.FC = ({ children }) => {
                     }
                 </section>
 
-                <aside>{/* Navbar */}</aside>
+                <aside>
+                    {/* Navbar */}
+                    <MenuBar />
+                </aside>
 
                 <footer>
                     {/* Some footer stuff,

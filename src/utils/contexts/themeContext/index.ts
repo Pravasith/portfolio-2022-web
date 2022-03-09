@@ -3,7 +3,7 @@ import { createContext } from "react"
 import { EThemes, ThemeContextState } from "./interface"
 
 export const themeContextDefaultValues: ThemeContextState = {
-    currentTheme: EThemes.DARK,
+    currentTheme: EThemes.LIGHT,
 }
 
 export const ThemeContext = createContext<ContextProps<ThemeContextState>>({

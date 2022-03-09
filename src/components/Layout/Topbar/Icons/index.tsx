@@ -223,7 +223,7 @@ const SunMoon = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeMiterlimit="10"
-                strokeWidth="2.2"
+                strokeWidth="3"
             >
                 <path className="line-1" d="M35.4 60.2L65.4 60.2"></path>
                 <path className="line-0" d="M41.5 65.9L59.1 65.9"></path>

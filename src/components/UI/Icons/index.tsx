@@ -1,8 +1,10 @@
 import gsap from "gsap"
-import React, { useRef } from "react"
+import React, { useContext, useRef } from "react"
 import { EIconSizes, EScaleDirection, IconProps } from "./interface"
 import styles from "./Icons.module.scss"
 import { EColors } from "@lib/themes/colors"
+import { ThemeContext } from "@utils/contexts/themeContext"
+import { EThemes } from "@utils/contexts/themeContext/interface"
 
 export const Icon: React.FC<IconProps> = props => {
     const {
@@ -13,6 +15,8 @@ export const Icon: React.FC<IconProps> = props => {
     } = props
 
     const iconBackgroundElement = useRef<HTMLDivElement>(null)
+
+    const { state } = useContext(ThemeContext)
 
     const scaleIcon = (scaleDirection: EScaleDirection) => {
         const isScaleUp = scaleDirection === EScaleDirection.SCALE_UP
@@ -43,6 +47,8 @@ export const Icon: React.FC<IconProps> = props => {
                 style={{
                     backgroundColor: iconBackground
                         ? iconBackground
+                        : state?.currentTheme === EThemes.DARK
+                        ? EColors.ICON_BACKGROUND_ORANGE_200
                         : EColors.ICON_BACKGROUND_YELLOW_100,
                 }}
                 className={`
