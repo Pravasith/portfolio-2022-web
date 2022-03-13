@@ -93,3 +93,19 @@
         @apply flex flex-col justify-start items-start;
     }
 }
+
+@layer base {
+    h1 {
+        @apply font-calibre-bold underline;
+        font-size: 3rem;
+    }
+
+    h3 {
+        @apply text-xl font-calibre-bold leading-6;
+    }
+
+    p {
+        @apply text-lg leading-5;
+    }
+    /* ... */
+}
