@@ -66,7 +66,7 @@ const MenuBar = () => {
                                     `}
                                 ></div>
 
-                                <a className={`px-3 text-lg`}>{item}</a>
+                                <a className={`px-3 text-xl`}>{item}</a>
                             </div>
                         </Link>
                     </li>
