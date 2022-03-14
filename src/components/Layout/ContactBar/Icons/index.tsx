@@ -7,8 +7,8 @@ import { EThemes } from "@utils/contexts/themeContext/interface"
 
 const getColors = (theme: EThemes) => {
     const colors = {
-        lightTheme: EColors.LIGHT_SCREEN_BACKGROUND_100,
-        darkTheme: EColors.DARK_SCREEN_BACKGROUND_100,
+        lightTheme: EColors.LIGHT_THEME_BACKGROUND_100,
+        darkTheme: EColors.DARK_THEME_BACKGROUND_100,
     }
 
     return theme === EThemes.LIGHT ? colors.lightTheme : colors.darkTheme

@@ -27,14 +27,14 @@ const Layout: React.FC = ({ children }) => {
 
         gsap.to(background.current, {
             backgroundColor: isThemeLight
-                ? EColors.LIGHT_SCREEN_BACKGROUND_100
-                : EColors.DARK_SCREEN_BACKGROUND_200,
+                ? EColors.LIGHT_THEME_BACKGROUND_100
+                : EColors.DARK_THEME_BACKGROUND_200,
         })
 
         gsap.to("p, a", {
             color: isThemeLight
-                ? EColors.DARK_SCREEN_BACKGROUND_200
-                : EColors.LIGHT_SCREEN_BACKGROUND_100,
+                ? EColors.DARK_THEME_BACKGROUND_200
+                : EColors.LIGHT_THEME_BACKGROUND_100,
         })
     }, [state.currentTheme])
 

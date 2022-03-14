@@ -2,11 +2,11 @@
 // Check tailwind.config.js
 
 export enum EColors {
-    LIGHT_SCREEN_BACKGROUND_100 = "#f1f5f9",
-    LIGHT_SCREEN_BACKGROUND_200 = "#e2e8f0",
+    LIGHT_THEME_BACKGROUND_100 = "#f1f5f9",
+    LIGHT_THEME_BACKGROUND_200 = "#e2e8f0",
 
-    DARK_SCREEN_BACKGROUND_100 = "#1f2937",
-    DARK_SCREEN_BACKGROUND_200 = "#1a1a1a",
+    DARK_THEME_BACKGROUND_100 = "#1f2937",
+    DARK_THEME_BACKGROUND_200 = "#1a1a1a",
 
     ICON_BACKGROUND_YELLOW_100 = "#fcf877",
 
@@ -15,14 +15,22 @@ export enum EColors {
 }
 
 export enum EColorClassNames {
-    LIGHT_SCREEN_BACKGROUND_100 = "bg-light-screen-background-100",
-    LIGHT_SCREEN_BACKGROUND_200 = "bg-light-screen-background-200",
+    LIGHT_THEME_BACKGROUND_100 = "bg-light-theme-background-100",
+    LIGHT_THEME_BACKGROUND_200 = "bg-light-theme-background-200",
 
-    DARK_SCREEN_BACKGROUND_100 = "bg-dark-screen-background-100",
-    DARK_SCREEN_BACKGROUND_200 = "bg-dark-screen-background-200",
+    DARK_THEME_BACKGROUND_100 = "bg-dark-theme-background-100",
+    DARK_THEME_BACKGROUND_200 = "bg-dark-theme-background-200",
 
     ICON_BACKGROUND_YELLOW_100 = "bg-icon-background-yellow-100",
 
     ICON_BACKGROUND_ORANGE_100 = "bg-icon-background-orange-100",
     ICON_BACKGROUND_ORANGE_200 = "bg-icon-background-orange-200",
+}
+
+export enum ETextColorClassNames {
+    LIGHT_THEME_TEXT_100 = "text-light-theme-text-100",
+    LIGHT_THEME_TEXT_200 = "text-light-theme-text-200",
+
+    DARK_THEME_TEXT_100 = "text-dark-theme-text-100",
+    DARK_THEME_TEXT_200 = "text-dark-theme-text-200",
 }
