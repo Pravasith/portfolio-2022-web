@@ -10,6 +10,8 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@react-three/drei": "^8.16.5",
+        "@react-three/fiber": "^7.0.26",
         "@types/gsap": "^3.0.0",
         "gsap": "^3.9.1",
         "next": "12.1.0",
@@ -21,7 +23,7 @@
     "devDependencies": {
         "@types/node": "17.0.21",
         "@types/react": "17.0.39",
-        "@types/three": "^0.137.0",
+        "@types/three": "^0.138.0",
         "@typescript-eslint/eslint-plugin": "^5.13.0",
         "autoprefixer": "^10.4.2",
         "eslint": "8.10.0",

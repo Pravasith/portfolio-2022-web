@@ -25,22 +25,33 @@ const Topbar = () => {
     }
 
     return (
-        <div className="fixed w-full">
-            <div className="flex flex-row justify-between items-center py-12">
-                <div className="w-1/5 flex-row-center">
-                    <Icon
-                        iconSize={EIconSizes.sm}
-                        iconBackground={EColors.ICON_BACKGROUND_YELLOW_100}
-                    >
-                        <MainLogo />
-                    </Icon>
-                </div>
-                <div className="w-1/5 flex-row-center">
-                    <Icon onClick={changeTheme} iconSize={EIconSizes.lg}>
-                        <SunMoon />
-                    </Icon>
+        <div className="relative">
+            <div className="h-fit">
+                <div className="fixed w-full">
+                    <div className="flex flex-row justify-between items-center py-12">
+                        <div className="w-1/5 flex-row-center">
+                            <Icon
+                                iconSize={EIconSizes.sm}
+                                iconBackground={
+                                    EColors.ICON_BACKGROUND_YELLOW_100
+                                }
+                            >
+                                <MainLogo />
+                            </Icon>
+                        </div>
+                        <div className="w-1/5 flex-row-center">
+                            <Icon
+                                onClick={changeTheme}
+                                iconSize={EIconSizes.lg}
+                            >
+                                <SunMoon />
+                            </Icon>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div className="bg-yellow-200 w-full h-full"></div>
         </div>
     )
 }

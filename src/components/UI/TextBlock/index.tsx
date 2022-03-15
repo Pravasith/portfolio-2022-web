@@ -10,7 +10,7 @@ const TextBlock = ({ textBlock, colorClassName }: TextBlockProps) => {
         : ETextColorClassNames.LIGHT_THEME_TEXT_100
 
     return (
-        <>
+        <article>
             {textBlock.map((item, i) => {
                 switch (item.type) {
                     case ETextTypes.H1:
@@ -53,7 +53,7 @@ const TextBlock = ({ textBlock, colorClassName }: TextBlockProps) => {
                         )
                 }
             })}
-        </>
+        </article>
     )
 }
 

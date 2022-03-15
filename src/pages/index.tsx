@@ -1,7 +1,5 @@
 import type { NextPage } from "next"
 
-import { useEffect, useRef } from "react"
-import { useThree } from "@hooks/useThree"
 import Meta from "@components/Meta"
 import Layout from "@components/Layout"
 import Home from "@components/Pages/Home"
@@ -27,23 +25,6 @@ const metaProps = {
 }
 
 const IndexPage: NextPage = () => {
-    const threeCanvasRef = useRef<HTMLDivElement>(null)
-    const [threeBasics, renderOptions] = useThree(threeCanvasRef)
-
-    useEffect(() => {
-        if (renderOptions && threeBasics) {
-            renderOptions.start()
-
-            setTimeout(() => {
-                renderOptions.stop()
-            }, 3000)
-
-            return () => {
-                renderOptions.stop()
-            }
-        }
-    }, [threeBasics, renderOptions])
-
     return (
         <main>
             <Meta {...metaProps} />
