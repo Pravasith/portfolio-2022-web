@@ -4,14 +4,18 @@ import { random20Id } from "@utils/index"
 import { ETextTypes, TextBlockProps } from "./interface"
 import SpanifiedText from "./SpanifiedText"
 
-const TextBlock = ({ textBlock, colorClassName }: TextBlockProps) => {
-    const textColorClassName = colorClassName
-        ? colorClassName
-        : ETextColorClassNames.LIGHT_THEME_TEXT_100
-
+const TextBlock = ({ textBlock }: TextBlockProps) => {
     return (
         <article>
             {textBlock.map((item, i) => {
+                const spanColorClassName = item.spanColorClassName
+                    ? item.spanColorClassName
+                    : ETextColorClassNames.LIGHT_THEME_TEXT_100
+
+                const textColorClassName = item.textColorClassName
+                    ? item.textColorClassName
+                    : ETextColorClassNames.LIGHT_THEME_TEXT_100
+
                 switch (item.type) {
                     case ETextTypes.H1:
                         return (
@@ -20,7 +24,7 @@ const TextBlock = ({ textBlock, colorClassName }: TextBlockProps) => {
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
-                                    textColorClassName={textColorClassName}
+                                    spanColorClassName={spanColorClassName}
                                     text={item.text}
                                 />
                             </h1>
@@ -33,7 +37,7 @@ const TextBlock = ({ textBlock, colorClassName }: TextBlockProps) => {
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
-                                    textColorClassName={textColorClassName}
+                                    spanColorClassName={spanColorClassName}
                                     text={item.text}
                                 />
                             </h3>
@@ -46,7 +50,7 @@ const TextBlock = ({ textBlock, colorClassName }: TextBlockProps) => {
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
-                                    textColorClassName={textColorClassName}
+                                    spanColorClassName={spanColorClassName}
                                     text={item.text}
                                 />
                             </p>

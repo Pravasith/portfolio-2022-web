@@ -9,6 +9,8 @@ export enum ETextTypes {
 export type TextBlockType = {
     type: ETextTypes
     text: string
+    textColorClassName?: ETextColorClassNames
+    spanColorClassName?: ETextColorClassNames
 }
 
 export interface TextBlockProps {

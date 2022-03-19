@@ -2,7 +2,7 @@ import { random20Id } from "@utils/index"
 import React from "react"
 import { SpanifiedTextProps } from "./interface"
 
-const SpanifiedText = ({ text, textColorClassName }: SpanifiedTextProps) => {
+const SpanifiedText = ({ text, spanColorClassName }: SpanifiedTextProps) => {
     let tempText = text
     const START_SPAN_EL_MARK = ":span:>",
         END_SPAN_EL_MARK = "<:span:",
@@ -34,7 +34,7 @@ const SpanifiedText = ({ text, textColorClassName }: SpanifiedTextProps) => {
             </React.Fragment>,
             <span
                 key={`text-element-${random20Id()}`}
-                className={`font-calibre-bold ${textColorClassName}`}
+                className={`font-calibre-bold ${spanColorClassName}`}
             >
                 {spanString}
             </span>

@@ -1,14 +1,21 @@
-import { OrbitControls, useHelper } from "@react-three/drei"
+import { ETextColorClassNames } from "@lib/themes/colors"
+import { OrbitControls, useGLTF, useHelper } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
 import { ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
-import { useRef, useState } from "react"
+import { Suspense, useEffect, useRef, useState } from "react"
+import * as THREE from "three"
 import { DirectionalLightHelper } from "three"
+// import HomeSection1Model from "./gltfs"
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+// import HomeSection1Model from "./gltfs"
 
 const textBlock: TextBlockType[] = [
     {
         type: ETextTypes.H3,
         text: "Hi there!",
+        spanColorClassName: ETextColorClassNames.TEXT_RED_100,
+        textColorClassName: ETextColorClassNames.LIGHT_THEME_TEXT_200,
     },
     {
         type: ETextTypes.H3,
@@ -57,19 +64,56 @@ const Box = (props: JSX.IntrinsicElements["mesh"]) => {
     )
 }
 
+const Model = () => {
+    const gltf = useGLTF("/gltfs/desk2.gltf")
+
+    useEffect(() => {
+        console.log(gltf.scene)
+    }, [gltf])
+
+    const dirLight = useRef<THREE.DirectionalLight>()
+
+    return (
+        <>
+            <directionalLight
+                ref={dirLight}
+                position={[-2, 5, 2]}
+                intensity={1.5}
+                castShadow
+            />
+            <ambientLight intensity={0.2} />
+            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2} />
+        </>
+    )
+}
+
 const Section1 = () => {
+    // const gltf = useLoader(GLTFLoader, "/modelDraco2.gltf")
+
+    // const gltf = useGLTF("/gltfs/modelDraco2.gltf")
+
     return (
         <>
             <div className="h-screen">
                 <TextBlock textBlock={textBlock} />
                 <Canvas
-                    orthographic
-                    camera={{ zoom: 50, position: [-50, -100, 50] }}
+                    linear={false}
+                    // onCreated={({ gl }) => {
+                    //     gl.toneMapping = THREE.NoToneMapping
+                    // }}
+                    // orthographic
+                    camera={{ position: [10, 10, 10], fov: 40 }}
                 >
                     <OrbitControls />
 
                     <Box position={[-1.2, 0, 0]} />
                     <Box position={[1.2, 0, 0]} />
+
+                    <Suspense fallback={null}>
+                        {/* <HomeSection1Model /> */}
+                        <Model />
+                        {/* <Environment preset="sunset" /> */}
+                    </Suspense>
                 </Canvas>
             </div>
         </>

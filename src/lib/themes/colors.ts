@@ -31,6 +31,8 @@ export enum ETextColorClassNames {
     LIGHT_THEME_TEXT_100 = "text-light-theme-text-100",
     LIGHT_THEME_TEXT_200 = "text-light-theme-text-200",
 
+    TEXT_RED_100 = "text-red-200",
+
     DARK_THEME_TEXT_100 = "text-dark-theme-text-100",
     DARK_THEME_TEXT_200 = "text-dark-theme-text-200",
 }
