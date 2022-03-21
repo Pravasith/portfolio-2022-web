@@ -32,6 +32,7 @@ const SpanifiedText = ({ text, spanColorClassName }: SpanifiedTextProps) => {
             <React.Fragment key={`text-element-${random20Id()}`}>
                 {preString}
             </React.Fragment>,
+
             <span
                 key={`text-element-${random20Id()}`}
                 className={`font-calibre-bold ${spanColorClassName}`}
