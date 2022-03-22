@@ -37,7 +37,10 @@ module.exports = {
                 "calibre-bold": "Copyright Klim Type Foundry",
             },
 
-            width: {},
+            spacing: {
+                "1/10": "10%",
+                "1/5": "20%",
+            },
         },
     },
     plugins: [],

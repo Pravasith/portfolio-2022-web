@@ -12,10 +12,10 @@ export const Section1BgdBeach = () => {
                 </clipPath>
             </defs>
             <g id="Layer_1" clipPath="url(#clip-path)" data-name="Layer 1">
-                <path fill="#0ff" d="M-402 -93H1518V179H-402z"></path>
-                <path fill="#b3ebff" d="M-402 179H1518V451H-402z"></path>
-                <path fill="#fefcbb" d="M-402 451H1518V723H-402z"></path>
-                <path fill="#fcee21" d="M-402 723H1518V995H-402z"></path>
+                <path fill="#FCEE21" d="M-402 -93H1518V179H-402z"></path>
+                <path fill="#FEFCBB" d="M-402 179H1518V451H-402z"></path>
+                <path fill="#43D7FF" d="M-402 451H1518V723H-402z"></path>
+                <path fill="#00DDD7" d="M-402 723H1518V995H-402z"></path>
             </g>
             {/* <path
                 id="path-x"
