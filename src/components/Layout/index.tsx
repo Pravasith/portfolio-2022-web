@@ -31,7 +31,7 @@ const Layout: React.FC = ({ children }) => {
                 : EColors.DARK_THEME_BACKGROUND_200,
         })
 
-        gsap.to("p, a", {
+        gsap.to("h1, h2, h3, h4, h5, h6, p, a, li, span", {
             color: isThemeLight
                 ? EColors.DARK_THEME_BACKGROUND_200
                 : EColors.LIGHT_THEME_BACKGROUND_100,

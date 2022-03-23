@@ -6,8 +6,9 @@ import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
 import { ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
-import gsap from "gsap"
-import { Section1BgdBeach } from "./images"
+
+import { Section1BgdBeach, Section1BgdBeach1 } from "./images"
+import { Vector3 } from "three"
 
 const textBlock: TextBlockType[] = [
     {
@@ -34,7 +35,14 @@ const textBlock: TextBlockType[] = [
 //     const mesh = useRef<THREE.Mesh>(null!)
 //     const [hovered, setHover] = useState(false)
 //     const [active, setActive] = useState(false)
-//     useFrame(() => (mesh.current.rotation.x += 0.01))
+
+//     const { camera } = useThree()
+
+//     useFrame(() => {
+//         mesh.current.rotation.x += 0.01
+
+//         console.log(camera.position)
+//     })
 
 //     const dirLight = useRef<THREE.DirectionalLight>()
 
@@ -66,14 +74,58 @@ const textBlock: TextBlockType[] = [
 const Model = () => {
     const gltf = useGLTF("/gltfs/table.gltf")
 
-    useEffect(() => {
-        gltf.scene.traverse(o => {
-            if (o.name === "Laptop001") {
-                gsap.to(o.rotation, { x: -1.4, duration: 4 })
-            }
+    const init = async () => {
+        const dat = await import("dat.gui")
+        const gui = new dat.GUI()
+        // ... rest of the three.js code
 
-            console.log(o.name)
-        })
+        const texture = new THREE.TextureLoader().load(
+            "textures/red-screen.png"
+        )
+
+        texture.wrapS = THREE.RepeatWrapping
+        texture.wrapT = THREE.RepeatWrapping
+
+        // texture.offset.set(u, v)
+        // texture.repeat.set(zoomX, zoomY)
+        // texture.flipY = flipY
+        // texture.rotation = textureRotation
+
+        // newMaterial.map = texture
+        // mesh.material = newMaterial
+
+        const material = new THREE.MeshBasicMaterial({ map: texture })
+
+        if (material.map) {
+            gui.add(material.map.offset, "x", 0, 5, 0.1)
+            gui.add(material.map.offset, "y", 0, 5, 0.1)
+            gui.add(material.map.repeat, "x", 0, 5, 0.1)
+            gui.add(material.map.repeat, "y", 0, 5, 0.1)
+            // material.map.repeat.
+        }
+
+        if (material.map) {
+            const { offset, repeat } = material.map
+
+            offset.x = 3.2
+            offset.y = 1.6
+
+            repeat.x = repeat.y = 5
+        }
+
+        // gltf.scene.traverse(o => {
+        //     if (o.name === "Laptop001") {
+        //         gsap.to(o.rotation, { x: -1.4, duration: 4 })
+        //     } else if (o.name === "laptop-screen") {
+        //         ;(o as THREE.Mesh).material = material
+
+        //         console.log((o as THREE.Mesh).material)
+        //     }
+        // })
+    }
+
+    useEffect(() => {
+        init()
     }, [gltf])
 
     const dirLight = useRef<THREE.DirectionalLight>()
@@ -87,28 +139,41 @@ const Model = () => {
                 castShadow
             />
             <ambientLight intensity={0.25} />
-            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2} />
+            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.125} />
         </>
     )
 }
 
 const Section1 = () => {
+    const cameraPosition = {
+        initial: new Vector3(-3.17, 3.7, 5.97),
+    }
+
     return (
         <>
             <div className="h-screen relative">
-                <div className="absolute w-full top-1/4">
+                {/* SVG */}
+                <div className="absolute w-full top-1/3">
                     <div className="flex-row-center w-full">
-                        <div className="w-2/3">
+                        <div className="w-2/3 relative">
                             <Section1BgdBeach />
+                            <div className="absolute w-1/5 h-1/5 top-1/4 right-1/10">
+                                <Section1BgdBeach1 />
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="absolute w-full h-full top-1/12">
+                {/* THREE */}
+
+                <div className="absolute w-full h-full top-1/10">
                     <Canvas
                         linear={false}
                         // orthographic
-                        camera={{ position: [4, 5, 5], fov: 45 }}
+                        camera={{
+                            position: cameraPosition.initial,
+                            fov: 45,
+                        }}
                     >
                         <OrbitControls />
 
@@ -121,6 +186,7 @@ const Section1 = () => {
                     </Canvas>
                 </div>
 
+                {/* TEXT */}
                 <div className="absolute top-1/5 left-2/3">
                     <TextBlock textBlock={textBlock} />
                 </div>
