@@ -17,7 +17,7 @@ const Turbulence = () => {
             <filter id="displacementFilter">
                 <feTurbulence
                     id="turb"
-                    type="noise"
+                    type="turbulence"
                     baseFrequency="0.01"
                     numOctaves="8"
                     result="turbulence"
