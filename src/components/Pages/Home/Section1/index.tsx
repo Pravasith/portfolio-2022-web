@@ -1,16 +1,16 @@
-import { Suspense, useEffect, useRef, useState } from "react"
+import { Suspense, useRef } from "react"
 import * as THREE from "three"
 
 import { ETextColorClassNames } from "@lib/themes/colors"
-import { OrbitControls, useGLTF } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
 import { ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
 
-import { Section1BgdBeach, Section1BgdBeach1 } from "./images"
+import { Section1BgdBeach, Section1BgdBeach1 } from "./svgs"
 import { Vector3 } from "three"
-import gsap from "gsap"
-import { randoInt } from "@utils/index"
+
+import { Table } from "./models"
 
 const textBlock: TextBlockType[] = [
     {
@@ -32,149 +32,6 @@ const textBlock: TextBlockType[] = [
         text: "(noun):  Someone who gets excited to solve :span:>business problems<:span: using :span:>experience design techniques<:span: and by building :span:>loosely coupled software-architecture<:span:.",
     },
 ]
-
-// const Box = (props: JSX.IntrinsicElements["mesh"]) => {
-//     const mesh = useRef<THREE.Mesh>(null!)
-//     const [hovered, setHover] = useState(false)
-//     const [active, setActive] = useState(false)
-
-//     const { camera } = useThree()
-
-//     useFrame(() => {
-//         mesh.current.rotation.x += 0.01
-
-//         console.log(camera.position)
-//     })
-
-//     const dirLight = useRef<THREE.DirectionalLight>()
-
-//     useHelper(dirLight, DirectionalLightHelper)
-
-//     return (
-//         <>
-//             <mesh
-//                 {...props}
-//                 ref={mesh}
-//                 scale={active ? 1.5 : 1}
-//                 onClick={() => setActive(!active)}
-//                 onPointerOver={() => setHover(true)}
-//                 onPointerOut={() => setHover(false)}
-//             >
-//                 <boxGeometry args={[1, 1, 1]} />
-//                 <meshStandardMaterial color={hovered ? "yellow" : "white"} />
-//             </mesh>
-//             <directionalLight
-//                 ref={dirLight}
-//                 color={"#29abe2"}
-//                 position={[-2, 5, 2]}
-//                 intensity={1}
-//             />
-//         </>
-//     )
-// }
-
-// Inject soft shadow shader
-
-// softShadows({
-//     frustum: 3.75,
-//     size: 0.005,
-//     near: 9.5,
-//     samples: 27,
-//     rings: 11, // Rings (default: 11) must be a int
-// })
-
-const Model = () => {
-    const gltf = useGLTF("/gltfs/table.gltf")
-
-    const [lightPos, setLightPos] = useState<Vector3>(new Vector3(5, 5, 5))
-
-    const init = async () => {
-        const dat = await import("dat.gui")
-        const gui = new dat.GUI()
-        // ... rest of the three.js code
-
-        const texture = new THREE.TextureLoader().load(
-            "textures/sprite-laptop.png"
-        )
-
-        texture.wrapS = THREE.RepeatWrapping
-        texture.wrapT = THREE.RepeatWrapping
-
-        const INITIAL_X_VALUE = -0.054
-
-        const getOffsetX = (): number => {
-            const STEP = 0.1111,
-                NUMBER_OF_IMAGES_IN_SPRITE = 9,
-                X_STEP_ARRAY = new Array(NUMBER_OF_IMAGES_IN_SPRITE)
-                    .fill(INITIAL_X_VALUE)
-                    .map((x, i) => STEP * (i + 1) + x)
-
-            return X_STEP_ARRAY[randoInt(0, NUMBER_OF_IMAGES_IN_SPRITE - 1)]
-        }
-
-        gltf.scene.traverse(o => {
-            o.castShadow = true
-            o.receiveShadow = true
-
-            if (o.name === "laptopbase001") {
-                gsap.to(o.rotation, { x: 1.4, duration: 4 })
-            } else if (o.name === "laptop-screen") {
-                // const material = (
-                //     (o as THREE.Mesh).material as THREE.MeshBasicMaterial
-                // ).clone()
-
-                const material = new THREE.MeshPhongMaterial({
-                    // emissive: "#dedede",
-                })
-
-                material.map = texture
-
-                if (material.map) {
-                    const { offset, repeat } = material.map
-
-                    offset.x = INITIAL_X_VALUE
-                    offset.y = 0.99
-                    repeat.x = 0.44
-                    repeat.y = 4.04
-
-                    material.map.flipY = false
-
-                    setInterval(() => {
-                        gsap.set(offset, { x: getOffsetX() })
-                    }, 1000)
-
-                    // gsap.to(offset, { x: getOffsetX() })
-                }
-
-                if (material.map) {
-                    gui.add(material.map.offset, "x", -2, 2, 0.001)
-                    gui.add(material.map.offset, "y", 0, 2, 0.01)
-                    gui.add(material.map.repeat, "x", 0, 5, 0.001)
-                    gui.add(material.map.repeat, "y", 0, 5, 0.01)
-                }
-
-                ;(o as THREE.Mesh).material = material
-            } else if (o.name === "light-shine") {
-                const V = new Vector3()
-
-                o.getWorldPosition(V)
-
-                setLightPos(V)
-            }
-        })
-    }
-
-    useEffect(() => {
-        init()
-    }, [gltf])
-
-    return (
-        <>
-            <pointLight position={lightPos} color={"#FFF"} intensity={0.8} />
-            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.125} />
-        </>
-    )
-}
 
 const Section1 = () => {
     const cameraPosition = {
@@ -199,7 +56,6 @@ const Section1 = () => {
                 </div>
 
                 {/* THREE */}
-
                 <div className="absolute w-full h-full top-1/10">
                     <Canvas
                         linear={false}
@@ -211,11 +67,10 @@ const Section1 = () => {
                         }}
                     >
                         <OrbitControls />
-
                         <directionalLight
                             ref={dirLight}
                             position={[-2, 5, 2]}
-                            intensity={0.5}
+                            intensity={0.65}
                             castShadow
                             shadow-mapSize-height={1024}
                             shadow-mapSize-width={1024}
@@ -224,7 +79,7 @@ const Section1 = () => {
                         <ambientLight intensity={0.25} />
 
                         <Suspense fallback={null}>
-                            <Model />
+                            <Table />
                         </Suspense>
                     </Canvas>
                 </div>
