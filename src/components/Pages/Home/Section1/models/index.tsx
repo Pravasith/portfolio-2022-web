@@ -1,14 +1,135 @@
-import { useGLTF } from "@react-three/drei"
-import { useEffect, useState } from "react"
-import { Vector3 } from "three"
+import { useGLTF, useHelper } from "@react-three/drei"
+import { useEffect, useRef, useState } from "react"
+import {
+    DirectionalLightHelper,
+    Object3D,
+    SpotLightHelper,
+    Vector3,
+} from "three"
 import * as THREE from "three"
-import { findMesh, randoInt } from "@utils/index"
+import { findMeshByName, randoInt } from "@utils/index"
 import gsap from "gsap"
+import useMouseMoveLocation from "@hooks/useMouseLocation"
+
+interface LightsProps {
+    parentObjectForSpotlight: Object3D
+    spotlightTarget: Object3D
+}
+
+const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
+    const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())
+    const dirLight = useRef<THREE.DirectionalLight>(
+        new THREE.DirectionalLight()
+    )
+
+    const mouseData = useMouseMoveLocation()
+
+    useHelper(spotLightRef.current && spotLightRef, SpotLightHelper, "#000")
+    useHelper(dirLight.current && dirLight, DirectionalLightHelper)
+
+    const init = async () => {
+        const dat = await import("dat.gui")
+        const gui = new dat.GUI()
+
+        function buildGui() {
+            const spotLight = spotLightRef.current
+            const params = {
+                "light color": spotLight.color.getHex(),
+                intensity: spotLight.intensity,
+                distance: spotLight.distance,
+                angle: spotLight.angle,
+                penumbra: spotLight.penumbra,
+                decay: spotLight.decay,
+                focus: spotLight.shadow.focus,
+            }
+
+            gui.addColor(params, "light color").onChange(function (val) {
+                spotLight.color.setHex(val)
+            })
+
+            gui.add(params, "intensity", 0, 2).onChange(function (val) {
+                spotLight.intensity = val
+            })
+
+            gui.add(params, "distance", 0, 200).onChange(function (val) {
+                spotLight.distance = val
+            })
+
+            gui.add(params, "angle", 0, Math.PI / 3).onChange(function (val) {
+                spotLight.angle = val
+            })
+
+            gui.add(params, "penumbra", 0, 1).onChange(function (val) {
+                spotLight.penumbra = val
+            })
+
+            gui.add(params, "decay", 1, 2).onChange(function (val) {
+                spotLight.decay = val
+            })
+
+            gui.add(params, "focus", 0, 1).onChange(function (val) {
+                spotLight.shadow.focus = val
+            })
+
+            gui.open()
+        }
+
+        buildGui()
+    }
+
+    useEffect(() => {
+        init()
+    }, [])
+
+    useEffect(() => {
+        const V = new Vector3()
+        parentObjectForSpotlight.getWorldPosition(V)
+        spotLightRef.current.position.copy(V)
+    }, [mouseData])
+
+    return (
+        <>
+            {/* <pointLight
+                position={lightPos}
+                color={"#FFF"}
+                intensity={0.2}
+                castShadow
+                shadow-mapSize-height={1024}
+                shadow-mapSize-width={1024}
+                shadow-bias={-0.000175}
+            /> */}
+
+            <directionalLight
+                ref={dirLight}
+                position={[2, 2, 2]}
+                intensity={0.65}
+                castShadow
+                shadow-mapSize-height={1024}
+                shadow-mapSize-width={1024}
+                shadow-bias={-0.000175}
+            />
+
+            <ambientLight intensity={0.25} />
+
+            <spotLight
+                ref={spotLightRef}
+                target={spotlightTarget}
+                castShadow
+                shadow-mapSize-height={1024}
+                shadow-mapSize-width={1024}
+                shadow-bias={-0.000175}
+            />
+        </>
+    )
+}
 
 export const Table = () => {
     const gltf = useGLTF("/gltfs/table.gltf")
 
-    const [lightPos, setLightPos] = useState<Vector3>(new Vector3(5, 5, 5))
+    const [deskLightParent, setDeskLightParent] = useState<Object3D>()
+    const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
+
+    const mouseData = useMouseMoveLocation()
 
     const init = async () => {
         const dat = await import("dat.gui")
@@ -34,9 +155,8 @@ export const Table = () => {
             return X_STEP_ARRAY[randoInt(0, NUMBER_OF_IMAGES_IN_SPRITE - 1)]
         }
 
-        const laptopScreenPixels = findMesh(gltf, "laptop-screen"),
-            laptopScreen = findMesh(gltf, "laptopbase001"),
-            deskLight = findMesh(gltf, "light-shine")
+        const laptopScreenPixels = findMeshByName(gltf, "laptop-screen"),
+            laptopScreen = findMeshByName(gltf, "laptopbase001")
 
         gsap.to(laptopScreen.rotation, { x: 1.4, duration: 4 })
 
@@ -71,36 +191,38 @@ export const Table = () => {
 
         ;(laptopScreenPixels as THREE.Mesh).material = material
 
-        const V = new Vector3()
+        const deskLight = findMeshByName(gltf, "light-shine")
 
-        deskLight.getWorldPosition(V)
+        setDeskLightParent(deskLight)
 
-        setLightPos(V)
+        const sex = findMeshByName(gltf, "SEX")
+        setSpotLightTarget(sex)
     }
 
     useEffect(() => {
         init()
     }, [gltf])
 
-    const Lights = () => {
-        return (
-            <>
-                <pointLight
-                    position={lightPos}
-                    color={"#FFF"}
-                    intensity={0.2}
-                    castShadow
-                    shadow-mapSize-height={1024}
-                    shadow-mapSize-width={1024}
-                    shadow-bias={-0.000175}
-                />
-            </>
-        )
-    }
+    useEffect(() => {
+        if (gltf) {
+            const lampNeck = findMeshByName(gltf, "lamp-neck")
+
+            const lampPivot3 = findMeshByName(gltf, "lamppivot3")
+
+            lampNeck.rotation.y = mouseData[0]
+            lampPivot3.rotation.y = -mouseData[1] + 0.5
+            // lampNeck.rotateY(mouseData[1])
+        }
+    }, [mouseData])
 
     return (
         <>
-            <Lights />
+            {spotLightTarget && deskLightParent && (
+                <Lights
+                    parentObjectForSpotlight={deskLightParent}
+                    spotlightTarget={spotLightTarget}
+                />
+            )}
             {/* MODEL BELOW: */}
             <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.125} />
         </>

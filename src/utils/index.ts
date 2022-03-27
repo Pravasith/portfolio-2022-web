@@ -21,7 +21,7 @@ export const randoInt = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-export const findMesh = (
+export const findMeshByName = (
     threeObject: GLTF & ObjectMap,
     meshName: string,
     noShadowInAllMeshes?: boolean

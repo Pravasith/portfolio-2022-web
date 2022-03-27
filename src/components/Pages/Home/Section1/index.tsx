@@ -1,5 +1,4 @@
-import { Suspense, useRef } from "react"
-import * as THREE from "three"
+import { Suspense } from "react"
 
 import { ETextColorClassNames } from "@lib/themes/colors"
 import { OrbitControls } from "@react-three/drei"
@@ -38,8 +37,6 @@ const Section1 = () => {
         initial: new Vector3(-3.17, 3.7, 5.97),
     }
 
-    const dirLight = useRef<THREE.DirectionalLight>()
-
     return (
         <>
             <div className="h-screen relative">
@@ -67,16 +64,6 @@ const Section1 = () => {
                         }}
                     >
                         <OrbitControls />
-                        <directionalLight
-                            ref={dirLight}
-                            position={[-2, 5, 2]}
-                            intensity={0.65}
-                            castShadow
-                            shadow-mapSize-height={1024}
-                            shadow-mapSize-width={1024}
-                            shadow-bias={-0.000175}
-                        />
-                        <ambientLight intensity={0.25} />
 
                         <Suspense fallback={null}>
                             <Table />
