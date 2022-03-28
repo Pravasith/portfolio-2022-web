@@ -34,7 +34,8 @@ const textBlock: TextBlockType[] = [
 
 const Section1 = () => {
     const cameraPosition = {
-        initial: new Vector3(-3.17, 3.7, 5.97),
+        // initial: new Vector3(-3.17, 3.7, 5.97),
+        initial: new Vector3(-3.3, 1, 4.8),
     }
 
     return (

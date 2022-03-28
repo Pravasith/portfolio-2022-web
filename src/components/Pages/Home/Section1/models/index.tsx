@@ -1,15 +1,11 @@
-import { useGLTF, useHelper } from "@react-three/drei"
+import { useGLTF } from "@react-three/drei"
 import { useEffect, useRef, useState } from "react"
-import {
-    DirectionalLightHelper,
-    Object3D,
-    SpotLightHelper,
-    Vector3,
-} from "three"
+import { Object3D, Vector3 } from "three"
 import * as THREE from "three"
 import { findMeshByName, randoInt } from "@utils/index"
 import gsap from "gsap"
 import useMouseMoveLocation from "@hooks/useMouseLocation"
+import { useFrame } from "@react-three/fiber"
 
 interface LightsProps {
     parentObjectForSpotlight: Object3D
@@ -24,15 +20,16 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
 
     const mouseData = useMouseMoveLocation()
 
-    useHelper(spotLightRef.current && spotLightRef, SpotLightHelper, "#000")
-    useHelper(dirLight.current && dirLight, DirectionalLightHelper)
+    // useHelper(spotLightRef.current && spotLightRef, SpotLightHelper, "#000") // INTENTIONAL COMMENT: Helper for spotLight
+    // useHelper(dirLight.current && dirLight, DirectionalLightHelper) // INTENTIONAL COMMENT: Helper for dirLight
 
     const init = async () => {
         const dat = await import("dat.gui")
         const gui = new dat.GUI()
 
+        const spotLight = spotLightRef.current
+
         function buildGui() {
-            const spotLight = spotLightRef.current
             const params = {
                 "light color": spotLight.color.getHex(),
                 intensity: spotLight.intensity,
@@ -75,6 +72,14 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
         }
 
         buildGui()
+
+        // spotLight.color = new THREE.Color(0xffe000)
+        spotLight.intensity = 4
+        spotLight.distance = 6
+        spotLight.angle = 0.5
+        spotLight.penumbra = 0.1
+        spotLight.decay = 2
+        spotLight.shadow.focus = 0.5
     }
 
     useEffect(() => {
@@ -85,6 +90,12 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
         const V = new Vector3()
         parentObjectForSpotlight.getWorldPosition(V)
         spotLightRef.current.position.copy(V)
+
+        gsap.to(spotLightRef.current.position, {
+            x: V.x,
+            y: V.y,
+            z: V.z,
+        })
     }, [mouseData])
 
     return (
@@ -102,14 +113,14 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
             <directionalLight
                 ref={dirLight}
                 position={[2, 2, 2]}
-                intensity={0.65}
+                intensity={1}
                 castShadow
                 shadow-mapSize-height={1024}
                 shadow-mapSize-width={1024}
                 shadow-bias={-0.000175}
             />
 
-            <ambientLight intensity={0.25} />
+            <ambientLight intensity={0.3} />
 
             <spotLight
                 ref={spotLightRef}
@@ -130,6 +141,26 @@ export const Table = () => {
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
 
     const mouseData = useMouseMoveLocation()
+
+    useFrame(() => {
+        if (gltf) {
+            const hourHand = findMeshByName(gltf, "hour-hand")
+            const minHand = findMeshByName(gltf, "min-hand")
+            const secHand = findMeshByName(gltf, "sec-hand")
+
+            const date = new Date()
+
+            const time = {
+                sec: date.getSeconds(),
+                min: date.getMinutes(),
+                hour: date.getHours(),
+            }
+
+            hourHand.rotation.y = -time.hour * ((2 * Math.PI) / 24)
+            minHand.rotation.y = -time.min * ((2 * Math.PI) / 60)
+            secHand.rotation.y = -time.sec * ((2 * Math.PI) / 60)
+        }
+    })
 
     const init = async () => {
         const dat = await import("dat.gui")
@@ -195,7 +226,12 @@ export const Table = () => {
 
         setDeskLightParent(deskLight)
 
-        const sex = findMeshByName(gltf, "SEX")
+        const sex = findMeshByName(gltf, "sex")
+
+        ;(sex as THREE.Mesh).castShadow = false
+
+        sex.visible = false
+
         setSpotLightTarget(sex)
     }
 
@@ -208,10 +244,24 @@ export const Table = () => {
             const lampNeck = findMeshByName(gltf, "lamp-neck")
 
             const lampPivot3 = findMeshByName(gltf, "lamppivot3")
+            const lampPivot2 = findMeshByName(gltf, "lamppivot2")
+            const lampPivot1 = findMeshByName(gltf, "lamppivot1")
 
-            lampNeck.rotation.y = mouseData[0]
-            lampPivot3.rotation.y = -mouseData[1] + 0.5
-            // lampNeck.rotateY(mouseData[1])
+            const lampBase = findMeshByName(gltf, "lampbase")
+
+            gsap.to(lampNeck.rotation, { y: mouseData[0] })
+
+            gsap.to(lampPivot3.rotation, {
+                y: -mouseData[1] * 1.5 + 0.5,
+            })
+            gsap.to(lampPivot2.rotation, {
+                y: -mouseData[1] * 0.5 + 1.5,
+            })
+            gsap.to(lampPivot1.rotation, {
+                y: -mouseData[1] * 0.25 + 0.75,
+            })
+
+            gsap.to(lampBase.rotation, { y: -mouseData[0] })
         }
     }, [mouseData])
 
