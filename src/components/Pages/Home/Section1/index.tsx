@@ -58,7 +58,6 @@ const Section1 = () => {
                     <Canvas
                         linear={false}
                         shadows
-                        // orthographic
                         camera={{
                             position: cameraPosition.initial,
                             fov: 45,

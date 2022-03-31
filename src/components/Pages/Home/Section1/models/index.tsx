@@ -2,7 +2,7 @@ import { useGLTF } from "@react-three/drei"
 import { useEffect, useRef, useState } from "react"
 import { Object3D, Vector3 } from "three"
 import * as THREE from "three"
-import { findMeshByName, randoInt } from "@utils/index"
+import { findMeshByName } from "@utils/index"
 import gsap from "gsap"
 import useMouseMoveLocation from "@hooks/useMouseLocation"
 import { useFrame } from "@react-three/fiber"
@@ -100,20 +100,10 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
 
     return (
         <>
-            {/* <pointLight
-                position={lightPos}
-                color={"#FFF"}
-                intensity={0.2}
-                castShadow
-                shadow-mapSize-height={1024}
-                shadow-mapSize-width={1024}
-                shadow-bias={-0.000175}
-            /> */}
-
             <directionalLight
                 ref={dirLight}
                 position={[2, 2, 2]}
-                intensity={1}
+                intensity={0.8}
                 castShadow
                 shadow-mapSize-height={1024}
                 shadow-mapSize-width={1024}
@@ -156,7 +146,7 @@ export const Table = () => {
                 hour: date.getHours(),
             }
 
-            hourHand.rotation.y = -time.hour * ((2 * Math.PI) / 24)
+            hourHand.rotation.y = -time.hour * 2 * ((2 * Math.PI) / 24)
             minHand.rotation.y = -time.min * ((2 * Math.PI) / 60)
             secHand.rotation.y = -time.sec * ((2 * Math.PI) / 60)
         }
@@ -176,16 +166,6 @@ export const Table = () => {
 
         const INITIAL_X_VALUE = -0.054
 
-        const getOffsetX = (): number => {
-            const STEP = 0.1111,
-                NUMBER_OF_IMAGES_IN_SPRITE = 9,
-                X_STEP_ARRAY = new Array(NUMBER_OF_IMAGES_IN_SPRITE)
-                    .fill(INITIAL_X_VALUE)
-                    .map((x, i) => STEP * (i + 1) + x)
-
-            return X_STEP_ARRAY[randoInt(0, NUMBER_OF_IMAGES_IN_SPRITE - 1)]
-        }
-
         const laptopScreenPixels = findMeshByName(gltf, "laptop-screen"),
             laptopScreen = findMeshByName(gltf, "laptopbase001")
 
@@ -198,6 +178,27 @@ export const Table = () => {
 
         material.map = texture
 
+        let c = -1
+
+        const getOffsetX = (): number => {
+            const STEP = 0.1111,
+                NUMBER_OF_IMAGES_IN_SPRITE = 9,
+                X_STEP_ARRAY = new Array(NUMBER_OF_IMAGES_IN_SPRITE)
+                    .fill(INITIAL_X_VALUE)
+                    .map((x, i) => STEP * (i + 1) + x)
+
+            c === NUMBER_OF_IMAGES_IN_SPRITE && (c = -1)
+
+            c++
+
+            console.log(c)
+
+            return (
+                // randoInt(0, NUMBER_OF_IMAGES_IN_SPRITE - 1)
+                X_STEP_ARRAY[c]
+            )
+        }
+
         if (material.map) {
             const { offset, repeat } = material.map
 
@@ -208,9 +209,11 @@ export const Table = () => {
 
             material.map.flipY = false
 
-            setInterval(() => {
-                gsap.set(offset, { x: getOffsetX() })
-            }, 1000)
+            gsap.to(offset, {
+                x: () => getOffsetX(),
+                duration: 1,
+                repeat: -1,
+            })
         }
 
         if (material.map) {
@@ -223,6 +226,11 @@ export const Table = () => {
         ;(laptopScreenPixels as THREE.Mesh).material = material
 
         const deskLight = findMeshByName(gltf, "light-shine")
+
+        ;(deskLight as THREE.Mesh).material = new THREE.MeshPhongMaterial({
+            emissive: "#fff",
+            emissiveIntensity: 1,
+        })
 
         setDeskLightParent(deskLight)
 
@@ -254,9 +262,11 @@ export const Table = () => {
             gsap.to(lampPivot3.rotation, {
                 y: -mouseData[1] * 1.5 + 0.5,
             })
+
             gsap.to(lampPivot2.rotation, {
                 y: -mouseData[1] * 0.5 + 1.5,
             })
+
             gsap.to(lampPivot1.rotation, {
                 y: -mouseData[1] * 0.25 + 0.75,
             })
