@@ -25,7 +25,7 @@ const Topbar = () => {
     }
 
     return (
-        <div className="relative">
+        <div className="relative z-10">
             <div className="h-fit">
                 <div className="fixed w-full">
                     <div className="flex flex-row justify-between items-center py-12">

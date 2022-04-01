@@ -24,54 +24,54 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
     // useHelper(dirLight.current && dirLight, DirectionalLightHelper) // INTENTIONAL COMMENT: Helper for dirLight
 
     const init = async () => {
-        const dat = await import("dat.gui")
-        const gui = new dat.GUI()
+        // const dat = await import("dat.gui")
+        // const gui = new dat.GUI()
+
+        // function buildGui() {
+        //     const params = {
+        //         "light color": spotLight.color.getHex(),
+        //         intensity: spotLight.intensity,
+        //         distance: spotLight.distance,
+        //         angle: spotLight.angle,
+        //         penumbra: spotLight.penumbra,
+        //         decay: spotLight.decay,
+        //         focus: spotLight.shadow.focus,
+        //     }
+
+        //     gui.addColor(params, "light color").onChange(function (val) {
+        //         spotLight.color.setHex(val)
+        //     })
+
+        //     gui.add(params, "intensity", 0, 2).onChange(function (val) {
+        //         spotLight.intensity = val
+        //     })
+
+        //     gui.add(params, "distance", 0, 200).onChange(function (val) {
+        //         spotLight.distance = val
+        //     })
+
+        //     gui.add(params, "angle", 0, Math.PI / 3).onChange(function (val) {
+        //         spotLight.angle = val
+        //     })
+
+        //     gui.add(params, "penumbra", 0, 1).onChange(function (val) {
+        //         spotLight.penumbra = val
+        //     })
+
+        //     gui.add(params, "decay", 1, 2).onChange(function (val) {
+        //         spotLight.decay = val
+        //     })
+
+        //     gui.add(params, "focus", 0, 1).onChange(function (val) {
+        //         spotLight.shadow.focus = val
+        //     })
+
+        //     gui.open()
+        // }
+
+        // buildGui()
 
         const spotLight = spotLightRef.current
-
-        function buildGui() {
-            const params = {
-                "light color": spotLight.color.getHex(),
-                intensity: spotLight.intensity,
-                distance: spotLight.distance,
-                angle: spotLight.angle,
-                penumbra: spotLight.penumbra,
-                decay: spotLight.decay,
-                focus: spotLight.shadow.focus,
-            }
-
-            gui.addColor(params, "light color").onChange(function (val) {
-                spotLight.color.setHex(val)
-            })
-
-            gui.add(params, "intensity", 0, 2).onChange(function (val) {
-                spotLight.intensity = val
-            })
-
-            gui.add(params, "distance", 0, 200).onChange(function (val) {
-                spotLight.distance = val
-            })
-
-            gui.add(params, "angle", 0, Math.PI / 3).onChange(function (val) {
-                spotLight.angle = val
-            })
-
-            gui.add(params, "penumbra", 0, 1).onChange(function (val) {
-                spotLight.penumbra = val
-            })
-
-            gui.add(params, "decay", 1, 2).onChange(function (val) {
-                spotLight.decay = val
-            })
-
-            gui.add(params, "focus", 0, 1).onChange(function (val) {
-                spotLight.shadow.focus = val
-            })
-
-            gui.open()
-        }
-
-        buildGui()
 
         // spotLight.color = new THREE.Color(0xffe000)
         spotLight.intensity = 4
@@ -132,6 +132,8 @@ export const Table = () => {
 
     const mouseData = useMouseMoveLocation()
 
+    const count = useRef<number>(-1)
+
     useFrame(() => {
         if (gltf) {
             const hourHand = findMeshByName(gltf, "hour-hand")
@@ -153,8 +155,8 @@ export const Table = () => {
     })
 
     const init = async () => {
-        const dat = await import("dat.gui")
-        const gui = new dat.GUI()
+        // const dat = await import("dat.gui")
+        // const gui = new dat.GUI()
         // ... rest of the three.js code
 
         const texture = new THREE.TextureLoader().load(
@@ -178,8 +180,6 @@ export const Table = () => {
 
         material.map = texture
 
-        let c = -1
-
         const getOffsetX = (): number => {
             const STEP = 0.1111,
                 NUMBER_OF_IMAGES_IN_SPRITE = 9,
@@ -187,15 +187,14 @@ export const Table = () => {
                     .fill(INITIAL_X_VALUE)
                     .map((x, i) => STEP * (i + 1) + x)
 
-            c === NUMBER_OF_IMAGES_IN_SPRITE && (c = -1)
+            count.current === NUMBER_OF_IMAGES_IN_SPRITE - 1 &&
+                (count.current = -1)
 
-            c++
-
-            console.log(c)
+            count.current++
 
             return (
                 // randoInt(0, NUMBER_OF_IMAGES_IN_SPRITE - 1)
-                X_STEP_ARRAY[c]
+                X_STEP_ARRAY[count.current]
             )
         }
 
@@ -209,19 +208,27 @@ export const Table = () => {
 
             material.map.flipY = false
 
+            // setInterval(() => {
+            //     gsap.to(offset, {
+            //         x: getOffsetX(),
+            //         duration: 1,
+            //     })
+            // }, 1000)
+
             gsap.to(offset, {
-                x: () => getOffsetX(),
+                x: getOffsetX(),
                 duration: 1,
                 repeat: -1,
+                // repeatRefresh: true,
             })
         }
 
-        if (material.map) {
-            gui.add(material.map.offset, "x", -2, 2, 0.001)
-            gui.add(material.map.offset, "y", 0, 2, 0.01)
-            gui.add(material.map.repeat, "x", 0, 5, 0.001)
-            gui.add(material.map.repeat, "y", 0, 5, 0.01)
-        }
+        // if (material.map) {
+        //     gui.add(material.map.offset, "x", -2, 2, 0.001)
+        //     gui.add(material.map.offset, "y", 0, 2, 0.01)
+        //     gui.add(material.map.repeat, "x", 0, 5, 0.001)
+        //     gui.add(material.map.repeat, "y", 0, 5, 0.01)
+        // }
 
         ;(laptopScreenPixels as THREE.Mesh).material = material
 

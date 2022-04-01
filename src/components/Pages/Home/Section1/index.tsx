@@ -6,7 +6,12 @@ import { Canvas } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
 import { ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
 
-import { Section1BgdBeach, Section1BgdBeach1 } from "./svgs"
+import {
+    Section1BgdBeach,
+    Section1BgdBeach1,
+    Section1RedTriangles,
+    Section1Squigglies,
+} from "./svgs"
 import { Vector3 } from "three"
 
 import { Table } from "./models"
@@ -53,6 +58,11 @@ const Section1 = () => {
                     </div>
                 </div>
 
+                {/* SQUIGGLIES */}
+                <div className="absolute w-2/3 h-2/3 -top-1/3 -left-1/3 -z-0">
+                    <Section1Squigglies />
+                </div>
+
                 {/* THREE */}
                 <div className="absolute w-full h-full top-1/10">
                     <Canvas
@@ -69,6 +79,11 @@ const Section1 = () => {
                             <Table />
                         </Suspense>
                     </Canvas>
+                </div>
+
+                {/* TRIANGLES */}
+                <div className="absolute w-1/5 h-1/5 bottom-1/10 left-1/3">
+                    <Section1RedTriangles />
                 </div>
 
                 {/* TEXT */}

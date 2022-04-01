@@ -35,7 +35,7 @@ const MenuBar = () => {
     }
 
     return (
-        <div className="w-1/5 fixed bottom-1/4 right-0">
+        <div className="w-1/5 fixed bottom-1/4 right-0 z-10">
             <ul className="flex-col-center">
                 {pages.map((item, index) => (
                     <li
