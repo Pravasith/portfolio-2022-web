@@ -1,23 +1,33 @@
 @font-face {
-    font-family: "Noe Display Bold";
-    src: url("../fonts/NoeDisplay.eot"); /* IE9*/
-    src: 
-		// url("NoeDisplay.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-        url("../fonts/NoeDisplay.woff2") format("woff2"),
-        /* chrome、firefox */ url("../fonts/NoeDisplay.woff") format("woff"),
-        /* chrome、firefox */ url("../fonts/NoeDisplay.ttf") format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    // url("NoeDisplay.svg#NoeDisplay-Bold") format("svg"); /* iOS 4.1- */
-}
-
-@font-face {
     font-family: "Calibre";
     src: url("../fonts/Calibre.eot"); /* IE9*/
     src: 
-		// url("NoeDisplay.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-        url("../fonts/Calibre.woff2") format("woff2"),
+		/* chrome、firefox */ url("../fonts/Calibre.woff2") format("woff2"),
         /* chrome、firefox */ url("../fonts/Calibre.woff") format("woff"),
-        /* chrome、firefox */ url("../fonts/Calibre.ttf") format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    // url("NoeDisplay.svg#NoeDisplay-Bold") format("svg"); /* iOS 4.1- */
+        /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url("../fonts/Calibre.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Calibre SemiBold";
+    src: url("../fonts/Calibre-SemiBold.eot"); /* IE9*/
+    src:
+		/* chrome、firefox */ url("../fonts/Calibre-SemiBold.woff2")
+            format("woff2"),
+        /* chrome、firefox */ url("../fonts/Calibre-SemiBold.woff")
+            format("woff"),
+        /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url("../fonts/Calibre-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Calibre Bold";
+    src: url("../fonts/Calibre-Bold.eot"); /* IE9*/
+    src:
+		/* chrome、firefox */ url("../fonts/Calibre-Bold.woff2") format("woff2"),
+        /* chrome、firefox */ url("../fonts/Calibre-Bold.woff") format("woff"),
+        /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url("../fonts/Calibre-Bold.ttf") format("truetype");
 }
 
 @import "./vars";

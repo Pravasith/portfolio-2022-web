@@ -13,6 +13,7 @@ import { themeReducer } from "@utils/reducers"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
 import { EColors } from "@lib/themes/colors"
+import FontsCopyright from "./FontsCopyright"
 
 const Layout: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(
@@ -55,6 +56,7 @@ const Layout: React.FC = ({ children }) => {
                 <aside>
                     {/* Twitter Stuff */}
                     <ContactBar />
+                    <FontsCopyright />
                 </aside>
 
                 <section>

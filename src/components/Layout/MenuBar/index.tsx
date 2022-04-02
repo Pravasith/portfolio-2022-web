@@ -7,7 +7,7 @@ import { useContext } from "react"
 
 enum EFonts {
     CALIBRE = "Calibre",
-    CALIBRE_BOLD = "Copyright Klim Type Foundry",
+    CALIBRE_BOLD = "Calibre Bold",
 }
 
 enum EMouseAction {

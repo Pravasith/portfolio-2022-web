@@ -17,12 +17,6 @@ const Meta = (props: MetaProps) => {
             /> */}
 
             <link
-                href="//db.onlinewebfonts.com/c/54ad1a311e37ed132bf54f7dbcc1d7a1?family=Copyright+Klim+Type+Foundry"
-                rel="stylesheet"
-                type="text/css"
-            />
-
-            <link
                 rel="apple-touch-icon"
                 sizes="180x180"
                 href="/apple-touch-icon.png"

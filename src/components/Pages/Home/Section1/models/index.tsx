@@ -6,11 +6,7 @@ import { findMeshByName } from "@utils/index"
 import gsap from "gsap"
 import useMouseMoveLocation from "@hooks/useMouseLocation"
 import { useFrame } from "@react-three/fiber"
-
-interface LightsProps {
-    parentObjectForSpotlight: Object3D
-    spotlightTarget: Object3D
-}
+import { LightsProps } from "./interface"
 
 const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
     const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())
@@ -73,7 +69,6 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
 
         const spotLight = spotLightRef.current
 
-        // spotLight.color = new THREE.Color(0xffe000)
         spotLight.intensity = 4
         spotLight.distance = 6
         spotLight.angle = 0.5
@@ -132,13 +127,11 @@ export const Table = () => {
 
     const mouseData = useMouseMoveLocation()
 
-    const count = useRef<number>(-1)
+    const clockHands = useRef<Object3D<THREE.Event>[]>()
 
     useFrame(() => {
-        if (gltf) {
-            const hourHand = findMeshByName(gltf, "hour-hand")
-            const minHand = findMeshByName(gltf, "min-hand")
-            const secHand = findMeshByName(gltf, "sec-hand")
+        if (gltf && clockHands.current) {
+            const [hourHand, minHand, secHand] = clockHands.current
 
             const date = new Date()
 
@@ -159,95 +152,84 @@ export const Table = () => {
         // const gui = new dat.GUI()
         // ... rest of the three.js code
 
-        const texture = new THREE.TextureLoader().load(
-            "textures/sprite-laptop.png"
-        )
+        const laptopScreenInitAndAnimate = () => {
+            const laptopScreenPixels = findMeshByName(gltf, "laptop-screen"),
+                laptopScreenPanel = findMeshByName(gltf, "laptopbase001")
 
-        texture.wrapS = THREE.RepeatWrapping
-        texture.wrapT = THREE.RepeatWrapping
+            gsap.to(laptopScreenPanel.rotation, { x: 1.4, duration: 4 })
 
-        const INITIAL_X_VALUE = -0.054
-
-        const laptopScreenPixels = findMeshByName(gltf, "laptop-screen"),
-            laptopScreen = findMeshByName(gltf, "laptopbase001")
-
-        gsap.to(laptopScreen.rotation, { x: 1.4, duration: 4 })
-
-        const material = new THREE.MeshPhongMaterial({
-            // emissive: "#fff",
-            // emissiveIntensity: 0.1,
-        })
-
-        material.map = texture
-
-        const getOffsetX = (): number => {
-            const STEP = 0.1111,
-                NUMBER_OF_IMAGES_IN_SPRITE = 9,
-                X_STEP_ARRAY = new Array(NUMBER_OF_IMAGES_IN_SPRITE)
-                    .fill(INITIAL_X_VALUE)
-                    .map((x, i) => STEP * (i + 1) + x)
-
-            count.current === NUMBER_OF_IMAGES_IN_SPRITE - 1 &&
-                (count.current = -1)
-
-            count.current++
-
-            return (
-                // randoInt(0, NUMBER_OF_IMAGES_IN_SPRITE - 1)
-                X_STEP_ARRAY[count.current]
+            const texture = new THREE.TextureLoader().load(
+                "textures/sprite-laptop.png"
             )
-        }
 
-        if (material.map) {
-            const { offset, repeat } = material.map
+            texture.wrapS = THREE.RepeatWrapping
+            texture.wrapT = THREE.RepeatWrapping
 
-            offset.x = INITIAL_X_VALUE
-            offset.y = 0.99
-            repeat.x = 0.44
-            repeat.y = 4.04
+            const INITIAL_X_VALUE = -0.054,
+                STEP_VALUE = 0.11111
 
-            material.map.flipY = false
-
-            // setInterval(() => {
-            //     gsap.to(offset, {
-            //         x: getOffsetX(),
-            //         duration: 1,
-            //     })
-            // }, 1000)
-
-            gsap.to(offset, {
-                x: getOffsetX(),
-                duration: 1,
-                repeat: -1,
-                // repeatRefresh: true,
+            const material = new THREE.MeshPhongMaterial({
+                emissive: "#fff",
+                emissiveMap: texture,
+                emissiveIntensity: 0.5,
             })
+
+            material.map = texture
+
+            if (material.map) {
+                const { offset, repeat } = material.map
+
+                offset.x = INITIAL_X_VALUE
+                offset.y = 0.99
+                repeat.x = 0.44
+                repeat.y = 4.04
+
+                material.map.flipY = false
+
+                const changeWallpaper = () => {
+                    gsap.to(offset, {
+                        x: "+=" + STEP_VALUE,
+                        duration: 2,
+                        onComplete: changeWallpaper,
+                    })
+                }
+
+                changeWallpaper()
+            }
+
+            ;(laptopScreenPixels as THREE.Mesh).material = material
         }
 
-        // if (material.map) {
-        //     gui.add(material.map.offset, "x", -2, 2, 0.001)
-        //     gui.add(material.map.offset, "y", 0, 2, 0.01)
-        //     gui.add(material.map.repeat, "x", 0, 5, 0.001)
-        //     gui.add(material.map.repeat, "y", 0, 5, 0.01)
-        // }
+        const deskLightInitAndAnimate = () => {
+            const deskLight = findMeshByName(gltf, "light-shine")
 
-        ;(laptopScreenPixels as THREE.Mesh).material = material
+            ;(deskLight as THREE.Mesh).material = new THREE.MeshPhongMaterial({
+                emissive: "#fff",
+                emissiveIntensity: 1,
+            })
 
-        const deskLight = findMeshByName(gltf, "light-shine")
+            setDeskLightParent(deskLight)
 
-        ;(deskLight as THREE.Mesh).material = new THREE.MeshPhongMaterial({
-            emissive: "#fff",
-            emissiveIntensity: 1,
-        })
+            const lightMirror = findMeshByName(gltf, "sex")
 
-        setDeskLightParent(deskLight)
+            ;(lightMirror as THREE.Mesh).castShadow = false
 
-        const sex = findMeshByName(gltf, "sex")
+            lightMirror.visible = false
 
-        ;(sex as THREE.Mesh).castShadow = false
+            setSpotLightTarget(lightMirror)
+        }
 
-        sex.visible = false
+        const clockHandsInit = () => {
+            const hourHand = findMeshByName(gltf, "hour-hand")
+            const minHand = findMeshByName(gltf, "min-hand")
+            const secHand = findMeshByName(gltf, "sec-hand")
 
-        setSpotLightTarget(sex)
+            clockHands.current = [hourHand, minHand, secHand]
+        }
+
+        laptopScreenInitAndAnimate()
+        deskLightInitAndAnimate()
+        clockHandsInit()
     }
 
     useEffect(() => {
@@ -256,29 +238,33 @@ export const Table = () => {
 
     useEffect(() => {
         if (gltf) {
-            const lampNeck = findMeshByName(gltf, "lamp-neck")
+            const animateDeskLamp = () => {
+                const lampNeck = findMeshByName(gltf, "lamp-neck")
 
-            const lampPivot3 = findMeshByName(gltf, "lamppivot3")
-            const lampPivot2 = findMeshByName(gltf, "lamppivot2")
-            const lampPivot1 = findMeshByName(gltf, "lamppivot1")
+                const lampPivot3 = findMeshByName(gltf, "lamppivot3")
+                const lampPivot2 = findMeshByName(gltf, "lamppivot2")
+                const lampPivot1 = findMeshByName(gltf, "lamppivot1")
 
-            const lampBase = findMeshByName(gltf, "lampbase")
+                const lampBase = findMeshByName(gltf, "lampbase")
 
-            gsap.to(lampNeck.rotation, { y: mouseData[0] })
+                gsap.to(lampNeck.rotation, { y: mouseData[0] })
 
-            gsap.to(lampPivot3.rotation, {
-                y: -mouseData[1] * 1.5 + 0.5,
-            })
+                gsap.to(lampPivot3.rotation, {
+                    y: -mouseData[1] * 1.5 + 0.5,
+                })
 
-            gsap.to(lampPivot2.rotation, {
-                y: -mouseData[1] * 0.5 + 1.5,
-            })
+                gsap.to(lampPivot2.rotation, {
+                    y: -mouseData[1] * 0.5 + 1.5,
+                })
 
-            gsap.to(lampPivot1.rotation, {
-                y: -mouseData[1] * 0.25 + 0.75,
-            })
+                gsap.to(lampPivot1.rotation, {
+                    y: -mouseData[1] * 0.25 + 0.75,
+                })
 
-            gsap.to(lampBase.rotation, { y: -mouseData[0] })
+                gsap.to(lampBase.rotation, { y: -mouseData[0] })
+            }
+
+            animateDeskLamp()
         }
     }, [mouseData])
 
@@ -290,8 +276,9 @@ export const Table = () => {
                     spotlightTarget={spotLightTarget}
                 />
             )}
+
             {/* MODEL BELOW: */}
-            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.125} />
+            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.25} />
         </>
     )
 }

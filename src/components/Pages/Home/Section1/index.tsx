@@ -10,7 +10,6 @@ import {
     Section1BgdBeach,
     Section1BgdBeach1,
     Section1RedTriangles,
-    Section1Squigglies,
 } from "./svgs"
 import { Vector3 } from "three"
 
@@ -56,11 +55,6 @@ const Section1 = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {/* SQUIGGLIES */}
-                <div className="absolute w-2/3 h-2/3 -top-1/3 -left-1/3 -z-0">
-                    <Section1Squigglies />
                 </div>
 
                 {/* THREE */}

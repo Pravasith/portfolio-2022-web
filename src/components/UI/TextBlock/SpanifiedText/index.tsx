@@ -35,7 +35,7 @@ const SpanifiedText = ({ text, spanColorClassName }: SpanifiedTextProps) => {
 
             <span
                 key={`text-element-${random20Id()}`}
-                className={`font-calibre-bold ${spanColorClassName}`}
+                className={`font-calibre-semibold ${spanColorClassName}`}
             >
                 {spanString}
             </span>

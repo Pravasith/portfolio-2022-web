@@ -34,7 +34,8 @@ module.exports = {
             },
             fontFamily: {
                 calibre: "Calibre",
-                "calibre-bold": "Copyright Klim Type Foundry",
+                "calibre-bold": "Calibre Bold",
+                "calibre-semibold": "Calibre SemiBold",
             },
 
             spacing: {

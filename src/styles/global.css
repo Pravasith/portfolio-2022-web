@@ -101,11 +101,12 @@
     }
 
     h3 {
-        @apply text-xl font-calibre-bold leading-6;
+        @apply text-xl font-calibre-semibold leading-6;
     }
 
     p {
         @apply text-lg leading-5;
+        font-size: 1rem;
     }
     /* ... */
 }
