@@ -1,18 +1,17 @@
 import gsap from "gsap"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { MouseMoveValues, OnMouseMove } from "./interface"
 
-const useMouseMoveLocation = () => {
-    const [mouseData, setMouseData] = useState<[number, number]>([0, 0])
-
+const useMouseMoveLocation = (onMouseMove: OnMouseMove) => {
     const roundMouse = (num: number) => {
         return Math.round(num * 100) / 100
     }
 
-    const mouseMoveHandler = (e: { x: number; y: number }) => {
-        setMouseData([
-            roundMouse((2 * e.x - window.innerWidth) / window.innerWidth),
-            roundMouse((2 * e.y - window.innerHeight) / window.innerHeight),
+    const mouseMoveHandler = (e: MouseMoveValues) => {
+        onMouseMove([
+            roundMouse((2 * e[0] - window.innerWidth) / window.innerWidth),
+            roundMouse((2 * e[1] - window.innerHeight) / window.innerHeight),
         ])
     }
 
@@ -27,15 +26,13 @@ const useMouseMoveLocation = () => {
                 onMove: observer => {
                     observer.x &&
                         observer.y &&
-                        mouseMoveHandler({ x: observer.x, y: observer.y })
+                        mouseMoveHandler([observer.x, observer.y])
                 },
             })
         }
 
         init()
-    }, [])
-
-    return mouseData
+    }, [onMouseMove])
 }
 
 export default useMouseMoveLocation

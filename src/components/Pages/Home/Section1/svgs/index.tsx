@@ -1,11 +1,12 @@
-import React, { useEffect } from "react"
+import React from "react"
 import gsap from "gsap"
 import useMouseMoveLocation from "@hooks/useMouseLocation"
+import { MouseMoveValues } from "@hooks/useMouseLocation/interface"
 
 const Turbulence = () => {
-    const mouseData = useMouseMoveLocation()
-
-    useEffect(() => {
+    const animateTurbulenceFilterBaseFrequency = (
+        mouseData: MouseMoveValues
+    ) => {
         const tl = gsap.timeline()
 
         const [x, y] = mouseData
@@ -24,7 +25,9 @@ const Turbulence = () => {
                 ease: "power4.out",
             })
         }
-    }, [...mouseData])
+    }
+
+    useMouseMoveLocation(animateTurbulenceFilterBaseFrequency)
 
     return (
         <>

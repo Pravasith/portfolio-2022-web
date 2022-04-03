@@ -7,14 +7,13 @@ import gsap from "gsap"
 import useMouseMoveLocation from "@hooks/useMouseLocation"
 import { useFrame } from "@react-three/fiber"
 import { LightsProps } from "./interface"
+import { MouseMoveValues } from "@hooks/useMouseLocation/interface"
 
 const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
     const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())
     const dirLight = useRef<THREE.DirectionalLight>(
         new THREE.DirectionalLight()
     )
-
-    const mouseData = useMouseMoveLocation()
 
     // useHelper(spotLightRef.current && spotLightRef, SpotLightHelper, "#000") // INTENTIONAL COMMENT: Helper for spotLight
     // useHelper(dirLight.current && dirLight, DirectionalLightHelper) // INTENTIONAL COMMENT: Helper for dirLight
@@ -81,7 +80,7 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
         init()
     }, [])
 
-    useEffect(() => {
+    const animateSpotLight = () => {
         const V = new Vector3()
         parentObjectForSpotlight.getWorldPosition(V)
         spotLightRef.current.position.copy(V)
@@ -91,7 +90,9 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
             y: V.y,
             z: V.z,
         })
-    }, [mouseData])
+    }
+
+    useMouseMoveLocation(animateSpotLight)
 
     return (
         <>
@@ -125,11 +126,37 @@ export const Table = () => {
     const [deskLightParent, setDeskLightParent] = useState<Object3D>()
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
 
-    const mouseData = useMouseMoveLocation()
+    const animateDeskLamp = (mouseData: MouseMoveValues) => {
+        if (gltf) {
+            const lampNeck = findMeshByName(gltf, "lamp-neck")
+
+            const lampPivot3 = findMeshByName(gltf, "lamppivot3")
+            const lampPivot2 = findMeshByName(gltf, "lamppivot2")
+            const lampPivot1 = findMeshByName(gltf, "lamppivot1")
+
+            const lampBase = findMeshByName(gltf, "lampbase")
+
+            gsap.to(lampNeck.rotation, { y: mouseData[0] })
+
+            gsap.to(lampPivot3.rotation, {
+                y: -mouseData[1] * 1.5 + 0.5,
+            })
+            gsap.to(lampPivot2.rotation, {
+                y: -mouseData[1] * 0.5 + 1.5,
+            })
+            gsap.to(lampPivot1.rotation, {
+                y: -mouseData[1] * 0.25 + 0.75,
+            })
+
+            gsap.to(lampBase.rotation, { y: -mouseData[0] })
+        }
+    }
+
+    useMouseMoveLocation(animateDeskLamp)
 
     const clockHands = useRef<Object3D<THREE.Event>[]>()
 
-    useFrame(() => {
+    const animateClock = () => {
         if (gltf && clockHands.current) {
             const [hourHand, minHand, secHand] = clockHands.current
 
@@ -145,6 +172,10 @@ export const Table = () => {
             minHand.rotation.y = -time.min * ((2 * Math.PI) / 60)
             secHand.rotation.y = -time.sec * ((2 * Math.PI) / 60)
         }
+    }
+
+    useFrame(() => {
+        animateClock()
     })
 
     const init = async () => {
@@ -236,38 +267,6 @@ export const Table = () => {
         init()
     }, [gltf])
 
-    useEffect(() => {
-        if (gltf) {
-            const animateDeskLamp = () => {
-                const lampNeck = findMeshByName(gltf, "lamp-neck")
-
-                const lampPivot3 = findMeshByName(gltf, "lamppivot3")
-                const lampPivot2 = findMeshByName(gltf, "lamppivot2")
-                const lampPivot1 = findMeshByName(gltf, "lamppivot1")
-
-                const lampBase = findMeshByName(gltf, "lampbase")
-
-                gsap.to(lampNeck.rotation, { y: mouseData[0] })
-
-                gsap.to(lampPivot3.rotation, {
-                    y: -mouseData[1] * 1.5 + 0.5,
-                })
-
-                gsap.to(lampPivot2.rotation, {
-                    y: -mouseData[1] * 0.5 + 1.5,
-                })
-
-                gsap.to(lampPivot1.rotation, {
-                    y: -mouseData[1] * 0.25 + 0.75,
-                })
-
-                gsap.to(lampBase.rotation, { y: -mouseData[0] })
-            }
-
-            animateDeskLamp()
-        }
-    }, [mouseData])
-
     return (
         <>
             {spotLightTarget && deskLightParent && (
@@ -278,7 +277,7 @@ export const Table = () => {
             )}
 
             {/* MODEL BELOW: */}
-            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.25} />
+            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.125} />
         </>
     )
 }
