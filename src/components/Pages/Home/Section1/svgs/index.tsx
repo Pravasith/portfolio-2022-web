@@ -1,17 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 import gsap from "gsap"
 import useMouseMoveLocation from "@hooks/useMouseLocation"
 import { MouseMoveValues } from "@hooks/useMouseLocation/interface"
 
 const Turbulence = () => {
+    useEffect(() => {
+        animateTurbulenceFilterBaseFrequency()
+    }, [])
+
     const animateTurbulenceFilterBaseFrequency = (
-        mouseData: MouseMoveValues
+        mouseData?: MouseMoveValues
     ) => {
         const tl = gsap.timeline()
 
-        const [x, y] = mouseData
-
-        if ((x * 70) % 2 === 0 || (y * 70) % 2 === 0) {
+        const animateTurb = () => {
             tl.set("#turb", {
                 attr: {
                     baseFrequency: 0.008,
@@ -25,6 +27,14 @@ const Turbulence = () => {
                 ease: "power4.out",
             })
         }
+
+        if (mouseData) {
+            const [x, y] = mouseData
+
+            if ((x * 70) % 2 === 0 || (y * 70) % 2 === 0) {
+                animateTurb()
+            }
+        } else animateTurb()
     }
 
     useMouseMoveLocation(animateTurbulenceFilterBaseFrequency)
