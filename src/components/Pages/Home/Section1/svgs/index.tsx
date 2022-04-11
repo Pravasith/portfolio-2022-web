@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import gsap from "gsap"
-import useMouseMoveLocation from "@hooks/useMouseLocation"
-import { MouseMoveValues } from "@hooks/useMouseLocation/interface"
+import useMouseMove from "@hooks/useMouseMove"
+import { MouseMoveValues } from "@hooks/useMouseMove/interface"
 
 const Turbulence = () => {
     useEffect(() => {
@@ -37,7 +37,7 @@ const Turbulence = () => {
         } else animateTurb()
     }
 
-    useMouseMoveLocation(animateTurbulenceFilterBaseFrequency)
+    useMouseMove(animateTurbulenceFilterBaseFrequency)
 
     return (
         <>

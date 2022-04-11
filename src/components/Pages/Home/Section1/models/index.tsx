@@ -4,10 +4,10 @@ import { Object3D, Vector3 } from "three"
 import * as THREE from "three"
 import { findMeshByName } from "@utils/index"
 import gsap from "gsap"
-import useMouseMoveLocation from "@hooks/useMouseLocation"
-import { useFrame } from "@react-three/fiber"
+import useMouseMove from "@hooks/useMouseMove"
+import { useFrame, useThree } from "@react-three/fiber"
 import { LightsProps } from "./interface"
-import { MouseMoveValues } from "@hooks/useMouseLocation/interface"
+import { MouseMoveValues } from "@hooks/useMouseMove/interface"
 
 const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
     const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())
@@ -81,18 +81,23 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
     }, [])
 
     const animateSpotLight = () => {
-        const V = new Vector3()
-        parentObjectForSpotlight.getWorldPosition(V)
-        spotLightRef.current.position.copy(V)
+        if (spotLightRef.current) {
+            const V = new Vector3()
+            parentObjectForSpotlight.getWorldPosition(V)
+            spotLightRef.current.position.copy(V)
 
-        gsap.to(spotLightRef.current.position, {
-            x: V.x,
-            y: V.y,
-            z: V.z,
-        })
+            gsap.to(spotLightRef.current.position, {
+                x: V.x,
+                y: V.y,
+                z: V.z,
+
+                duration: 2,
+                ease: "power4.out",
+            })
+        }
     }
 
-    useMouseMoveLocation(animateSpotLight)
+    useMouseMove(animateSpotLight)
 
     return (
         <>
@@ -127,6 +132,8 @@ export const Table = () => {
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
 
     const animateDeskLamp = (mouseData: MouseMoveValues) => {
+        // console.log(camera.position.x, camera.position.y, camera.position.z)
+
         if (gltf) {
             const lampNeck = findMeshByName(gltf, "lamp-neck")
 
@@ -152,7 +159,9 @@ export const Table = () => {
         }
     }
 
-    useMouseMoveLocation(animateDeskLamp)
+    useMouseMove(animateDeskLamp)
+
+    const { camera } = useThree()
 
     const clockHands = useRef<Object3D<THREE.Event>[]>()
 
@@ -220,8 +229,9 @@ export const Table = () => {
                 const changeWallpaper = () => {
                     gsap.to(offset, {
                         x: "+=" + STEP_VALUE,
-                        duration: 2,
+                        duration: 1,
                         onComplete: changeWallpaper,
+                        delay: 1.5,
                     })
                 }
 
@@ -265,6 +275,33 @@ export const Table = () => {
 
     useEffect(() => {
         init()
+    }, [gltf])
+
+    useEffect(() => {
+        const init = async () => {
+            const { ScrollTrigger } = await import("gsap/ScrollTrigger")
+
+            gsap.registerPlugin(ScrollTrigger)
+
+            gsap.to(camera.position, {
+                scrollTrigger: {
+                    trigger: ".section-1",
+                    start: "top top",
+                    end: "bottom center",
+                    markers: true,
+                    scrub: 1,
+                    pin: true,
+                },
+                x: 2.56,
+                y: 4.86,
+                z: 5.86,
+                duration: 3,
+            })
+
+            console.log(gltf.scene)
+        }
+
+        if (gltf) init()
     }, [gltf])
 
     return (

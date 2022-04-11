@@ -40,7 +40,7 @@ const Layout: React.FC = ({ children }) => {
     }, [state.currentTheme])
 
     return (
-        <div ref={background} className="h-screen">
+        <div ref={background}>
             <ThemeContext.Provider
                 value={{
                     state,

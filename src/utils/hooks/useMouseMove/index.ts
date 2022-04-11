@@ -3,7 +3,7 @@ import gsap from "gsap"
 import { useEffect } from "react"
 import { MouseMoveValues, OnMouseMove } from "./interface"
 
-const useMouseMoveLocation = (onMouseMove: OnMouseMove) => {
+const useMouseMove = (onMouseMove: OnMouseMove) => {
     const roundMouse = (num: number) => {
         return Math.round(num * 100) / 100
     }
@@ -22,7 +22,7 @@ const useMouseMoveLocation = (onMouseMove: OnMouseMove) => {
             gsap.registerPlugin(Observer)
 
             Observer.create({
-                type: "pointer,touch",
+                type: "touch,pointer",
                 onMove: observer => {
                     observer.x &&
                         observer.y &&
@@ -35,4 +35,4 @@ const useMouseMoveLocation = (onMouseMove: OnMouseMove) => {
     }, [onMouseMove])
 }
 
-export default useMouseMoveLocation
+export default useMouseMove

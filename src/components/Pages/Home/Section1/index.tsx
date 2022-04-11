@@ -38,13 +38,12 @@ const textBlock: TextBlockType[] = [
 
 const Section1 = () => {
     const cameraPosition = {
-        // initial: new Vector3(-3.17, 3.7, 5.97),
         initial: new Vector3(-3.3, 1, 4.8),
     }
 
     return (
         <>
-            <div className="h-screen relative">
+            <div className="section-1 h-screen relative">
                 {/* SVG */}
                 <div className="absolute w-full top-1/3">
                     <div className="flex-row-center w-full">
@@ -67,7 +66,11 @@ const Section1 = () => {
                             fov: 45,
                         }}
                     >
-                        <OrbitControls />
+                        <OrbitControls
+                            enableZoom={false}
+                            enableRotate={false}
+                            enablePan={false}
+                        />
 
                         <Suspense fallback={null}>
                             <Table />
@@ -81,7 +84,7 @@ const Section1 = () => {
                 </div>
 
                 {/* TEXT */}
-                <div className="absolute top-1/5 left-2/3">
+                <div className="absolute top-1/5 left-1/2 w-96">
                     <TextBlock textBlock={textBlock} />
                 </div>
             </div>
