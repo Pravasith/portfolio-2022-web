@@ -5,12 +5,12 @@ import { MouseMoveValues } from "@hooks/useMouseMove/interface"
 
 const Turbulence = () => {
     useEffect(() => {
-        animateTurbulenceFilterBaseFrequency()
+        animateWaveBackground()
     }, [])
 
-    const animateTurbulenceFilterBaseFrequency = (
-        mouseData?: MouseMoveValues
-    ) => {
+    const numberOfPartsToDivideScreenIn = 8
+
+    const animateWaveBackground = (mouseData?: MouseMoveValues) => {
         const tl = gsap.timeline()
 
         const animateTurb = () => {
@@ -31,13 +31,17 @@ const Turbulence = () => {
         if (mouseData) {
             const [x, y] = mouseData
 
-            if ((x * 70) % 2 === 0 || (y * 70) % 2 === 0) {
+            if ((x * 100) % (100 / numberOfPartsToDivideScreenIn) === 0) {
+                animateTurb()
+            }
+
+            if ((y * 100) % (100 / numberOfPartsToDivideScreenIn) === 0) {
                 animateTurb()
             }
         } else animateTurb()
     }
 
-    useMouseMove(animateTurbulenceFilterBaseFrequency)
+    useMouseMove(animateWaveBackground)
 
     return (
         <>

@@ -52,3 +52,7 @@ img {
     image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
     -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 }
+
+tspan {
+    @apply font-calibre-semibold;
+}

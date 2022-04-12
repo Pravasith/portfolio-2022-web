@@ -131,31 +131,31 @@ export const Table = () => {
     const [deskLightParent, setDeskLightParent] = useState<Object3D>()
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
 
+    const [models, setModels] = useState<Record<string, Object3D<THREE.Event>>>(
+        {}
+    )
+
     const animateDeskLamp = (mouseData: MouseMoveValues) => {
-        // console.log(camera.position.x, camera.position.y, camera.position.z)
+        if (!!Object.keys(models).length) {
+            const { lampNeck, lampPivot3, lampPivot2, lampPivot1, lampBase } =
+                models
 
-        if (gltf) {
-            const lampNeck = findMeshByName(gltf, "lamp-neck")
-
-            const lampPivot3 = findMeshByName(gltf, "lamppivot3")
-            const lampPivot2 = findMeshByName(gltf, "lamppivot2")
-            const lampPivot1 = findMeshByName(gltf, "lamppivot1")
-
-            const lampBase = findMeshByName(gltf, "lampbase")
-
-            gsap.to(lampNeck.rotation, { y: mouseData[0] })
+            gsap.to(lampNeck.rotation, { y: mouseData[0], duration: 1 })
 
             gsap.to(lampPivot3.rotation, {
                 y: -mouseData[1] * 1.5 + 0.5,
+                duration: 1,
             })
             gsap.to(lampPivot2.rotation, {
                 y: -mouseData[1] * 0.5 + 1.5,
+                duration: 1,
             })
             gsap.to(lampPivot1.rotation, {
                 y: -mouseData[1] * 0.25 + 0.75,
+                duration: 1,
             })
 
-            gsap.to(lampBase.rotation, { y: -mouseData[0] })
+            gsap.to(lampBase.rotation, { y: -mouseData[0], duration: 1 })
         }
     }
 
@@ -268,6 +268,28 @@ export const Table = () => {
             clockHands.current = [hourHand, minHand, secHand]
         }
 
+        const saveModelsInState = () => {
+            const lampNeck = findMeshByName(gltf, "lamp-neck")
+
+            const lampPivot3 = findMeshByName(gltf, "lamppivot3")
+            const lampPivot2 = findMeshByName(gltf, "lamppivot2")
+            const lampPivot1 = findMeshByName(gltf, "lamppivot1")
+
+            const lampBase = findMeshByName(gltf, "lampbase")
+
+            const pencil = findMeshByName(gltf, "pencil")
+
+            setModels({
+                lampNeck,
+                lampPivot3,
+                lampPivot2,
+                lampPivot1,
+                lampBase,
+                pencil,
+            })
+        }
+
+        saveModelsInState()
         laptopScreenInitAndAnimate()
         deskLightInitAndAnimate()
         clockHandsInit()
@@ -283,22 +305,30 @@ export const Table = () => {
 
             gsap.registerPlugin(ScrollTrigger)
 
+            const scrollTrigger = {
+                trigger: ".section-1-container",
+                start: "top top",
+                end: "bottom center",
+                // markers: true,
+                scrub: 1,
+                pin: true,
+            }
+
             gsap.to(camera.position, {
-                scrollTrigger: {
-                    trigger: ".section-1",
-                    start: "top top",
-                    end: "bottom center",
-                    markers: true,
-                    scrub: 1,
-                    pin: true,
-                },
+                scrollTrigger,
                 x: 2.56,
                 y: 4.86,
                 z: 5.86,
                 duration: 3,
             })
 
-            console.log(gltf.scene)
+            gsap.to(".section-1-red-triangle", { scrollTrigger, y: 20 })
+            gsap.to(".section-1-text-block", {
+                scrollTrigger,
+                x: 80,
+                stagger: 0.2,
+            })
+            gsap.to(".section-1-bgd-beach-1", { scrollTrigger, y: -50 })
         }
 
         if (gltf) init()

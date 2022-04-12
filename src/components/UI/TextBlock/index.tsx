@@ -27,6 +27,7 @@ const TextBlock = ({ textBlock }: TextBlockProps) => {
                                     spanColorClassName={spanColorClassName}
                                     text={item.text}
                                 />
+                                &nbsp;&nbsp;
                             </h1>
                         )
 

@@ -43,13 +43,13 @@ const Section1 = () => {
 
     return (
         <>
-            <div className="section-1 h-screen relative">
+            <div className="section-1-container h-screen relative">
                 {/* SVG */}
                 <div className="absolute w-full top-1/3">
                     <div className="flex-row-center w-full">
                         <div className="w-2/3 relative">
                             <Section1BgdBeach />
-                            <div className="absolute w-1/5 h-1/5 top-1/4 right-1/10">
+                            <div className="section-1-bgd-beach-1 absolute w-1/5 h-1/5 top-1/4 right-1/10">
                                 <Section1BgdBeach1 />
                             </div>
                         </div>
@@ -79,12 +79,12 @@ const Section1 = () => {
                 </div>
 
                 {/* TRIANGLES */}
-                <div className="absolute w-1/5 h-1/5 bottom-1/10 left-1/3">
+                <div className="section-1-red-triangle absolute w-1/5 h-1/5 bottom-1/10 left-1/3">
                     <Section1RedTriangles />
                 </div>
 
                 {/* TEXT */}
-                <div className="absolute top-1/5 left-1/2 w-96">
+                <div className="section-1-text-block absolute top-1/5 left-1/2 w-96">
                     <TextBlock textBlock={textBlock} />
                 </div>
             </div>
