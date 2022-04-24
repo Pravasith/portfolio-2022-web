@@ -20,7 +20,7 @@ const TextBlock = ({ textBlock }: TextBlockProps) => {
                     case ETextTypes.H1:
                         return (
                             <h1
-                                className={textColorClassName}
+                                className={`${textColorClassName} text-right`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
@@ -34,7 +34,7 @@ const TextBlock = ({ textBlock }: TextBlockProps) => {
                     case ETextTypes.H3:
                         return (
                             <h3
-                                className={textColorClassName}
+                                className={`${textColorClassName} text-right`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
@@ -47,7 +47,7 @@ const TextBlock = ({ textBlock }: TextBlockProps) => {
                     case ETextTypes.P:
                         return (
                             <p
-                                className={textColorClassName}
+                                className={`${textColorClassName} text-right`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText

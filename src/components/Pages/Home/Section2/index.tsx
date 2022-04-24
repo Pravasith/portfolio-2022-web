@@ -1,6 +1,28 @@
+import { ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
+
 import { CurvedText } from "./svgs"
+import TextBlock from "@ui/TextBlock"
 
 const Section2 = () => {
+    const textBlock: TextBlockType[] = [
+        {
+            type: ETextTypes.P,
+            text: "I’m currently living in :span:>Toronto, Canada.<:span:",
+        },
+        {
+            type: ETextTypes.P,
+            text: "I have over",
+        },
+        {
+            type: ETextTypes.H1,
+            text: "6 years",
+        },
+        {
+            type: ETextTypes.P,
+            text: "of experience in :span:>designing experiences<:span:, and :span:>developing web, mobile applications<:span: and :span:>turning business requirements into effective solutions<:span: at :span:>mid and high-valued startups<:span:.",
+        },
+    ]
+
     return (
         <div className="section-1-container h-screen relative">
             {/* SVG */}
@@ -13,8 +35,8 @@ const Section2 = () => {
             </div>
 
             {/* TEXT */}
-            <div className="section-1-text-block absolute top-1/5 left-1/2 w-96 bg-yellow-200">
-                {/* <TextBlock textBlock={textBlock} /> */}
+            <div className="section-1-text-block absolute top-1/2 left-0 w-96 ">
+                <TextBlock textBlock={textBlock} />
             </div>
         </div>
     )

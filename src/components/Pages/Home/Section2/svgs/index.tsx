@@ -14,6 +14,15 @@ export const CurvedText = () => {
             "AWS",
             "WEBGL",
             "NODE",
+
+            "PROTOTYPING",
+            "VISUAL DESIGN",
+            "SVG",
+            "CANVAS",
+            "ILLUSTRATOR",
+            "BLENDER",
+            "3D MODELLING",
+            "ANIMATION",
         ]
 
         return words.map((word, i) => {
