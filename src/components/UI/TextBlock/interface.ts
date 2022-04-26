@@ -13,7 +13,12 @@ export type TextBlockType = {
     spanColorClassName?: ETextColorClassNames
 }
 
+export enum ETextAlign {
+    LEFT = "text-left",
+    RIGHT = "text-right",
+}
+
 export interface TextBlockProps {
     textBlock: TextBlockType[]
-    colorClassName?: ETextColorClassNames
+    textAlign: ETextAlign
 }

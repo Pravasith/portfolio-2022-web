@@ -97,7 +97,8 @@
 @layer base {
     h1 {
         @apply font-calibre-bold underline decoration-1 underline-offset-2;
-        font-size: 3rem;
+        font-size: 2.25rem;
+        line-height: 2.25rem;
     }
 
     h3 {
@@ -106,7 +107,7 @@
 
     p {
         @apply text-lg leading-5;
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
     /* ... */
 }

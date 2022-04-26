@@ -1,4 +1,4 @@
-import { ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
+import { ETextAlign, ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
 
 import { CurvedText } from "./svgs"
 import TextBlock from "@ui/TextBlock"
@@ -24,7 +24,7 @@ const Section2 = () => {
     ]
 
     return (
-        <div className="section-1-container h-screen relative">
+        <div className="section-2-container h-screen relative">
             {/* SVG */}
             <div className="absolute w-1/2 top-1/4 right-0">
                 <div className="flex-row-center w-full">
@@ -35,8 +35,8 @@ const Section2 = () => {
             </div>
 
             {/* TEXT */}
-            <div className="section-1-text-block absolute top-1/2 left-0 w-96 ">
-                <TextBlock textBlock={textBlock} />
+            <div className="section-2-text-block absolute top-1/2 left-0 w-96 ">
+                <TextBlock textAlign={ETextAlign.RIGHT} textBlock={textBlock} />
             </div>
         </div>
     )

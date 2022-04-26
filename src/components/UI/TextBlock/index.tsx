@@ -4,7 +4,7 @@ import { random20Id } from "@utils/index"
 import { ETextTypes, TextBlockProps } from "./interface"
 import SpanifiedText from "./SpanifiedText"
 
-const TextBlock = ({ textBlock }: TextBlockProps) => {
+const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
     return (
         <article>
             {textBlock.map((item, i) => {
@@ -20,7 +20,7 @@ const TextBlock = ({ textBlock }: TextBlockProps) => {
                     case ETextTypes.H1:
                         return (
                             <h1
-                                className={`${textColorClassName} text-right`}
+                                className={`${textColorClassName} ${textAlign} mb-6`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
@@ -34,7 +34,7 @@ const TextBlock = ({ textBlock }: TextBlockProps) => {
                     case ETextTypes.H3:
                         return (
                             <h3
-                                className={`${textColorClassName} text-right`}
+                                className={`${textColorClassName} ${textAlign}  mb-6`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
@@ -47,7 +47,7 @@ const TextBlock = ({ textBlock }: TextBlockProps) => {
                     case ETextTypes.P:
                         return (
                             <p
-                                className={`${textColorClassName} text-right`}
+                                className={`${textColorClassName} ${textAlign}  mb-6`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText

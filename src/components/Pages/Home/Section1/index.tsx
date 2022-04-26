@@ -1,10 +1,9 @@
 import { Suspense } from "react"
 
-import { ETextColorClassNames } from "@lib/themes/colors"
 import { OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
-import { ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
+import { ETextAlign, ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
 
 import {
     Section1BgdBeach,
@@ -17,22 +16,13 @@ import { Table } from "./models"
 
 const textBlock: TextBlockType[] = [
     {
-        type: ETextTypes.H3,
-        text: "Hi there!",
-        spanColorClassName: ETextColorClassNames.TEXT_RED_100,
-        textColorClassName: ETextColorClassNames.LIGHT_THEME_TEXT_200,
-    },
-    {
-        type: ETextTypes.H3,
-        text: "I'm a full-stack",
-    },
-    {
         type: ETextTypes.H1,
-        text: `Design-eer.`,
+        text: `A Product Designer:br: turned:br: Software Engineer.`,
     },
+
     {
         type: ETextTypes.P,
-        text: "(noun):  Someone who gets excited to solve :span:>business problems<:span: using :span:>experience design techniques<:span: and by building :span:>loosely coupled software-architecture<:span:.",
+        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer:br: who is passionate about delivering the best :br::span:>User Experiences<:span:, & loves organizing data by writing :span:>algorithms<:span:.",
     },
 ]
 
@@ -84,8 +74,11 @@ const Section1 = () => {
                 </div>
 
                 {/* TEXT */}
-                <div className="section-1-text-block absolute top-1/5 left-1/2 w-96">
-                    <TextBlock textBlock={textBlock} />
+                <div className="section-1-text-block absolute top-1/8 right-1/10 w-1/3">
+                    <TextBlock
+                        textAlign={ETextAlign.LEFT}
+                        textBlock={textBlock}
+                    />
                 </div>
             </div>
         </>
