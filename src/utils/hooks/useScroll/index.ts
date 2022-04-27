@@ -1,36 +1,19 @@
 import gsap from "gsap"
 
 import { useEffect } from "react"
-import { OnScroll } from "./interface"
+import { OnScrollTrigger } from "./interface"
 
-const useScroll = (onScroll: OnScroll) => {
-    // const roundMouse = (num: number) => {
-    //     return Math.round(num * 100) / 100
-    // }
-
-    // const mouseMoveHandler = (e: ScrollValues) => {
-    //     // onScroll([
-    //     //     roundMouse((2 * e[0] - window.innerWidth) / window.innerWidth),
-    //     //     roundMouse((2 * e[1] - window.innerHeight) / window.innerHeight),
-    //     // ])
-    // }
-
+const useScrollTrigger = (onScrollTrigger: OnScrollTrigger, deps: any[]) => {
     useEffect(() => {
         const init = async () => {
-            const { Observer } = await import("gsap/Observer")
+            const { ScrollTrigger } = await import("gsap/ScrollTrigger")
 
-            gsap.registerPlugin(Observer)
-
-            Observer.create({
-                type: "wheel,scroll",
-                // onUp: observer => {
-                //     // console.log(observer.velocityX, observer.velocityY)
-                // },
-            })
+            gsap.registerPlugin(ScrollTrigger)
+            onScrollTrigger(gsap)
         }
 
         init()
-    }, [onScroll])
+    }, [...deps])
 }
 
-export default useScroll
+export default useScrollTrigger

@@ -13,16 +13,17 @@ import {
 import { Vector3 } from "three"
 
 import { Table } from "./models"
+import useScrollTrigger from "@hooks/useScroll"
 
 const textBlock: TextBlockType[] = [
     {
         type: ETextTypes.H1,
-        text: `A Product Designer:br: turned:br: Software Engineer.`,
+        text: `A Product Designer :br: turned:br: Software Engineer .`,
     },
 
     {
         type: ETextTypes.P,
-        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer:br: who is passionate about delivering the best :br::span:>User Experiences<:span:, & loves organizing data by writing :span:>algorithms<:span:.",
+        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer:br: who is passionate about delivering the best :br::span:>🎨 User Experiences<:span: & loves :span:>👨‍💻 optimizing data<:span: by utilizing data structures and writing algorithms.",
     },
 ]
 
@@ -31,13 +32,42 @@ const Section1 = () => {
         initial: new Vector3(-3.3, 1, 4.8),
     }
 
+    useScrollTrigger(gsapX => {
+        const scrollTrigger = {
+            trigger: ".section-1-container",
+            start: "top top",
+            end: "bottom center",
+            // markers: true,
+            scrub: 1,
+            pin: true,
+        }
+
+        gsapX.to(".section-1-red-triangle", {
+            scrollTrigger,
+            y: 120,
+            scale: 1.2,
+            yoyo: true,
+        })
+        gsapX.to(".section-1-bgd-beach-0", {
+            scrollTrigger,
+            y: 20,
+            scale: 1.05,
+            yoyo: true,
+        })
+        gsapX.to(".section-1-bgd-beach-1", {
+            scrollTrigger,
+            y: -80,
+            yoyo: true,
+        })
+    }, [])
+
     return (
         <>
             <div className="section-1-container h-screen relative">
                 {/* SVG */}
                 <div className="absolute w-full top-1/3">
                     <div className="flex-row-center w-full">
-                        <div className="w-2/3 relative">
+                        <div className="section-1-bgd-beach-0 w-2/3 relative">
                             <Section1BgdBeach />
                             <div className="section-1-bgd-beach-1 absolute w-1/5 h-1/5 top-1/4 right-1/10">
                                 <Section1BgdBeach1 />

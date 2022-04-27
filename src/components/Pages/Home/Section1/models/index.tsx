@@ -3,11 +3,12 @@ import { useEffect, useRef, useState } from "react"
 import { Object3D, Vector3 } from "three"
 import * as THREE from "three"
 import { findMeshByName } from "@utils/index"
-import gsap from "gsap"
+import gsap, { Sine } from "gsap"
 import useMouseMove from "@hooks/useMouseMove"
 import { useFrame, useThree } from "@react-three/fiber"
 import { LightsProps } from "./interface"
 import { MouseMoveValues } from "@hooks/useMouseMove/interface"
+import useScrollTrigger from "@hooks/useScroll"
 
 const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
     const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())
@@ -165,11 +166,9 @@ export const Table = () => {
 
     const clockHands = useRef<Object3D<THREE.Event>[]>()
 
-    const animateClock = () => {
+    const animateClock = (date: Date) => {
         if (gltf && clockHands.current) {
             const [hourHand, minHand, secHand] = clockHands.current
-
-            const date = new Date()
 
             const time = {
                 sec: date.getSeconds(),
@@ -184,7 +183,8 @@ export const Table = () => {
     }
 
     useFrame(() => {
-        animateClock()
+        const date = new Date()
+        animateClock(date)
     })
 
     const init = async () => {
@@ -241,6 +241,24 @@ export const Table = () => {
             ;(laptopScreenPixels as THREE.Mesh).material = material
         }
 
+        const animatePencil = () => {
+            const pencil = findMeshByName(gltf, "pencil")
+
+            const tl = gsap.timeline({ repeat: -1, ease: Sine.easeIn })
+            const Y_ROT_PENCIL = 0.5
+            gsap.set(pencil.rotation, {
+                y: -Y_ROT_PENCIL,
+            })
+
+            tl.to(pencil.rotation, {
+                y: Y_ROT_PENCIL,
+                duration: 5,
+            }).to(pencil.rotation, {
+                y: -Y_ROT_PENCIL,
+                duration: 5,
+            })
+        }
+
         const deskLightInitAndAnimate = () => {
             const deskLight = findMeshByName(gltf, "light-shine")
 
@@ -293,18 +311,15 @@ export const Table = () => {
         laptopScreenInitAndAnimate()
         deskLightInitAndAnimate()
         clockHandsInit()
+        animatePencil()
     }
 
     useEffect(() => {
         init()
     }, [gltf])
 
-    useEffect(() => {
-        const init = async () => {
-            const { ScrollTrigger } = await import("gsap/ScrollTrigger")
-
-            gsap.registerPlugin(ScrollTrigger)
-
+    useScrollTrigger(
+        gsapX => {
             const scrollTrigger = {
                 trigger: ".section-1-container",
                 start: "top top",
@@ -314,25 +329,46 @@ export const Table = () => {
                 pin: true,
             }
 
-            gsap.to(camera.position, {
+            gsapX.to(camera.position, {
                 scrollTrigger,
                 x: 2.56,
                 y: 4.86,
                 z: 5.86,
                 duration: 3,
             })
+        },
+        [gltf]
+    )
 
-            gsap.to(".section-1-red-triangle", { scrollTrigger, y: 20 })
-            gsap.to(".section-1-text-block", {
-                scrollTrigger,
-                x: 80,
-                stagger: 0.2,
-            })
-            gsap.to(".section-1-bgd-beach-1", { scrollTrigger, y: -50 })
-        }
+    // INTENTIONAL COMMENT: Rollback
+    // useEffect(() => {
+    //     const init = async () => {
+    //         const { ScrollTrigger } = await import("gsap/ScrollTrigger")
+    //         gsap.registerPlugin(ScrollTrigger)
 
-        if (gltf) init()
-    }, [gltf])
+    //         const scrollTrigger = {
+    //             trigger: ".section-1-container",
+    //             start: "top top",
+    //             end: "bottom center",
+    //             // markers: true,
+    //             scrub: 1,
+    //             pin: true,
+    //         }
+
+    //         gsap.to(camera.position, {
+    //             scrollTrigger,
+    //             x: 2.56,
+    //             y: 4.86,
+    //             z: 5.86,
+    //             duration: 3,
+    //         })
+
+    //         gsap.to(".section-1-red-triangle", { scrollTrigger, y: 20 })
+    //         gsap.to(".section-1-bgd-beach-1", { scrollTrigger, y: -50 })
+    //     }
+
+    //     if (gltf) init()
+    // }, [gltf])
 
     return (
         <>

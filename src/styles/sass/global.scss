@@ -53,6 +53,6 @@ img {
     -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 }
 
-tspan {
+tspan.curlyTextBold {
     @apply font-calibre-semibold;
 }
