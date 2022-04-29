@@ -32,6 +32,7 @@ module.exports = {
                     200: "#f2f2f2",
                 },
             },
+
             fontFamily: {
                 calibre: "Calibre",
                 "calibre-bold": "Calibre Bold",
@@ -42,6 +43,15 @@ module.exports = {
                 "1/10": "10%",
                 "1/5": "20%",
                 "1/8": "15%",
+            },
+
+            backgroundImage: {
+                "button-bgd-1": "url('/img/button-background-01.svg')",
+                "button-bgd-2": "url('/img/button-background-02.svg')",
+            },
+
+            backgroundSize: {
+                "150%": "150%",
             },
         },
     },

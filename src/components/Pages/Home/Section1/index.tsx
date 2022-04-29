@@ -23,7 +23,7 @@ const textBlock: TextBlockType[] = [
 
     {
         type: ETextTypes.P,
-        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer:br: who is passionate about delivering the best :br::span:>🎨 User Experiences<:span: & loves :span:>👨‍💻 optimizing data<:span: by utilizing data structures and writing algorithms.",
+        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer:br: who is passionate about delivering the best :br::span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
     },
 ]
 
@@ -65,7 +65,7 @@ const Section1 = () => {
         <>
             <div className="section-1-container h-screen relative">
                 {/* SVG */}
-                <div className="absolute w-full top-1/3">
+                <div className="absolute w-full -bottom-1/10">
                     <div className="flex-row-center w-full">
                         <div className="section-1-bgd-beach-0 w-2/3 relative">
                             <Section1BgdBeach />
@@ -77,7 +77,7 @@ const Section1 = () => {
                 </div>
 
                 {/* THREE */}
-                <div className="absolute w-full h-full top-1/10">
+                <div className="absolute w-full h-full -bottom-1/4">
                     <Canvas
                         linear={false}
                         shadows
@@ -104,7 +104,7 @@ const Section1 = () => {
                 </div>
 
                 {/* TEXT */}
-                <div className="section-1-text-block absolute top-1/8 right-1/10 w-1/3">
+                <div className="section-1-text-block absolute top-1/8 left-1/2 w-1/3">
                     <TextBlock
                         textAlign={ETextAlign.LEFT}
                         textBlock={textBlock}
