@@ -79,7 +79,7 @@
     }
 
     /* ALIGN CHILDREN TO THE SOUTH-EAST CORNER IN A COLUMN */
-    .flex-col-south {
+    .flex-col-south-east {
         @apply flex flex-col justify-end items-end;
     }
 

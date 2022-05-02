@@ -23,7 +23,7 @@ const textBlock: TextBlockType[] = [
 
     {
         type: ETextTypes.P,
-        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer:br: who is passionate about delivering the best :br::span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
+        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer who is passionate about delivering the best :br::span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
     },
 ]
 
@@ -63,52 +63,59 @@ const Section1 = () => {
 
     return (
         <>
-            <div className="section-1-container h-screen relative">
-                {/* SVG */}
-                <div className="absolute w-full -bottom-1/10">
-                    <div className="flex-row-center w-full">
-                        <div className="section-1-bgd-beach-0 w-2/3 relative">
-                            <Section1BgdBeach />
-                            <div className="section-1-bgd-beach-1 absolute w-1/5 h-1/5 top-1/4 right-1/10">
-                                <Section1BgdBeach1 />
-                            </div>
-                        </div>
+            <div className="section-1-container h-screen mb-10">
+                {/* TEXT BLOCK */}
+                <div className="flex-col-center mx-1/5 px-5 h-1/2">
+                    <div className="section-1-text-block ">
+                        <TextBlock
+                            textAlign={ETextAlign.LEFT}
+                            textBlock={textBlock}
+                        />
                     </div>
                 </div>
 
-                {/* THREE */}
-                <div className="absolute w-full h-full -bottom-1/4">
-                    <Canvas
-                        linear={false}
-                        shadows
-                        camera={{
-                            position: cameraPosition.initial,
-                            fov: 45,
-                        }}
-                    >
-                        <OrbitControls
-                            enableZoom={false}
-                            enableRotate={false}
-                            enablePan={false}
-                        />
+                {/* GRAPHICS BLOCK */}
+                <div className="section-1-graphics-block  h-1/2 relative -z-10 ">
+                    {/* SVG */}
+                    <div className="absolute w-full top-0 left-1/2 -translate-x-1/2 px-1/5">
+                        <div className="flex-row-center w-full">
+                            <div className="section-1-bgd-beach-0 w-2/3 relative">
+                                <Section1BgdBeach />
+                                <div className="section-1-bgd-beach-1 absolute w-1/5 h-1/5 top-1/4 right-1/10">
+                                    <Section1BgdBeach1 />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <Suspense fallback={null}>
-                            <Table />
-                        </Suspense>
-                    </Canvas>
-                </div>
+                    {/* THREE */}
+                    <div className="relative w-full h-full">
+                        <div className="absolute w-full h-200% -bottom-1/2 ">
+                            <Canvas
+                                linear={false}
+                                shadows
+                                camera={{
+                                    position: cameraPosition.initial,
+                                    fov: 45,
+                                }}
+                            >
+                                <OrbitControls
+                                    enableZoom={false}
+                                    enableRotate={false}
+                                    enablePan={false}
+                                />
 
-                {/* TRIANGLES */}
-                <div className="section-1-red-triangle absolute w-1/5 h-1/5 bottom-1/10 left-1/3">
-                    <Section1RedTriangles />
-                </div>
+                                <Suspense fallback={null}>
+                                    <Table />
+                                </Suspense>
+                            </Canvas>
+                        </div>
+                    </div>
 
-                {/* TEXT */}
-                <div className="section-1-text-block absolute top-1/8 left-1/2 w-1/3">
-                    <TextBlock
-                        textAlign={ETextAlign.LEFT}
-                        textBlock={textBlock}
-                    />
+                    {/* TRIANGLES */}
+                    <div className="section-1-red-triangle absolute w-72 h-1/5 bottom-1/5 left-1/3 mx-8">
+                        <Section1RedTriangles />
+                    </div>
                 </div>
             </div>
         </>

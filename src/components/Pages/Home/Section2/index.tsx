@@ -22,7 +22,7 @@ const Section2 = () => {
     ]
 
     return (
-        <div className="section-2-container h-screen">
+        <div className="section-2-container h-screen px-1/5">
             <div className="flex-col-center w-full h-full">
                 <div className="flex-row-center w-full h-full">
                     {/* TEXT */}

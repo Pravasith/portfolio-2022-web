@@ -6,7 +6,7 @@ import Section3 from "./Section3"
 const Home = () => {
     return (
         <div className={`flex flex-row justify-center w-full h-full`}>
-            <div className="w-3/5">
+            <div className="w-full">
                 <Section1 />
                 <Section2 />
                 <Section3 />
