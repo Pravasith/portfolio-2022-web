@@ -38,14 +38,14 @@ const Section1 = () => {
             start: "top top",
             end: "bottom center",
             // markers: true,
-            scrub: 1,
+            scrub: 0.5,
             pin: true,
         }
 
         gsapX.to(".section-1-red-triangle", {
             scrollTrigger,
-            y: 120,
-            scale: 1.2,
+            y: 150,
+            scale: 1.085,
             yoyo: true,
         })
         gsapX.to(".section-1-bgd-beach-0", {
@@ -56,7 +56,7 @@ const Section1 = () => {
         })
         gsapX.to(".section-1-bgd-beach-1", {
             scrollTrigger,
-            y: -80,
+            y: -100,
             yoyo: true,
         })
     }, [])

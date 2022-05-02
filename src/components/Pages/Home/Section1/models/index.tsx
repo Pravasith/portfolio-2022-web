@@ -325,7 +325,7 @@ export const Table = () => {
                 start: "top top",
                 end: "bottom center",
                 // markers: true,
-                scrub: 1,
+                scrub: 0.5,
                 pin: true,
             }
 
