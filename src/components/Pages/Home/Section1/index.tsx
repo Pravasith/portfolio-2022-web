@@ -18,12 +18,12 @@ import useScrollTrigger from "@hooks/useScroll"
 const textBlock: TextBlockType[] = [
     {
         type: ETextTypes.H1,
-        text: `A Product Designer :br: turned:br: Software Engineer .`,
+        text: `A Product Designer :br: turned:br: Software Engineer.`,
     },
 
     {
         type: ETextTypes.P,
-        text: "I'm Pravas, a :span:>TypeScript/JavaScript<:span: developer who is passionate about delivering the best :br::span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
+        text: "Hey, I'm Pravas 👋🏼, a :span:>TypeScript/JavaScript<:span: developer who is passionate about delivering the best :br::span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
     },
 ]
 
@@ -65,7 +65,7 @@ const Section1 = () => {
         <>
             <div className="section-1-container h-screen mb-10">
                 {/* TEXT BLOCK */}
-                <div className="flex-col-center mx-1/5 px-5 h-1/2">
+                <div className="flex-col-center mx-1/4 px-5 h-1/2">
                     <div className="section-1-text-block ">
                         <TextBlock
                             textAlign={ETextAlign.LEFT}

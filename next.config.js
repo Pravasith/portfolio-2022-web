@@ -5,6 +5,10 @@ const nextConfig = {
     eslint: {
         dirs: ["."], //or ['pages', 'hooks']
     },
+
+    images: {
+        domains: ["images.unsplash.com", "unsplash.com"],
+    },
 }
 
 module.exports = nextConfig

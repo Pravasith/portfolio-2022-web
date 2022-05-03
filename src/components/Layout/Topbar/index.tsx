@@ -25,34 +25,29 @@ const Topbar = () => {
     }
 
     return (
-        <div className="relative z-10">
-            <div className="h-fit">
-                <div className="fixed w-full">
-                    <div className="flex flex-row justify-between items-center py-12">
-                        <div className="w-1/5 flex-row-center">
-                            <Icon
-                                iconSize={EIconSizes.sm}
-                                iconBackground={
-                                    EColors.ICON_BACKGROUND_YELLOW_100
-                                }
-                            >
-                                <MainLogo />
-                            </Icon>
-                        </div>
-                        <div className="w-1/5 flex-row-center">
-                            <Icon
-                                onClick={changeTheme}
-                                iconSize={EIconSizes.lg}
-                            >
-                                <SunMoon />
-                            </Icon>
-                        </div>
+        <>
+            <div className="w-1/5 fixed z-10">
+                <div className="flex-col-center">
+                    <div className="my-10">
+                        <Icon
+                            iconSize={EIconSizes.sm}
+                            iconBackground={EColors.ICON_BACKGROUND_YELLOW_100}
+                        >
+                            <MainLogo />
+                        </Icon>
                     </div>
                 </div>
             </div>
-
-            <div className="bg-yellow-200 w-full h-full"></div>
-        </div>
+            <div className="w-1/5 fixed z-10 right-0">
+                <div className="flex-col-center">
+                    <div className="my-10">
+                        <Icon onClick={changeTheme} iconSize={EIconSizes.lg}>
+                            <SunMoon />
+                        </Icon>
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
 

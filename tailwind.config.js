@@ -54,6 +54,10 @@ module.exports = {
             backgroundSize: {
                 "150%": "150%",
             },
+
+            minWidth: {
+                "1/2": "50%",
+            },
         },
     },
     plugins: [],
