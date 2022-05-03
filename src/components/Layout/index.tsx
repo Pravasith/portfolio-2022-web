@@ -40,7 +40,7 @@ const Layout: React.FC = ({ children }) => {
     }, [state.currentTheme])
 
     return (
-        <div ref={background}>
+        <div ref={background} className={`absolute z-10`}>
             <ThemeContext.Provider
                 value={{
                     state,

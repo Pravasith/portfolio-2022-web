@@ -13,7 +13,7 @@ import {
 import { Vector3 } from "three"
 
 import { Table } from "./models"
-import useScrollTrigger from "@hooks/useScroll"
+import useScrollTrigger from "@hooks/useScrollTrigger"
 
 const textBlock: TextBlockType[] = [
     {

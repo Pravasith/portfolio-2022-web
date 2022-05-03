@@ -8,7 +8,7 @@ import useMouseMove from "@hooks/useMouseMove"
 import { useFrame, useThree } from "@react-three/fiber"
 import { LightsProps } from "./interface"
 import { MouseMoveValues } from "@hooks/useMouseMove/interface"
-import useScrollTrigger from "@hooks/useScroll"
+import useScrollTrigger from "@hooks/useScrollTrigger"
 
 const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
     const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())

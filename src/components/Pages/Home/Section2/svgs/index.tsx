@@ -1,4 +1,4 @@
-import useScrollTrigger from "@hooks/useScroll"
+import useScrollTrigger from "@hooks/useScrollTrigger"
 import React, { useRef } from "react"
 
 export const CurvedText = () => {
@@ -60,7 +60,7 @@ export const CurvedText = () => {
                     start: "top top",
                     end: "bottom 25%",
                     // markers: true,
-                    scrub: 2,
+                    scrub: 0.5,
                     pin: true,
                 }
 

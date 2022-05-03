@@ -1,7 +1,8 @@
 import TextBlock from "@components/UI/TextBlock"
 import { ETextAlign, ETextTypes } from "@components/UI/TextBlock/interface"
 import Image from "next/image"
-import { memo, useState } from "react"
+import { useState } from "react"
+import { SVGBackground1, SVGBackground2 } from "./svgs"
 
 const ProjectSection = () => {
     const [imageBlock] = useState<
@@ -63,7 +64,7 @@ const ProjectSection = () => {
         },
     ])
 
-    const projects = imageBlock.map(item => {
+    const projects = imageBlock.map((item, i) => {
         const projectTextBlocks = [
             {
                 type: ETextTypes.H1,
@@ -76,17 +77,29 @@ const ProjectSection = () => {
         ]
 
         return (
-            <div key={item.id} className="flex-row-west w-full my-40">
-                <div className="min-w-1/2 w-1/2 border-4 rounded-3xl flex-row-center border-black overflow-clip">
-                    <Image
-                        src={item.imageSrc}
-                        alt={item.imageAlt}
-                        width={item.width}
-                        height={item.height}
-                    />
+            <div key={item.id} className="flex-row-west py-36 w-full">
+                <div className="relative min-w-1/2 w-1/2">
+                    <div className={`absolute w-130% top-1/2 -left-1/5 -z-10`}>
+                        {i === 0 && <SVGBackground1 />}
+                    </div>
+
+                    <div className={`absolute w-full top-1/5 -left-1/5 -z-10`}>
+                        {i === 2 && <SVGBackground2 />}
+                    </div>
+
+                    <div className="w-full border-4 rounded-3xl border-black overflow-clip">
+                        <div className={`flex-row-center`}>
+                            <Image
+                                src={item.imageSrc}
+                                alt={item.imageAlt}
+                                width={item.width}
+                                height={item.height}
+                            />
+                        </div>
+                    </div>
                 </div>
 
-                <div className="mx-10">
+                <div className="px-10">
                     <TextBlock
                         textAlign={ETextAlign.LEFT}
                         textBlock={projectTextBlocks}
@@ -96,7 +109,7 @@ const ProjectSection = () => {
         )
     })
 
-    return <>{projects}</>
+    return <div>{projects}</div>
 }
 
-export default memo(ProjectSection)
+export default ProjectSection

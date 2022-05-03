@@ -1,16 +1,14 @@
 import React, { useEffect } from "react"
 import gsap from "gsap"
-import useMouseMove from "@hooks/useMouseMove"
-import { MouseMoveValues } from "@hooks/useMouseMove/interface"
+
+import useMouseScroll from "@hooks/useMouseScroll"
 
 const Turbulence = () => {
     useEffect(() => {
         animateWaveBackground()
     }, [])
 
-    const numberOfPartsToDivideScreenIn = 8
-
-    const animateWaveBackground = (mouseData?: MouseMoveValues) => {
+    const animateWaveBackground = () => {
         const tl = gsap.timeline()
 
         const animateTurb = () => {
@@ -28,20 +26,10 @@ const Turbulence = () => {
             })
         }
 
-        if (mouseData) {
-            const [x, y] = mouseData
-
-            if ((x * 100) % (100 / numberOfPartsToDivideScreenIn) === 0) {
-                animateTurb()
-            }
-
-            if ((y * 100) % (100 / numberOfPartsToDivideScreenIn) === 0) {
-                animateTurb()
-            }
-        } else animateTurb()
+        animateTurb()
     }
 
-    useMouseMove(animateWaveBackground)
+    useMouseScroll(() => animateWaveBackground())
 
     return (
         <>
