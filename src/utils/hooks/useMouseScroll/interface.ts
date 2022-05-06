@@ -1,1 +1,1 @@
-export type OnMouseScroll = () => void
+export type OnMouseScroll = (scrollY: number) => void

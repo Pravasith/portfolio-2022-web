@@ -7,13 +7,13 @@ import {
 
 import ContactBar from "./ContactBar"
 import MenuBar from "./MenuBar"
-import TopBar from "./TopBar"
 
 import { themeReducer } from "@utils/reducers"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
 import { EColors } from "@lib/themes/colors"
 import FontsCopyright from "./FontsCopyright"
+import TopBar from "./Topbar"
 
 const Layout: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(

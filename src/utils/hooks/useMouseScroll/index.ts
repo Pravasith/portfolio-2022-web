@@ -1,25 +1,37 @@
 import gsap from "gsap"
 
-import { useEffect } from "react"
-import { OnMouseScroll } from "./interface"
+import { useEffect, useState } from "react"
+import { useDebounce } from "use-debounce"
+// import { OnMouseScroll } from "./interface"
 
-const useMouseScroll = (onMouseScroll: OnMouseScroll) => {
-    useEffect(() => {
-        const init = async () => {
-            const { Observer } = await import("gsap/Observer")
+const useMouseScroll = () =>
+    // onMouseScroll: OnMouseScroll
+    {
+        const [scrollY, setScrollY] = useState<number>()
 
-            gsap.registerPlugin(Observer)
+        const [debouncedScrollY] = useDebounce(scrollY, 100)
 
-            Observer.create({
-                type: "wheel,touch,pointer",
-                onUp: onMouseScroll,
-                onDown: onMouseScroll,
-                wheelSpeed: 0,
-            })
-        }
+        useEffect(() => {
+            const init = async () => {
+                const { Observer } = await import("gsap/Observer")
 
-        init()
-    }, [onMouseScroll])
-}
+                gsap.registerPlugin(Observer)
+
+                Observer.create({
+                    type: "wheel,touch,pointer",
+                    onUp: o => {
+                        setScrollY(o.scrollY())
+                    },
+                    onDown: o => {
+                        setScrollY(o.scrollY())
+                    },
+                })
+            }
+
+            init()
+        }, [])
+
+        return debouncedScrollY
+    }
 
 export default useMouseScroll

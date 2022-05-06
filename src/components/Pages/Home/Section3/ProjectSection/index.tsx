@@ -2,7 +2,7 @@ import TextBlock from "@components/UI/TextBlock"
 import { ETextAlign, ETextTypes } from "@components/UI/TextBlock/interface"
 import Image from "next/image"
 import { useState } from "react"
-import { SVGBackground1, SVGBackground2 } from "./svgs"
+import { SVGBackground1, SVGBackground2, SVGBackground3 } from "./svgs"
 
 const ProjectSection = () => {
     const [imageBlock] = useState<
@@ -85,6 +85,10 @@ const ProjectSection = () => {
 
                     <div className={`absolute w-full top-1/5 -left-1/5 -z-10`}>
                         {i === 2 && <SVGBackground2 />}
+                    </div>
+
+                    <div className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}>
+                        {i === 0 && <SVGBackground3 />}
                     </div>
 
                     <div className="w-full border-4 rounded-3xl border-black overflow-clip">
