@@ -13,7 +13,7 @@ const Section2 = () => {
 
         {
             type: ETextTypes.P,
-            text: `I currently live in :span:>Toronto, Canada 🍁 🇨🇦.<:span::br: 
+            text: `I currently live in :span:>Toronto, Canada 🍁 🇨🇦.<:span:
             In my :span:>five years<:span: of professional experience, I've helped start-ups and 
             large organizations solve user problems with technology. 
             :br: :br:
@@ -22,13 +22,13 @@ const Section2 = () => {
     ]
 
     return (
-        <div className="section-2-container h-screen px-1/5">
-            <div className="flex-col-center w-full h-full">
-                <div className="flex-row-center w-full h-full">
+        <div className="section-2-container w-full h-screen my-96 ">
+            <div className="flex-col-center w-full h-full ">
+                <div className="flex-col-south w-full h-full ">
                     {/* TEXT */}
-                    <div className="w-1/2 m-4 h-full flex-col-east">
+                    <div className="w-1/3 my-8 flex-col-west ">
                         <TextBlock
-                            textAlign={ETextAlign.RIGHT}
+                            textAlign={ETextAlign.LEFT}
                             textBlock={textBlock}
                         />
 
@@ -36,7 +36,7 @@ const Section2 = () => {
                     </div>
 
                     {/* SVG */}
-                    <div className="section-2-curved-text w-1/2 mx-4 h-full flex-col-south">
+                    <div className="section-2-curved-text w-1/3 mx-4 h-1/2 flex-col-south ">
                         <CurvedText />
                     </div>
                 </div>

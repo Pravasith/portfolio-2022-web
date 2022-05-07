@@ -25,7 +25,7 @@ const textBlock: TextBlockType[] = [
 
     {
         type: ETextTypes.P,
-        text: "Hey, I'm Pravas 👋🏼, a :span:>TypeScript/JavaScript<:span: developer who is passionate about delivering the best :br::span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
+        text: "Hey, I'm Pravas 👋🏼, a :span:>TypeScript/JavaScript<:span: developer who is passionate about delivering the best :span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
     },
 ]
 
@@ -71,8 +71,8 @@ const Section1 = () => {
         <>
             <div className="section-1-container h-screen mb-10">
                 {/* TEXT BLOCK */}
-                <div className="flex-col-center mx-1/4 px-5 h-1/2">
-                    <div className="section-1-text-block ">
+                <div className="flex-col-center h-1/2">
+                    <div className="section-1-text-block w-1/3 ">
                         <TextBlock
                             textAlign={ETextAlign.LEFT}
                             textBlock={textBlock}
