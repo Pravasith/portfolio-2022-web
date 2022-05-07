@@ -1,9 +1,11 @@
 import { Suspense } from "react"
 
 import { OrbitControls } from "@react-three/drei"
-import { Canvas } from "@react-three/fiber"
+import { Canvas, useFrame } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
 import { ETextAlign, ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
+
+import { useInView } from "react-intersection-observer"
 
 import {
     Section1BgdBeach,
@@ -26,6 +28,8 @@ const textBlock: TextBlockType[] = [
         text: "Hey, I'm Pravas 👋🏼, a :span:>TypeScript/JavaScript<:span: developer who is passionate about delivering the best :br::span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
     },
 ]
+
+const DisableRender = () => useFrame(() => null, 1000)
 
 const Section1 = () => {
     const cameraPosition = {
@@ -61,6 +65,8 @@ const Section1 = () => {
         })
     }, [])
 
+    const { ref, inView } = useInView()
+
     return (
         <>
             <div className="section-1-container h-screen mb-10">
@@ -90,7 +96,10 @@ const Section1 = () => {
 
                     {/* THREE */}
                     <div className="relative w-full h-full">
-                        <div className="absolute w-full h-200% -bottom-1/2 ">
+                        <div
+                            ref={ref}
+                            className="absolute w-full h-200% -bottom-1/2 "
+                        >
                             <Canvas
                                 linear={false}
                                 shadows
@@ -99,6 +108,7 @@ const Section1 = () => {
                                     fov: 45,
                                 }}
                             >
+                                {!inView && <DisableRender />}
                                 <OrbitControls
                                     enableZoom={false}
                                     enableRotate={false}
