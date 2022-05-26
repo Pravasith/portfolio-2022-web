@@ -23,6 +23,8 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
         // const dat = await import("dat.gui")
         // const gui = new dat.GUI()
 
+        const spotLight = spotLightRef.current
+
         // function buildGui() {
         //     const params = {
         //         "light color": spotLight.color.getHex(),
@@ -66,8 +68,6 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
         // }
 
         // buildGui()
-
-        const spotLight = spotLightRef.current
 
         spotLight.intensity = 4
         spotLight.distance = 6
@@ -188,33 +188,29 @@ export const Table = () => {
     })
 
     const init = async () => {
-        // const dat = await import("dat.gui")
-        // const gui = new dat.GUI()
-        // ... rest of the three.js code
-
         const laptopScreenInitAndAnimate = () => {
             const laptopScreenPixels = findMeshByName(gltf, "laptop-screen"),
                 laptopScreenPanel = findMeshByName(gltf, "laptopbase001")
 
             gsap.to(laptopScreenPanel.rotation, { x: 1.4, duration: 4 })
 
-            const texture = new THREE.TextureLoader().load(
+            const laptopScreenTexture = new THREE.TextureLoader().load(
                 "textures/sprite-laptop.png"
             )
 
-            texture.wrapS = THREE.RepeatWrapping
-            texture.wrapT = THREE.RepeatWrapping
+            laptopScreenTexture.wrapS = THREE.RepeatWrapping
+            laptopScreenTexture.wrapT = THREE.RepeatWrapping
 
             const INITIAL_X_VALUE = -0.054,
                 STEP_VALUE = 0.11111
 
             const material = new THREE.MeshPhongMaterial({
                 emissive: "#fff",
-                emissiveMap: texture,
+                emissiveMap: laptopScreenTexture,
                 emissiveIntensity: 0.5,
             })
 
-            material.map = texture
+            material.map = laptopScreenTexture
 
             if (material.map) {
                 const { offset, repeat } = material.map

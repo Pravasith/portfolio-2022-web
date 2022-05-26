@@ -28,7 +28,7 @@ const Topbar = () => {
         <>
             <div className="w-1/5 fixed z-10">
                 <div className="flex-col-center">
-                    <div className="my-10">
+                    <div className="my-16">
                         <Icon
                             iconSize={EIconSizes.sm}
                             iconBackground={EColors.ICON_BACKGROUND_YELLOW_100}
