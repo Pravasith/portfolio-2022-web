@@ -2,7 +2,11 @@ import TextBlock from "@components/UI/TextBlock"
 import { ETextAlign, ETextTypes } from "@components/UI/TextBlock/interface"
 import Image from "next/image"
 import { useState } from "react"
-import { SVGBackground1, SVGBackground2, SVGBackground3 } from "./svgs"
+import {
+    SVGBackground1,
+    SVGBackground2,
+    SVGBackground3,
+} from "@svgs/HomeSection3"
 
 const ProjectSection = () => {
     const [imageBlock] = useState<

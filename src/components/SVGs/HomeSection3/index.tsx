@@ -1,4 +1,4 @@
-import { Turbulence } from "@components/SvgFilters"
+import { Turbulence } from "@components/SVGs/SvgFilters"
 
 export const SVGBackground1 = () => {
     return (

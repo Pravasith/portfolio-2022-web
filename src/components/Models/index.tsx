@@ -380,3 +380,35 @@ export const Table = () => {
         </>
     )
 }
+
+export const Doflamingo = () => {
+    const gltf = useGLTF("/gltfs/doflamingo.gltf")
+
+    // const [models, setModels] = useState<Record<string, Object3D<THREE.Event>>>(
+    //     {}
+    // )
+
+    // const { camera } = useThree()
+
+    return (
+        <>
+            {/* {spotLightTarget && deskLightParent && (
+                <Lights
+                    parentObjectForSpotlight={deskLightParent}
+                    spotlightTarget={spotLightTarget}
+                />
+                
+            )} */}
+
+            <ambientLight intensity={0.5} />
+
+            {/* MODEL BELOW: */}
+            <primitive
+                position={[1.8, -1.8, 0]}
+                rotation={[0, 2, 0]}
+                object={gltf.scene}
+                scale={1}
+            />
+        </>
+    )
+}

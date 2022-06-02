@@ -11,10 +11,10 @@ import {
     Section1BgdBeach,
     Section1BgdBeach1,
     Section1RedTriangles,
-} from "./svgs"
+} from "@svgs/HomeSection1"
 import { Vector3 } from "three"
 
-import { Table } from "./models"
+import { Table } from "@models/index"
 import useScrollTrigger from "@hooks/useScrollTrigger"
 
 const textBlock: TextBlockType[] = [

@@ -19,7 +19,7 @@ const textBlock: TextBlockType[] = [
 
 const Section3 = () => {
     return (
-        <div className="section-3-container flex-col-center my-56">
+        <div className="section-3-container flex-col-center">
             {/* TEXT BLOCK */}
             <div className="flex-col-center mx-1/4 px-5">
                 <div className="section-3-text-block ">

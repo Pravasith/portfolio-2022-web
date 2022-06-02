@@ -44,14 +44,6 @@ export const CurvedText = () => {
 
     const curvedText1 = useRef<SVGTextPathElement>(null)
 
-    // useEffect(() => {
-    //     if (curvedText1.current)
-    //         gsap.to(curvedText1.current, {
-    //             attr: { startOffset: "100%" },
-    //             duration: 10,
-    //         })
-    // }, [curvedText1.current])
-
     useScrollTrigger(
         gsapX => {
             if (curvedText1.current) {
@@ -59,7 +51,7 @@ export const CurvedText = () => {
                     trigger: ".section-2-container",
                     start: "top top",
                     end: "bottom 25%",
-                    // markers: true,
+                    markers: true,
                     scrub: 0.5,
                     pin: true,
                 }
@@ -70,12 +62,6 @@ export const CurvedText = () => {
                     yoyo: true,
                     duration: 10,
                 })
-                // gsapX.to(".curved-text-2", {
-                //     scrollTrigger,
-                //     y: 20,
-                //     scale: 1.05,
-                //     yoyo: true,
-                // })
             }
         },
         [curvedText1.current]

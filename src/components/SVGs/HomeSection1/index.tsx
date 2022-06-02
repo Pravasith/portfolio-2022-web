@@ -1,4 +1,4 @@
-import { Turbulence } from "@components/SvgFilters"
+import { Turbulence } from "@components/SVGs/SvgFilters"
 import React from "react"
 
 export const Section1BgdBeach = () => {

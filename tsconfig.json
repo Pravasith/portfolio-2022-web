@@ -24,6 +24,8 @@
             "@hooks/*": ["utils/hooks/*"],
             "@lib/*": ["lib/*"],
             "@ui/*": ["components/UI/*"],
+            "@svgs/*": ["components/SVGs/*"],
+            "@models/*": ["components/Models/*"],
             "@utils/*": ["utils/*"]
         }
     },
