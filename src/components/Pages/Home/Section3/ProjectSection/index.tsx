@@ -8,22 +8,10 @@ import {
     SVGBackground3,
 } from "@svgs/HomeSection3"
 
+import { Project } from "./interface"
+
 const ProjectSection = () => {
-    const [imageBlock] = useState<
-        {
-            imageSrc: string
-            imageAlt: string
-            id: string
-            width: number
-            height: number
-            details: {
-                title: string
-                description: string
-                gitHubLink: string
-                liveLink: string
-            }
-        }[]
-    >(() => [
+    const [imageBlock] = useState<Project[]>(() => [
         {
             imageSrc: "/img/pravasith-portfolio-website.png",
             imageAlt: "pravasdesign.com thumbimage",

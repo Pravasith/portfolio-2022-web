@@ -1,4 +1,4 @@
-import { Doflamingo } from "@components/Models"
+import { Doflamingo, StreetSign } from "@components/Models"
 import { OrbitControls } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Suspense } from "react"
@@ -10,19 +10,7 @@ const DisableRender = () => useFrame(() => null, 1000)
 const Section4 = () => {
     const { ref, inView } = useInView()
     const cameraPosition = {
-        initial: new Vector3(0, 0, 6),
-    }
-
-    function Box() {
-        // Subscribe this component to the render-loop, rotate the mesh every frame
-        // useFrame((state, delta) => (ref.current.rotation.x += 0.01))
-        // Return the view, these are regular Threejs elements expressed in JSX
-        return (
-            <mesh>
-                <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial color={"orange"} />
-            </mesh>
-        )
+        initial: new Vector3(7.27, 0.65, -0.2),
     }
 
     return (
@@ -36,9 +24,11 @@ const Section4 = () => {
                             position: cameraPosition.initial,
                             fov: 45,
                         }}
+                        // onCreated={state => state.gl.setClearColor("#CCC")}
                     >
                         {!inView && <DisableRender />}
                         <OrbitControls
+
                         // enableZoom={false}
                         // enableRotate={false}
                         // enablePan={false}
@@ -46,8 +36,8 @@ const Section4 = () => {
 
                         <Suspense fallback={null}>
                             <Doflamingo />
+                            <StreetSign />
                         </Suspense>
-                        <Box />
                     </Canvas>
                 </div>
             </div>

@@ -6,11 +6,14 @@ import { findMeshByName } from "@utils/index"
 import gsap, { Sine } from "gsap"
 import useMouseMove from "@hooks/useMouseMove"
 import { useFrame, useThree } from "@react-three/fiber"
-import { LightsProps } from "./interface"
+import { FlamingoLightsProps, TableLightsProps } from "./interface"
 import { MouseMoveValues } from "@hooks/useMouseMove/interface"
 import useScrollTrigger from "@hooks/useScrollTrigger"
 
-const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
+const TableLights = ({
+    parentObjectForSpotlight,
+    spotlightTarget,
+}: TableLightsProps) => {
     const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())
     const dirLight = useRef<THREE.DirectionalLight>(
         new THREE.DirectionalLight()
@@ -115,6 +118,90 @@ const Lights = ({ parentObjectForSpotlight, spotlightTarget }: LightsProps) => {
             <ambientLight intensity={0.3} />
 
             <spotLight
+                ref={spotLightRef}
+                target={spotlightTarget}
+                castShadow
+                shadow-mapSize-height={1024}
+                shadow-mapSize-width={1024}
+                shadow-bias={-0.000175}
+            />
+        </>
+    )
+}
+
+const FlamingoLights = ({ spotlightTarget }: FlamingoLightsProps) => {
+    const spotLightRef = useRef<THREE.SpotLight>(new THREE.SpotLight())
+
+    // useHelper(spotLightRef.current && spotLightRef, SpotLightHelper, "#000") // INTENTIONAL COMMENT: Helper for spotLight
+
+    const init = async () => {
+        // const dat = await import("dat.gui")
+        // const gui = new dat.GUI()
+
+        const spotLight = spotLightRef.current
+
+        // function buildGui() {
+        //     const params = {
+        //         "light color": spotLight.color.getHex(),
+        //         intensity: spotLight.intensity,
+        //         distance: spotLight.distance,
+        //         angle: spotLight.angle,
+        //         penumbra: spotLight.penumbra,
+        //         decay: spotLight.decay,
+        //         focus: spotLight.shadow.focus,
+        //     }
+
+        //     gui.addColor(params, "light color").onChange(function (val) {
+        //         spotLight.color.setHex(val)
+        //     })
+
+        //     gui.add(params, "intensity", 0, 2).onChange(function (val) {
+        //         spotLight.intensity = val
+        //     })
+
+        //     gui.add(params, "distance", 0, 200).onChange(function (val) {
+        //         spotLight.distance = val
+        //     })
+
+        //     gui.add(params, "angle", 0, Math.PI / 3).onChange(function (val) {
+        //         spotLight.angle = val
+        //     })
+
+        //     gui.add(params, "penumbra", 0, 1).onChange(function (val) {
+        //         spotLight.penumbra = val
+        //     })
+
+        //     gui.add(params, "decay", 1, 2).onChange(function (val) {
+        //         spotLight.decay = val
+        //     })
+
+        //     gui.add(params, "focus", 0, 1).onChange(function (val) {
+        //         spotLight.shadow.focus = val
+        //     })
+
+        //     gui.open()
+        // }
+
+        // buildGui()
+
+        spotLight.intensity = 1.2
+        spotLight.distance = 10
+        spotLight.angle = 0.6
+        spotLight.penumbra = 0
+        spotLight.decay = 1
+        spotLight.shadow.focus = 0.2
+    }
+
+    useEffect(() => {
+        init()
+    }, [])
+
+    return (
+        <>
+            <ambientLight intensity={0.5} />
+
+            <spotLight
+                position={new Vector3(5, 4, -2)}
                 ref={spotLightRef}
                 target={spotlightTarget}
                 castShadow
@@ -336,40 +423,10 @@ export const Table = () => {
         [gltf]
     )
 
-    // INTENTIONAL COMMENT: Rollback
-    // useEffect(() => {
-    //     const init = async () => {
-    //         const { ScrollTrigger } = await import("gsap/ScrollTrigger")
-    //         gsap.registerPlugin(ScrollTrigger)
-
-    //         const scrollTrigger = {
-    //             trigger: ".section-1-container",
-    //             start: "top top",
-    //             end: "bottom center",
-    //             // markers: true,
-    //             scrub: 1,
-    //             pin: true,
-    //         }
-
-    //         gsap.to(camera.position, {
-    //             scrollTrigger,
-    //             x: 2.56,
-    //             y: 4.86,
-    //             z: 5.86,
-    //             duration: 3,
-    //         })
-
-    //         gsap.to(".section-1-red-triangle", { scrollTrigger, y: 20 })
-    //         gsap.to(".section-1-bgd-beach-1", { scrollTrigger, y: -50 })
-    //     }
-
-    //     if (gltf) init()
-    // }, [gltf])
-
     return (
         <>
             {spotLightTarget && deskLightParent && (
-                <Lights
+                <TableLights
                     parentObjectForSpotlight={deskLightParent}
                     spotlightTarget={spotLightTarget}
                 />
@@ -384,30 +441,46 @@ export const Table = () => {
 export const Doflamingo = () => {
     const gltf = useGLTF("/gltfs/doflamingo.gltf")
 
-    // const [models, setModels] = useState<Record<string, Object3D<THREE.Event>>>(
-    //     {}
-    // )
+    return (
+        <>
+            {/* MODEL BELOW: */}
+            <primitive
+                position={[2, -0.2, -1.25]}
+                rotation={[0, -2.75, 0]}
+                object={gltf.scene}
+                scale={1}
+            />
+        </>
+    )
+}
 
-    // const { camera } = useThree()
+export const StreetSign = () => {
+    const gltf = useGLTF("/gltfs/streetboard.gltf")
+
+    const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
+
+    const init = () => {
+        const spotLightTarget = findMeshByName(gltf, "P")
+
+        setSpotLightTarget(spotLightTarget)
+    }
+
+    useEffect(() => {
+        if (gltf) init()
+    }, [gltf])
 
     return (
         <>
-            {/* {spotLightTarget && deskLightParent && (
-                <Lights
-                    parentObjectForSpotlight={deskLightParent}
-                    spotlightTarget={spotLightTarget}
-                />
-                
-            )} */}
-
-            <ambientLight intensity={0.5} />
+            {spotLightTarget && (
+                <FlamingoLights spotlightTarget={spotLightTarget} />
+            )}
 
             {/* MODEL BELOW: */}
             <primitive
-                position={[1.8, -1.8, 0]}
+                position={[0, 0, 1]}
                 rotation={[0, 2, 0]}
                 object={gltf.scene}
-                scale={1}
+                scale={1.25}
             />
         </>
     )

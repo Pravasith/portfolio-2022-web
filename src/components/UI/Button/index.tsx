@@ -9,7 +9,6 @@ const Button = ({ text }: { text: string }) => {
                     active:bg-button-bgd-1 bg-150%
                     hover:bg-button-bgd-2
                 `}
-                onClick={() => console.log("clicked")}
             >
                 <p className="font-calibre-bold">{text}</p>
             </button>
