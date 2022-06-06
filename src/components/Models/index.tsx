@@ -441,6 +441,72 @@ export const Table = () => {
 export const Doflamingo = () => {
     const gltf = useGLTF("/gltfs/doflamingo.gltf")
 
+    // let currentBaseAction = "Idle"
+    let mixer: THREE.AnimationMixer
+    const allActions: THREE.AnimationAction[] = []
+    const baseActions: Record<
+        string,
+        { weight: number; action?: THREE.AnimationAction }
+    > = {
+        Idle: { weight: 1 },
+        LookUpPose: { weight: 0 },
+    }
+
+    function setWeight(action: THREE.AnimationAction, weight: number) {
+        action.enabled = true
+        action.setEffectiveTimeScale(1)
+        action.setEffectiveWeight(weight)
+    }
+
+    function activateAction(action: THREE.AnimationAction) {
+        const clip = action.getClip()
+        const settings = baseActions[clip.name]
+        setWeight(action, settings.weight)
+        action.play()
+    }
+
+    const init = () => {
+        const { animations } = gltf
+        const model = gltf.scene
+
+        mixer = new THREE.AnimationMixer(model)
+
+        const numAnimations = animations.length
+
+        console.log({ animations })
+
+        for (let i = 0; i !== numAnimations; ++i) {
+            const clip = animations[i]
+            const { name } = clip
+
+            const action = mixer.clipAction(clip)
+            activateAction(action)
+            baseActions[name].action = action
+            allActions.push(action)
+        }
+    }
+
+    useFrame((_, delta) => {
+        if (gltf) {
+            for (let i = 0; i < gltf.animations.length; ++i) {
+                const action = allActions[i]
+                const clip = action.getClip()
+                const settings = baseActions[clip.name]
+                settings.weight = action.getEffectiveWeight()
+            }
+
+            // Get the time elapsed since the last frame, used for mixer update
+            const mixerUpdateDelta = delta
+
+            // Update the animation mixer, the stats panel, and render this frame
+            mixer.update(mixerUpdateDelta)
+        }
+    })
+
+    useEffect(() => {
+        if (gltf) init()
+    }, [])
+
     return (
         <>
             {/* MODEL BELOW: */}
