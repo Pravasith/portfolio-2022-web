@@ -81,7 +81,7 @@ const Section1 = () => {
                 </div>
 
                 {/* GRAPHICS BLOCK */}
-                <div className="section-1-graphics-block  h-1/2 relative -z-10 ">
+                <div className="section-1-graphics-block  h-1/2 relative -z-10">
                     {/* SVG */}
                     <div className="absolute w-full top-0 left-1/2 -translate-x-1/2 px-1/5">
                         <div className="flex-row-center w-full">

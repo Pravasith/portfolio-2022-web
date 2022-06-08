@@ -441,24 +441,22 @@ export const Table = () => {
 export const Doflamingo = () => {
     const gltf = useGLTF("/gltfs/doflamingo.gltf")
 
-    // let currentBaseAction = "Idle"
     let mixer: THREE.AnimationMixer
-    const allActions: THREE.AnimationAction[] = []
     const baseActions: Record<
         string,
         { weight: number; action?: THREE.AnimationAction }
     > = {
-        Idle: { weight: 1 },
-        LookUpPose: { weight: 0 },
+        idle: { weight: 1 },
+        lookUp: { weight: 0 },
     }
 
-    function setWeight(action: THREE.AnimationAction, weight: number) {
+    const setWeight = (action: THREE.AnimationAction, weight: number) => {
         action.enabled = true
         action.setEffectiveTimeScale(1)
         action.setEffectiveWeight(weight)
     }
 
-    function activateAction(action: THREE.AnimationAction) {
+    const activateAction = (action: THREE.AnimationAction) => {
         const clip = action.getClip()
         const settings = baseActions[clip.name]
         setWeight(action, settings.weight)
@@ -471,30 +469,22 @@ export const Doflamingo = () => {
 
         mixer = new THREE.AnimationMixer(model)
 
-        const numAnimations = animations.length
-
-        console.log({ animations })
-
-        for (let i = 0; i !== numAnimations; ++i) {
-            const clip = animations[i]
-            const { name } = clip
-
+        animations.forEach(clip => {
             const action = mixer.clipAction(clip)
+            baseActions[clip.name].action = action
             activateAction(action)
-            baseActions[name].action = action
-            allActions.push(action)
-        }
+        })
+
+        // setTimeout(() => {
+        //     console.log("XXXX")
+        //     baseActions.idle.action?.fadeOut(1)
+        //     baseActions.lookUp.weight = 1
+        //     baseActions.lookUp.action?.fadeIn(1)
+        // }, 5000)
     }
 
     useFrame((_, delta) => {
         if (gltf) {
-            for (let i = 0; i < gltf.animations.length; ++i) {
-                const action = allActions[i]
-                const clip = action.getClip()
-                const settings = baseActions[clip.name]
-                settings.weight = action.getEffectiveWeight()
-            }
-
             // Get the time elapsed since the last frame, used for mixer update
             const mixerUpdateDelta = delta
 
@@ -524,6 +514,12 @@ export const StreetSign = () => {
     const gltf = useGLTF("/gltfs/streetboard.gltf")
 
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
+
+    const { scene } = useThree()
+
+    useEffect(() => {
+        scene.position.y = -1.2
+    }, [])
 
     const init = () => {
         const spotLightTarget = findMeshByName(gltf, "P")
