@@ -489,7 +489,7 @@ export const Doflamingo = () => {
             const mixerUpdateDelta = delta
 
             // Update the animation mixer, the stats panel, and render this frame
-            mixer.update(mixerUpdateDelta)
+            if (mixer) mixer.update(mixerUpdateDelta)
         }
     })
 
@@ -518,13 +518,30 @@ export const StreetSign = () => {
     const { scene } = useThree()
 
     useEffect(() => {
-        scene.position.y = -1.2
+        scene.position.y = -1.3
+        scene.position.z = -0.2
     }, [])
 
     const init = () => {
         const spotLightTarget = findMeshByName(gltf, "P")
 
         setSpotLightTarget(spotLightTarget)
+
+        const streetSignHinge = findMeshByName(gltf, "Hinge")
+
+        const tl = gsap.timeline({ repeat: -1 })
+
+        gsap.set(streetSignHinge.rotation, {
+            y: -0.2,
+        })
+
+        tl.to(streetSignHinge.rotation, {
+            y: 0.2,
+            duration: 4,
+        }).to(streetSignHinge.rotation, {
+            y: -0.2,
+            duration: 4,
+        })
     }
 
     useEffect(() => {

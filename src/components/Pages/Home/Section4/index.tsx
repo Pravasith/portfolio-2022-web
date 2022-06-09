@@ -1,5 +1,10 @@
 import { Doflamingo, StreetSign } from "@components/Models"
-import { WaterPuddle } from "@components/SVGs/HomeSection4"
+import {
+    PinkCircle,
+    Plants,
+    WaterPuddle,
+    YellowBackground,
+} from "@components/SVGs/HomeSection4"
 
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Suspense } from "react"
@@ -17,7 +22,11 @@ const Section4 = () => {
     return (
         <div className="section-4-container flex-col-center w-full h-screen">
             <div className="w-full h-full flex-col-south ">
-                <div className="relative w-full h-1/2 ">
+                <div className="absolute w-full bottom-0 -z-10">
+                    <YellowBackground />
+                </div>
+
+                <div className="relative w-1/2 h-1/2 ">
                     <div ref={ref} className="w-full h-full">
                         <Canvas
                             linear={false}
@@ -45,6 +54,14 @@ const Section4 = () => {
 
                     <div className="absolute w-72 bottom-2 left-1/2 -z-10">
                         <WaterPuddle />
+                    </div>
+
+                    <div className="absolute w-36 top-1/5 right-2/3">
+                        <Plants />
+                    </div>
+
+                    <div className="absolute w-36 top-5 left-1/2 -z-10">
+                        <PinkCircle />
                     </div>
                 </div>
             </div>
