@@ -14,7 +14,7 @@ const Section2 = () => {
         {
             type: ETextTypes.P,
             text: `I currently live in :span:>Toronto, Canada 🍁 🇨🇦.<:span:
-            In my :span:>five years<:span: of professional experience, I've helped start-ups and 
+            In my :span:>5 years🪄<:span: of professional experience, I've helped start-ups and 
             large organizations solve user problems with technology. 
             :br: :br:
             When I've time to spare, I like to design, build, and engineer beautiful products, physical and virtual.`,
@@ -22,7 +22,7 @@ const Section2 = () => {
     ]
 
     return (
-        <div className="section-2-container w-full h-screen my-96">
+        <div className="section-2-container w-full h-screen mt-36">
             <div className="flex-col-south w-full h-full ">
                 {/* TEXT */}
                 <div className="w-1/3 my-8 flex-col-west ">

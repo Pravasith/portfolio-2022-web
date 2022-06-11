@@ -139,3 +139,59 @@ export const SVGBackground3 = () => {
         </svg>
     )
 }
+
+export const Spikes = () => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0"
+            y="0"
+            version="1.1"
+            viewBox="0 0 401.74 136.06"
+            xmlSpace="preserve"
+        >
+            <path
+                fill="none"
+                stroke="#F37778"
+                strokeMiterlimit="10"
+                strokeWidth="10"
+                d="M92.2 65.66L124.94 45.19 157.22 65.66"
+            ></path>
+            <path
+                fill="none"
+                stroke="#F37778"
+                strokeMiterlimit="10"
+                strokeWidth="10"
+                d="M168.36 65.66L201.1 45.19 233.38 65.66"
+            ></path>
+            <path
+                fill="none"
+                stroke="#F37778"
+                strokeMiterlimit="10"
+                strokeWidth="10"
+                d="M244.52 65.66L277.26 45.19 309.54 65.66"
+            ></path>
+            <path
+                fill="none"
+                stroke="#F37778"
+                strokeMiterlimit="10"
+                strokeWidth="10"
+                d="M92.2 96.66L124.94 76.19 157.22 96.66"
+            ></path>
+            <path
+                fill="none"
+                stroke="#F37778"
+                strokeMiterlimit="10"
+                strokeWidth="10"
+                d="M168.36 96.66L201.1 76.19 233.38 96.66"
+            ></path>
+            <path
+                fill="none"
+                stroke="#F37778"
+                strokeMiterlimit="10"
+                strokeWidth="10"
+                d="M244.52 96.66L277.26 76.19 309.54 96.66"
+            ></path>
+        </svg>
+    )
+}

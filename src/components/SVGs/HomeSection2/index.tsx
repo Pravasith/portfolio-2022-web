@@ -5,16 +5,15 @@ export const CurvedText = () => {
     const getText = () => {
         const words = [
             "UX DESIGN",
-            "ILLUSTRATOR",
-            "BLENDER",
+            "SVG MAGIC",
             "3D MODELLING",
 
             "AWS",
             "NODE",
             "WEBGL",
             "NGINX",
-            "REACT.JS",
             "NEXT.JS",
+            "REACT.JS",
             "THREE.JS",
             "GRAPHQL",
             "POSTGRES",
@@ -27,7 +26,7 @@ export const CurvedText = () => {
                 return (
                     <tspan
                         className="curlyTextBold"
-                        fontSize={"1.25rem"}
+                        fontSize={"1.5rem"}
                         key={"word" + i}
                     >
                         &nbsp;{word}&nbsp;&nbsp;

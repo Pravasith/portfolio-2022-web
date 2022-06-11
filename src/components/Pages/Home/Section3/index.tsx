@@ -1,3 +1,4 @@
+import { Spikes } from "@components/SVGs/HomeSection3"
 import TextBlock from "@components/UI/TextBlock"
 import {
     ETextAlign,
@@ -13,16 +14,22 @@ const textBlock: TextBlockType[] = [
     },
     {
         type: ETextTypes.P,
-        text: "In my spare time, I like to learn new technologies ✨. Here are some projects I made along the way. Enjoy!",
+        text: "Some projects I did in the past ✨. Be sure to check out the live links!",
     },
 ]
 
 const Section3 = () => {
     return (
         <div className="section-3-container flex-col-center">
+            <div className="flex-col-center w-full mt-20 mb-20">
+                <div className="w-80">
+                    <Spikes />
+                </div>
+            </div>
+
             {/* TEXT BLOCK */}
-            <div className="flex-col-center mx-1/4 px-5">
-                <div className="section-3-text-block ">
+            <div className="flex-col-center mx-1/4 px-5 w-full">
+                <div className="section-3-text-block w-1/3">
                     <TextBlock
                         textAlign={ETextAlign.LEFT}
                         textBlock={textBlock}

@@ -21,7 +21,7 @@ const ProjectSection = () => {
             details: {
                 title: "My old portfolio website",
                 description:
-                    "2 years ago, I built a portfolio using NextJS, ThreeJS, Express, Firebase and hosted it on DigitalOcean droplets using Ngnix, and PM2.",
+                    "Old portfolio built using :span:>NextJS, ThreeJS, Express, Firebase<:span:; hosted on a DigitalOcean droplet using :span:>Ngnix, and PM2.<:span:",
                 gitHubLink: "",
                 liveLink: "https://pravasdesign.com",
             },
@@ -35,7 +35,7 @@ const ProjectSection = () => {
             details: {
                 title: "Spotifinder",
                 description:
-                    "Spotify clone app (sort of), built using NextJS, Apollo, GraphQL on the frontend, Express, TypeGraphQL on the backend. Used Adobe Illustrator for the UI and icons.",
+                    "Spotify clone app. Built using :span:>NextJS, Apollo, GraphQL<:span: on the frontend; :span:>Express, TypeGraphQL<:span: on the backend.",
                 gitHubLink: "",
                 liveLink: "https://spotifinder.vercel.app/",
             },
@@ -49,7 +49,7 @@ const ProjectSection = () => {
             details: {
                 title: "3D Space Game",
                 description:
-                    "Built a 3D first person game using ThreeJS and NextJS. Hopefully I'll get more free time in the future to resume this project.",
+                    "3D first person 3D game using :span:>ThreeJS and NextJS<:span:. (in progress)",
                 gitHubLink: "",
                 liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
             },
@@ -69,39 +69,47 @@ const ProjectSection = () => {
         ]
 
         return (
-            <div key={item.id} className="flex-row-west py-36 w-full">
-                <div className="relative min-w-1/2 w-1/2">
-                    <div className={`absolute w-130% top-1/2 -left-1/5 -z-10`}>
-                        {i === 0 && <SVGBackground1 />}
-                    </div>
+            <>
+                <div key={item.id} className="flex-row-west py-36 w-full">
+                    <div className="relative min-w-1/2 w-1/2">
+                        <div
+                            className={`absolute w-130% top-1/2 -left-1/5 -z-10`}
+                        >
+                            {i === 0 && <SVGBackground1 />}
+                        </div>
 
-                    <div className={`absolute w-full top-1/5 -left-1/5 -z-10`}>
-                        {i === 2 && <SVGBackground2 />}
-                    </div>
+                        <div
+                            className={`absolute w-full top-1/5 -left-1/5 -z-10`}
+                        >
+                            {i === 2 && <SVGBackground2 />}
+                        </div>
 
-                    <div className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}>
-                        {i === 0 && <SVGBackground3 />}
-                    </div>
+                        <div
+                            className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}
+                        >
+                            {i === 0 && <SVGBackground3 />}
+                        </div>
 
-                    <div className="w-full border-4 rounded-3xl border-black overflow-clip">
-                        <div className={`flex-row-center`}>
-                            <Image
-                                src={item.imageSrc}
-                                alt={item.imageAlt}
-                                width={item.width}
-                                height={item.height}
-                            />
+                        <div className="w-full border-4 rounded-3xl border-black overflow-clip">
+                            <div className={`flex-row-center`}>
+                                <Image
+                                    src={item.imageSrc}
+                                    alt={item.imageAlt}
+                                    width={item.width}
+                                    height={item.height}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="px-10">
-                    <TextBlock
-                        textAlign={ETextAlign.LEFT}
-                        textBlock={projectTextBlocks}
-                    />
+                    <div className="px-10">
+                        <TextBlock
+                            textAlign={ETextAlign.LEFT}
+                            textBlock={projectTextBlocks}
+                        />
+                    </div>
                 </div>
-            </div>
+            </>
         )
     })
 

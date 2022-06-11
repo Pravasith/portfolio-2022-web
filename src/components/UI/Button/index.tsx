@@ -1,7 +1,14 @@
-const Button = ({ text }: { text: string }) => {
+const Button = ({
+    text,
+    type,
+}: {
+    text: string
+    type?: "button" | "reset" | "submit"
+}) => {
     return (
         <>
             <button
+                type={type}
                 className={`
                     my-3
                     px-5 py-2

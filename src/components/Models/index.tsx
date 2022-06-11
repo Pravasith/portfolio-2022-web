@@ -441,7 +441,8 @@ export const Table = () => {
 export const Doflamingo = () => {
     const gltf = useGLTF("/gltfs/doflamingo.gltf")
 
-    let mixer: THREE.AnimationMixer
+    const [mixer, setMixer] = useState<THREE.AnimationMixer>()
+
     const baseActions: Record<
         string,
         { weight: number; action?: THREE.AnimationAction }
@@ -463,24 +464,22 @@ export const Doflamingo = () => {
         action.play()
     }
 
+    useEffect(() => {
+        if (mixer) {
+            const { animations } = gltf
+
+            animations.forEach(clip => {
+                const action = mixer?.clipAction(clip)
+                baseActions[clip.name].action = action
+
+                action && activateAction(action)
+            })
+        }
+    }, [mixer])
+
     const init = () => {
-        const { animations } = gltf
         const model = gltf.scene
-
-        mixer = new THREE.AnimationMixer(model)
-
-        animations.forEach(clip => {
-            const action = mixer.clipAction(clip)
-            baseActions[clip.name].action = action
-            activateAction(action)
-        })
-
-        // setTimeout(() => {
-        //     console.log("XXXX")
-        //     baseActions.idle.action?.fadeOut(1)
-        //     baseActions.lookUp.weight = 1
-        //     baseActions.lookUp.action?.fadeIn(1)
-        // }, 5000)
+        setMixer(new THREE.AnimationMixer(model))
     }
 
     useFrame((_, delta) => {
@@ -489,7 +488,7 @@ export const Doflamingo = () => {
             const mixerUpdateDelta = delta
 
             // Update the animation mixer, the stats panel, and render this frame
-            if (mixer) mixer.update(mixerUpdateDelta)
+            mixer && mixer.update(mixerUpdateDelta)
         }
     })
 
@@ -512,9 +511,7 @@ export const Doflamingo = () => {
 
 export const StreetSign = () => {
     const gltf = useGLTF("/gltfs/streetboard.gltf")
-
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
-
     const { scene } = useThree()
 
     useEffect(() => {
@@ -524,7 +521,6 @@ export const StreetSign = () => {
 
     const init = () => {
         const spotLightTarget = findMeshByName(gltf, "P")
-
         setSpotLightTarget(spotLightTarget)
 
         const streetSignHinge = findMeshByName(gltf, "Hinge")

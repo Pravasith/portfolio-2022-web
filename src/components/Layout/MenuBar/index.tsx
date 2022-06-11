@@ -3,7 +3,9 @@ import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
 import Link from "next/link"
-import { useContext } from "react"
+import { useRouter } from "next/router"
+import { useContext, useEffect } from "react"
+import { PageRoute, RouteNames, Routes } from "./interface"
 
 enum EFonts {
     CALIBRE = "Calibre",
@@ -16,42 +18,77 @@ enum EMouseAction {
 }
 
 const MenuBar = () => {
-    const pages = ["Home", "Blogs", "Fun"]
+    const pages: PageRoute[] = [
+        {
+            route: Routes.HOME,
+            name: RouteNames.HOME,
+        },
+        {
+            route: Routes.BLOGS,
+            name: RouteNames.BLOGS,
+        },
+        {
+            route: Routes.FUN,
+            name: RouteNames.FUN,
+        },
+    ]
+
+    const router = useRouter()
+
+    const highLightCurrentRoute = () => {
+        const routeNameToHighlight = pages.find(
+            page => page.route === router.asPath
+        )
+
+        gsap.to(
+            `#menuBar-item-${routeNameToHighlight?.name} .menuBar-item-background`,
+            {
+                scaleX: 1,
+                duration: 0.2,
+            }
+        )
+
+        gsap.to(`#menuBar-item-${routeNameToHighlight?.name} a`, {
+            fontFamily: EFonts.CALIBRE_BOLD,
+            duration: 0.2,
+        })
+    }
+
+    useEffect(() => {
+        highLightCurrentRoute()
+    }, [])
 
     const { state } = useContext(ThemeContext)
 
-    const handleHover = (mouseAction: EMouseAction, index: number) => {
+    const handleHover = (mouseAction: EMouseAction, pageName: RouteNames) => {
         const mouseEntered = mouseAction === EMouseAction.ENTER
 
-        gsap.to(`#menuBar-item-${index} .menuBar-item-background`, {
+        gsap.to(`#menuBar-item-${pageName} .menuBar-item-background`, {
             scaleX: Number(mouseEntered),
             duration: 0.2,
         })
 
-        gsap.to(`#menuBar-item-${index} a`, {
-            fontFamily: mouseEntered ? EFonts.CALIBRE_BOLD : EFonts.CALIBRE,
-            duration: 0.2,
-        })
+        !mouseEntered && highLightCurrentRoute()
     }
 
     return (
         <div className="w-1/5 fixed bottom-1/4 right-0 z-10">
             <ul className="flex-col-center">
-                {pages.map((item, index) => (
+                {pages.map((page, index) => (
                     <li
                         key={"whore-menu-" + index}
                         className="my-2 cursor-pointer"
                     >
-                        <Link href="/" passHref>
+                        <Link href={page.route} passHref>
                             <div
                                 onMouseEnter={() =>
-                                    handleHover(EMouseAction.ENTER, index)
+                                    handleHover(EMouseAction.ENTER, page.name)
                                 }
                                 onMouseLeave={() =>
-                                    handleHover(EMouseAction.LEAVE, index)
+                                    handleHover(EMouseAction.LEAVE, page.name)
                                 }
                                 className="relative"
-                                id={`menuBar-item-${index}`}
+                                id={`menuBar-item-${page.name}`}
                             >
                                 <div
                                     className={`
@@ -66,7 +103,7 @@ const MenuBar = () => {
                                     `}
                                 ></div>
 
-                                <a className={`px-3 text-xl`}>{item}</a>
+                                <a className={`px-3 text-xl`}>{page.name}</a>
                             </div>
                         </Link>
                     </li>

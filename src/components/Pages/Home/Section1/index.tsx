@@ -25,7 +25,7 @@ const textBlock: TextBlockType[] = [
 
     {
         type: ETextTypes.P,
-        text: "Hey, I'm Pravas 👋🏼, a :span:>TypeScript/JavaScript<:span: developer who is passionate about delivering the best :span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
+        text: "Hey, I'm Pravas 👋🏼, a :span:>Full Stack TypeScript/JavaScript<:span: developer who is passionate about delivering the best :span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
     },
 ]
 

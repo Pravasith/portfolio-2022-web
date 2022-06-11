@@ -60,6 +60,10 @@ module.exports = {
             minWidth: {
                 "1/2": "50%",
             },
+
+            rounded: {
+                xxl: "1.25rem",
+            },
         },
     },
     plugins: [],
