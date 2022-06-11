@@ -9,6 +9,10 @@ import {
 } from "@svgs/HomeSection3"
 
 import { Project } from "./interface"
+import { Icon } from "@components/UI/Icons"
+import Link from "next/link"
+import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
+import { EIconSizes } from "@components/UI/Icons/interface"
 
 const ProjectSection = () => {
     const [imageBlock] = useState<Project[]>(() => [
@@ -59,7 +63,7 @@ const ProjectSection = () => {
     const projects = imageBlock.map((item, i) => {
         const projectTextBlocks = [
             {
-                type: ETextTypes.H1,
+                type: ETextTypes.H3,
                 text: item.details.title,
             },
             {
@@ -69,51 +73,72 @@ const ProjectSection = () => {
         ]
 
         return (
-            <>
-                <div key={item.id} className="flex-row-west py-36 w-full">
-                    <div className="relative min-w-1/2 w-1/2">
-                        <div
-                            className={`absolute w-130% top-1/2 -left-1/5 -z-10`}
-                        >
-                            {i === 0 && <SVGBackground1 />}
-                        </div>
-
-                        <div
-                            className={`absolute w-full top-1/5 -left-1/5 -z-10`}
-                        >
-                            {i === 2 && <SVGBackground2 />}
-                        </div>
-
-                        <div
-                            className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}
-                        >
-                            {i === 0 && <SVGBackground3 />}
-                        </div>
-
-                        <div className="w-full border-4 rounded-3xl border-black overflow-clip">
-                            <div className={`flex-row-center`}>
-                                <Image
-                                    src={item.imageSrc}
-                                    alt={item.imageAlt}
-                                    width={item.width}
-                                    height={item.height}
-                                />
-                            </div>
-                        </div>
+            <div key={item.id} className="flex-row-west py-36 w-full">
+                <div className="relative min-w-1/2 w-1/2">
+                    <div
+                        key={`svg-bgd-01`}
+                        className={`absolute w-130% top-1/2 -left-1/5 -z-10`}
+                    >
+                        {i === 0 && <SVGBackground1 />}
                     </div>
 
-                    <div className="px-10">
+                    <div
+                        key={`svg-bgd-02`}
+                        className={`absolute w-full top-1/5 -left-1/5 -z-10`}
+                    >
+                        {i === 2 && <SVGBackground2 />}
+                    </div>
+
+                    <div
+                        key={`svg-bgd-03`}
+                        className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}
+                    >
+                        {i === 0 && <SVGBackground3 />}
+                    </div>
+
+                    <div className="w-full border-4 rounded-3xl border-black overflow-clip">
+                        <div className={`flex-row-center`}>
+                            <Image
+                                src={item.imageSrc}
+                                alt={item.imageAlt}
+                                width={item.width}
+                                height={item.height}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="px-10">
+                    <div className="m-3">
                         <TextBlock
                             textAlign={ETextAlign.LEFT}
                             textBlock={projectTextBlocks}
                         />
                     </div>
+
+                    <div className="flex flex-row">
+                        <Link href={item.details.liveLink}>
+                            <a className="m-3" target={"_blank"}>
+                                <Icon iconSize={EIconSizes.xs}>
+                                    <OpenLinkIcon />
+                                </Icon>
+                            </a>
+                        </Link>
+
+                        <Link href={item.details.gitHubLink}>
+                            <a className="m-3" target={"_blank"}>
+                                <Icon iconSize={EIconSizes.xs}>
+                                    <GithubIcon />
+                                </Icon>
+                            </a>
+                        </Link>
+                    </div>
                 </div>
-            </>
+            </div>
         )
     })
 
-    return <div>{projects}</div>
+    return <>{projects}</>
 }
 
 export default ProjectSection

@@ -25,17 +25,10 @@ const Layout: React.FC = ({ children }) => {
 
     useEffect(() => {
         const isThemeLight = state.currentTheme === EThemes.LIGHT
-
         gsap.to(background.current, {
             backgroundColor: isThemeLight
                 ? EColors.LIGHT_THEME_BACKGROUND_100
                 : EColors.DARK_THEME_BACKGROUND_200,
-        })
-
-        gsap.to("h1, h2, h3, h4, h5, h6, p, a, li, span", {
-            color: isThemeLight
-                ? EColors.DARK_THEME_BACKGROUND_200
-                : EColors.LIGHT_THEME_BACKGROUND_100,
         })
     }, [state.currentTheme])
 

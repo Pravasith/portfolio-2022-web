@@ -526,6 +526,7 @@ export const StreetSign = () => {
         const streetSignHinge = findMeshByName(gltf, "Hinge")
 
         const tl = gsap.timeline({ repeat: -1 })
+        const ease = "power1.in"
 
         gsap.set(streetSignHinge.rotation, {
             y: -0.2,
@@ -534,9 +535,11 @@ export const StreetSign = () => {
         tl.to(streetSignHinge.rotation, {
             y: 0.2,
             duration: 4,
+            ease,
         }).to(streetSignHinge.rotation, {
             y: -0.2,
             duration: 4,
+            ease,
         })
     }
 

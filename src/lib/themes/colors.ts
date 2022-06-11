@@ -1,6 +1,8 @@
 // These colors are defined in tailwind theme config.
 // Check tailwind.config.js
 
+import { EThemes } from "@utils/contexts/themeContext/interface"
+
 export enum EColors {
     LIGHT_THEME_BACKGROUND_100 = "#f1f5f9",
     LIGHT_THEME_BACKGROUND_200 = "#e2e8f0",
@@ -35,4 +37,13 @@ export enum ETextColorClassNames {
 
     DARK_THEME_TEXT_100 = "text-dark-theme-text-100",
     DARK_THEME_TEXT_200 = "text-dark-theme-text-200",
+}
+
+export const getColors = (theme: EThemes) => {
+    const colors = {
+        lightTheme: EColors.LIGHT_THEME_BACKGROUND_100,
+        darkTheme: EColors.DARK_THEME_BACKGROUND_100,
+    }
+
+    return theme === EThemes.LIGHT ? colors.lightTheme : colors.darkTheme
 }

@@ -21,7 +21,7 @@ const textBlock: TextBlockType[] = [
 const Section3 = () => {
     return (
         <div className="section-3-container flex-col-center">
-            <div className="flex-col-center w-full mt-20 mb-20">
+            <div className="flex-col-center w-full mt-10 mb-44">
                 <div className="w-80">
                     <Spikes />
                 </div>
@@ -38,7 +38,7 @@ const Section3 = () => {
             </div>
 
             {/* PROJECT SECTION */}
-            <div className="w-1/2 my-24">
+            <div className="w-1/2 my-10">
                 <ProjectSection />
             </div>
         </div>

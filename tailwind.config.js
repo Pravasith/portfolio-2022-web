@@ -28,8 +28,8 @@ module.exports = {
                 },
 
                 "dark-theme-text": {
-                    100: "#d8d8d8",
-                    200: "#f2f2f2",
+                    100: "#f1f5f9",
+                    200: "#c1c1c1",
                 },
             },
 

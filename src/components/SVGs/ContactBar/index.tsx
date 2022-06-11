@@ -1,39 +1,15 @@
 import { useContext, useEffect, useRef } from "react"
-import gsap from "gsap"
 
-import { EColors } from "@lib/themes/colors"
 import { ThemeContext } from "@utils/contexts/themeContext"
-import { EThemes } from "@utils/contexts/themeContext/interface"
+import { toggleTheme } from "@components/SVGs/factories"
 
-const getColors = (theme: EThemes) => {
-    const colors = {
-        lightTheme: EColors.LIGHT_THEME_BACKGROUND_100,
-        darkTheme: EColors.DARK_THEME_BACKGROUND_100,
-    }
-
-    return theme === EThemes.LIGHT ? colors.lightTheme : colors.darkTheme
-}
-
-const TwitterIcon = () => {
+export const TwitterIcon = () => {
     const { state } = useContext(ThemeContext)
-
     const iconPath = useRef<SVGGElement>(null)
-    const qIconPath = gsap.utils.selector(iconPath)
 
     useEffect(() => {
-        const toggleTheme = () => {
-            const colors = getColors(
-                state?.currentTheme === EThemes.DARK
-                    ? EThemes.LIGHT
-                    : EThemes.DARK
-            )
-
-            gsap.to(qIconPath("path"), {
-                fill: colors,
-            })
-        }
-
-        toggleTheme()
+        if (iconPath.current && state?.currentTheme)
+            toggleTheme(iconPath.current, state.currentTheme)
     }, [state?.currentTheme])
 
     return (
@@ -50,25 +26,13 @@ const TwitterIcon = () => {
     )
 }
 
-const GithubIcon = () => {
+export const GithubIcon = () => {
     const { state } = useContext(ThemeContext)
     const iconPath = useRef<SVGGElement>(null)
-    const qIconPath = gsap.utils.selector(iconPath)
 
     useEffect(() => {
-        const toggleTheme = () => {
-            const colors = getColors(
-                state?.currentTheme === EThemes.DARK
-                    ? EThemes.LIGHT
-                    : EThemes.DARK
-            )
-
-            gsap.to(qIconPath("path"), {
-                fill: colors,
-            })
-        }
-
-        toggleTheme()
+        if (iconPath.current && state?.currentTheme)
+            toggleTheme(iconPath.current, state.currentTheme)
     }, [state?.currentTheme])
 
     return (
@@ -122,22 +86,10 @@ C19.7,72.4,19.9,72.1,20.2,71.6z"
 export const EmailIcon = () => {
     const { state } = useContext(ThemeContext)
     const iconPath = useRef<SVGGElement>(null)
-    const qIconPath = gsap.utils.selector(iconPath)
 
     useEffect(() => {
-        const toggleTheme = () => {
-            const colors = getColors(
-                state?.currentTheme === EThemes.DARK
-                    ? EThemes.LIGHT
-                    : EThemes.DARK
-            )
-
-            gsap.to(qIconPath("path"), {
-                fill: colors,
-            })
-        }
-
-        toggleTheme()
+        if (iconPath.current && state?.currentTheme)
+            toggleTheme(iconPath.current, state.currentTheme)
     }, [state?.currentTheme])
 
     return (
@@ -157,6 +109,3 @@ export const EmailIcon = () => {
         </g>
     )
 }
-
-const ContactBarIcons = { TwitterIcon, GithubIcon, EmailIcon }
-export default ContactBarIcons

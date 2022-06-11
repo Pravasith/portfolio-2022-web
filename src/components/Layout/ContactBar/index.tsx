@@ -1,9 +1,7 @@
 import { Icon } from "@components/UI/Icons"
 import { EIconSizes } from "@components/UI/Icons/interface"
 import Link from "next/link"
-import ContactBarIcons from "./Icons"
-
-const { TwitterIcon, GithubIcon, EmailIcon } = ContactBarIcons
+import { TwitterIcon, GithubIcon, EmailIcon } from "@components/SVGs/ContactBar"
 
 const ContactBar = () => {
     const linkContent = [

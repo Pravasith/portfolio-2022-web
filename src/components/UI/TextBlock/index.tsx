@@ -1,26 +1,35 @@
 import { ETextColorClassNames } from "@lib/themes/colors"
+import { ThemeContext } from "@utils/contexts/themeContext"
+import { EThemes } from "@utils/contexts/themeContext/interface"
 import { random20Id } from "@utils/index"
+import { useContext } from "react"
 
 import { ETextTypes, TextBlockProps } from "./interface"
 import SpanifiedText from "./SpanifiedText"
 
 const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
+    const { state } = useContext(ThemeContext)
+
     return (
         <article>
             {textBlock.map((item, i) => {
                 const spanColorClassName = item.spanColorClassName
                     ? item.spanColorClassName
-                    : ETextColorClassNames.LIGHT_THEME_TEXT_100
+                    : state?.currentTheme === EThemes.LIGHT
+                    ? ETextColorClassNames.LIGHT_THEME_TEXT_100
+                    : ETextColorClassNames.DARK_THEME_TEXT_100
 
                 const textColorClassName = item.textColorClassName
                     ? item.textColorClassName
-                    : ETextColorClassNames.LIGHT_THEME_TEXT_100
+                    : state?.currentTheme === EThemes.LIGHT
+                    ? ETextColorClassNames.LIGHT_THEME_TEXT_200
+                    : ETextColorClassNames.DARK_THEME_TEXT_200
 
                 switch (item.type) {
                     case ETextTypes.H1:
                         return (
                             <h1
-                                className={`${textColorClassName} ${textAlign} mb-6`}
+                                className={`${spanColorClassName} ${textAlign} mb-6`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedText
