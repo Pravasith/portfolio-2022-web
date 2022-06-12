@@ -5,6 +5,7 @@ import TopbarIcons from "./Icons"
 
 import { EColors } from "@lib/themes/colors"
 import useToggleTheme from "@hooks/useToggleTheme"
+import Link from "next/link"
 
 const { SunMoon, MainLogo } = TopbarIcons
 
@@ -16,12 +17,18 @@ const Topbar = () => {
             <div className="w-1/5 fixed z-10">
                 <div className="flex-col-center">
                     <div className="my-16">
-                        <Icon
-                            iconSize={EIconSizes.sm}
-                            iconBackground={EColors.ICON_BACKGROUND_YELLOW_100}
-                        >
-                            <MainLogo />
-                        </Icon>
+                        <Link href={"/"}>
+                            <a>
+                                <Icon
+                                    iconSize={EIconSizes.sm}
+                                    iconBackground={
+                                        EColors.ICON_BACKGROUND_YELLOW_100
+                                    }
+                                >
+                                    <MainLogo />
+                                </Icon>
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </div>

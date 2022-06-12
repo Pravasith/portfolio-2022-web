@@ -14,6 +14,7 @@ import gsap from "gsap"
 import { EColors } from "@lib/themes/colors"
 import FontsCopyright from "./FontsCopyright"
 import TopBar from "./Topbar"
+import { EThemeActions } from "@utils/reducers/interface"
 
 const Layout: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(
@@ -24,7 +25,20 @@ const Layout: React.FC = ({ children }) => {
     const background = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        const localStorageTheme = localStorage.getItem("theme") as EThemes
+
+        localStorageTheme &&
+            dispatch({
+                type:
+                    localStorageTheme === EThemes.LIGHT
+                        ? EThemeActions.LIGHT_THEME_SELECTED
+                        : EThemeActions.DARK_THEME_SELECTED,
+            })
+    }, [])
+
+    useEffect(() => {
         const isThemeLight = state.currentTheme === EThemes.LIGHT
+
         gsap.to(background.current, {
             backgroundColor: isThemeLight
                 ? EColors.LIGHT_THEME_BACKGROUND_100

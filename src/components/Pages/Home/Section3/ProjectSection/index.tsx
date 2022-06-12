@@ -1,7 +1,7 @@
 import TextBlock from "@components/UI/TextBlock"
 import { ETextAlign, ETextTypes } from "@components/UI/TextBlock/interface"
 import Image from "next/image"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import {
     SVGBackground1,
     SVGBackground2,
@@ -13,6 +13,9 @@ import { Icon } from "@components/UI/Icons"
 import Link from "next/link"
 import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
 import { EIconSizes } from "@components/UI/Icons/interface"
+import { ThemeContext } from "@utils/contexts/themeContext"
+import { EThemes } from "@utils/contexts/themeContext/interface"
+import { ETextColorClassNames } from "@lib/themes/colors"
 
 const ProjectSection = () => {
     const [imageBlock] = useState<Project[]>(() => [
@@ -60,6 +63,8 @@ const ProjectSection = () => {
         },
     ])
 
+    const { state } = useContext(ThemeContext)
+
     const projects = imageBlock.map((item, i) => {
         const projectTextBlocks = [
             {
@@ -96,7 +101,13 @@ const ProjectSection = () => {
                         {i === 0 && <SVGBackground3 />}
                     </div>
 
-                    <div className="w-full border-4 rounded-3xl border-black overflow-clip">
+                    <div
+                        className={`w-full border-8  overflow-clip  ${
+                            state?.currentTheme === EThemes.LIGHT
+                                ? ETextColorClassNames.LIGHT_THEME_TEXT_200
+                                : ETextColorClassNames.DARK_THEME_TEXT_200
+                        }`}
+                    >
                         <div className={`flex-row-center`}>
                             <Image
                                 src={item.imageSrc}

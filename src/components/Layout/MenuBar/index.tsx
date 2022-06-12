@@ -1,21 +1,17 @@
-import { EColorClassNames } from "@lib/themes/colors"
+import { EColorClassNames, ETextColorClassNames } from "@lib/themes/colors"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useContext, useEffect } from "react"
-import { PageRoute, RouteNames, Routes } from "./interface"
-
-enum EFonts {
-    CALIBRE = "Calibre",
-    CALIBRE_BOLD = "Calibre Bold",
-}
-
-enum EMouseAction {
-    ENTER = "ENTER",
-    LEAVE = "LEAVE",
-}
+import {
+    EFonts,
+    EMouseAction,
+    PageRoute,
+    RouteNames,
+    Routes,
+} from "./interface"
 
 const MenuBar = () => {
     const pages: PageRoute[] = [
@@ -103,7 +99,15 @@ const MenuBar = () => {
                                     `}
                                 ></div>
 
-                                <a className={`px-3 text-xl`}>{page.name}</a>
+                                <a
+                                    className={`px-3 text-xl ${
+                                        state?.currentTheme === EThemes.LIGHT
+                                            ? ETextColorClassNames.LIGHT_THEME_TEXT_100
+                                            : ETextColorClassNames.DARK_THEME_TEXT_100
+                                    }`}
+                                >
+                                    {page.name}
+                                </a>
                             </div>
                         </Link>
                     </li>

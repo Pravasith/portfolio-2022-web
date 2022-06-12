@@ -7,14 +7,21 @@ const useToggleTheme = () => {
     const { state, dispatch } = useContext(ThemeContext)
 
     const toggleTheme = () => {
-        state?.currentTheme &&
-            dispatch &&
+        if (state?.currentTheme && dispatch) {
             dispatch({
                 type:
                     state.currentTheme === EThemes.LIGHT
                         ? EThemeActions.DARK_THEME_SELECTED
                         : EThemeActions.LIGHT_THEME_SELECTED,
             })
+
+            localStorage.setItem(
+                "theme",
+                state.currentTheme === EThemes.LIGHT
+                    ? EThemes.DARK
+                    : EThemes.LIGHT
+            )
+        }
     }
 
     return toggleTheme
