@@ -6,8 +6,8 @@ export type Project = {
     height: number
     details: {
         title: string
-        description: string
-        gitHubLink: string
-        liveLink: string
+        description?: string
+        gitHubLink?: string
+        liveLink?: string
     }
 }

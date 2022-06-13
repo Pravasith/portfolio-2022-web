@@ -20,12 +20,12 @@ const MenuBar = () => {
             name: RouteNames.HOME,
         },
         {
-            route: Routes.BLOGS,
-            name: RouteNames.BLOGS,
-        },
-        {
             route: Routes.FUN,
             name: RouteNames.FUN,
+        },
+        {
+            route: Routes.BLOGS,
+            name: RouteNames.BLOGS,
         },
     ]
 

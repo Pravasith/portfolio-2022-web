@@ -29,7 +29,7 @@ const ProjectSection = () => {
                 title: "My old portfolio website",
                 description:
                     "Old portfolio built using :span:>NextJS, ThreeJS, Express, Firebase<:span:; hosted on a DigitalOcean droplet using :span:>Ngnix, and PM2.<:span:",
-                gitHubLink: "",
+                gitHubLink: "https://github.com/Pravasith",
                 liveLink: "https://pravasdesign.com",
             },
         },
@@ -43,7 +43,7 @@ const ProjectSection = () => {
                 title: "Spotifinder",
                 description:
                     "Spotify clone app. Built using :span:>NextJS, Apollo, GraphQL<:span: on the frontend; :span:>Express, TypeGraphQL<:span: on the backend.",
-                gitHubLink: "",
+                gitHubLink: "https://github.com/Pravasith",
                 liveLink: "https://spotifinder.vercel.app/",
             },
         },
@@ -57,7 +57,7 @@ const ProjectSection = () => {
                 title: "3D Space Game",
                 description:
                     "3D first person 3D game using :span:>ThreeJS and NextJS<:span:. (in progress)",
-                gitHubLink: "",
+                gitHubLink: "https://github.com/Pravasith",
                 liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
             },
         },
@@ -73,7 +73,7 @@ const ProjectSection = () => {
             },
             {
                 type: ETextTypes.P,
-                text: item.details.description,
+                text: item.details.description || "",
             },
         ]
 
@@ -128,21 +128,25 @@ const ProjectSection = () => {
                     </div>
 
                     <div className="flex flex-row">
-                        <Link href={item.details.liveLink}>
-                            <a className="m-3" target={"_blank"}>
-                                <Icon iconSize={EIconSizes.xs}>
-                                    <OpenLinkIcon />
-                                </Icon>
-                            </a>
-                        </Link>
+                        {item.details.liveLink && (
+                            <Link href={item.details.liveLink}>
+                                <a className="m-3" target={"_blank"}>
+                                    <Icon iconSize={EIconSizes.xs}>
+                                        <OpenLinkIcon />
+                                    </Icon>
+                                </a>
+                            </Link>
+                        )}
 
-                        <Link href={item.details.gitHubLink}>
-                            <a className="m-3" target={"_blank"}>
-                                <Icon iconSize={EIconSizes.xs}>
-                                    <GithubIcon />
-                                </Icon>
-                            </a>
-                        </Link>
+                        {item.details.gitHubLink && (
+                            <Link href={item.details.gitHubLink}>
+                                <a className="m-3" target={"_blank"}>
+                                    <Icon iconSize={EIconSizes.xs}>
+                                        <GithubIcon />
+                                    </Icon>
+                                </a>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>

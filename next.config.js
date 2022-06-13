@@ -7,7 +7,12 @@ const nextConfig = {
     },
 
     images: {
-        domains: ["images.unsplash.com", "unsplash.com"],
+        domains: [
+            "images.unsplash.com",
+            "unsplash.com",
+            "amazonaws.com",
+            "folio-pics.s3.eu-west-2.amazonaws.com",
+        ],
     },
 }
 
