@@ -8,7 +8,7 @@ import {
     SVGBackground3,
 } from "@svgs/HomeSection3"
 
-import { Project } from "./interface"
+import { ESrcType, Project } from "./interface"
 import { Icon } from "@components/UI/Icons"
 import Link from "next/link"
 import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
@@ -22,6 +22,7 @@ const ProjectSection = () => {
         {
             imageSrc: "/img/pravasith-portfolio-website.png",
             imageAlt: "pravasdesign.com thumbimage",
+            type: ESrcType.IMAGE,
             id: "pravasith-portfolio-thumbnail",
             width: 1000,
             height: 574,
@@ -36,6 +37,7 @@ const ProjectSection = () => {
         {
             imageSrc: "/img/spotifinder-graphql.png",
             imageAlt: "spotifinder thumbimage",
+            type: ESrcType.IMAGE,
             id: "spotifinder-thumbnail",
             width: 1000,
             height: 574,
@@ -50,6 +52,7 @@ const ProjectSection = () => {
         {
             imageSrc: "/img/space-mine-game.png",
             imageAlt: "spacemine thumbimage",
+            type: ESrcType.IMAGE,
             id: "spacemine-thumbnail",
             width: 1000,
             height: 574,

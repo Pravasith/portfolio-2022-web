@@ -1,6 +1,7 @@
 export type Project = {
     imageSrc: string
     imageAlt: string
+    type: ESrcType
     id: string
     width: number
     height: number
@@ -10,4 +11,9 @@ export type Project = {
         gitHubLink?: string
         liveLink?: string
     }
+}
+
+export enum ESrcType {
+    VIDEO = "VIDEO",
+    IMAGE = "IMAGE",
 }
