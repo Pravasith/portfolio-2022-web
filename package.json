@@ -13,6 +13,7 @@
         "@react-three/drei": "^8.16.5",
         "@react-three/fiber": "^7.0.26",
         "@types/gsap": "^3.0.0",
+        "axios": "^0.27.2",
         "dat.gui": "^0.7.9",
         "gsap": "^3.9.1",
         "next": "12.1.0",

@@ -57,10 +57,36 @@ const Section4 = () => {
 
                     <div className=" w-full flex-col-center">
                         <form onSubmit={handleSubmit} className="w-full">
+                            <div className="flex-row-west w-full">
+                                <textarea
+                                    placeholder="Your Name"
+                                    rows={1}
+                                    className={`border-4 m-1 p-4 rounded-3xl  ${
+                                        state?.currentTheme === EThemes.LIGHT
+                                            ? "border-black bg-white"
+                                            : "border-white bg-black"
+                                    }`}
+                                    value={message}
+                                    onChange={handleChange}
+                                />
+
+                                <textarea
+                                    placeholder="Your email id"
+                                    rows={1}
+                                    className={`border-4 m-1 p-4 rounded-3xl  ${
+                                        state?.currentTheme === EThemes.LIGHT
+                                            ? "border-black bg-white"
+                                            : "border-white bg-black"
+                                    }`}
+                                    value={message}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
                             <textarea
                                 placeholder="Hey Pravas, I think your work is okay. But I'd like to get in touch with you for..."
                                 rows={4}
-                                className={`border-4 p-4 rounded-3xl w-full ${
+                                className={`border-4 p-4 m-1 rounded-3xl w-full ${
                                     state?.currentTheme === EThemes.LIGHT
                                         ? "border-black bg-white"
                                         : "border-white bg-black"
@@ -80,7 +106,7 @@ const Section4 = () => {
                     <YellowBackground />
                 </div>
 
-                <div className="relative w-1/2 h-1/2 mt-12">
+                <div className="relative w-1/2 h-1/2">
                     <div ref={ref} className="w-full h-full">
                         <Canvas
                             linear={false}

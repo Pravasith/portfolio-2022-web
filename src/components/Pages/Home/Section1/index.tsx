@@ -1,4 +1,4 @@
-import { Suspense } from "react"
+import { Suspense, useEffect } from "react"
 
 import { OrbitControls } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
@@ -16,13 +16,13 @@ import { Vector3 } from "three"
 
 import { Table } from "@models/index"
 import useScrollTrigger from "@hooks/useScrollTrigger"
+import api from "@services/api"
 
 const textBlock: TextBlockType[] = [
     {
         type: ETextTypes.H1,
         text: `A Product Designer :br: turned:br: Software Engineer.`,
     },
-
     {
         type: ETextTypes.P,
         text: "Hey, I'm Pravas 👋🏼, a :span:>Full Stack TypeScript/JavaScript<:span: developer who is passionate about delivering the best :span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
@@ -35,6 +35,16 @@ const Section1 = () => {
     const cameraPosition = {
         initial: new Vector3(-3.3, 1, 4.8),
     }
+
+    useEffect(() => {
+        api.GET("http://localhost:8000/api/textblocks/create")
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }, [])
 
     useScrollTrigger(gsapX => {
         const scrollTrigger = {
