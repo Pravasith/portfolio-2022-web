@@ -1,4 +1,4 @@
-import { ETextColorClassNames } from "@lib/themes/colors"
+import { ETextColorClassNames } from "@lib/themes/interface"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import { random20Id } from "@utils/index"

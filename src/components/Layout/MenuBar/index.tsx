@@ -1,4 +1,4 @@
-import { EColorClassNames, ETextColorClassNames } from "@lib/themes/colors"
+import { EColorClassNames, ETextColorClassNames } from "@lib/themes/interface"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"

@@ -3,9 +3,9 @@ import { Icon } from "@components/UI/Icons"
 
 import TopbarIcons from "./Icons"
 
-import { EColors } from "@lib/themes/colors"
 import useToggleTheme from "@hooks/useToggleTheme"
 import Link from "next/link"
+import { EColors } from "@lib/themes/interface"
 
 const { SunMoon, MainLogo } = TopbarIcons
 

@@ -11,10 +11,11 @@ import MenuBar from "./MenuBar"
 import { themeReducer } from "@utils/reducers"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
-import { EColors } from "@lib/themes/colors"
+
 import FontsCopyright from "./FontsCopyright"
 import TopBar from "./Topbar"
 import { EThemeActions } from "@utils/reducers/interface"
+import { EColors } from "@lib/themes/interface"
 
 const Layout: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(

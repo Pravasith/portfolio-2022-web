@@ -15,7 +15,7 @@ import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
 import { EIconSizes } from "@components/UI/Icons/interface"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
-import { ETextColorClassNames } from "@lib/themes/colors"
+import { ETextColorClassNames } from "@lib/themes/interface"
 
 const ProjectSection = () => {
     const [imageBlock] = useState<Project[]>(() => [

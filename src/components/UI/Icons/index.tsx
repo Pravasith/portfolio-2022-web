@@ -2,9 +2,10 @@ import gsap from "gsap"
 import React, { useContext, useRef } from "react"
 import { EIconSizes, EScaleDirection, IconProps } from "./interface"
 import styles from "./Icons.module.scss"
-import { EColors } from "@lib/themes/colors"
+
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
+import { EColors } from "@lib/themes/interface"
 
 export const Icon: React.FC<IconProps> = props => {
     const {
