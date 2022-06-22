@@ -1,9 +1,9 @@
-import { Suspense, useEffect } from "react"
+import { Suspense } from "react"
 
 import { OrbitControls } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
-import { ETextAlign, ETextTypes, TextBlockType } from "@ui/TextBlock/interface"
+import { ETextAlign } from "@ui/TextBlock/interface"
 
 import { useInView } from "react-intersection-observer"
 
@@ -16,35 +16,15 @@ import { Vector3 } from "three"
 
 import { Table } from "@models/index"
 import useScrollTrigger from "@hooks/useScrollTrigger"
-import api from "@services/api"
 
-const textBlock: TextBlockType[] = [
-    {
-        type: ETextTypes.H1,
-        text: `A Product Designer :br: turned:br: Software Engineer.`,
-    },
-    {
-        type: ETextTypes.P,
-        text: "Hey, I'm Pravas 👋🏼, a :span:>Full Stack TypeScript/JavaScript<:span: developer who is passionate about delivering the best :span:> User Experiences 🎨<:span: & loves :span:> optimizing data 🚀<:span: by utilizing data structures and writing algorithms.",
-    },
-]
+import { SectionProps } from "../interface"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
-const Section1 = () => {
+const Section1 = ({ textBlocks }: SectionProps) => {
     const cameraPosition = {
         initial: new Vector3(-3.3, 1, 4.8),
     }
-
-    useEffect(() => {
-        api.GET("http://localhost:8000/api/textblocks/create")
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.error(err)
-            })
-    }, [])
 
     useScrollTrigger(gsapX => {
         const scrollTrigger = {
@@ -85,7 +65,7 @@ const Section1 = () => {
                     <div className="section-1-text-block w-1/3 ">
                         <TextBlock
                             textAlign={ETextAlign.LEFT}
-                            textBlock={textBlock}
+                            textBlock={textBlocks}
                         />
                     </div>
                 </div>

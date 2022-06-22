@@ -7,7 +7,7 @@ import {
 } from "@components/SVGs/HomeSection4"
 import Button from "@components/UI/Button"
 import TextBlock from "@components/UI/TextBlock"
-import { ETextAlign, ETextTypes } from "@components/UI/TextBlock/interface"
+import { ETextAlign } from "@components/UI/TextBlock/interface"
 
 import { Canvas, useFrame } from "@react-three/fiber"
 import { ThemeContext } from "@utils/contexts/themeContext"
@@ -15,10 +15,11 @@ import { EThemes } from "@utils/contexts/themeContext/interface"
 import { ChangeEvent, FormEvent, Suspense, useContext, useState } from "react"
 import { useInView } from "react-intersection-observer"
 import { Vector3 } from "three"
+import { SectionProps } from "../interface"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
-const Section4 = () => {
+const Section4 = ({ textBlocks }: SectionProps) => {
     const { ref, inView } = useInView()
     const cameraPosition = {
         initial: new Vector3(7.27, 0.65, -0.2),
@@ -34,13 +35,6 @@ const Section4 = () => {
         e.preventDefault()
     }
 
-    const textBlock = [
-        {
-            type: ETextTypes.H1,
-            text: `Write to me!`,
-        },
-    ]
-
     const { state } = useContext(ThemeContext)
 
     return (
@@ -51,7 +45,7 @@ const Section4 = () => {
                     <div className="mx-5">
                         <TextBlock
                             textAlign={ETextAlign.LEFT}
-                            textBlock={textBlock}
+                            textBlock={textBlocks}
                         />
                     </div>
 

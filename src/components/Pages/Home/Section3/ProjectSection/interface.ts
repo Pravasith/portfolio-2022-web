@@ -1,15 +1,17 @@
 export type Project = {
-    imageSrc: string
-    imageAlt: string
-    type: ESrcType
-    id: string
-    width: number
-    height: number
-    details: {
-        title: string
-        description?: string
-        gitHubLink?: string
-        liveLink?: string
+    title: string
+    description: string
+    gitHubLink: string
+    liveLink: string
+
+    media: {
+        imageSrc: string
+        imageAlt: string
+        type: ESrcType
+        id: string
+        width: number
+        height: number
+        caption: string
     }
 }
 

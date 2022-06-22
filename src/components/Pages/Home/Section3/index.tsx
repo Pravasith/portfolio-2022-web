@@ -1,24 +1,10 @@
 import { Spikes } from "@components/SVGs/HomeSection3"
 import TextBlock from "@components/UI/TextBlock"
-import {
-    ETextAlign,
-    ETextTypes,
-    TextBlockType,
-} from "@components/UI/TextBlock/interface"
+import { ETextAlign } from "@components/UI/TextBlock/interface"
+import { SectionProps } from "../interface"
 import ProjectSection from "./ProjectSection"
 
-const textBlock: TextBlockType[] = [
-    {
-        type: ETextTypes.H1,
-        text: `Spare time projects. 🍓`,
-    },
-    {
-        type: ETextTypes.P,
-        text: "Some projects I did in the past ✨. Be sure to check out the live links!",
-    },
-]
-
-const Section3 = () => {
+const Section3 = ({ textBlocks }: SectionProps) => {
     return (
         <div className="section-3-container flex-col-center">
             <div className="flex-col-center w-full mt-10 mb-44">
@@ -32,7 +18,7 @@ const Section3 = () => {
                 <div className="section-3-text-block w-1/3">
                     <TextBlock
                         textAlign={ETextAlign.LEFT}
-                        textBlock={textBlock}
+                        textBlock={textBlocks}
                     />
                 </div>
             </div>

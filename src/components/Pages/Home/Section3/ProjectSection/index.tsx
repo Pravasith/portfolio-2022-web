@@ -18,70 +18,73 @@ import { EThemes } from "@utils/contexts/themeContext/interface"
 import { ETextColorClassNames } from "@lib/themes/interface"
 
 const ProjectSection = () => {
-    const [imageBlock] = useState<Project[]>(() => [
+    const [projects] = useState<Project[]>(() => [
         {
-            imageSrc: "/img/pravasith-portfolio-website.png",
-            imageAlt: "pravasdesign.com thumbimage",
-            type: ESrcType.IMAGE,
-            id: "pravasith-portfolio-thumbnail",
-            width: 1000,
-            height: 574,
-            details: {
-                title: "My old portfolio website",
-                description:
-                    "Old portfolio built using :span:>NextJS, ThreeJS, Express, Firebase<:span:; hosted on a DigitalOcean droplet using :span:>Ngnix, and PM2.<:span:",
-                gitHubLink: "https://github.com/Pravasith",
-                liveLink: "https://pravasdesign.com",
+            title: "My old portfolio website",
+            description:
+                "Old portfolio built using :span:>NextJS, ThreeJS, Express, Firebase<:span:; hosted on a DigitalOcean droplet using :span:>Ngnix, and PM2.<:span:",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                imageSrc: "/img/pravasith-portfolio-website.png",
+                imageAlt: "pravasith-portfolio-thumbnail",
+                type: ESrcType.IMAGE,
+                id: "pravasith-portfolio-thumbnail",
+                width: 1000,
+                height: 574,
+                caption: "Pravasith's old portfolio site",
             },
         },
         {
-            imageSrc: "/img/spotifinder-graphql.png",
-            imageAlt: "spotifinder thumbimage",
-            type: ESrcType.IMAGE,
-            id: "spotifinder-thumbnail",
-            width: 1000,
-            height: 574,
-            details: {
-                title: "Spotifinder",
-                description:
-                    "Spotify clone app. Built using :span:>NextJS, Apollo, GraphQL<:span: on the frontend; :span:>Express, TypeGraphQL<:span: on the backend.",
-                gitHubLink: "https://github.com/Pravasith",
-                liveLink: "https://spotifinder.vercel.app/",
+            title: "Spotifinder",
+            description:
+                "A Spotify clone app built using :span:>NextJS, Apollo, GraphQL<:span: on the frontend; :span:>Express, TypeGraphQL<:span: on the backend. Make sure to check the GitHub code for this!",
+            gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
+            liveLink: "https://spotifinder.vercel.app/",
+            media: {
+                imageSrc: "/img/spotifinder-graphql.png",
+                imageAlt: "spotifinder thumbimage",
+                type: ESrcType.IMAGE,
+                id: "spotifinder-thumbnail",
+                width: 1000,
+                height: 574,
+                caption: "A very cool app with a very cool Backend",
             },
         },
         {
-            imageSrc: "/img/space-mine-game.png",
-            imageAlt: "spacemine thumbimage",
-            type: ESrcType.IMAGE,
-            id: "spacemine-thumbnail",
-            width: 1000,
-            height: 574,
-            details: {
-                title: "3D Space Game",
-                description:
-                    "3D first person 3D game using :span:>ThreeJS and NextJS<:span:. (in progress)",
-                gitHubLink: "https://github.com/Pravasith",
-                liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
+            title: "Into The Void",
+            description:
+                "A first person 3D game built using :span:>ThreeJS and NextJS<:span:. (in progress)",
+            gitHubLink: "https://github.com/Pravasith/into-the-void",
+            liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
+            media: {
+                imageSrc: "/img/space-mine-game.png",
+                imageAlt: "spacemine thumbimage",
+                type: ESrcType.IMAGE,
+                id: "spacemine-thumbnail",
+                width: 1000,
+                height: 574,
+                caption: "A 3D game - Into the Void",
             },
         },
     ])
 
     const { state } = useContext(ThemeContext)
 
-    const projects = imageBlock.map((item, i) => {
+    const Projects = projects.map((item, i) => {
         const projectTextBlocks = [
             {
                 type: ETextTypes.H3,
-                text: item.details.title,
+                text: item.title,
             },
             {
                 type: ETextTypes.P,
-                text: item.details.description || "",
+                text: item.description,
             },
         ]
 
         return (
-            <div key={item.id} className="flex-row-west py-36 w-full">
+            <div key={item.media.id} className="flex-row-west py-36 w-full">
                 <div className="relative min-w-1/2 w-1/2">
                     <div
                         key={`svg-bgd-01`}
@@ -113,10 +116,10 @@ const ProjectSection = () => {
                     >
                         <div className={`flex-row-center`}>
                             <Image
-                                src={item.imageSrc}
-                                alt={item.imageAlt}
-                                width={item.width}
-                                height={item.height}
+                                src={item.media.imageSrc}
+                                alt={item.media.imageAlt}
+                                width={item.media.width}
+                                height={item.media.height}
                             />
                         </div>
                     </div>
@@ -131,8 +134,8 @@ const ProjectSection = () => {
                     </div>
 
                     <div className="flex flex-row">
-                        {item.details.liveLink && (
-                            <Link href={item.details.liveLink}>
+                        {item.liveLink && (
+                            <Link href={item.liveLink}>
                                 <a className="m-3" target={"_blank"}>
                                     <Icon iconSize={EIconSizes.xs}>
                                         <OpenLinkIcon />
@@ -141,8 +144,8 @@ const ProjectSection = () => {
                             </Link>
                         )}
 
-                        {item.details.gitHubLink && (
-                            <Link href={item.details.gitHubLink}>
+                        {item.gitHubLink && (
+                            <Link href={item.gitHubLink}>
                                 <a className="m-3" target={"_blank"}>
                                     <Icon iconSize={EIconSizes.xs}>
                                         <GithubIcon />
@@ -156,7 +159,7 @@ const ProjectSection = () => {
         )
     })
 
-    return <>{projects}</>
+    return <>{Projects}</>
 }
 
 export default ProjectSection

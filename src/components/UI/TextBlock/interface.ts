@@ -1,4 +1,4 @@
-import { ETextColorClassNames } from "@lib/themes/colors"
+import { ETextColorClassNames } from "@lib/themes/interface"
 
 export enum ETextTypes {
     H3 = "h3",
