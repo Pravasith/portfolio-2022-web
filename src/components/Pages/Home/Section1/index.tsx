@@ -3,7 +3,6 @@ import { Suspense } from "react"
 import { OrbitControls } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import TextBlock from "@ui/TextBlock"
-import { ETextAlign } from "@ui/TextBlock/interface"
 
 import { useInView } from "react-intersection-observer"
 
@@ -18,6 +17,7 @@ import { Table } from "@models/index"
 import useScrollTrigger from "@hooks/useScrollTrigger"
 
 import { SectionProps } from "../interface"
+import { ETextAlign } from "@lib/api/textBlocks/interface"
 
 const DisableRender = () => useFrame(() => null, 1000)
 

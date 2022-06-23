@@ -1,6 +1,7 @@
 import { Spikes } from "@components/SVGs/HomeSection3"
 import TextBlock from "@components/UI/TextBlock"
-import { ETextAlign } from "@components/UI/TextBlock/interface"
+import { ETextAlign } from "@lib/api/textBlocks/interface"
+
 import { SectionProps } from "../interface"
 import ProjectSection from "./ProjectSection"
 

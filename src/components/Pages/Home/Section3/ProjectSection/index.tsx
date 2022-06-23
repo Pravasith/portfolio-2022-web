@@ -1,21 +1,20 @@
 import TextBlock from "@components/UI/TextBlock"
-import { ETextAlign, ETextTypes } from "@components/UI/TextBlock/interface"
-import Image from "next/image"
-import { useContext, useState } from "react"
+import { ETextAlign, ETextTypes } from "@lib/api/textBlocks/interface"
+
+import { useState } from "react"
 import {
     SVGBackground1,
     SVGBackground2,
     SVGBackground3,
 } from "@svgs/HomeSection3"
 
-import { ESrcType, Project } from "./interface"
+import { Project } from "./interface"
 import { Icon } from "@components/UI/Icons"
 import Link from "next/link"
 import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
 import { EIconSizes } from "@components/UI/Icons/interface"
-import { ThemeContext } from "@utils/contexts/themeContext"
-import { EThemes } from "@utils/contexts/themeContext/interface"
-import { ETextColorClassNames } from "@lib/themes/interface"
+import { ESrcType } from "@lib/api/mediaBlocks/interface"
+import ImageBlock from "@components/UI/ImageBlock"
 
 const ProjectSection = () => {
     const [projects] = useState<Project[]>(() => [
@@ -69,8 +68,6 @@ const ProjectSection = () => {
         },
     ])
 
-    const { state } = useContext(ThemeContext)
-
     const Projects = projects.map((item, i) => {
         const projectTextBlocks = [
             {
@@ -108,24 +105,13 @@ const ProjectSection = () => {
                     </div>
 
                     <div
-                        className={`w-full border-8  overflow-clip  ${
-                            state?.currentTheme === EThemes.LIGHT
-                                ? ETextColorClassNames.LIGHT_THEME_TEXT_200
-                                : ETextColorClassNames.DARK_THEME_TEXT_200
-                        }`}
+                        className={`w-full border-8  overflow-clip  ${"bg-gray-200"}`}
                     >
-                        <div className={`flex-row-center`}>
-                            <Image
-                                src={item.media.imageSrc}
-                                alt={item.media.imageAlt}
-                                width={item.media.width}
-                                height={item.media.height}
-                            />
-                        </div>
+                        <ImageBlock imageBlock={item.media} />
                     </div>
                 </div>
 
-                <div className="px-10">
+                <div className="px-10 flex-col-west">
                     <div className="m-3">
                         <TextBlock
                             textAlign={ETextAlign.LEFT}
@@ -133,7 +119,7 @@ const ProjectSection = () => {
                         />
                     </div>
 
-                    <div className="flex flex-row">
+                    <div className="flex flex-row my-2">
                         {item.liveLink && (
                             <Link href={item.liveLink}>
                                 <a className="m-3" target={"_blank"}>

@@ -1,9 +1,8 @@
-import { ETextAlign } from "@ui/TextBlock/interface"
-
 import { CurvedText } from "@svgs/HomeSection2"
 import TextBlock from "@ui/TextBlock"
 import Button from "@components/UI/Button"
 import { SectionProps } from "../interface"
+import { ETextAlign } from "@lib/api/textBlocks/interface"
 
 const Section2 = ({ textBlocks }: SectionProps) => {
     return (

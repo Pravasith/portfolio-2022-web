@@ -7,7 +7,7 @@ import {
 } from "@components/SVGs/HomeSection4"
 import Button from "@components/UI/Button"
 import TextBlock from "@components/UI/TextBlock"
-import { ETextAlign } from "@components/UI/TextBlock/interface"
+import { ETextAlign } from "@lib/api/textBlocks/interface"
 
 import { Canvas, useFrame } from "@react-three/fiber"
 import { ThemeContext } from "@utils/contexts/themeContext"
