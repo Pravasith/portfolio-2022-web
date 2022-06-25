@@ -8,67 +8,68 @@ import {
     SVGBackground3,
 } from "@svgs/HomeSection3"
 
-import { Project } from "./interface"
 import { Icon } from "@components/UI/Icons"
 import Link from "next/link"
 import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
 import { EIconSizes } from "@components/UI/Icons/interface"
 import { ESrcType } from "@lib/api/mediaBlocks/interface"
 import ImageBlock from "@components/UI/ImageBlock"
+import { ProjectType } from "@lib/api/projects/interface"
+import { ProjectSectionProps } from "./interface"
 
-const ProjectSection = () => {
-    const [projects] = useState<Project[]>(() => [
-        {
-            title: "My old portfolio website",
-            description:
-                "Old portfolio built using :span:>NextJS, ThreeJS, Express, Firebase<:span:; hosted on a DigitalOcean droplet using :span:>Ngnix, and PM2.<:span:",
-            gitHubLink: "https://github.com/Pravasith",
-            liveLink: "https://pravasdesign.com",
-            media: {
-                imageSrc: "/img/pravasith-portfolio-website.png",
-                imageAlt: "pravasith-portfolio-thumbnail",
-                type: ESrcType.IMAGE,
-                id: "pravasith-portfolio-thumbnail",
-                width: 1000,
-                height: 574,
-                caption: "Pravasith's old portfolio site",
-            },
-        },
-        {
-            title: "Spotifinder",
-            description:
-                "A Spotify clone app built using :span:>NextJS, Apollo, GraphQL<:span: on the frontend; :span:>Express, TypeGraphQL<:span: on the backend. Make sure to check the GitHub code for this!",
-            gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
-            liveLink: "https://spotifinder.vercel.app/",
-            media: {
-                imageSrc: "/img/spotifinder-graphql.png",
-                imageAlt: "spotifinder thumbimage",
-                type: ESrcType.IMAGE,
-                id: "spotifinder-thumbnail",
-                width: 1000,
-                height: 574,
-                caption: "A very cool app with a very cool Backend",
-            },
-        },
-        {
-            title: "Into The Void",
-            description:
-                "A first person 3D game built using :span:>ThreeJS and NextJS<:span:. (in progress)",
-            gitHubLink: "https://github.com/Pravasith/into-the-void",
-            liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
-            media: {
-                imageSrc: "/img/space-mine-game.png",
-                imageAlt: "spacemine thumbimage",
-                type: ESrcType.IMAGE,
-                id: "spacemine-thumbnail",
-                width: 1000,
-                height: 574,
-                caption: "A 3D game - Into the Void",
-            },
-        },
-    ])
+const ProjectSection = ({ projects }: ProjectSectionProps) => {
+    // const [projects] = useState<ProjectType[]>(() => [
+    //     {
+    //         title: "My old portfolio website",
+    //         description:
+    //             "Old portfolio built using :span:>NextJS, ThreeJS, Express, Firebase<:span:; hosted on a DigitalOcean droplet using :span:>Ngnix, and PM2.<:span:",
+    //         gitHubLink: "https://github.com/Pravasith",
+    //         liveLink: "https://pravasdesign.com",
+    //         media: {
+    //             src: "/img/pravasith-portfolio-website.png",
+    //             alt: "pravasith-portfolio-thumbnail",
+    //             type: ESrcType.IMAGE,
+    //             id: "pravasith-portfolio-thumbnail",
+    //             width: 1000,
+    //             height: 574,
+    //             caption: "Pravasith's old portfolio site",
+    //         },
+    //     },
+    //     {
+    //         title: "Spotifinder",
+    //         description:
+    //             "A Spotify clone app built using :span:>NextJS, Apollo, GraphQL<:span: on the frontend; :span:>Express, TypeGraphQL<:span: on the backend. Make sure to check the GitHub code for this!",
+    //         gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
+    //         liveLink: "https://spotifinder.vercel.app/",
+    //         media: {
+    //             src: "/img/spotifinder-graphql.png",
+    //             alt: "spotifinder thumbimage",
+    //             type: ESrcType.IMAGE,
+    //             id: "spotifinder-thumbnail",
+    //             width: 1000,
+    //             height: 574,
+    //             caption: "A very cool app with a very cool Backend",
+    //         },
+    //     },
+    //     {
+    //         title: "Into The Void",
+    //         description:
+    //             "A first person 3D game built using :span:>ThreeJS and NextJS<:span:. (in progress)",
+    //         gitHubLink: "https://github.com/Pravasith/into-the-void",
+    //         liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
+    //         media: {
+    //             src: "/img/space-mine-game.png",
+    //             alt: "spacemine thumbimage",
+    //             type: ESrcType.IMAGE,
+    //             id: "spacemine-thumbnail",
+    //             width: 1000,
+    //             height: 574,
+    //             caption: "A 3D game - Into the Void",
+    //         },
+    //     },
+    // ])
 
-    const Projects = projects.map((item, i) => {
+    const Projects = projects.projects.map((item, i) => {
         const projectTextBlocks = [
             {
                 type: ETextTypes.H3,

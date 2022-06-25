@@ -8,8 +8,8 @@ const ImageBlock = (props: ImageBlockProps) => {
     return (
         <div className={`flex-col-center`}>
             <Image
-                src={props.imageBlock.imageSrc}
-                alt={props.imageBlock.imageAlt}
+                src={props.imageBlock.src}
+                alt={props.imageBlock.alt}
                 width={props.imageBlock.width}
                 height={props.imageBlock.height}
             />
@@ -21,8 +21,6 @@ const ImageBlock = (props: ImageBlockProps) => {
                         {
                             text: props.imageBlock.caption,
                             type: ETextTypes.P,
-                            textColorClassName:
-                                ETextColorClassNames.LIGHT_THEME_TEXT_200,
                         },
                     ]}
                 />

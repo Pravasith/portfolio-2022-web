@@ -6,6 +6,7 @@ import Home from "@components/Pages/Home"
 import api from "@services/api"
 import { ETextBlockTypes, TextBlocksType } from "@lib/api/textBlocks/interface"
 import { API_ROUTE_URLS } from "@lib/api/textBlocks"
+import { ProjectsType } from "@lib/api/projects/interface"
 
 const metaProps = {
     pageTitle: "Pravasith  - Creative Web Developer 🔶 🟨 🟢 🔹",
@@ -29,21 +30,29 @@ const metaProps = {
 
 interface IndexPageProps {
     homePageTextBlocks: TextBlocksType[]
+    projects: ProjectsType
 }
 
-const IndexPage: NextPage<IndexPageProps> = ({ homePageTextBlocks }) => {
+const IndexPage: NextPage<IndexPageProps> = ({
+    homePageTextBlocks,
+    projects,
+}) => {
     return (
         <main>
             <Meta {...metaProps} />
             <Layout>
-                <Home homePageTextBlocks={homePageTextBlocks} />
+                <Home
+                    homePageTextBlocks={homePageTextBlocks}
+                    projects={projects}
+                />
             </Layout>
         </main>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    let homePageTextBlocks: TextBlocksType[] = []
+    let homePageTextBlocks: TextBlocksType[] = [],
+        projects
 
     await api
         .GET<TextBlocksType[]>(
@@ -56,9 +65,19 @@ export const getStaticProps: GetStaticProps = async () => {
             console.error(err)
         })
 
+    await api
+        .GET<ProjectsType[]>(API_ROUTE_URLS.GET_PROJECTS)
+        .then(res => {
+            projects = res[0]
+        })
+        .catch(err => {
+            console.error(err)
+        })
+
     return {
         props: {
             homePageTextBlocks,
+            projects,
         },
     }
 }

@@ -6,7 +6,7 @@ import Section2 from "./Section2"
 import Section3 from "./Section3"
 import Section4 from "./Section4"
 
-const Home = ({ homePageTextBlocks }: HomeProps) => {
+const Home = ({ homePageTextBlocks, projects }: HomeProps) => {
     const textBlocks = homePageTextBlocks.reduce<
         Record<string, TextBlocksType>
     >((all, item) => {
@@ -26,6 +26,7 @@ const Home = ({ homePageTextBlocks }: HomeProps) => {
                 />
                 <Section3
                     textBlocks={textBlocks["home-section-3"].textBlocks}
+                    projects={projects}
                 />
                 <Section4
                     textBlocks={textBlocks["home-section-4"].textBlocks}

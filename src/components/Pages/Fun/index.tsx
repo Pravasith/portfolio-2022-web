@@ -8,9 +8,10 @@ import {
 import { useState } from "react"
 
 import { Spirals } from "@components/SVGs/FunPage"
-import { ImageBlockType } from "@lib/api/imageBlocks/interface"
+
 import ImageBlock from "@components/UI/ImageBlock"
-import { ESrcType } from "@lib/api/mediaBlocks/interface"
+import { ESrcType, MediaBlockType } from "@lib/api/mediaBlocks/interface"
+import VideoBlock from "@components/UI/VideoBlock"
 
 const Fun = () => {
     const textBlock: TextBlockType[] = [
@@ -24,11 +25,10 @@ const Fun = () => {
         },
     ]
 
-    const [mediaBlocks] = useState<ImageBlockType[]>(() => [
+    const [mediaBlocks] = useState<MediaBlockType[]>(() => [
         {
-            imageSrc:
-                "https://folio-pics.s3.eu-west-2.amazonaws.com/project-1-coverx.png",
-            imageAlt: "Meal Delivery App, a case study",
+            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-1-coverx.png",
+            alt: "Meal Delivery App, a case study",
             type: ESrcType.IMAGE,
             id: "meal-delivery-app",
             width: 1000,
@@ -38,9 +38,8 @@ const Fun = () => {
             hyperlink: "/blogs/meal-delivery-app",
         },
         {
-            imageSrc:
-                "https://folio-pics.s3.eu-west-2.amazonaws.com/project-4-cover.jpg",
-            imageAlt: "Backpack Umbrella",
+            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-4-cover.jpg",
+            alt: "Backpack Umbrella",
             type: ESrcType.IMAGE,
             id: "backpack-umbrella",
             width: 1000,
@@ -50,23 +49,21 @@ const Fun = () => {
             showCaption: true,
             hyperlink: "/blogs/backpack-umbrella",
         },
-        // {
-        //     imageSrc:
-        //         "https://folio-pics.s3.eu-west-2.amazonaws.com/projects/project5/tyrex99X.mp4",
-        //     imageAlt: "3 Way Transformer",
-        //     type: ESrcType.VIDEO,
-        //     id: "transformer",
-        //     width: 1000,
-        //     height: 572,
-        //     details: {
-        //         title: "3-Way Transformer",
-        //         liveLink: "/blogs/three-way-transformer",
-        //     },
-        // },
         {
-            imageSrc:
-                "https://folio-pics.s3.eu-west-2.amazonaws.com/project-3-cover.jpg",
-            imageAlt: "AR Helmet",
+            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/projects/project5/tyrex99X.mp4",
+            alt: "3 Way Transformer",
+            type: ESrcType.VIDEO,
+            id: "transformer",
+            width: 1000,
+            height: 572,
+
+            caption: "3-Way Transformer",
+            showCaption: true,
+            hyperlink: "/blogs/three-way-transformer",
+        },
+        {
+            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-3-cover.jpg",
+            alt: "AR Helmet",
             type: ESrcType.IMAGE,
             id: "ar-helmet",
             width: 1000,
@@ -96,15 +93,10 @@ const Fun = () => {
                                             imageBlock={item}
                                         />
                                     ) : (
-                                        <video
-                                            autoPlay
-                                            loop
-                                            style={{
-                                                width: item.width,
-                                            }}
-                                        >
-                                            <source src={item.imageSrc} />
-                                        </video>
+                                        <VideoBlock
+                                            alignCaptionText={ETextAlign.LEFT}
+                                            videoBlock={item}
+                                        />
                                     )}
 
                                     {i === 1 && (
