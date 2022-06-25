@@ -1,7 +1,6 @@
 import TextBlock from "@components/UI/TextBlock"
 import { ETextAlign, ETextTypes } from "@lib/api/textBlocks/interface"
 
-import { useState } from "react"
 import {
     SVGBackground1,
     SVGBackground2,
@@ -12,9 +11,9 @@ import { Icon } from "@components/UI/Icons"
 import Link from "next/link"
 import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
 import { EIconSizes } from "@components/UI/Icons/interface"
-import { ESrcType } from "@lib/api/mediaBlocks/interface"
+
 import ImageBlock from "@components/UI/ImageBlock"
-import { ProjectType } from "@lib/api/projects/interface"
+
 import { ProjectSectionProps } from "./interface"
 
 const ProjectSection = ({ projects }: ProjectSectionProps) => {

@@ -5,15 +5,14 @@ import {
     TextBlockType,
 } from "@lib/api/textBlocks/interface"
 
-import { useState } from "react"
-
 import { Spirals } from "@components/SVGs/FunPage"
 
 import ImageBlock from "@components/UI/ImageBlock"
-import { ESrcType, MediaBlockType } from "@lib/api/mediaBlocks/interface"
+import { ESrcType } from "@lib/api/mediaBlocks/interface"
 import VideoBlock from "@components/UI/VideoBlock"
+import { FunProps } from "./interface"
 
-const Fun = () => {
+const Fun = ({ mediaBlocks }: FunProps) => {
     const textBlock: TextBlockType[] = [
         {
             type: ETextTypes.H1,
@@ -25,54 +24,54 @@ const Fun = () => {
         },
     ]
 
-    const [mediaBlocks] = useState<MediaBlockType[]>(() => [
-        {
-            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-1-coverx.png",
-            alt: "Meal Delivery App, a case study",
-            type: ESrcType.IMAGE,
-            id: "meal-delivery-app",
-            width: 1000,
-            height: 572,
-            caption: "Meal Delivery App, a case study",
-            showCaption: true,
-            hyperlink: "/blogs/meal-delivery-app",
-        },
-        {
-            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-4-cover.jpg",
-            alt: "Backpack Umbrella",
-            type: ESrcType.IMAGE,
-            id: "backpack-umbrella",
-            width: 1000,
-            height: 572,
+    // const [mediaBlocks] = useState<MediaBlockType[]>(() => [
+    //     {
+    //         src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-1-coverx.png",
+    //         alt: "Meal Delivery App, a case study",
+    //         type: ESrcType.IMAGE,
+    //         id: "meal-delivery-app",
+    //         width: 1000,
+    //         height: 572,
+    //         caption: "Meal Delivery App, a case study",
+    //         showCaption: true,
+    //         hyperlink: "/blogs/meal-delivery-app",
+    //     },
+    //     {
+    //         src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-4-cover.jpg",
+    //         alt: "Backpack Umbrella",
+    //         type: ESrcType.IMAGE,
+    //         id: "backpack-umbrella",
+    //         width: 1000,
+    //         height: 572,
 
-            caption: "Backpack Umbrella",
-            showCaption: true,
-            hyperlink: "/blogs/backpack-umbrella",
-        },
-        {
-            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/projects/project5/tyrex99X.mp4",
-            alt: "3 Way Transformer",
-            type: ESrcType.VIDEO,
-            id: "transformer",
-            width: 1000,
-            height: 572,
+    //         caption: "Backpack Umbrella",
+    //         showCaption: true,
+    //         hyperlink: "/blogs/backpack-umbrella",
+    //     },
+    //     {
+    //         src: "https://folio-pics.s3.eu-west-2.amazonaws.com/projects/project5/tyrex99X.mp4",
+    //         alt: "3 Way Transformer",
+    //         type: ESrcType.VIDEO,
+    //         id: "transformer",
+    //         width: 1000,
+    //         height: 572,
 
-            caption: "3-Way Transformer",
-            showCaption: true,
-            hyperlink: "/blogs/three-way-transformer",
-        },
-        {
-            src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-3-cover.jpg",
-            alt: "AR Helmet",
-            type: ESrcType.IMAGE,
-            id: "ar-helmet",
-            width: 1000,
-            height: 572,
-            caption: "AR Helmet",
-            showCaption: true,
-            hyperlink: "/blogs/ar-helmet",
-        },
-    ])
+    //         caption: "3-Way Transformer",
+    //         showCaption: true,
+    //         hyperlink: "/blogs/three-way-transformer",
+    //     },
+    //     {
+    //         src: "https://folio-pics.s3.eu-west-2.amazonaws.com/project-3-cover.jpg",
+    //         alt: "AR Helmet",
+    //         type: ESrcType.IMAGE,
+    //         id: "ar-helmet",
+    //         width: 1000,
+    //         height: 572,
+    //         caption: "AR Helmet",
+    //         showCaption: true,
+    //         hyperlink: "/blogs/ar-helmet",
+    //     },
+    // ])
 
     return (
         <div className="section-4-container flex-col-center w-full h-screen bg0">

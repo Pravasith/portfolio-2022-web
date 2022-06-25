@@ -2,7 +2,6 @@ import TextBlock from "@ui/TextBlock"
 import Image from "next/image"
 import { ETextAlign, ETextTypes } from "@lib/api/textBlocks/interface"
 import { ImageBlockProps } from "./interface"
-import { ETextColorClassNames } from "@lib/themes/interface"
 
 const ImageBlock = (props: ImageBlockProps) => {
     return (
