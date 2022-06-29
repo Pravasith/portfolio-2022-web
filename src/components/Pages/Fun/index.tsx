@@ -75,8 +75,8 @@ const Fun = ({ mediaBlocks }: FunProps) => {
     // ])
 
     return (
-        <div className="section-4-container flex-col-center w-full h-screen bg0">
-            <div className=" w-1/2">
+        <div className="flex-col-center w-full h-screen">
+            <div className="w-1/2">
                 <TextBlock textAlign={ETextAlign.LEFT} textBlock={textBlock} />
 
                 <div className="grid grid-cols-2 gap-2">

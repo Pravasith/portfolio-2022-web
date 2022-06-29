@@ -36,18 +36,20 @@ const MenuBar = () => {
             page => page.route === router.asPath
         )
 
-        gsap.to(
-            `#menuBar-item-${routeNameToHighlight?.name} .menuBar-item-background`,
-            {
-                scaleX: 1,
-                duration: 0.2,
-            }
-        )
+        if (routeNameToHighlight?.name) {
+            gsap.to(
+                `#menuBar-item-${routeNameToHighlight.name} .menuBar-item-background`,
+                {
+                    scaleX: 1,
+                    duration: 0.2,
+                }
+            )
 
-        gsap.to(`#menuBar-item-${routeNameToHighlight?.name} a`, {
-            fontFamily: EFonts.CALIBRE_BOLD,
-            duration: 0.2,
-        })
+            gsap.to(`#menuBar-item-${routeNameToHighlight.name} a`, {
+                fontFamily: EFonts.CALIBRE_BOLD,
+                duration: 0.2,
+            })
+        }
     }
 
     useEffect(() => {

@@ -6,26 +6,7 @@ import Fun from "@components/Pages/Fun"
 import { MediaBlockType } from "@lib/api/mediaBlocks/interface"
 import api from "@services/api"
 import { API_ROUTE_URLS } from "@lib/api/textBlocks"
-
-const metaProps = {
-    pageTitle: "Pravasith - Full Stack Developer 🔶 🟨 🟢 🔹",
-    ogSiteName: "pravasith.design",
-    ogTitle: "Pravasith - Full Stack Developer 🔶 🟨 🟢 🔹",
-    ogType: "website",
-    ogUrl: "https://pravasith.design/",
-    twitterCreator: "@pravasith",
-    description:
-        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹GraphQL🔹RestAPI🔹MongoDB🔹",
-    twitterDescription:
-        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹GraphQL🔹RestAPI🔹MongoDB🔹",
-    ogDescription:
-        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹GraphQL🔹RestAPI🔹MongoDB🔹",
-    ogImageAlt: "An Illustration of a Creative Web Developer",
-    twitterImageAlt: "An Illustration of a Creative Web Developer",
-    // TODO: CHANGE IMAGES
-    ogImage: "https://cassie.codes/images/meta.jpg",
-    twitterImage: "https://cassie.codes/images/meta.jpg",
-}
+import { metaData } from "@utils/constants"
 
 interface FunPageProps {
     mediaBlocks: MediaBlockType[]
@@ -34,7 +15,7 @@ interface FunPageProps {
 const FunPage: NextPage<FunPageProps> = ({ mediaBlocks }) => {
     return (
         <main>
-            <Meta {...metaProps} />
+            <Meta {...metaData} />
             <Layout>
                 <Fun mediaBlocks={mediaBlocks} />
             </Layout>
