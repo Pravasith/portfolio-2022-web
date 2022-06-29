@@ -11,20 +11,8 @@ import ImageBlock from "@components/UI/ImageBlock"
 import { ESrcType } from "@lib/api/mediaBlocks/interface"
 import VideoBlock from "@components/UI/VideoBlock"
 import { FunProps } from "./interface"
-import { useEffect } from "react"
-import { modifyText } from "@components/UI/TextBlock/SpanifiedText"
 
 const Fun = ({ mediaBlocks }: FunProps) => {
-    useEffect(() => {
-        const x = `On :sp>avoid :ln>creating<ln: strings<sp:a related note :sp>the above check<sp: won't work if a string is created with new String('hello') 
-        as the type will be Object instead. There are complicated solutions to work around this, 
-        but it's better to just  that way, ever.`
-
-        const t = modifyText(x)
-
-        console.log(t)
-    }, [])
-
     const textBlock: TextBlockType[] = [
         {
             type: ETextTypes.H1,
@@ -32,7 +20,7 @@ const Fun = ({ mediaBlocks }: FunProps) => {
         },
         {
             type: ETextTypes.P,
-            text: "Here's some :span:>non-tech<:span: stuff that I made for fun.",
+            text: "Here's some :ln>:sp>non-tech<sp::ln:/hello<ln: stuff that I made for fun.",
         },
     ]
 

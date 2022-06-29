@@ -1,5 +1,3 @@
-import { ETextColorClassNames } from "@lib/themes/interface"
-
 export enum ETextBlockTypes {
     HOME_PAGE = "HOME_PAGE",
     PROJECT_SECTION = "PROJECT_SECTION",
@@ -20,8 +18,6 @@ export enum ETextTypes {
 export type TextBlockType = {
     type: ETextTypes
     text: string
-    textColorClassName?: ETextColorClassNames
-    spanColorClassName?: ETextColorClassNames
 }
 
 export enum ETextAlign {

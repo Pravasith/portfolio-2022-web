@@ -6,7 +6,7 @@ import { random20Id } from "@utils/index"
 import { useContext } from "react"
 
 import { TextBlockProps } from "./interface"
-import SpanifiedText from "./SpanifiedText"
+import SpanifyLinkifyText from "@ui/TextBlock/SpanifyLinkifyText"
 
 const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
     const { state } = useContext(ThemeContext)
@@ -14,29 +14,37 @@ const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
     return (
         <article className="w-full">
             {textBlock.map((item, i) => {
-                const spanColorClassName = item.spanColorClassName
-                    ? item.spanColorClassName
-                    : state?.currentTheme === EThemes.LIGHT
-                    ? ETextColorClassNames.LIGHT_THEME_TEXT_100
-                    : ETextColorClassNames.DARK_THEME_TEXT_100
+                const spanColorClassName =
+                    state?.currentTheme === EThemes.LIGHT
+                        ? ETextColorClassNames.LIGHT_THEME_TEXT_100
+                        : ETextColorClassNames.DARK_THEME_TEXT_100
 
-                const textColorClassName = item.textColorClassName
-                    ? item.textColorClassName
-                    : state?.currentTheme === EThemes.LIGHT
-                    ? ETextColorClassNames.LIGHT_THEME_TEXT_200
-                    : ETextColorClassNames.DARK_THEME_TEXT_200
+                const linkColorClassName =
+                    state?.currentTheme === EThemes.LIGHT
+                        ? ETextColorClassNames.LIGHT_THEME_TEXT_100
+                        : ETextColorClassNames.DARK_THEME_TEXT_100
+
+                const textColorClassName =
+                    state?.currentTheme === EThemes.LIGHT
+                        ? ETextColorClassNames.LIGHT_THEME_TEXT_200
+                        : ETextColorClassNames.DARK_THEME_TEXT_200
+
+                const SpanifiedAndLinkifiedText = (
+                    <SpanifyLinkifyText
+                        linkClassName={linkColorClassName}
+                        spanClassName={spanColorClassName}
+                        text={item.text}
+                    />
+                )
 
                 switch (item.type) {
                     case ETextTypes.H1:
                         return (
                             <h1
-                                className={`${spanColorClassName} ${textAlign} my-6 w-full`}
+                                className={`${textColorClassName} ${textAlign} my-6 w-full`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
-                                <SpanifiedText
-                                    spanColorClassName={spanColorClassName}
-                                    text={item.text}
-                                />
+                                {SpanifiedAndLinkifiedText}
                                 &nbsp;&nbsp;
                             </h1>
                         )
@@ -47,10 +55,7 @@ const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
                                 className={`${textColorClassName} ${textAlign}  my-5 w-full`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
-                                <SpanifiedText
-                                    spanColorClassName={spanColorClassName}
-                                    text={item.text}
-                                />
+                                {SpanifiedAndLinkifiedText}
                             </h3>
                         )
 
@@ -60,10 +65,7 @@ const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
                                 className={`${textColorClassName} ${textAlign}  my-3 w-full`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
-                                <SpanifiedText
-                                    spanColorClassName={spanColorClassName}
-                                    text={item.text}
-                                />
+                                {SpanifiedAndLinkifiedText}
                             </p>
                         )
                 }

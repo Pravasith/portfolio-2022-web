@@ -57,3 +57,7 @@ img {
 tspan.curlyTextBold {
     @apply font-calibre-semibold;
 }
+
+strong {
+    @apply font-calibre-semibold font-medium;
+}
