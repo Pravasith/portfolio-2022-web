@@ -1,0 +1,7 @@
+.imageBlock {
+    &:hover {
+        .imageCaption {
+            @apply underline;
+        }
+    }
+}

@@ -3,5 +3,6 @@ import { ETextAlign } from "@lib/api/textBlocks/interface"
 
 export interface VideoBlockProps {
     videoBlock: VideoBlockType
+    link?: string
     alignCaptionText?: ETextAlign
 }

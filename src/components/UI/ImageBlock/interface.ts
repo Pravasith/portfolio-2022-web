@@ -3,5 +3,6 @@ import { ETextAlign } from "@lib/api/textBlocks/interface"
 
 export interface ImageBlockProps {
     imageBlock: ImageBlockType
+    link?: string
     alignCaptionText?: ETextAlign
 }

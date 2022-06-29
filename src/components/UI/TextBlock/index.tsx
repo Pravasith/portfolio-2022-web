@@ -8,7 +8,7 @@ import { useContext } from "react"
 import { TextBlockProps } from "./interface"
 import SpanifyLinkifyText from "@ui/TextBlock/SpanifyLinkifyText"
 
-const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
+const TextBlock = ({ textBlock, textAlign, textClassName }: TextBlockProps) => {
     const { state } = useContext(ThemeContext)
 
     return (
@@ -41,7 +41,7 @@ const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
                     case ETextTypes.H1:
                         return (
                             <h1
-                                className={`${textColorClassName} ${textAlign} my-6 w-full`}
+                                className={`${textColorClassName} ${textAlign} my-6 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 {SpanifiedAndLinkifiedText}
@@ -52,7 +52,7 @@ const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
                     case ETextTypes.H3:
                         return (
                             <h3
-                                className={`${textColorClassName} ${textAlign}  my-5 w-full`}
+                                className={`${textColorClassName} ${textAlign}  my-5 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 {SpanifiedAndLinkifiedText}
@@ -62,7 +62,7 @@ const TextBlock = ({ textBlock, textAlign }: TextBlockProps) => {
                     case ETextTypes.P:
                         return (
                             <p
-                                className={`${textColorClassName} ${textAlign}  my-3 w-full`}
+                                className={`${textColorClassName} ${textAlign}  my-3 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 {SpanifiedAndLinkifiedText}

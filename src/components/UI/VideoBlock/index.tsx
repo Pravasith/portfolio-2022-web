@@ -3,9 +3,11 @@ import { ETextAlign, ETextTypes } from "@lib/api/textBlocks/interface"
 import TextBlock from "@ui/TextBlock"
 import { VideoBlockProps } from "./interface"
 
+import styles from "./index.module.scss"
+
 const VideoBlock = (props: VideoBlockProps) => {
     return (
-        <div className={`flex-col-center`}>
+        <div className={`flex-col-center ${styles.videoBlock}`}>
             <video
                 autoPlay
                 loop
@@ -18,6 +20,7 @@ const VideoBlock = (props: VideoBlockProps) => {
 
             {props.videoBlock.showCaption && (
                 <TextBlock
+                    textClassName={`${props.link && styles.videoCaption}`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
                     textBlock={[
                         {

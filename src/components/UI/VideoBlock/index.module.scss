@@ -1,0 +1,7 @@
+.videoBlock {
+    &:hover {
+        .videoCaption {
+            @apply underline;
+        }
+    }
+}

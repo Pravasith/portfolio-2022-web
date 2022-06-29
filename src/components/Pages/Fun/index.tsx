@@ -11,6 +11,7 @@ import ImageBlock from "@components/UI/ImageBlock"
 import { ESrcType } from "@lib/api/mediaBlocks/interface"
 import VideoBlock from "@components/UI/VideoBlock"
 import { FunProps } from "./interface"
+import Link from "next/link"
 
 const Fun = ({ mediaBlocks }: FunProps) => {
     const textBlock: TextBlockType[] = [
@@ -81,30 +82,44 @@ const Fun = ({ mediaBlocks }: FunProps) => {
                 <div className="grid grid-cols-2 gap-2">
                     {mediaBlocks.map((item, i) => {
                         return (
-                            <div
-                                key={item.id + "-" + i}
-                                className="w-full flex-col-west cursor-pointer"
+                            <Link
+                                key={"media-block-fun-" + i}
+                                href={item.hyperlink || "/not-found"}
                             >
-                                <div className="w-full mb-1 relative">
-                                    {item.type === ESrcType.IMAGE ? (
-                                        <ImageBlock
-                                            alignCaptionText={ETextAlign.LEFT}
-                                            imageBlock={item}
-                                        />
-                                    ) : (
-                                        <VideoBlock
-                                            alignCaptionText={ETextAlign.LEFT}
-                                            videoBlock={item}
-                                        />
-                                    )}
+                                <a
+                                    target={"_blank"}
+                                    key={item.id + "-" + i}
+                                    className={`w-full flex-col-west ${
+                                        item.hyperlink && "cursor-pointer"
+                                    }`}
+                                >
+                                    <div className="w-full mb-1 relative">
+                                        {item.type === ESrcType.IMAGE ? (
+                                            <ImageBlock
+                                                link={item.hyperlink}
+                                                alignCaptionText={
+                                                    ETextAlign.LEFT
+                                                }
+                                                imageBlock={item}
+                                            />
+                                        ) : (
+                                            <VideoBlock
+                                                link={item.hyperlink}
+                                                alignCaptionText={
+                                                    ETextAlign.LEFT
+                                                }
+                                                videoBlock={item}
+                                            />
+                                        )}
 
-                                    {i === 1 && (
-                                        <div className="absolute w-72 h-72 -top-1/2 -right-1/4 -z-10">
-                                            <Spirals />
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
+                                        {i === 1 && (
+                                            <div className="absolute w-72 h-72 -top-1/2 -right-1/4 -z-10">
+                                                <Spirals />
+                                            </div>
+                                        )}
+                                    </div>
+                                </a>
+                            </Link>
                         )
                     })}
                 </div>
