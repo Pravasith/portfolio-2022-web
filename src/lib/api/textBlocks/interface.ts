@@ -1,11 +1,11 @@
-export enum ETextBlockTypes {
+export enum EBlockPages {
     HOME_PAGE = "HOME_PAGE",
     PROJECT_SECTION = "PROJECT_SECTION",
 }
 
 export type TextBlocksType = {
     name: string
-    type: ETextBlockTypes
+    type: EBlockPages
     textBlocks: TextBlockType[]
 }
 

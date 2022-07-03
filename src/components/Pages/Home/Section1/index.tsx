@@ -16,8 +16,7 @@ import { Vector3 } from "three"
 import { Table } from "@models/index"
 import useScrollTrigger from "@hooks/useScrollTrigger"
 
-import { SectionProps } from "../interface"
-import { ETextAlign } from "@lib/api/textBlocks/interface"
+import { SectionProps } from "@components/Pages/Home/interface"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
@@ -63,10 +62,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                 {/* TEXT BLOCK */}
                 <div className="flex-col-center h-1/2">
                     <div className="section-1-text-block w-1/3 ">
-                        <TextBlock
-                            textAlign={ETextAlign.LEFT}
-                            textBlock={textBlocks}
-                        />
+                        <TextBlock textBlock={textBlocks} />
                     </div>
                 </div>
 

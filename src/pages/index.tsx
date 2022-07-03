@@ -4,8 +4,8 @@ import Meta from "@components/Meta"
 import Layout from "@components/Layout"
 import Home from "@components/Pages/Home"
 import api from "@services/api"
-import { ETextBlockTypes, TextBlocksType } from "@lib/api/textBlocks/interface"
-import { API_ROUTE_URLS } from "@lib/api/textBlocks"
+import { EBlockPages, TextBlocksType } from "@lib/api/textBlocks/interface"
+import { API_ROUTE_URLS } from "@services/routes"
 import { ProjectsType } from "@lib/api/projects/interface"
 import { metaData } from "@utils/constants"
 
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     await api
         .GET<TextBlocksType[]>(
-            API_ROUTE_URLS.GET_TEXT_BLOCKS_BY_TYPE + ETextBlockTypes.HOME_PAGE
+            API_ROUTE_URLS.GET_TEXT_BLOCKS_BY_PAGE + EBlockPages.HOME_PAGE
         )
         .then(res => {
             homePageTextBlocks = res

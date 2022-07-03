@@ -5,7 +5,7 @@ import Layout from "@components/Layout"
 import Fun from "@components/Pages/Fun"
 import { MediaBlockType } from "@lib/api/mediaBlocks/interface"
 import api from "@services/api"
-import { API_ROUTE_URLS } from "@lib/api/textBlocks"
+import { API_ROUTE_URLS } from "@services/routes"
 import { metaData } from "@utils/constants"
 
 interface FunPageProps {

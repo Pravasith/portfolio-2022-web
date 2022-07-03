@@ -15,7 +15,7 @@ import { EThemes } from "@utils/contexts/themeContext/interface"
 import { ChangeEvent, FormEvent, Suspense, useContext, useState } from "react"
 import { useInView } from "react-intersection-observer"
 import { Vector3 } from "three"
-import { SectionProps } from "../interface"
+import { SectionProps } from "@components/Pages/Home/interface"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
