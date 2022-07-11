@@ -10,7 +10,6 @@ export interface MetaProps {
     ogDescription: string
     ogImageAlt: string
     twitterImageAlt: string
-    // TODO: CHANGE IMAGES
     ogImage: string
     twitterImage: string
 }

@@ -96,7 +96,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                     </div>
                 </div>
 
-                <div className="absolute w-full bottom-0 -z-10">
+                <div className="absolute w-full bottom-0 -z-10 overflow-hidden">
                     <YellowBackground />
                 </div>
 

@@ -1,3 +1,5 @@
+import { Turbulence } from "@components/SVGs/SvgFilters"
+
 export const WaterPuddle = () => {
     return (
         <svg
@@ -75,9 +77,21 @@ export const YellowBackground = () => {
             version="1.1"
             viewBox="0 0 1920 154.6"
             xmlSpace="preserve"
+            className="scale-150 origin-center"
         >
-            <path fill="#FFFDD7" d="M0 0H1920V154.6H0z"></path>
-            <path fill="#FEFCBB" d="M0 0H1920V63H0z"></path>
+            <defs>
+                <clipPath id="clip-path-x-24">
+                    <path fill="none" d="M0 0H1920V154.6H0z"></path>
+                </clipPath>
+
+                <Turbulence />
+            </defs>
+            <g filter="url(#displacementFilter)">
+                <g clipPath="url(#clip-path-x-24)">
+                    <path fill="#FFFDD7" d="M0 0H1920V154.6H0z"></path>
+                    <path fill="#FEFCBB" d="M0 0H1920V63H0z"></path>
+                </g>
+            </g>
         </svg>
     )
 }

@@ -8,15 +8,15 @@ import Blog from "@components/Pages/Blog"
 
 interface FunPageProps {
     // mediaBlocks: MediaBlockType[]
-    mediaBlocks: string
+    blogData: string
 }
 
-const FunPage: NextPage<FunPageProps> = ({ mediaBlocks }) => {
+const FunPage: NextPage<FunPageProps> = ({ blogData }) => {
     return (
         <main>
             <Meta {...metaData} />
             <Layout>
-                <Blog mediaBlocks={mediaBlocks} />
+                <Blog blogData={blogData} />
             </Layout>
         </main>
     )
@@ -25,7 +25,7 @@ const FunPage: NextPage<FunPageProps> = ({ mediaBlocks }) => {
 export const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
-            mediaBlocks: "Hello",
+            blogData: "HELLO",
         },
     }
 }

@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     await api
         .GET<TextBlocksType[]>(
-            API_ROUTE_URLS.GET_TEXT_BLOCKS_BY_PAGE + EBlockPages.HOME_PAGE
+            API_ROUTE_URLS.GET_TEXT_GROUPS_BY_PAGE + EBlockPages.HOME_PAGE
         )
         .then(res => {
             homePageTextBlocks = res
