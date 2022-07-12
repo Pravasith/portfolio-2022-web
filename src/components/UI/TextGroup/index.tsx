@@ -1,19 +1,23 @@
-import { ETextTypes } from "@lib/api/textBlocks/interface"
+import { ETextTypes } from "@lib/api/textGroups/interface"
 import { ETextColorClassNames } from "@lib/themes/interface"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import { random20Id } from "@utils/index"
 import { useContext } from "react"
 
-import { TextBlockProps } from "./interface"
-import SpanifyLinkifyText from "@ui/TextBlock/SpanifyLinkifyText"
+import { TextGroupProps } from "./interface"
+import SpanifyLinkifyText from "@components/UI/TextGroup/SpanifyLinkifyText"
 
-const TextBlock = ({ textBlock, textAlign, textClassName }: TextBlockProps) => {
+const TextGroup = ({
+    textBlocks,
+    textAlign,
+    textClassName,
+}: TextGroupProps) => {
     const { state } = useContext(ThemeContext)
 
     return (
         <article className="w-full">
-            {textBlock.map((item, i) => {
+            {textBlocks.map((item, i) => {
                 const spanColorClassName =
                     state?.currentTheme === EThemes.LIGHT
                         ? ETextColorClassNames.LIGHT_THEME_TEXT_100
@@ -74,4 +78,4 @@ const TextBlock = ({ textBlock, textAlign, textClassName }: TextBlockProps) => {
     )
 }
 
-export default TextBlock
+export default TextGroup

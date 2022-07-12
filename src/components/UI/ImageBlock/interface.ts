@@ -1,5 +1,5 @@
-import { ImageBlockType } from "@lib/api/mediaBlocks/interface"
-import { ETextAlign } from "@lib/api/textBlocks/interface"
+import { ImageBlockType } from "@lib/api/mediaGroups/interface"
+import { ETextAlign } from "@lib/api/textGroups/interface"
 
 export interface ImageBlockProps {
     imageBlock: ImageBlockType

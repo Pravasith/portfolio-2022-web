@@ -6,8 +6,8 @@ import {
     YellowBackground,
 } from "@components/SVGs/HomeSection4"
 import Button from "@components/UI/Button"
-import TextBlock from "@components/UI/TextBlock"
-import { ETextAlign } from "@lib/api/textBlocks/interface"
+import TextGroup from "@components/UI/TextGroup"
+import { ETextAlign } from "@lib/api/textGroups/interface"
 
 import { Canvas, useFrame } from "@react-three/fiber"
 import { ThemeContext } from "@utils/contexts/themeContext"
@@ -43,9 +43,9 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                 {/* TEXT BLOCK */}
                 <div className="section-4-text-block w-1/3 ">
                     <div className="mx-5">
-                        <TextBlock
+                        <TextGroup
                             textAlign={ETextAlign.LEFT}
-                            textBlock={textBlocks}
+                            textBlocks={textBlocks}
                         />
                     </div>
 

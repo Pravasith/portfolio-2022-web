@@ -1,6 +1,6 @@
-import TextBlock from "@ui/TextBlock"
+import TextGroup from "@components/UI/TextGroup"
 import Image from "next/image"
-import { ETextAlign, ETextTypes } from "@lib/api/textBlocks/interface"
+import { ETextAlign, ETextTypes } from "@lib/api/textGroups/interface"
 import { ImageBlockProps } from "./interface"
 
 import styles from "./index.module.scss"
@@ -13,16 +13,18 @@ const ImageBlock = (props: ImageBlockProps) => {
                 alt={props.imageBlock.alt}
                 width={props.imageBlock.width}
                 height={props.imageBlock.height}
+                objectFit={"contain"}
             />
 
             {props.imageBlock.showCaption && (
-                <TextBlock
+                <TextGroup
                     textClassName={`${props.link && styles.imageCaption}`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
-                    textBlock={[
+                    textBlocks={[
                         {
                             text: props.imageBlock.caption,
                             type: ETextTypes.P,
+                            order: 0,
                         },
                     ]}
                 />

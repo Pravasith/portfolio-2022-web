@@ -1,6 +1,6 @@
 import { Spikes } from "@components/SVGs/HomeSection3"
-import TextBlock from "@components/UI/TextBlock"
-import { ETextAlign } from "@lib/api/textBlocks/interface"
+import TextGroup from "@components/UI/TextGroup"
+import { ETextAlign } from "@lib/api/textGroups/interface"
 
 import { Section3Props } from "@components/Pages/Home/interface"
 import ProjectSection from "./ProjectSection"
@@ -17,9 +17,9 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             {/* TEXT BLOCK */}
             <div className="flex-col-center mx-1/4 px-5 w-full">
                 <div className="section-3-text-block w-1/3">
-                    <TextBlock
+                    <TextGroup
                         textAlign={ETextAlign.LEFT}
-                        textBlock={textBlocks}
+                        textBlocks={textBlocks}
                     />
                 </div>
             </div>

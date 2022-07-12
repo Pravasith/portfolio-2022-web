@@ -3,7 +3,7 @@ import type { GetStaticProps, NextPage } from "next"
 import Meta from "@components/Meta"
 import Layout from "@components/Layout"
 import Fun from "@components/Pages/Fun"
-import { MediaBlockType } from "@lib/api/mediaBlocks/interface"
+import { MediaBlockType } from "@lib/api/mediaGroups/interface"
 import api from "@services/api"
 import { API_ROUTE_URLS } from "@services/routes"
 import { metaData } from "@utils/constants"
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
     //         API_ROUTE_URLS.GET_TEXT_BLOCKS_BY_TYPE + ETextBlockTypes.HOME_PAGE
     //     )
     //     .then(res => {
-    //         homePageTextBlocks = res
+    //         textBlocks = res
     //     })
     //     .catch(err => {
     //         console.error(err)

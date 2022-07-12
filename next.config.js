@@ -12,6 +12,7 @@ const nextConfig = {
             "unsplash.com",
             "amazonaws.com",
             "folio-pics.s3.eu-west-2.amazonaws.com",
+            "res.cloudinary.com",
         ],
     },
 }

@@ -1,6 +1,6 @@
-import { ETextAlign, ETextTypes } from "@lib/api/textBlocks/interface"
+import { ETextAlign, ETextTypes } from "@lib/api/textGroups/interface"
 
-import TextBlock from "@ui/TextBlock"
+import TextBlock from "@components/UI/TextGroup"
 import { VideoBlockProps } from "./interface"
 
 import styles from "./index.module.scss"
@@ -22,10 +22,11 @@ const VideoBlock = (props: VideoBlockProps) => {
                 <TextBlock
                     textClassName={`${props.link && styles.videoCaption}`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
-                    textBlock={[
+                    textBlocks={[
                         {
                             text: props.videoBlock.caption,
                             type: ETextTypes.P,
+                            order: 0,
                         },
                     ]}
                 />

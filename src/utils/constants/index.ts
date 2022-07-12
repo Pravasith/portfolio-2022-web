@@ -3,14 +3,14 @@ export const metaData = {
     ogSiteName: "pravasith.design",
     ogTitle: "Pravasith - Full Stack Developer 🔶 🟨 🟢 🔹",
     ogType: "website",
-    ogUrl: "https://pravasith.design/",
+    ogUrl: "https://pravasith.com/",
     twitterCreator: "@pravasith",
     description:
-        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹GraphQL🔹RestAPI🔹MongoDB🔹",
+        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹SpringBoot🔹GraphQL🔹RestAPI🔹MongoDB🔹",
     twitterDescription:
-        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹GraphQL🔹RestAPI🔹MongoDB🔹",
+        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹SpringBoot🔹GraphQL🔹RestAPI🔹MongoDB🔹",
     ogDescription:
-        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹GraphQL🔹RestAPI🔹MongoDB🔹",
+        "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹SpringBoot🔹GraphQL🔹RestAPI🔹MongoDB🔹",
     ogImageAlt: "An Illustration of a Creative Web Developer",
     twitterImageAlt: "An Illustration of a Creative Web Developer",
     // TODO: CHANGE IMAGES

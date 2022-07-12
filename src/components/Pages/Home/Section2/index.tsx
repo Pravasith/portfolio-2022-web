@@ -1,8 +1,8 @@
 import { CurvedText } from "@svgs/HomeSection2"
-import TextBlock from "@ui/TextBlock"
+import TextGroup from "@components/UI/TextGroup"
 import Button from "@components/UI/Button"
 import { SectionProps } from "@components/Pages/Home/interface"
-import { ETextAlign } from "@lib/api/textBlocks/interface"
+import { ETextAlign } from "@lib/api/textGroups/interface"
 
 const Section2 = ({ textBlocks }: SectionProps) => {
     return (
@@ -10,9 +10,9 @@ const Section2 = ({ textBlocks }: SectionProps) => {
             <div className="flex-col-south w-full h-full ">
                 {/* TEXT */}
                 <div className="w-1/3 my-8 flex-col-west ">
-                    <TextBlock
+                    <TextGroup
                         textAlign={ETextAlign.LEFT}
-                        textBlock={textBlocks}
+                        textBlocks={textBlocks}
                     />
 
                     <Button text={"Resume"} />

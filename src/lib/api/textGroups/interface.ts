@@ -1,11 +1,15 @@
+import { BlogContentTypes } from "@lib/api/blogs/interface"
+
 export enum EBlockPages {
     HOME_PAGE = "HOME_PAGE",
     PROJECT_SECTION = "PROJECT_SECTION",
+    BLOG = "BLOG",
 }
 
-export type TextBlocksType = {
+export type TextGroupType = {
     name: string
-    type: EBlockPages
+    page: string
+    type: BlogContentTypes
     textBlocks: TextBlockType[]
 }
 
@@ -18,6 +22,7 @@ export enum ETextTypes {
 export type TextBlockType = {
     type: ETextTypes
     text: string
+    order: number
 }
 
 export enum ETextAlign {

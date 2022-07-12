@@ -2,7 +2,6 @@ import { Suspense } from "react"
 
 import { OrbitControls } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
-import TextBlock from "@ui/TextBlock"
 
 import { useInView } from "react-intersection-observer"
 
@@ -17,6 +16,7 @@ import { Table } from "@models/index"
 import useScrollTrigger from "@hooks/useScrollTrigger"
 
 import { SectionProps } from "@components/Pages/Home/interface"
+import TextGroup from "@components/UI/TextGroup"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
@@ -62,7 +62,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                 {/* TEXT BLOCK */}
                 <div className="flex-col-center h-1/2">
                     <div className="section-1-text-block w-1/3 ">
-                        <TextBlock textBlock={textBlocks} />
+                        <TextGroup textBlocks={textBlocks} />
                     </div>
                 </div>
 

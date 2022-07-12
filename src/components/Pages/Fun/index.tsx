@@ -1,14 +1,14 @@
-import TextBlock from "@components/UI/TextBlock"
+import TextGroup from "@components/UI/TextGroup"
 import {
     ETextAlign,
     ETextTypes,
     TextBlockType,
-} from "@lib/api/textBlocks/interface"
+} from "@lib/api/textGroups/interface"
 
 import { Spirals } from "@components/SVGs/FunPage"
 
 import ImageBlock from "@components/UI/ImageBlock"
-import { ESrcType } from "@lib/api/mediaBlocks/interface"
+import { ESrcType } from "@lib/api/mediaGroups/interface"
 import VideoBlock from "@components/UI/VideoBlock"
 import { FunProps } from "./interface"
 import Link from "next/link"
@@ -18,10 +18,12 @@ const Fun = ({ mediaBlocks }: FunProps) => {
         {
             type: ETextTypes.H1,
             text: `Fun projects.`,
+            order: 0,
         },
         {
             type: ETextTypes.P,
             text: "Here's some :ln>:sp>non-tech<sp::ln:/hello<ln: stuff that I made for fun.",
+            order: 1,
         },
     ]
 
@@ -77,7 +79,7 @@ const Fun = ({ mediaBlocks }: FunProps) => {
     return (
         <div className="flex-col-center w-full h-screen">
             <div className="w-1/2">
-                <TextBlock textAlign={ETextAlign.LEFT} textBlock={textBlock} />
+                <TextGroup textAlign={ETextAlign.LEFT} textBlocks={textBlock} />
 
                 <div className="grid grid-cols-2 gap-2">
                     {mediaBlocks.map((item, i) => {

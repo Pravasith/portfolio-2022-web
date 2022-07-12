@@ -4,61 +4,47 @@ import Meta from "@components/Meta"
 import Layout from "@components/Layout"
 import Home from "@components/Pages/Home"
 import api from "@services/api"
-import { EBlockPages, TextBlocksType } from "@lib/api/textBlocks/interface"
+import { EBlockPages, TextGroupType } from "@lib/api/textGroups/interface"
 import { API_ROUTE_URLS } from "@services/routes"
 import { ProjectsType } from "@lib/api/projects/interface"
 import { metaData } from "@utils/constants"
 
 interface IndexPageProps {
-    homePageTextBlocks: TextBlocksType[]
+    textGroup: TextGroupType[]
     projects: ProjectsType
 }
 
-const IndexPage: NextPage<IndexPageProps> = ({
-    homePageTextBlocks,
-    projects,
-}) => {
+const IndexPage: NextPage<IndexPageProps> = ({ textGroup, projects }) => {
     return (
         <main>
             <Meta {...metaData} />
             <Layout>
-                <Home
-                    homePageTextBlocks={homePageTextBlocks}
-                    projects={projects}
-                />
+                <Home textGroup={textGroup} projects={projects} />
             </Layout>
         </main>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    let homePageTextBlocks: TextBlocksType[] = [],
-        projects
+    const textGroup: TextGroupType[] = [],
+        projects: ProjectsType[] = []
 
-    await api
-        .GET<TextBlocksType[]>(
+    await Promise.all([
+        api.GET<TextGroupType[]>(
             API_ROUTE_URLS.GET_TEXT_GROUPS_BY_PAGE + EBlockPages.HOME_PAGE
-        )
-        .then(res => {
-            homePageTextBlocks = res
+        ),
+        api.GET<ProjectsType[]>(API_ROUTE_URLS.GET_PROJECTS),
+    ])
+        .then(([textBlocks, projectData]) => {
+            textGroup.push(...textBlocks)
+            projects.push(...projectData)
         })
-        .catch(err => {
-            console.error(err)
-        })
-
-    await api
-        .GET<ProjectsType[]>(API_ROUTE_URLS.GET_PROJECTS)
-        .then(res => {
-            projects = res[0]
-        })
-        .catch(err => {
-            console.error(err)
-        })
+        .catch(err => console.error(err))
 
     return {
         props: {
-            homePageTextBlocks,
-            projects,
+            textGroup: textGroup,
+            projects: projects[0],
         },
     }
 }

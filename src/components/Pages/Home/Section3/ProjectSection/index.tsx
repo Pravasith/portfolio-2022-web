@@ -1,5 +1,5 @@
-import TextBlock from "@components/UI/TextBlock"
-import { ETextAlign, ETextTypes } from "@lib/api/textBlocks/interface"
+import TextGroup from "@components/UI/TextGroup"
+import { ETextAlign, ETextTypes } from "@lib/api/textGroups/interface"
 
 import {
     SVGBackground1,
@@ -73,10 +73,12 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
             {
                 type: ETextTypes.H3,
                 text: item.title,
+                order: 0,
             },
             {
                 type: ETextTypes.P,
                 text: item.description,
+                order: 1,
             },
         ]
 
@@ -113,9 +115,9 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
 
                 <div className="px-10 flex-col-west">
                     <div className="m-3">
-                        <TextBlock
+                        <TextGroup
                             textAlign={ETextAlign.LEFT}
-                            textBlock={projectTextBlocks}
+                            textBlocks={projectTextBlocks}
                         />
                     </div>
 

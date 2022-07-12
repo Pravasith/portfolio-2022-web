@@ -1,0 +1,7 @@
+import { ETextAlign, TextBlockType } from "@lib/api/textGroups/interface"
+
+export interface TextGroupProps {
+    textBlocks: TextBlockType[]
+    textAlign?: ETextAlign
+    textClassName?: string
+}

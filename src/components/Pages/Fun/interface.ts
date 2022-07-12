@@ -1,4 +1,4 @@
-import { MediaBlockType } from "@lib/api/mediaBlocks/interface"
+import { MediaBlockType } from "@lib/api/mediaGroups/interface"
 
 export interface FunProps {
     mediaBlocks: MediaBlockType[]
