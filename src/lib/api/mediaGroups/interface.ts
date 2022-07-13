@@ -7,28 +7,26 @@ export enum ESrcType {
 
 export type ImageBlockType = {
     src: string
-    alt: string
-    type: ESrcType.IMAGE
-    id: string
     width: number
     height: number
-    caption: string
+    type?: ESrcType.IMAGE
+    alt?: string
+    caption?: string
     showCaption?: boolean
     hyperlink?: string
-    order: number
+    order?: number
 }
 
 export type VideoBlockType = {
     src: string
-    alt: string
-    type: ESrcType.VIDEO
-    id: string
     width: number
     height: number
-    caption: string
+    type?: ESrcType.VIDEO
+    alt?: string
+    caption?: string
     showCaption?: boolean
     hyperlink?: string
-    order: number
+    order?: number
 }
 
 export type MediaBlockType = ImageBlockType | VideoBlockType

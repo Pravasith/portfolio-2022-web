@@ -7,7 +7,9 @@ import styles from "./index.module.scss"
 
 const ImageBlock = (props: ImageBlockProps) => {
     return (
-        <div className={`flex-col-center ${styles.imageBlock}`}>
+        <div
+            className={`flex-col-center ${styles.imageBlock} ${props.className}`}
+        >
             <Image
                 src={props.imageBlock.src}
                 alt={props.imageBlock.alt}
@@ -16,7 +18,7 @@ const ImageBlock = (props: ImageBlockProps) => {
                 objectFit={"contain"}
             />
 
-            {props.imageBlock.showCaption && (
+            {props.imageBlock.showCaption && props.imageBlock.caption && (
                 <TextGroup
                     textClassName={`${props.link && styles.imageCaption}`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}

@@ -16,7 +16,7 @@ const TextGroup = ({
     const { state } = useContext(ThemeContext)
 
     return (
-        <article className="w-full">
+        <>
             {textBlocks.map((item, i) => {
                 const spanColorClassName =
                     state?.currentTheme === EThemes.LIGHT
@@ -49,7 +49,7 @@ const TextGroup = ({
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 {SpanifiedAndLinkifiedText}
-                                &nbsp;&nbsp;
+                                {/* &nbsp;&nbsp; */}
                             </h1>
                         )
 
@@ -74,7 +74,7 @@ const TextGroup = ({
                         )
                 }
             })}
-        </article>
+        </>
     )
 }
 

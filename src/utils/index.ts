@@ -37,3 +37,42 @@ export const findMeshByName = (
 
     return mesh
 }
+
+export const timeConverter = (UNIX_timestamp: Date) => {
+    const a = new Date(UNIX_timestamp)
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ]
+    const year = a.getFullYear()
+    const month = months[a.getMonth()]
+    const date = a.getDate()
+
+    const dateSuffix =
+        date === 11 || date === 12 || date === 13
+            ? "th"
+            : date % 10 === 1
+            ? "st"
+            : date % 10 === 2
+            ? "nd"
+            : date % 10 === 3
+            ? "rd"
+            : "th"
+
+    // const hour = a.getHours()
+    // const min = a.getMinutes()
+    // const sec = a.getSeconds()
+    const time = date + dateSuffix + " " + month + ", " + year + " "
+    // + hour + ":" + min + ":" + sec
+    return time
+}

@@ -97,7 +97,7 @@
 @layer base {
     h1 {
         @apply font-calibre-bold underline decoration-1 underline-offset-2 py-1;
-        font-size: 3rem;
+        font-size: 3.5rem;
         line-height: 2.75rem;
     }
 

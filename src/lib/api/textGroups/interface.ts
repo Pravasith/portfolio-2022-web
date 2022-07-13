@@ -22,7 +22,7 @@ export enum ETextTypes {
 export type TextBlockType = {
     type: ETextTypes
     text: string
-    order: number
+    order?: number
 }
 
 export enum ETextAlign {

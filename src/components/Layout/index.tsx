@@ -67,10 +67,10 @@ const Layout: React.FC = ({ children }) => {
                     <FontsCopyright />
                 </aside>
 
-                <section className="py-[100px]">
+                <article className="py-[100px]">
                     {/* Children */}
                     {children}
-                </section>
+                </article>
 
                 <aside>
                     {/* Navbar */}
