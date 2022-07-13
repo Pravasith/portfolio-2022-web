@@ -75,8 +75,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
         props: {
             blogData: blogData[0],
-            textGroup: textGroup[0],
-            mediaGroup: mediaGroup[0],
+            textGroup: textGroup[0] ?? null,
+            mediaGroup: mediaGroup[0] ?? null,
         },
     }
 }
@@ -86,14 +86,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // Call an external API endpoint to get posts
     // const res = await fetch("https://.../posts")
     const posts = [
-        {
-            id: "meal-delivery-app",
-        },
+        "meal-delivery-app",
+        "three-way-transformer",
+        "glasmet",
+        "rain-bag",
     ]
 
     // Get the paths we want to pre-render based on posts
     const paths = posts.map(post => ({
-        params: { id: post.id },
+        params: { id: post },
     }))
 
     // We'll pre-render only these paths at build time.

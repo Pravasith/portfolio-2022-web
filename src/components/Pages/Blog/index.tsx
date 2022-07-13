@@ -21,16 +21,19 @@ const Blog = ({ details }: BlogProps) => {
     const { title, timestamp, userDetails, tags, textGroup, mediaGroup } =
         details
 
-    const sortedBlocks = [
-        ...textGroup.textBlocks.map(block => ({
-            ...block,
-            mediaType: BlogContentTypes.TEXT_BLOCK,
-        })),
-        ...mediaGroup.mediaBlocks.map(block => ({
-            ...block,
-            mediaType: BlogContentTypes.MEDIA_BLOCK,
-        })),
-    ].sort((a, b) => (a.order && b.order ? a.order - b.order : -1))
+    const sortedBlocks =
+        textGroup && mediaGroup
+            ? [
+                  ...textGroup?.textBlocks?.map(block => ({
+                      ...block,
+                      mediaType: BlogContentTypes.TEXT_BLOCK,
+                  })),
+                  ...mediaGroup?.mediaBlocks?.map(block => ({
+                      ...block,
+                      mediaType: BlogContentTypes.MEDIA_BLOCK,
+                  })),
+              ].sort((a, b) => (a.order && b.order ? a.order - b.order : -1))
+            : []
 
     const content = sortedBlocks.map(block => {
         if (block.mediaType === BlogContentTypes.TEXT_BLOCK) {
