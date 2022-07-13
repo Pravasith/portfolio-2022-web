@@ -60,16 +60,16 @@ const Section1 = ({ textBlocks }: SectionProps) => {
         <>
             <div className="section-1-container h-screen mb-10">
                 {/* TEXT BLOCK */}
-                <div className="flex-col-center h-1/2">
+                <div className="flex-col-center ">
                     <div className="section-1-text-block w-1/3 ">
                         <TextGroup textBlocks={textBlocks} />
                     </div>
                 </div>
 
                 {/* GRAPHICS BLOCK */}
-                <div className="section-1-graphics-block  h-1/2 relative -z-10">
+                <div className="section-1-graphics-block h-1/2 relative -z-10">
                     {/* SVG */}
-                    <div className="absolute w-full top-0 left-1/2 -translate-x-1/2 px-1/5">
+                    <div className="absolute w-full top-1/10 left-1/2 -translate-x-1/2 px-1/5">
                         <div className="flex-row-center w-full">
                             <div className="section-1-bgd-beach-0 w-2/3 relative">
                                 <Section1BgdBeach />
@@ -81,10 +81,10 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     </div>
 
                     {/* THREE */}
-                    <div className="relative w-full h-full">
+                    <div className="my-10 relative w-full h-full">
                         <div
                             ref={ref}
-                            className="absolute w-full h-200% -bottom-1/2 "
+                            className="absolute w-full h-200% -top-1/3 "
                         >
                             <Canvas
                                 linear={false}
@@ -92,6 +92,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 camera={{
                                     position: cameraPosition.initial,
                                     fov: 45,
+                                    zoom: 1.05,
                                 }}
                             >
                                 {!inView && <DisableRender />}

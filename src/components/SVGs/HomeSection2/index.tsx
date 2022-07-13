@@ -8,14 +8,16 @@ import { toggleTheme } from "../factories"
 export const CurvedText = () => {
     const getText = () => {
         const words = [
-            "UX DESIGN",
+            "NGINX",
             "SVG MAGIC",
-            "3D MODELLING",
+            "NODE.JS",
 
             "AWS",
-            "NODE",
+            "SPRING BOOT",
+
             "WEBGL",
-            "NGINX",
+            "JAVA",
+
             "NEXT.JS",
             "REACT.JS",
             "THREE.JS",

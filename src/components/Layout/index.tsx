@@ -67,7 +67,7 @@ const Layout: React.FC = ({ children }) => {
                     <FontsCopyright />
                 </aside>
 
-                <section>
+                <section className="py-[100px]">
                     {/* Children */}
                     {children}
                 </section>

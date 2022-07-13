@@ -46,13 +46,13 @@ const SpanifyLinkifyText = ({
                         (arrayOfElements.pop() as string) ||
                         "/404-oops-not-found"
                     }
+                    key={`text-element-${random20Id()}`}
                 >
                     <a
                         className={`${linkClassName} 
                             after:bg-yellow-300 after:absolute after:w-full 
                             after:h-half after after:left-0 after:-bottom-half after:-z-10 
                         relative`}
-                        key={`text-element-${random20Id()}`}
                     >
                         {arrayOfElements}
                     </a>

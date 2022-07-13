@@ -77,7 +77,7 @@ const Fun = ({ mediaBlocks }: FunProps) => {
     // ])
 
     return (
-        <div className="flex-col-center w-full h-screen">
+        <div className="flex-col-north w-full min-h-screen">
             <div className="w-1/2">
                 <TextGroup textAlign={ETextAlign.LEFT} textBlocks={textBlock} />
 
