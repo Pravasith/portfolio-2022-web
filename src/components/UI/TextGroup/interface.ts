@@ -5,3 +5,7 @@ export interface TextGroupProps {
     textAlign?: ETextAlign
     textClassName?: string
 }
+
+export interface SpanifiedAndLinkifiedTextProps {
+    text: string
+}

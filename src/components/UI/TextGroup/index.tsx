@@ -5,7 +5,7 @@ import { EThemes } from "@utils/contexts/themeContext/interface"
 import { random20Id } from "@utils/index"
 import { useContext } from "react"
 
-import { TextGroupProps } from "./interface"
+import { SpanifiedAndLinkifiedTextProps, TextGroupProps } from "./interface"
 import SpanifyLinkifyText from "@components/UI/TextGroup/SpanifyLinkifyText"
 
 const TextGroup = ({
@@ -33,11 +33,13 @@ const TextGroup = ({
                         ? ETextColorClassNames.LIGHT_THEME_TEXT_200
                         : ETextColorClassNames.DARK_THEME_TEXT_200
 
-                const SpanifiedAndLinkifiedText = (
+                const SpanifiedAndLinkifiedText = ({
+                    text,
+                }: SpanifiedAndLinkifiedTextProps) => (
                     <SpanifyLinkifyText
                         linkClassName={linkColorClassName}
                         spanClassName={spanColorClassName}
-                        text={item.text}
+                        text={text}
                     />
                 )
 
@@ -48,7 +50,7 @@ const TextGroup = ({
                                 className={`${textColorClassName} ${textAlign} my-6 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
-                                {SpanifiedAndLinkifiedText}
+                                <SpanifiedAndLinkifiedText text={item.text} />
                                 {/* &nbsp;&nbsp; */}
                             </h1>
                         )
@@ -59,7 +61,7 @@ const TextGroup = ({
                                 className={`${textColorClassName} ${textAlign}  my-5 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
-                                {SpanifiedAndLinkifiedText}
+                                <SpanifiedAndLinkifiedText text={item.text} />
                             </h3>
                         )
 
@@ -69,8 +71,24 @@ const TextGroup = ({
                                 className={`${textColorClassName} ${textAlign}  my-3 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
-                                {SpanifiedAndLinkifiedText}
+                                <SpanifiedAndLinkifiedText text={item.text} />
                             </p>
+                        )
+
+                    case ETextTypes.LI:
+                        return (
+                            <ul key={`textblock-${random20Id()}-${i}`}>
+                                {item.text.split(";;;").map((line, j) => (
+                                    <li
+                                        key={`textblock-${random20Id()}-li-${j}`}
+                                        className={`${textColorClassName} ${textAlign}  my-3 w-full ${textClassName}`}
+                                    >
+                                        <SpanifiedAndLinkifiedText
+                                            text={"🔺 " + line}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
                         )
                 }
             })}

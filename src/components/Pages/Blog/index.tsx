@@ -97,7 +97,7 @@ const Blog = ({ details }: BlogProps) => {
                                 width: 40,
                                 height: 40,
                             }}
-                            className={`border-2 mr-3 rounded-full ${
+                            className={`border-2 mr-3 rounded-2xl ${
                                 state?.currentTheme === EThemes.LIGHT
                                     ? "border-black bg-black"
                                     : "border-white bg-white"

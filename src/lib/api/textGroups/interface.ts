@@ -17,6 +17,7 @@ export enum ETextTypes {
     H3 = "h3",
     H1 = "h1",
     P = "p",
+    LI = "li",
 }
 
 export type TextBlockType = {

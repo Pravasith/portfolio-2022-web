@@ -98,7 +98,7 @@
     h1 {
         @apply font-calibre-bold underline decoration-1 underline-offset-2 py-1;
         font-size: 3.5rem;
-        line-height: 2.75rem;
+        line-height: 3rem;
     }
 
     h3 {
@@ -106,7 +106,8 @@
         font-size: 2rem;
     }
 
-    p {
+    p,
+    li {
         @apply leading-6 py-1;
         font-size: 1.125rem;
     }

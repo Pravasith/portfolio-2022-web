@@ -13,7 +13,8 @@ export const CurvedText = () => {
             "NODE.JS",
 
             "AWS",
-            "SPRING BOOT",
+
+            "GRAPHQL",
 
             "WEBGL",
             "JAVA",
@@ -21,7 +22,7 @@ export const CurvedText = () => {
             "NEXT.JS",
             "REACT.JS",
             "THREE.JS",
-            "GRAPHQL",
+            "SPRING BOOT",
             "POSTGRES",
             "MONGODB",
             "DOCKER",
