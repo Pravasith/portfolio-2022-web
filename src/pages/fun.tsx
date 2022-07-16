@@ -3,10 +3,11 @@ import type { GetStaticProps, NextPage } from "next"
 import Meta from "@components/Meta"
 import Layout from "@components/Layout"
 import Fun from "@components/Pages/Fun"
-import { MediaBlockType } from "@lib/api/mediaGroups/interface"
+import { ESrcType, MediaBlockType } from "@lib/api/mediaGroups/interface"
 import api from "@services/api"
 import { API_ROUTE_URLS } from "@services/routes"
 import { metaData } from "@utils/constants"
+import { BlogsType } from "@lib/api/blogs/interface"
 
 interface FunPageProps {
     mediaBlocks: MediaBlockType[]
@@ -24,24 +25,21 @@ const FunPage: NextPage<FunPageProps> = ({ mediaBlocks }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    // let funPageTextBlocks: TextBlocksType[] = [],
     let funPageMediaBlocks: MediaBlockType[] = []
 
-    // await api
-    //     .GET<TextBlocksType[]>(
-    //         API_ROUTE_URLS.GET_TEXT_BLOCKS_BY_TYPE + ETextBlockTypes.HOME_PAGE
-    //     )
-    //     .then(res => {
-    //         textBlocks = res
-    //     })
-    //     .catch(err => {
-    //         console.error(err)
-    //     })
-
     await api
-        .GET<MediaBlockType[]>(API_ROUTE_URLS.GET_MEDIA_BLOCKS_BY_PAGE + "fun")
+        .GET<BlogsType[]>(API_ROUTE_URLS.GET_BLOGS_BY_CATEGORY + "fun")
         .then(res => {
-            funPageMediaBlocks = res
+            funPageMediaBlocks = res.map(blog => ({
+                src: blog.thumbnail,
+                width: 800,
+                height: 460,
+                type: ESrcType.IMAGE,
+                alt: blog.title,
+                caption: blog.title,
+                showCaption: true,
+                hyperlink: "/blogs/" + blog.page,
+            }))
         })
         .catch(err => {
             console.error(err)

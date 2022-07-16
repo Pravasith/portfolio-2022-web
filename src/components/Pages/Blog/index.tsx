@@ -1,14 +1,14 @@
 import ImageBlock from "@components/UI/ImageBlock"
 import TextGroup from "@components/UI/TextGroup"
-import VideoBlock from "@components/UI/VideoBlock"
-import { BlogContentTypes } from "@lib/api/blogs/interface"
 import {
-    ESrcType,
-    ImageBlockType,
-    // MediaBlockType,
-    VideoBlockType,
+    MediaBlockType,
+    MediaSectionType,
 } from "@lib/api/mediaGroups/interface"
-import { ETextTypes, TextBlockType } from "@lib/api/textGroups/interface"
+import {
+    ETextTypes,
+    TextBlockType,
+    TextSectionType,
+} from "@lib/api/textGroups/interface"
 import { timeConverter } from "@utils/index"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
@@ -21,34 +21,58 @@ const Blog = ({ details }: BlogProps) => {
     const { title, timestamp, userDetails, tags, textGroup, mediaGroup } =
         details
 
-    const sortedBlocks =
-        textGroup && mediaGroup
-            ? [
-                  ...textGroup?.textBlocks?.map(block => ({
-                      ...block,
-                      mediaType: BlogContentTypes.TEXT_BLOCK,
-                  })),
-                  ...mediaGroup?.mediaBlocks?.map(block => ({
-                      ...block,
-                      mediaType: BlogContentTypes.MEDIA_BLOCK,
-                  })),
-              ].sort((a, b) => (a.order && b.order ? a.order - b.order : -1))
-            : []
+    const sections = new Map<string, (TextBlockType | MediaBlockType)[]>()
 
-    const content = sortedBlocks.map(block => {
-        if (block.mediaType === BlogContentTypes.TEXT_BLOCK) {
-            return (
-                <TextGroup
-                    textClassName="no-underline"
-                    textBlocks={[block as TextBlockType]}
-                />
-            )
-        } else if (block.mediaType === BlogContentTypes.MEDIA_BLOCK) {
-            if (block.type === ESrcType.IMAGE) {
-                return <ImageBlock imageBlock={block as ImageBlockType} />
-            } else return <VideoBlock videoBlock={block as VideoBlockType} />
-        }
+    // for (let i = 0; i < array.length; i++) {
+    //     const element = array[i];
+
+    // }
+
+    ;[...textGroup.sections, ...mediaGroup.sections].forEach(section => {
+        if (sections.has(section.name)) {
+            sections.set(section.name, [
+                ...(sections.get(section.name) as (
+                    | TextBlockType
+                    | MediaBlockType
+                )[]),
+                ...((section as TextSectionType).textBlocks ??
+                    (section as MediaSectionType).mediaBlocks),
+            ])
+        } else
+            sections.set(section.name, [
+                ...((section as TextSectionType).textBlocks ??
+                    (section as MediaSectionType).mediaBlocks),
+            ])
     })
+
+    // console.log(sections)
+
+    // const content = sortedBlocks.map((block, i) => {
+    //     if (block.mediaType === BlogContentTypes.TEXT_BLOCK) {
+    //         return (
+    //             <TextGroup
+    //                 key={"blocks-" + i}
+    //                 textClassName="no-underline"
+    //                 textBlocks={[block as TextBlockType]}
+    //             />
+    //         )
+    //     } else if (block.mediaType === BlogContentTypes.MEDIA_BLOCK) {
+    //         if (block.type === ESrcType.IMAGE) {
+    //             return (
+    //                 <ImageBlock
+    //                     key={"blocks-" + i}
+    //                     imageBlock={block as ImageBlockType}
+    //                 />
+    //             )
+    //         } else
+    //             return (
+    //                 <VideoBlock
+    //                     key={"blocks-" + i}
+    //                     videoBlock={block as VideoBlockType}
+    //                 />
+    //             )
+    //     }
+    // })
 
     return (
         <div className="flex-row-center">
@@ -60,7 +84,6 @@ const Blog = ({ details }: BlogProps) => {
                                 {
                                     type: ETextTypes.P,
                                     text: timeConverter(timestamp),
-                                    order: 0,
                                 },
                             ]}
                         />
@@ -84,9 +107,7 @@ const Blog = ({ details }: BlogProps) => {
                     </div>
 
                     <TextGroup
-                        textBlocks={[
-                            { type: ETextTypes.H1, text: title, order: 0 },
-                        ]}
+                        textBlocks={[{ type: ETextTypes.H1, text: title }]}
                     />
 
                     <div className="flex-row-west">
@@ -103,18 +124,18 @@ const Blog = ({ details }: BlogProps) => {
                                     : "border-white bg-white"
                             }`}
                         />
+
                         <TextGroup
                             textBlocks={[
                                 {
                                     type: ETextTypes.P,
                                     text: `A blog post by :st>:ln>${userDetails.fullName}:ln:/<ln:<st:`,
-                                    order: 0,
                                 },
                             ]}
                         />
                     </div>
                 </header>
-                <article>{content}</article>
+                {/* <div>{content}</div> */}
             </div>
         </div>
     )

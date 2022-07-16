@@ -1,8 +1,8 @@
 import { ProjectsType } from "@lib/api/projects/interface"
-import { TextGroupType, TextBlockType } from "@lib/api/textGroups/interface"
+import { TextSectionType, TextBlockType } from "@lib/api/textGroups/interface"
 
 export interface HomeProps {
-    textGroup: TextGroupType[]
+    textSections: TextSectionType[]
     projects: ProjectsType
 }
 

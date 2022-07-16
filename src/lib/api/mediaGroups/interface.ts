@@ -1,4 +1,4 @@
-import { BlogContentTypes } from "@lib/api/blogs/interface"
+import { BlockGroupTypes } from "@lib/api/blogs/interface"
 
 export enum ESrcType {
     VIDEO = "VIDEO",
@@ -14,7 +14,6 @@ export type ImageBlockType = {
     caption?: string
     showCaption?: boolean
     hyperlink?: string
-    order?: number
 }
 
 export type VideoBlockType = {
@@ -26,14 +25,18 @@ export type VideoBlockType = {
     caption?: string
     showCaption?: boolean
     hyperlink?: string
-    order?: number
 }
 
 export type MediaBlockType = ImageBlockType | VideoBlockType
 
-export type MediaGroupType = {
-    id: string
+export type MediaSectionType = {
     name: string
-    type: BlogContentTypes
+    order: number
     mediaBlocks: MediaBlockType[]
+}
+
+export type MediaGroupType = {
+    page: string
+    type: BlockGroupTypes.MEDIA_GROUP
+    sections: MediaSectionType[]
 }

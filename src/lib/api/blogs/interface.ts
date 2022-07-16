@@ -31,7 +31,7 @@ export interface BlogsType {
     tags: string[]
 }
 
-export enum BlogContentTypes {
-    MEDIA_BLOCK = "MEDIA_BLOCK",
-    TEXT_BLOCK = "TEXT_BLOCK",
+export enum BlockGroupTypes {
+    TEXT_GROUP = "TEXT_GROUP",
+    MEDIA_GROUP = "MEDIA_GROUP",
 }

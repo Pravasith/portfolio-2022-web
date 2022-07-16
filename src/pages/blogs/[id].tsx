@@ -75,8 +75,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
         props: {
             blogData: blogData[0],
-            textGroup: textGroup[0] ?? null,
-            mediaGroup: mediaGroup[0] ?? null,
+            textGroup: textGroup[0],
+            mediaGroup: mediaGroup[0],
         },
     }
 }
