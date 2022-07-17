@@ -1,8 +1,11 @@
 import ImageBlock from "@components/UI/ImageBlock"
 import TextGroup from "@components/UI/TextGroup"
 import {
+    ESrcType,
+    ImageBlockType,
     MediaBlockType,
     MediaSectionType,
+    VideoBlockType,
 } from "@lib/api/mediaGroups/interface"
 import {
     ETextTypes,
@@ -14,6 +17,7 @@ import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import { useContext } from "react"
 import { BlogProps } from "./interface"
+import VideoBlock from "@components/UI/VideoBlock"
 
 const Blog = ({ details }: BlogProps) => {
     const { state } = useContext(ThemeContext)
@@ -23,56 +27,65 @@ const Blog = ({ details }: BlogProps) => {
 
     const sections = new Map<string, (TextBlockType | MediaBlockType)[]>()
 
-    // for (let i = 0; i < array.length; i++) {
-    //     const element = array[i];
+    const sectionsJSX: JSX.Element[] = []
 
-    // }
-
-    ;[...textGroup.sections, ...mediaGroup.sections].forEach(section => {
-        if (sections.has(section.name)) {
-            sections.set(section.name, [
-                ...(sections.get(section.name) as (
-                    | TextBlockType
-                    | MediaBlockType
-                )[]),
-                ...((section as TextSectionType).textBlocks ??
-                    (section as MediaSectionType).mediaBlocks),
-            ])
-        } else
-            sections.set(section.name, [
-                ...((section as TextSectionType).textBlocks ??
-                    (section as MediaSectionType).mediaBlocks),
-            ])
+    textGroup.sections.forEach(section => {
+        section.textBlocks
     })
+    ;[...textGroup.sections, ...mediaGroup.sections]
+        .sort((a, b) => a.order - b.order)
+        .forEach(section => {
+            if (sections.has(section.name)) {
+                sections.set(section.name, [
+                    ...(sections.get(section.name) as (
+                        | TextBlockType
+                        | MediaBlockType
+                    )[]),
+                    ...((section as TextSectionType).textBlocks ??
+                        (section as MediaSectionType).mediaBlocks),
+                ])
+            } else
+                sections.set(section.name, [
+                    ...((section as TextSectionType).textBlocks ??
+                        (section as MediaSectionType).mediaBlocks),
+                ])
+        })
 
-    // console.log(sections)
-
-    // const content = sortedBlocks.map((block, i) => {
-    //     if (block.mediaType === BlogContentTypes.TEXT_BLOCK) {
-    //         return (
-    //             <TextGroup
-    //                 key={"blocks-" + i}
-    //                 textClassName="no-underline"
-    //                 textBlocks={[block as TextBlockType]}
-    //             />
-    //         )
-    //     } else if (block.mediaType === BlogContentTypes.MEDIA_BLOCK) {
-    //         if (block.type === ESrcType.IMAGE) {
-    //             return (
-    //                 <ImageBlock
-    //                     key={"blocks-" + i}
-    //                     imageBlock={block as ImageBlockType}
-    //                 />
-    //             )
-    //         } else
-    //             return (
-    //                 <VideoBlock
-    //                     key={"blocks-" + i}
-    //                     videoBlock={block as VideoBlockType}
-    //                 />
-    //             )
-    //     }
-    // })
+    sections.forEach((section, i) => {
+        sectionsJSX.push(
+            <section key={"section-blog-" + i} className="my-24">
+                {section.map((block, j) => {
+                    if ("src" in block) {
+                        // MediaType
+                        if (block.type === ESrcType.IMAGE) {
+                            return (
+                                <ImageBlock
+                                    className="my-10"
+                                    key={"blocks-" + j + "" + i}
+                                    imageBlock={block as ImageBlockType}
+                                />
+                            )
+                        } else
+                            return (
+                                <VideoBlock
+                                    className="my-10"
+                                    key={"blocks-" + j + "" + i}
+                                    videoBlock={block as VideoBlockType}
+                                />
+                            )
+                    } else {
+                        return (
+                            <TextGroup
+                                key={"blocks-" + j + "" + i}
+                                textClassName="no-underline"
+                                textBlocks={[block as TextBlockType]}
+                            />
+                        )
+                    }
+                })}
+            </section>
+        )
+    })
 
     return (
         <div className="flex-row-center">
@@ -135,7 +148,7 @@ const Blog = ({ details }: BlogProps) => {
                         />
                     </div>
                 </header>
-                {/* <div>{content}</div> */}
+                {sectionsJSX}
             </div>
         </div>
     )

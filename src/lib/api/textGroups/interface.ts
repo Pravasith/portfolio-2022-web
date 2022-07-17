@@ -1,4 +1,5 @@
 import { BlockGroupTypes } from "@lib/api/blogs/interface"
+import { BlockType } from "@lib/api/mediaGroups/interface"
 
 export enum EBlockPages {
     HOME_PAGE = "HOME_PAGE",
@@ -13,9 +14,10 @@ export enum ETextTypes {
     LI = "li",
 }
 
-export type TextBlockType = {
+export interface TextBlockType {
     type: ETextTypes
     text: string
+    mediaType?: BlockType.TEXT_BLOCK
 }
 
 export enum ETextAlign {

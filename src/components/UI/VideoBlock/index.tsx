@@ -18,15 +18,16 @@ const VideoBlock = (props: VideoBlockProps) => {
                 <source src={props.videoBlock.src} />
             </video>
 
-            {props.videoBlock.showCaption && (
+            {props.videoBlock.showCaption && props.videoBlock.caption && (
                 <TextBlock
-                    textClassName={`${props.link && styles.videoCaption}`}
+                    textClassName={`${props.link && styles.videoCaption} ${
+                        props.className
+                    }`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
                     textBlocks={[
                         {
                             text: props.videoBlock.caption,
                             type: ETextTypes.P,
-                            order: 0,
                         },
                     ]}
                 />

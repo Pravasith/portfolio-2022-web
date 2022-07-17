@@ -26,7 +26,6 @@ const ImageBlock = (props: ImageBlockProps) => {
                         {
                             text: props.imageBlock.caption,
                             type: ETextTypes.P,
-                            order: 0,
                         },
                     ]}
                 />

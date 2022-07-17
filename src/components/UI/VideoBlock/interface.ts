@@ -5,4 +5,5 @@ export interface VideoBlockProps {
     videoBlock: VideoBlockType
     link?: string
     alignCaptionText?: ETextAlign
+    className?: string
 }

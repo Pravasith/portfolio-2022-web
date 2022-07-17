@@ -5,7 +5,11 @@ export enum ESrcType {
     IMAGE = "IMAGE",
 }
 
-export type ImageBlockType = {
+export enum BlockType {
+    TEXT_BLOCK = "TEXT_BLOCK",
+    MEDIA_BLOCK = "MEDIA_BLOCK",
+}
+export interface ImageBlockType {
     src: string
     width: number
     height: number
@@ -14,9 +18,10 @@ export type ImageBlockType = {
     caption?: string
     showCaption?: boolean
     hyperlink?: string
+    mediaType?: BlockType.MEDIA_BLOCK
 }
 
-export type VideoBlockType = {
+export interface VideoBlockType {
     src: string
     width: number
     height: number
@@ -25,6 +30,7 @@ export type VideoBlockType = {
     caption?: string
     showCaption?: boolean
     hyperlink?: string
+    mediaType?: BlockType.MEDIA_BLOCK
 }
 
 export type MediaBlockType = ImageBlockType | VideoBlockType
