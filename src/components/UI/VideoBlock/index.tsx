@@ -7,21 +7,25 @@ import styles from "./index.module.scss"
 
 const VideoBlock = (props: VideoBlockProps) => {
     return (
-        <div className={`flex-col-center ${styles.videoBlock}`}>
+        <div
+            className={`flex-col-center ${styles.videoBlock} ${props.className}`}
+        >
             <video
                 autoPlay
+                muted
                 loop
                 style={{
                     width: props.videoBlock.width,
                 }}
+                src={props.videoBlock.src}
             >
-                <source src={props.videoBlock.src} />
+                {/* <source src={props.videoBlock.src} /> */}
             </video>
 
             {props.videoBlock.showCaption && props.videoBlock.caption && (
                 <TextBlock
                     textClassName={`${props.link && styles.videoCaption} ${
-                        props.className
+                        props.textClassName
                     }`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
                     textBlocks={[

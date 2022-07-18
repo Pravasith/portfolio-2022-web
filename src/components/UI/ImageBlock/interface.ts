@@ -6,4 +6,5 @@ export interface ImageBlockProps {
     className?: string
     link?: string
     alignCaptionText?: ETextAlign
+    textClassName?: string
 }

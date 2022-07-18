@@ -61,6 +61,7 @@ const Blog = ({ details }: BlogProps) => {
                             return (
                                 <ImageBlock
                                     className="my-10"
+                                    textClassName="text-gray-500 text-sm"
                                     key={"blocks-" + j + "" + i}
                                     imageBlock={block as ImageBlockType}
                                 />
@@ -69,6 +70,7 @@ const Blog = ({ details }: BlogProps) => {
                             return (
                                 <VideoBlock
                                     className="my-10"
+                                    textClassName="text-gray-500 text-sm"
                                     key={"blocks-" + j + "" + i}
                                     videoBlock={block as VideoBlockType}
                                 />
@@ -135,7 +137,7 @@ const Blog = ({ details }: BlogProps) => {
                                 state?.currentTheme === EThemes.LIGHT
                                     ? "border-black bg-black"
                                     : "border-white bg-white"
-                            }`}
+                            } `}
                         />
 
                         <TextGroup

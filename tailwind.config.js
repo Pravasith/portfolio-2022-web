@@ -28,7 +28,7 @@ module.exports = {
                 },
 
                 "dark-theme-text": {
-                    100: "#f1f5f9",
+                    100: "#fcfeff",
                     200: "#c1c1c1",
                 },
             },

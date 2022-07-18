@@ -20,7 +20,9 @@ const ImageBlock = (props: ImageBlockProps) => {
 
             {props.imageBlock.showCaption && props.imageBlock.caption && (
                 <TextGroup
-                    textClassName={`${props.link && styles.imageCaption}`}
+                    textClassName={`${props.link && styles.imageCaption} ${
+                        props.textClassName
+                    }`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
                     textBlocks={[
                         {
