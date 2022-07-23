@@ -10,12 +10,13 @@ import TextGroup from "@components/UI/TextGroup"
 import { ETextAlign } from "@lib/api/textGroups/interface"
 
 import { Canvas, useFrame } from "@react-three/fiber"
-import { ThemeContext } from "@utils/contexts/themeContext"
-import { EThemes } from "@utils/contexts/themeContext/interface"
-import { ChangeEvent, FormEvent, Suspense, useContext, useState } from "react"
+import { FormEvent, Suspense } from "react"
 import { useInView } from "react-intersection-observer"
 import { Vector3 } from "three"
 import { SectionProps } from "@components/Pages/Home/interface"
+import { useForm } from "@hooks/useForm"
+import TextArea from "@components/UI/TextArea"
+import { validateEmail } from "@utils/index"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
@@ -25,17 +26,11 @@ const Section4 = ({ textBlocks }: SectionProps) => {
         initial: new Vector3(7.27, 0.65, -0.2),
     }
 
-    const [message, setMessage] = useState<string>("")
-
-    const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        setMessage(event.target.value)
-    }
-
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
     }
 
-    const { state } = useContext(ThemeContext)
+    const { values, handler } = useForm<Record<string, string>>({})
 
     return (
         <div className="section-4-container flex-col-center w-full h-screen">
@@ -52,41 +47,28 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                     <div className=" w-full flex-col-center">
                         <form onSubmit={handleSubmit} className="w-full">
                             <div className="flex-row-west w-full">
-                                <textarea
+                                <TextArea
+                                    name="name"
                                     placeholder="Your Name"
-                                    rows={1}
-                                    className={`border-4 m-1 p-4 rounded-3xl  ${
-                                        state?.currentTheme === EThemes.LIGHT
-                                            ? "border-black bg-white"
-                                            : "border-white bg-black"
-                                    }`}
-                                    value={message}
-                                    onChange={handleChange}
+                                    onChange={handler}
+                                    className={"w-full"}
                                 />
 
-                                <textarea
+                                <TextArea
+                                    name="email"
                                     placeholder="Your email id"
-                                    rows={1}
-                                    className={`border-4 m-1 p-4 rounded-3xl  ${
-                                        state?.currentTheme === EThemes.LIGHT
-                                            ? "border-black bg-white"
-                                            : "border-white bg-black"
-                                    }`}
-                                    value={message}
-                                    onChange={handleChange}
+                                    onChange={handler}
+                                    className={"w-full"}
+                                    showError={!validateEmail(values.email)}
                                 />
                             </div>
 
-                            <textarea
+                            <TextArea
+                                name="message"
                                 placeholder="Hey Pravas, I think your work is okay. But I'd like to get in touch with you for..."
+                                onChange={handler}
                                 rows={4}
-                                className={`border-4 p-4 m-1 rounded-3xl w-full ${
-                                    state?.currentTheme === EThemes.LIGHT
-                                        ? "border-black bg-white"
-                                        : "border-white bg-black"
-                                }`}
-                                value={message}
-                                onChange={handleChange}
+                                className={"w-full"}
                             />
 
                             <div className="mx-5">

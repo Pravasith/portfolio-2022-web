@@ -22,7 +22,7 @@
         "react-intersection-observer": "^9.1.0",
         "sass": "^1.49.9",
         "three": "^0.138.0",
-        "use-debounce": "^7.0.1"
+        "use-debounce": "^8.0.2"
     },
     "devDependencies": {
         "@types/dat.gui": "^0.7.7",
