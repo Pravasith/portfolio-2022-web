@@ -1,20 +1,15 @@
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import { useContext } from "react"
+import { ButtonProps } from "./interface"
 
-const Button = ({
-    text,
-    type,
-}: {
-    text: string
-    type?: "button" | "reset" | "submit"
-}) => {
+const Button = (props: ButtonProps) => {
     const { state } = useContext(ThemeContext)
 
     return (
         <>
             <button
-                type={type}
+                {...props}
                 className={`
                     my-3
                     px-5 py-2
@@ -26,6 +21,7 @@ const Button = ({
                             ? "border-black"
                             : "border-white"
                     }
+                    ${props.className}
                 `}
             >
                 <p
@@ -35,7 +31,7 @@ const Button = ({
                             : "text-white"
                     }`}
                 >
-                    {text}
+                    {props.text}
                 </p>
             </button>
         </>

@@ -9,11 +9,10 @@ export const useForm = <T>(initialValue: T) => {
     return {
         values: debouncedValues,
         handler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-            if (e.target.value.length >= 4)
-                setValues({
-                    ...values,
-                    [e.target.name]: e.target.value,
-                })
+            setValues({
+                ...values,
+                [e.target.name]: e.target.value,
+            })
         },
     }
 }

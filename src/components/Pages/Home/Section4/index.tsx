@@ -10,13 +10,14 @@ import TextGroup from "@components/UI/TextGroup"
 import { ETextAlign } from "@lib/api/textGroups/interface"
 
 import { Canvas, useFrame } from "@react-three/fiber"
-import { FormEvent, Suspense } from "react"
+import { FormEvent, Suspense, useEffect, useState } from "react"
 import { useInView } from "react-intersection-observer"
 import { Vector3 } from "three"
 import { SectionProps } from "@components/Pages/Home/interface"
 import { useForm } from "@hooks/useForm"
 import TextArea from "@components/UI/TextArea"
 import { validateEmail } from "@utils/index"
+import useFirstRender from "@hooks/useFirstRender"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
@@ -30,7 +31,34 @@ const Section4 = ({ textBlocks }: SectionProps) => {
         e.preventDefault()
     }
 
+    const isFirstRender = useFirstRender()
+
     const { values, handler } = useForm<Record<string, string>>({})
+
+    const [formValidation, setFormValidation] = useState({
+        email: false,
+        message: false,
+    })
+
+    useEffect(() => {
+        if (values.email !== undefined) {
+            setFormValidation({
+                ...formValidation,
+                email: !!validateEmail(values.email.trim()),
+            })
+        }
+    }, [values.email])
+
+    useEffect(() => {
+        if (values.message !== undefined) {
+            setFormValidation({
+                ...formValidation,
+                message: !!values.message.trim(),
+            })
+        }
+    }, [values.message])
+
+    const isFormValidated = formValidation.email && formValidation.message
 
     return (
         <div className="section-4-container flex-col-center w-full h-screen">
@@ -59,7 +87,9 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                                     placeholder="Your email id"
                                     onChange={handler}
                                     className={"w-full"}
-                                    showError={!validateEmail(values.email)}
+                                    showError={
+                                        isFirstRender || !formValidation.email
+                                    }
                                 />
                             </div>
 
@@ -69,10 +99,19 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                                 onChange={handler}
                                 rows={4}
                                 className={"w-full"}
+                                showError={
+                                    isFirstRender || !formValidation.message
+                                }
                             />
 
                             <div className="mx-5">
-                                <Button type="submit" text={"Send"} />
+                                {
+                                    <Button
+                                        disabled={!isFormValidated}
+                                        type="submit"
+                                        text={"Send"}
+                                    />
+                                }
                             </div>
                         </form>
                     </div>
