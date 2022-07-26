@@ -17,7 +17,6 @@ import { SectionProps } from "@components/Pages/Home/interface"
 import { useForm } from "@hooks/useForm"
 import TextArea from "@components/UI/TextArea"
 import { validateEmail } from "@utils/index"
-import useFirstRender from "@hooks/useFirstRender"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
@@ -31,8 +30,6 @@ const Section4 = ({ textBlocks }: SectionProps) => {
         e.preventDefault()
     }
 
-    const isFirstRender = useFirstRender()
-
     const { values, handler } = useForm<Record<string, string>>({})
 
     const [formValidation, setFormValidation] = useState({
@@ -40,8 +37,12 @@ const Section4 = ({ textBlocks }: SectionProps) => {
         message: false,
     })
 
+    const [showEmailErrors, setShowEmailErrors] = useState(false)
+    const [showMessageErrors, setShowMessageErrors] = useState(false)
+
     useEffect(() => {
         if (values.email !== undefined) {
+            setShowEmailErrors(true)
             setFormValidation({
                 ...formValidation,
                 email: !!validateEmail(values.email.trim()),
@@ -51,6 +52,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
 
     useEffect(() => {
         if (values.message !== undefined) {
+            setShowMessageErrors(true)
             setFormValidation({
                 ...formValidation,
                 message: !!values.message.trim(),
@@ -88,7 +90,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                                     onChange={handler}
                                     className={"w-full"}
                                     showError={
-                                        isFirstRender || !formValidation.email
+                                        showEmailErrors && !formValidation.email
                                     }
                                 />
                             </div>
@@ -100,13 +102,16 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                                 rows={4}
                                 className={"w-full"}
                                 showError={
-                                    isFirstRender || !formValidation.message
+                                    showMessageErrors && !formValidation.message
                                 }
                             />
 
                             <div className="mx-5">
                                 {
                                     <Button
+                                        // className={
+                                        //     !isFormValidated ? "opacity-0" : ""
+                                        // }
                                         disabled={!isFormValidated}
                                         type="submit"
                                         text={"Send"}
@@ -117,8 +122,12 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                     </div>
                 </div>
 
-                <div className="absolute w-full bottom-0 -z-10 overflow-hidden">
-                    <YellowBackground />
+                <div className="absolute overflow-hidden w-full bottom-0 h-1/3 -z-10">
+                    <div className="relative w-full h-full">
+                        <div className="absolute left-0 bottom-0 w-full">
+                            <YellowBackground />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="relative w-1/2 h-1/2">

@@ -33,7 +33,7 @@ export const Turbulence = () => {
                 <feTurbulence
                     id="turb"
                     type="turbulence"
-                    baseFrequency="0.01"
+                    baseFrequency={"0.01"}
                     numOctaves="8"
                     seed={1}
                     result="turbulence"

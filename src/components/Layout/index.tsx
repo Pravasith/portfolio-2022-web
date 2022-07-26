@@ -67,7 +67,7 @@ const Layout: React.FC = ({ children }) => {
                     <FontsCopyright />
                 </aside>
 
-                <article className="py-[100px]">
+                <article className="pt-[100px]">
                     {/* Children */}
                     {children}
                 </article>

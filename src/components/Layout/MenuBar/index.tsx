@@ -45,7 +45,7 @@ const MenuBar = () => {
                 }
             )
 
-            gsap.to(`#menuBar-item-${routeNameToHighlight.name} a`, {
+            gsap.to(`#menuBar-item-${routeNameToHighlight.name} p`, {
                 fontFamily: EFonts.CALIBRE_BOLD,
                 duration: 0.2,
             })
@@ -73,23 +73,31 @@ const MenuBar = () => {
         <div className="w-1/5 fixed bottom-1/4 right-0 z-10">
             <ul className="flex-col-center">
                 {pages.map((page, index) => (
-                    <li
+                    <Link
+                        href={page.route}
+                        // passHref
                         key={"whore-menu-" + index}
-                        className="my-2 cursor-pointer"
                     >
-                        <Link href={page.route} passHref>
-                            <div
-                                onMouseEnter={() =>
-                                    handleHover(EMouseAction.ENTER, page.name)
-                                }
-                                onMouseLeave={() =>
-                                    handleHover(EMouseAction.LEAVE, page.name)
-                                }
-                                className="relative"
-                                id={`menuBar-item-${page.name}`}
-                            >
+                        <a>
+                            <li className="my-2 cursor-pointer">
                                 <div
-                                    className={`
+                                    onMouseEnter={() =>
+                                        handleHover(
+                                            EMouseAction.ENTER,
+                                            page.name
+                                        )
+                                    }
+                                    onMouseLeave={() =>
+                                        handleHover(
+                                            EMouseAction.LEAVE,
+                                            page.name
+                                        )
+                                    }
+                                    className="relative"
+                                    id={`menuBar-item-${page.name}`}
+                                >
+                                    <div
+                                        className={`
                                         menuBar-item-background
                                         absolute -z-10 w-full rounded origin-center h-2/3 top-1/2 scale-x-0
                                         ${
@@ -99,20 +107,22 @@ const MenuBar = () => {
                                                 : EColorClassNames.ICON_BACKGROUND_ORANGE_200
                                         }
                                     `}
-                                ></div>
+                                    ></div>
 
-                                <a
-                                    className={`px-3 text-xl ${
-                                        state?.currentTheme === EThemes.LIGHT
-                                            ? ETextColorClassNames.LIGHT_THEME_TEXT_100
-                                            : ETextColorClassNames.DARK_THEME_TEXT_100
-                                    }`}
-                                >
-                                    {page.name}
-                                </a>
-                            </div>
-                        </Link>
-                    </li>
+                                    <p
+                                        className={`px-3 text-xl  ${
+                                            state?.currentTheme ===
+                                            EThemes.LIGHT
+                                                ? ETextColorClassNames.LIGHT_THEME_TEXT_100
+                                                : ETextColorClassNames.DARK_THEME_TEXT_100
+                                        }`}
+                                    >
+                                        {page.name}
+                                    </p>
+                                </div>
+                            </li>
+                        </a>
+                    </Link>
                 ))}
             </ul>
         </div>

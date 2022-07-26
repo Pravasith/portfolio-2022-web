@@ -17,22 +17,17 @@ const Button = (props: ButtonProps) => {
                     active:bg-button-bgd-1 bg-150%
                     hover:bg-button-bgd-2
                     ${
-                        state?.currentTheme === EThemes.LIGHT
-                            ? "border-black"
-                            : "border-white"
+                        props.disabled
+                            ? "border-gray-400 text-gray-400 bg-none hover:bg-none active:bg-none cursor-not-allowed"
+                            : state?.currentTheme === EThemes.LIGHT
+                            ? "border-black text-black"
+                            : "border-white text-white"
                     }
                     ${props.className}
+                    
                 `}
             >
-                <p
-                    className={`font-calibre-bold  ${
-                        state?.currentTheme === EThemes.LIGHT
-                            ? "text-black"
-                            : "text-white"
-                    }`}
-                >
-                    {props.text}
-                </p>
+                <p className={`font-calibre-bold`}>{props.text}</p>
             </button>
         </>
     )
