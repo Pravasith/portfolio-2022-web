@@ -17,6 +17,8 @@ import { SectionProps } from "@components/Pages/Home/interface"
 import { useForm } from "@hooks/useForm"
 import TextArea from "@components/UI/TextArea"
 import { validateEmail } from "@utils/index"
+import api from "@services/api"
+import { BASE_URLS } from "@services/routes"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
@@ -26,16 +28,14 @@ const Section4 = ({ textBlocks }: SectionProps) => {
         initial: new Vector3(7.27, 0.65, -0.2),
     }
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-    }
-
     const { values, handler } = useForm<Record<string, string>>({})
 
     const [formValidation, setFormValidation] = useState({
         email: false,
         message: false,
     })
+
+    const isFormValidated = formValidation.email && formValidation.message
 
     const [showEmailErrors, setShowEmailErrors] = useState(false)
     const [showMessageErrors, setShowMessageErrors] = useState(false)
@@ -60,7 +60,13 @@ const Section4 = ({ textBlocks }: SectionProps) => {
         }
     }, [values.message])
 
-    const isFormValidated = formValidation.email && formValidation.message
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        if (isFormValidated) {
+            await api.POST(BASE_URLS.EMAIL, values)
+        }
+    }
 
     return (
         <div className="section-4-container flex-col-center w-full h-screen">

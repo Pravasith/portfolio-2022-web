@@ -25,6 +25,23 @@ const GET = <T>(url: string) => {
     })
 }
 
+const POST = <T>(url: string, data: any) => {
+    return new Promise<T>((resolve, reject) => {
+        let responseData
+
+        Axios.post<T>(url, data, requestData)
+            .then(res => {
+                responseData = res.data
+                resolve(responseData)
+            })
+            .catch(e => {
+                console.error(e)
+                reject(e)
+            })
+    })
+}
+
 export default {
     GET,
+    POST,
 }
