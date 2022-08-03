@@ -6,4 +6,5 @@ export interface ButtonProps
         HTMLButtonElement
     > {
     text: string
+    showLoading?: boolean
 }

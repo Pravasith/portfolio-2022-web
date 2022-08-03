@@ -17,6 +17,7 @@ import useScrollTrigger from "@hooks/useScrollTrigger"
 
 import { SectionProps } from "@components/Pages/Home/interface"
 import TextGroup from "@components/UI/TextGroup"
+import CanvasLoader from "@components/UI/CanvasLoader"
 
 const DisableRender = () => useFrame(() => null, 1000)
 
@@ -84,7 +85,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     <div className="my-10 relative w-full h-full">
                         <div
                             ref={ref}
-                            className="absolute w-full h-200% -top-1/3 "
+                            className="absolute w-full h-200% -top-1/3"
                         >
                             <Canvas
                                 linear={false}
@@ -102,7 +103,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                     enablePan={false}
                                 />
 
-                                <Suspense fallback={null}>
+                                <Suspense fallback={<CanvasLoader />}>
                                     <Table />
                                 </Suspense>
                             </Canvas>

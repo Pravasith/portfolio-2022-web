@@ -3,7 +3,7 @@ import gsap from "gsap"
 import useMouseScroll from "@hooks/useMouseScroll"
 import { useEffect } from "react"
 
-export const Turbulence = () => {
+export const Turbulence = (props: { noScrollAnimation?: boolean }) => {
     const animateWaveBackground = () => {
         const tl = gsap.timeline()
 
@@ -25,6 +25,10 @@ export const Turbulence = () => {
 
     useEffect(() => {
         animateWaveBackground()
+    }, [])
+
+    useEffect(() => {
+        !props.noScrollAnimation && animateWaveBackground()
     }, [scrollY])
 
     return (

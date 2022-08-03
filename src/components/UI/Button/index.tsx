@@ -1,6 +1,7 @@
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import { useContext } from "react"
+import Loader from "@ui/Loader"
 import { ButtonProps } from "./interface"
 
 const Button = (props: ButtonProps) => {
@@ -27,7 +28,11 @@ const Button = (props: ButtonProps) => {
                     
                 `}
             >
-                <p className={`font-calibre-bold`}>{props.text}</p>
+                {props.showLoading ? (
+                    <Loader />
+                ) : (
+                    <p className={`font-calibre-bold`}>{props.text}</p>
+                )}
             </button>
         </>
     )

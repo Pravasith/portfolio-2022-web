@@ -31,6 +31,10 @@ module.exports = {
                     100: "#fcfeff",
                     200: "#c1c1c1",
                 },
+
+                "theme-orange": "#ff6a52",
+                "theme-yellow": "#fcf877",
+                "theme-blue": "#43d7ff",
             },
 
             fontFamily: {

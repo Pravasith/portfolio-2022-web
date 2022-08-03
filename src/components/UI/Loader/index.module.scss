@@ -1,0 +1,26 @@
+@keyframes bounce {
+    0% {
+        transform: translateY(0.25em);
+    }
+    40% {
+        transform: translateY(-0.5em);
+    }
+    80% {
+        transform: translateY(0.25em);
+    }
+    100% {
+        transform: translateY(0.25em);
+    }
+}
+
+.bounce_0 {
+    animation: bounce 1.25s ease-in-out 0.25s infinite;
+}
+
+.bounce_1 {
+    animation: bounce 1.25s ease-in-out 0.5s infinite;
+}
+
+.bounce_2 {
+    animation: bounce 1.25s ease-in-out 0.75s infinite;
+}
