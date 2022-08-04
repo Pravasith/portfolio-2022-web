@@ -1,12 +1,13 @@
-// import type { GetStaticProps, NextPage } from "next"
-
 import Layout from "@components/Layout"
+import Blog from "@components/Pages/Blog"
 
 const BlogsPage = () => {
     return (
         <main>
             {/* <Meta {...metaData} /> */}
-            <Layout></Layout>
+            <Layout>
+                <Blog />
+            </Layout>
         </main>
     )
 }

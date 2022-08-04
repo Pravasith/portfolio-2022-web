@@ -150,6 +150,7 @@ const BlogDetails = ({ details }: BlogProps) => {
                         />
                     </div>
                 </header>
+
                 {sectionsJSX}
             </div>
         </div>

@@ -18,7 +18,7 @@ const Fun = ({ mediaBlocks }: FunProps) => {
     const textBlock: TextBlockType[] = [
         {
             type: ETextTypes.H1,
-            text: `Fun projects (non tech).`,
+            text: `My design projects (non tech). 😁`,
         },
     ]
 
