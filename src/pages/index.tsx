@@ -5,9 +5,10 @@ import Layout from "@components/Layout"
 import Home from "@components/Pages/Home"
 import api from "@services/api"
 import { TextGroupType, TextSectionType } from "@lib/api/textGroups/interface"
-import { API_ROUTE_URLS } from "@services/routes"
+
 import { ProjectsType } from "@lib/api/projects/interface"
 import { metaData } from "@utils/constants"
+import { BASE_URLS } from "@services/routes"
 
 interface IndexPageProps {
     textSections: TextSectionType[]
@@ -30,10 +31,8 @@ export const getStaticProps: GetStaticProps = async () => {
         projects: ProjectsType[] = []
 
     await Promise.all([
-        api.GET<TextGroupType[]>(
-            API_ROUTE_URLS.GET_TEXT_GROUPS_BY_PAGE + "home"
-        ),
-        api.GET<ProjectsType[]>(API_ROUTE_URLS.GET_PROJECTS),
+        api.GET<TextGroupType[]>(BASE_URLS.TEXT_GROUPS + "?page=home"),
+        api.GET<ProjectsType[]>(BASE_URLS.PROJECTS),
     ])
         .then(([textGroups, projectData]) => {
             textSections.push(...textGroups[0].sections)

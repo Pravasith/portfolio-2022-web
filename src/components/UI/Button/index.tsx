@@ -10,7 +10,7 @@ const Button = (props: ButtonProps) => {
     return (
         <>
             <button
-                {...props}
+                disabled={props.disabled}
                 className={`
                     my-3
                     px-5 py-2
@@ -27,6 +27,7 @@ const Button = (props: ButtonProps) => {
                     ${props.className}
                     
                 `}
+                type={props.type}
             >
                 {props.showLoading ? (
                     <Loader />

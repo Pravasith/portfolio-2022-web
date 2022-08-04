@@ -5,9 +5,9 @@ import Layout from "@components/Layout"
 import Fun from "@components/Pages/Fun"
 import { ESrcType, MediaBlockType } from "@lib/api/mediaGroups/interface"
 import api from "@services/api"
-import { API_ROUTE_URLS } from "@services/routes"
 import { metaData } from "@utils/constants"
 import { BlogsType } from "@lib/api/blogs/interface"
+import { BASE_URLS } from "@services/routes"
 
 interface FunPageProps {
     mediaBlocks: MediaBlockType[]
@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
     let funPageMediaBlocks: MediaBlockType[] = []
 
     await api
-        .GET<BlogsType[]>(API_ROUTE_URLS.GET_BLOGS_BY_CATEGORY + "fun")
+        .GET<BlogsType[]>(BASE_URLS.BLOG + "?category=fun")
         .then(res => {
             funPageMediaBlocks = res.map(blog => ({
                 src: blog.thumbnail,

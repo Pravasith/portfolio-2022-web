@@ -1,4 +1,5 @@
 import Axios, { AxiosRequestConfig } from "axios"
+import { ApiResponse } from "./interface"
 
 const requestData: AxiosRequestConfig = {
     headers: {
@@ -13,9 +14,9 @@ const GET = <T>(url: string) => {
     return new Promise<T>((resolve, reject) => {
         let data
 
-        Axios.get<T>(url, requestData)
+        Axios.get<ApiResponse<T>>(url, requestData)
             .then(res => {
-                data = res.data
+                data = res.data.body
                 resolve(data)
             })
             .catch(e => {
@@ -29,9 +30,9 @@ const POST = <T>(url: string, data: any) => {
     return new Promise<T>((resolve, reject) => {
         let responseData
 
-        Axios.post<T>(url, data, requestData)
+        Axios.post<ApiResponse<T>>(url, data, requestData)
             .then(res => {
-                responseData = res.data
+                responseData = res.data.body
                 resolve(responseData)
             })
             .catch(e => {
