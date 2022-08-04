@@ -29,7 +29,7 @@ const EmailForm = (props: EmailFormType) => {
 
     const [showEmailErrors, setShowEmailErrors] = useState(false)
     const [showMessageErrors, setShowMessageErrors] = useState(false)
-    const [showAPILoading, setShowAPILoading] = useState(true)
+    const [showAPILoading, setShowAPILoading] = useState(false)
     const [emailSent, setEmailSent] = useState(false)
 
     useEffect(() => {
