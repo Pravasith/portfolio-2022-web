@@ -4,7 +4,7 @@ import Meta from "@components/Meta"
 import Layout from "@components/Layout"
 
 import { metaData } from "@utils/constants"
-import Blog from "@components/Pages/Blog"
+import BlogDetails from "@components/Pages/BlogDetails"
 import { BlogsType } from "@lib/api/blogs/interface"
 
 import api from "@services/api"
@@ -12,17 +12,13 @@ import { TextGroupType } from "@lib/api/textGroups/interface"
 import { MediaGroupType } from "@lib/api/mediaGroups/interface"
 import { BASE_URLS } from "@services/routes"
 
-interface FunPageProps {
+interface BlogProps {
     blogData: BlogsType
     textGroup: TextGroupType
     mediaGroup: MediaGroupType
 }
 
-const FunPage: NextPage<FunPageProps> = ({
-    blogData,
-    textGroup,
-    mediaGroup,
-}) => {
+const Blog: NextPage<BlogProps> = ({ blogData, textGroup, mediaGroup }) => {
     const blogMetaData = blogData.metaData ?? metaData
 
     const { page, id, title, timestamp, thumbnail, userDetails, tags } =
@@ -44,7 +40,7 @@ const FunPage: NextPage<FunPageProps> = ({
         <main>
             <Meta {...blogMetaData} />
             <Layout>
-                <Blog details={details} />
+                <BlogDetails details={details} />
             </Layout>
         </main>
     )
@@ -56,12 +52,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         mediaGroup: MediaGroupType[] = []
 
     await Promise.all([
-        api.GET<BlogsType[]>(BASE_URLS.BLOG + "?page=" + params?.post),
-        api.GET<TextGroupType[]>(
-            BASE_URLS.TEXT_GROUPS + "?page=" + params?.post
-        ),
+        api.GET<BlogsType[]>(BASE_URLS.BLOG + "?page=" + params?.id),
+        api.GET<TextGroupType[]>(BASE_URLS.TEXT_GROUPS + "?page=" + params?.id),
         api.GET<MediaGroupType[]>(
-            BASE_URLS.MEDIA_GROUPS + "?page=" + params?.post
+            BASE_URLS.MEDIA_GROUPS + "?page=" + params?.id
         ),
     ])
         .then(([blogs, textBlocks, mediaBlocks]) => {
@@ -95,7 +89,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     // Get the paths we want to pre-render based on posts
     const paths = posts.map(post => ({
-        params: { post: post },
+        params: { id: post },
     }))
 
     // We'll pre-render only these paths at build time.
@@ -103,4 +97,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return { paths, fallback: false }
 }
 
-export default FunPage
+export default Blog

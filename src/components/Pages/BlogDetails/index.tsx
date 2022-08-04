@@ -19,7 +19,7 @@ import { useContext } from "react"
 import { BlogProps } from "./interface"
 import VideoBlock from "@components/UI/VideoBlock"
 
-const Blog = ({ details }: BlogProps) => {
+const BlogDetails = ({ details }: BlogProps) => {
     const { state } = useContext(ThemeContext)
 
     const { title, timestamp, userDetails, tags, textGroup, mediaGroup } =
@@ -156,4 +156,4 @@ const Blog = ({ details }: BlogProps) => {
     )
 }
 
-export default Blog
+export default BlogDetails
