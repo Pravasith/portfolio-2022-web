@@ -103,22 +103,24 @@ const BlogDetails = ({ details }: BlogProps) => {
                             ]}
                         />
 
-                        {tags.map(
-                            (tag, i) =>
-                                i < 4 && (
-                                    <p
-                                        key={"tag-" + i}
-                                        className={` py-1 px-4 text-xs rounded-full shrink-0 mx-1 ${
-                                            state?.currentTheme ===
-                                            EThemes.LIGHT
-                                                ? "text-black bg-white/80"
-                                                : "text-gray-300 bg-white/20"
-                                        }`}
-                                    >
-                                        {tag}
-                                    </p>
-                                )
-                        )}
+                        <div className="my-2 flex-row-center">
+                            {tags.map(
+                                (tag, i) =>
+                                    i < 4 && (
+                                        <p
+                                            key={"tag-" + i}
+                                            className={` py-1 px-4 text-xs rounded-full shrink-0 mx-1 ${
+                                                state?.currentTheme ===
+                                                EThemes.LIGHT
+                                                    ? "text-black bg-white/80"
+                                                    : "text-gray-300 bg-white/20"
+                                            }`}
+                                        >
+                                            {tag}
+                                        </p>
+                                    )
+                            )}
+                        </div>
                     </div>
 
                     <TextGroup

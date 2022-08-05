@@ -5,20 +5,14 @@ import {
     TextBlockType,
 } from "@lib/api/textGroups/interface"
 
-import { Spirals } from "@components/SVGs/FunPage"
-
-import ImageBlock from "@components/UI/ImageBlock"
-import { ESrcType, VideoBlockType } from "@lib/api/mediaGroups/interface"
-import VideoBlock from "@components/UI/VideoBlock"
+import FunProjects from "@components/Pages/Fun/FunProjects"
 import { FunProps } from "./interface"
-import Link from "next/link"
-import { random20Id } from "@utils/index"
 
 const Fun = ({ mediaBlocks }: FunProps) => {
     const textBlock: TextBlockType[] = [
         {
             type: ETextTypes.H1,
-            text: `My design projects (non tech). 😁`,
+            text: `My design projects 😁`,
         },
     ]
 
@@ -74,54 +68,12 @@ const Fun = ({ mediaBlocks }: FunProps) => {
     return (
         <div className="flex-col-north w-full min-h-screen">
             <div className="w-1/2">
-                <TextGroup textAlign={ETextAlign.LEFT} textBlocks={textBlock} />
-
-                <div className="grid grid-cols-2 gap-2 my-12">
-                    {mediaBlocks.map((item, i) => {
-                        return (
-                            <Link
-                                key={"media-block-fun-" + i}
-                                href={item.hyperlink || "/not-found"}
-                            >
-                                <a
-                                    target={"_blank"}
-                                    key={random20Id() + "-" + i}
-                                    className={`w-full flex-col-west ${
-                                        item.hyperlink && "cursor-pointer"
-                                    }`}
-                                >
-                                    <div className="w-full mb-1 relative">
-                                        {item.type === ESrcType.IMAGE ? (
-                                            <ImageBlock
-                                                link={item.hyperlink}
-                                                alignCaptionText={
-                                                    ETextAlign.LEFT
-                                                }
-                                                imageBlock={item}
-                                            />
-                                        ) : (
-                                            <VideoBlock
-                                                link={item.hyperlink}
-                                                alignCaptionText={
-                                                    ETextAlign.LEFT
-                                                }
-                                                videoBlock={
-                                                    item as VideoBlockType
-                                                }
-                                            />
-                                        )}
-
-                                        {i === 1 && (
-                                            <div className="absolute w-72 h-72 -top-1/2 -right-1/4 -z-10">
-                                                <Spirals />
-                                            </div>
-                                        )}
-                                    </div>
-                                </a>
-                            </Link>
-                        )
-                    })}
-                </div>
+                <TextGroup
+                    textAlign={ETextAlign.LEFT}
+                    textBlocks={textBlock}
+                    className="my-28"
+                />
+                <FunProjects mediaBlocks={mediaBlocks} />
             </div>
         </div>
     )

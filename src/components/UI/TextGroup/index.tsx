@@ -12,11 +12,12 @@ const TextGroup = ({
     textBlocks,
     textAlign,
     textClassName,
+    className,
 }: TextGroupProps) => {
     const { state } = useContext(ThemeContext)
 
     return (
-        <>
+        <div className={className}>
             {textBlocks.map((item, i) => {
                 const spanColorClassName =
                     state?.currentTheme === EThemes.LIGHT
@@ -58,7 +59,7 @@ const TextGroup = ({
                     case ETextTypes.H3:
                         return (
                             <h3
-                                className={`${textColorClassName} ${textAlign}  my-5 w-full ${textClassName}`}
+                                className={`${textColorClassName} ${textAlign} my-6 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedAndLinkifiedText text={item.text} />
@@ -68,7 +69,7 @@ const TextGroup = ({
                     case ETextTypes.P:
                         return (
                             <p
-                                className={`${textColorClassName} ${textAlign}  my-3 w-full ${textClassName}`}
+                                className={`${textColorClassName} ${textAlign} my-6 w-full ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedAndLinkifiedText text={item.text} />
@@ -92,7 +93,7 @@ const TextGroup = ({
                         )
                 }
             })}
-        </>
+        </div>
     )
 }
 
