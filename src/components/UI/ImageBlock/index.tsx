@@ -10,13 +10,16 @@ const ImageBlock = (props: ImageBlockProps) => {
         <div
             className={`flex-col-center ${styles.imageBlock} ${props.className}`}
         >
-            <Image
-                src={props.imageBlock.src}
-                alt={props.imageBlock.alt}
-                width={props.imageBlock.width}
-                height={props.imageBlock.height}
-                objectFit={"contain"}
-            />
+            <div className="relative">
+                <div className="z-10 absolute w-full h-full"></div>
+                <Image
+                    src={props.imageBlock.src}
+                    alt={props.imageBlock.alt}
+                    width={props.imageBlock.width}
+                    height={props.imageBlock.height}
+                    objectFit={"contain"}
+                />
+            </div>
 
             {props.imageBlock.showCaption && props.imageBlock.caption && (
                 <TextGroup

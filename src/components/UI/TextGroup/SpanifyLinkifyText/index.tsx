@@ -30,6 +30,7 @@ const SpanifyLinkifyText = ({
     text,
     spanClassName,
     linkClassName,
+    strongClassName,
 }: SpanifyLinkifyTextProps) => {
     const levels: TextLevels = {}
 
@@ -50,8 +51,9 @@ const SpanifyLinkifyText = ({
                 >
                     <a
                         className={`${linkClassName} 
-                            after:bg-yellow-300 after:absolute after:w-full 
-                            after:h-half after after:left-0 after:-bottom-half after:-z-10 
+                            after:bg-theme-yellow after:absolute after:w-full 
+                            after:h-half after:left-0 after:-bottom-half after:-z-10 
+                            hover:after:bg-theme-orange after:transition hover:text-theme-orange transition
                         relative`}
                     >
                         {arrayOfElements}
@@ -60,7 +62,10 @@ const SpanifyLinkifyText = ({
             )
         } else if (nextFourChars === TextMarkers.STRONG_END_MARK) {
             return (
-                <strong key={`text-element-${random20Id()}`}>
+                <strong
+                    key={`text-element-${random20Id()}`}
+                    className={`${strongClassName}`}
+                >
                     {arrayOfElements}
                 </strong>
             )

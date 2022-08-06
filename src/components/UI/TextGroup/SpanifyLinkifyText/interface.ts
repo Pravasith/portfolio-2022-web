@@ -2,6 +2,7 @@ export interface SpanifyLinkifyTextProps {
     text: string
     spanClassName?: string
     linkClassName?: string
+    strongClassName?: string
 }
 
 export enum TextMarkers {

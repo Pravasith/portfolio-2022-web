@@ -10,17 +10,18 @@ const VideoBlock = (props: VideoBlockProps) => {
         <div
             className={`flex-col-center ${styles.videoBlock} ${props.className}`}
         >
-            <video
-                autoPlay
-                muted
-                loop
-                style={{
-                    width: props.videoBlock.width,
-                }}
-                src={props.videoBlock.src}
-            >
-                {/* <source src={props.videoBlock.src} /> */}
-            </video>
+            <div className="relative">
+                <div className="z-10 absolute w-full h-full"></div>
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    style={{
+                        width: props.videoBlock.width,
+                    }}
+                    src={props.videoBlock.src}
+                ></video>
+            </div>
 
             {props.videoBlock.showCaption && props.videoBlock.caption && (
                 <TextBlock
