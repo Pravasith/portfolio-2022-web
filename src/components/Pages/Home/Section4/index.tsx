@@ -36,7 +36,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                     </div>
                 </div>
 
-                <div className="relative w-1/2 h-1/2">
+                <div className="relative w-full h-1/2">
                     <div ref={ref} className="w-full h-full">
                         <Canvas
                             linear={false}
@@ -62,7 +62,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                         </Canvas>
                     </div>
 
-                    <div className="absolute w-72 bottom-2 left-1/2 -z-10">
+                    <div className="absolute w-72 bottom-2 left-1/5 -z-10">
                         <WaterPuddle />
                     </div>
 

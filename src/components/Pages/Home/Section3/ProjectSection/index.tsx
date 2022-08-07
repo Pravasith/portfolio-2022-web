@@ -15,6 +15,7 @@ import { EIconSizes } from "@components/UI/Icons/interface"
 import ImageBlock from "@components/UI/ImageBlock"
 
 import { ProjectSectionProps } from "./interface"
+import { random20Id } from "@utils/index"
 
 const ProjectSection = ({ projects }: ProjectSectionProps) => {
     // const [projects] = useState<ProjectType[]>(() => [
@@ -83,7 +84,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
         ]
 
         return (
-            <div key={item.media.id} className="flex-row-west py-36 w-full">
+            <div key={random20Id()} className="flex-col-west py-36 w-full">
                 <div className="relative min-w-1/2 w-1/2">
                     <div
                         key={`svg-bgd-01`}

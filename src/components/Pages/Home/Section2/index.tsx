@@ -9,7 +9,7 @@ const Section2 = ({ textBlocks }: SectionProps) => {
         <div className="section-2-container w-full h-screen mt-36">
             <div className="flex-col-south w-full h-full ">
                 {/* TEXT */}
-                <div className="w-1/3 my-8 flex-col-west ">
+                <div className="my-8 flex-col-west px-6">
                     <TextGroup
                         textAlign={ETextAlign.LEFT}
                         textBlocks={textBlocks}
@@ -19,7 +19,7 @@ const Section2 = ({ textBlocks }: SectionProps) => {
                 </div>
 
                 {/* SVG */}
-                <div className="section-2-curved-text w-1/3 mx-4 h-1/2 flex-col-south ">
+                <div className="section-2-curved-text w-full mx-4 flex-col-south ">
                     <CurvedText />
                 </div>
             </div>

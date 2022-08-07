@@ -61,8 +61,8 @@ const Section1 = ({ textBlocks }: SectionProps) => {
         <>
             <div className="section-1-container h-screen mb-10">
                 {/* TEXT BLOCK */}
-                <div className="flex-col-center ">
-                    <div className="section-1-text-block w-1/3 ">
+                <div className="flex-col-center px-6">
+                    <div className="section-1-text-block w-full">
                         <TextGroup textBlocks={textBlocks} />
                     </div>
                 </div>
@@ -85,7 +85,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     <div className="my-10 relative w-full h-full">
                         <div
                             ref={ref}
-                            className="absolute w-full h-200% -top-1/3"
+                            className="absolute w-full h-150% -top-1/3"
                         >
                             <Canvas
                                 linear={false}
@@ -111,7 +111,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     </div>
 
                     {/* TRIANGLES */}
-                    <div className="section-1-red-triangle absolute w-72 h-1/5 bottom-1/5 left-1/3 mx-8">
+                    <div className="section-1-red-triangle absolute w-40 h-1/5 bottom-1/5 left-1/2 mx-8">
                         <Section1RedTriangles />
                     </div>
                 </div>

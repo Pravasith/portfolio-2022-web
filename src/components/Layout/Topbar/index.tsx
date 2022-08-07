@@ -32,7 +32,7 @@ const Topbar = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-1/5 fixed z-10 right-0">
+            <div className="w-1/5 fixed z-10 right-0 mx-3">
                 <div className="flex-col-center">
                     <div className="my-10">
                         <Icon onClick={toggleTheme} iconSize={EIconSizes.lg}>
