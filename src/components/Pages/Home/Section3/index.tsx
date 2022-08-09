@@ -15,8 +15,8 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             </div>
 
             {/* TEXT BLOCK */}
-            <div className="flex-col-center mx-1/4 px-5 w-full">
-                <div className="section-3-text-block w-1/3">
+            <div className="flex-col-center px-6 w-full">
+                <div className="section-3-text-block">
                     <TextGroup
                         textAlign={ETextAlign.LEFT}
                         textBlocks={textBlocks}

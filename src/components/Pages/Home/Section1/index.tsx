@@ -59,7 +59,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
 
     return (
         <>
-            <div className="section-1-container h-screen mb-10">
+            <div className="section-1-container min-h-screen mb-72">
                 {/* TEXT BLOCK */}
                 <div className="flex-col-center px-6">
                     <div className="section-1-text-block w-full">
@@ -68,11 +68,14 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                 </div>
 
                 {/* GRAPHICS BLOCK */}
-                <div className="section-1-graphics-block h-1/2 relative -z-10">
+                <div
+                    id="home-section-1-svgs-bgd"
+                    className="section-1-graphics-block h-1/2 w-full relative -z-10"
+                >
                     {/* SVG */}
-                    <div className="absolute w-full top-1/10 left-1/2 -translate-x-1/2 px-1/5">
-                        <div className="flex-row-center w-full">
-                            <div className="section-1-bgd-beach-0 w-2/3 relative">
+                    <div className="absolute w-full overflow-x-clip top-1/10 left-1/2 -translate-x-1/2 px-1/5">
+                        <div className="flex-row-center w-[250%] -translate-x-[30%] -translate-y-[10%]">
+                            <div className="section-1-bgd-beach-0 w-full relative">
                                 <Section1BgdBeach />
                                 <div className="section-1-bgd-beach-1 absolute w-1/5 h-1/5 top-1/4 right-1/10">
                                     <Section1BgdBeach1 />
@@ -82,10 +85,13 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     </div>
 
                     {/* THREE */}
-                    <div className="my-10 relative w-full h-full">
+                    <div
+                        id="home-section-1-three"
+                        className="my-10 relative w-full h-full"
+                    >
                         <div
                             ref={ref}
-                            className="absolute w-full h-150% -top-1/3"
+                            className="absolute w-full h-[175%] -bottom-[40%]"
                         >
                             <Canvas
                                 linear={false}
@@ -108,10 +114,14 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 </Suspense>
                             </Canvas>
                         </div>
+                        <div className="absolute w-full h-full"></div>
                     </div>
 
                     {/* TRIANGLES */}
-                    <div className="section-1-red-triangle absolute w-40 h-1/5 bottom-1/5 left-1/2 mx-8">
+                    <div
+                        id="home-section-1-svgs-red"
+                        className="section-1-red-triangle absolute  w-60 h-1/5 bottom-1/5 -left-[10%] mx-8"
+                    >
                         <Section1RedTriangles />
                     </div>
                 </div>
