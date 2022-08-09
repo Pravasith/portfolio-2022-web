@@ -1,4 +1,7 @@
-export const BASE_URL = "http://localhost:8000/"
+export const BASE_URL =
+    process.env.NODE_ENV === "production"
+        ? "https://api-pravasith.herokuapp.com/"
+        : "http://localhost:8000/"
 const API_VERSION = "/v1"
 export const BASE_URL_API = BASE_URL + "api" + API_VERSION
 
