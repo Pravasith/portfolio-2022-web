@@ -25,10 +25,11 @@ export const Turbulence = (props: { noScrollAnimation?: boolean }) => {
 
     useEffect(() => {
         animateWaveBackground()
+        console.log(props)
     }, [])
 
     useEffect(() => {
-        !props.noScrollAnimation && animateWaveBackground()
+        // !props.noScrollAnimation && animateWaveBackground()
     }, [scrollY])
 
     return (
