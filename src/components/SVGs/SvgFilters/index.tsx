@@ -1,36 +1,33 @@
-import gsap from "gsap"
-
-import useMouseScroll from "@hooks/useMouseScroll"
 import { useEffect } from "react"
 
 export const Turbulence = (props: { noScrollAnimation?: boolean }) => {
-    const animateWaveBackground = () => {
-        const tl = gsap.timeline()
+    // const animateWaveBackground = () => {
+    //     const tl = gsap.timeline()
 
-        tl.set("#turb", {
-            attr: {
-                baseFrequency: 0.008,
-            },
-        })
-        tl.to("#turb", {
-            attr: {
-                baseFrequency: 0.001,
-            },
-            duration: 2,
-            ease: "power4.out",
-        })
-    }
+    //     tl.set("#turb", {
+    //         attr: {
+    //             baseFrequency: 0.008,
+    //         },
+    //     })
+    //     tl.to("#turb", {
+    //         attr: {
+    //             baseFrequency: 0.001,
+    //         },
+    //         duration: 2,
+    //         ease: "power4.out",
+    //     })
+    // }
 
-    const scrollY = useMouseScroll()
+    // const scrollY = useMouseScroll()
 
     useEffect(() => {
-        animateWaveBackground()
+        // animateWaveBackground()
         console.log(props)
     }, [])
 
-    useEffect(() => {
-        // !props.noScrollAnimation && animateWaveBackground()
-    }, [scrollY])
+    // useEffect(() => {
+    //     !props.noScrollAnimation && animateWaveBackground()
+    // }, [scrollY])
 
     return (
         <>
