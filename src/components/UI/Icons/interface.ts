@@ -1,7 +1,6 @@
-import gsap from "gsap"
-import React from "react"
+import { EColors } from "@lib/themes/interface"
 
-import { EColors } from "@lib/themes/colors"
+import React from "react"
 
 export enum EIconSizes {
     xs = "1.75rem",
