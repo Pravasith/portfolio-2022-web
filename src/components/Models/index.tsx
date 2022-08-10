@@ -10,6 +10,7 @@ import { FlamingoLightsProps, TableLightsProps } from "./interface"
 
 import useScrollTrigger from "@hooks/useScrollTrigger"
 import { MouseMoveValues } from "@hooks/useMouseMove/interface"
+import useMobileScreen from "@hooks/useMobileScreen"
 
 const TableLights = ({
     parentObjectForSpotlight,
@@ -402,6 +403,8 @@ export const Table = () => {
         init()
     }, [gltf])
 
+    const isMobile = useMobileScreen()
+
     useScrollTrigger(
         gsapX => {
             const scrollTrigger = {
@@ -418,7 +421,7 @@ export const Table = () => {
                 x: 2.56,
                 y: 4.86,
                 z: 5.86,
-                duration: 3,
+                duration: isMobile ? 0.2 : 1,
             })
         },
         [gltf]
