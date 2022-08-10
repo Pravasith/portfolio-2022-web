@@ -24,7 +24,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
     return (
         <div className="section-4-container flex-col-center w-full h-screen">
             <div className="w-full h-full flex-col-south ">
-                <div className="section-4 w-1/3 ">
+                <div className="section-4 w-full">
                     <EmailForm emailFormTextBlocks={textBlocks} />
                 </div>
 

@@ -25,11 +25,11 @@ const ImageBlock = (props: ImageBlockProps) => {
                 <TextGroup
                     textClassName={`${props.link && styles.imageCaption} ${
                         props.textClassName
-                    }`}
+                    } my-0`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
                     textBlocks={[
                         {
-                            text: props.imageBlock.caption,
+                            text: `:st>${props.imageBlock.caption}<st:`,
                             type: ETextTypes.P,
                         },
                     ]}

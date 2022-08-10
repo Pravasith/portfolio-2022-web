@@ -16,6 +16,10 @@ import ImageBlock from "@components/UI/ImageBlock"
 
 import { ProjectSectionProps } from "./interface"
 import { random20Id } from "@utils/index"
+import { useContext } from "react"
+import { ThemeContext } from "@utils/contexts/themeContext"
+import { EThemes } from "@utils/contexts/themeContext/interface"
+import useMobileScreen from "@hooks/useMobileScreen"
 
 const ProjectSection = ({ projects }: ProjectSectionProps) => {
     // const [projects] = useState<ProjectType[]>(() => [
@@ -69,6 +73,9 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
     //     },
     // ])
 
+    const { state } = useContext(ThemeContext)
+    const isMobile = useMobileScreen()
+
     const Projects = projects.projects.map((item, i) => {
         const projectTextBlocks = [
             {
@@ -84,45 +91,63 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
         ]
 
         return (
-            <div key={random20Id()} className="flex-col-west py-36 w-full">
-                <div className="relative min-w-1/2 w-1/2">
-                    <div
-                        key={`svg-bgd-01`}
-                        className={`absolute w-130% top-1/2 -left-1/5 -z-10`}
-                    >
-                        {i === 0 && <SVGBackground1 />}
-                    </div>
+            <div
+                id={`home-section-3-project-${i + 1}`}
+                key={random20Id()}
+                className="flex-col-west py-10 w-full"
+            >
+                <div className="relative min-w-1/2 w-full overflow-x-clip">
+                    {i === 0 && (
+                        <div
+                            key={`svg-bgd-01`}
+                            className={`absolute w-130% top-1/2 -left-1/5 -z-10`}
+                        >
+                            {<SVGBackground1 />}
+                        </div>
+                    )}
+
+                    {i === 2 && (
+                        <div
+                            key={`svg-bgd-02`}
+                            className={`absolute w-full top-1/5 -left-1/5 -z-10`}
+                        >
+                            {<SVGBackground2 />}
+                        </div>
+                    )}
+
+                    {i === 0 && (
+                        <div
+                            key={`svg-bgd-03`}
+                            className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}
+                        >
+                            {<SVGBackground3 />}
+                        </div>
+                    )}
 
                     <div
-                        key={`svg-bgd-02`}
-                        className={`absolute w-full top-1/5 -left-1/5 -z-10`}
-                    >
-                        {i === 2 && <SVGBackground2 />}
-                    </div>
-
-                    <div
-                        key={`svg-bgd-03`}
-                        className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}
-                    >
-                        {i === 0 && <SVGBackground3 />}
-                    </div>
-
-                    <div
-                        className={`w-full border-8  overflow-clip  ${"bg-gray-200"}`}
+                        className={`${
+                            !isMobile && "border-8"
+                        } overflow-clip  ${"bg-gray-200"} mx-6`}
                     >
                         <ImageBlock imageBlock={item.media} />
                     </div>
                 </div>
 
-                <div className="px-10 flex-col-west">
-                    <div className="m-3">
+                <div
+                    className={`flex-col-west px-6 ${
+                        isMobile && state?.currentTheme === EThemes.LIGHT
+                            ? "bg-white/80"
+                            : "bg-black/80"
+                    }`}
+                >
+                    <div className="my-2">
                         <TextGroup
                             textAlign={ETextAlign.LEFT}
                             textBlocks={projectTextBlocks}
                         />
                     </div>
 
-                    <div className="flex flex-row my-2">
+                    <div className="flex flex-row mb-5">
                         {item.liveLink && (
                             <Link href={item.liveLink}>
                                 <a className="m-3" target={"_blank"}>

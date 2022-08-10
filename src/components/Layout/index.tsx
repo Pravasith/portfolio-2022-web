@@ -5,15 +5,12 @@ import {
     themeContextDefaultValues,
 } from "@utils/contexts/themeContext"
 
-import ContactBar from "./ContactBar"
-import MenuBar from "./MenuBar"
-
 import { themeReducer } from "@utils/reducers"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 import gsap from "gsap"
 
 import FontsCopyright from "./FontsCopyright"
-import TopBar from "./Topbar"
+
 import { EThemeActions } from "@utils/reducers/interface"
 import { EColors } from "@lib/themes/interface"
 
@@ -58,12 +55,12 @@ const Layout: React.FC = ({ children }) => {
                 <header>
                     {/* Things that go in the top bar, like Navbar */}
                     {/* Banners, notification strips... etc. */}
-                    <TopBar />
+                    {/* <TopBar /> */}
                 </header>
 
                 <aside>
                     {/* Twitter Stuff */}
-                    <ContactBar />
+                    {/* <ContactBar /> */}
                     <FontsCopyright />
                 </aside>
 
@@ -74,7 +71,7 @@ const Layout: React.FC = ({ children }) => {
 
                 <aside>
                     {/* Navbar */}
-                    <MenuBar />
+                    {/* <MenuBar /> */}
                 </aside>
 
                 <footer>

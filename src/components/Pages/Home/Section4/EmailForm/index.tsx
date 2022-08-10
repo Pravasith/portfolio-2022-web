@@ -66,10 +66,10 @@ const EmailForm = (props: EmailFormType) => {
     }
 
     return (
-        <div className="w-full">
+        <div id="home-section-4-email-form" className="w-full px-6">
             {!emailSent ? (
                 <div className="w-full email-form">
-                    <div className="mx-5">
+                    <div>
                         <TextGroup
                             textAlign={ETextAlign.LEFT}
                             textBlocks={props.emailFormTextBlocks}
@@ -83,7 +83,7 @@ const EmailForm = (props: EmailFormType) => {
                                     name="name"
                                     placeholder="Your Name"
                                     onChange={handler}
-                                    className={"w-full"}
+                                    className={"w-full mr-2"}
                                 />
 
                                 <TextArea

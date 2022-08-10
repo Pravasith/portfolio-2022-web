@@ -26,7 +26,7 @@ const TextArea = ({
             name={name}
             placeholder={placeholder}
             rows={rows ?? 1}
-            className={`border-4 m-1 p-4 rounded-3xl  ${
+            className={`border-4 my-1 p-4 rounded-3xl  ${
                 state?.currentTheme === EThemes.LIGHT
                     ? "border-black bg-white text-black"
                     : "border-white bg-black text-white"

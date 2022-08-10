@@ -25,13 +25,13 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             </div>
 
             {/* PROJECT SECTION */}
-            <div className="w-1/2 my-10">
+            <div className="w-full my-10">
                 <ProjectSection projects={projects} />
             </div>
 
             {/* OTHER FUN PROJECTS */}
             <TextGroup
-                className="my-10"
+                className="my-10 px-6"
                 textBlocks={[
                     {
                         text: ":ln>🔖 If you're a designer, checkout my other fun projects:ln:/fun<ln:",

@@ -65,7 +65,7 @@ export const CurvedText = () => {
                     trigger: ".section-2-container",
                     start: "top top",
                     end: "bottom 25%",
-                    markers: true,
+                    // markers: true,
                     scrub: 0.5,
                     pin: true,
                 }
@@ -74,7 +74,7 @@ export const CurvedText = () => {
                     scrollTrigger,
                     attr: { startOffset: "50%" },
                     yoyo: true,
-                    duration: 10,
+                    duration: 5,
                 })
             }
         },

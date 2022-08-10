@@ -67,11 +67,11 @@ const Fun = ({ mediaBlocks }: FunProps) => {
 
     return (
         <div className="flex-col-north w-full min-h-screen">
-            <div className="w-1/2">
+            <div className="w-full">
                 <TextGroup
                     textAlign={ETextAlign.LEFT}
                     textBlocks={textBlock}
-                    className="my-28"
+                    className="my-10 px-6"
                 />
                 <FunProjects mediaBlocks={mediaBlocks} />
             </div>

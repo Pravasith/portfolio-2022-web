@@ -6,7 +6,7 @@ import FunProjects from "@components/Pages/Fun/FunProjects"
 const Blog = ({ mediaBlocks }: FunProps) => {
     return (
         <div className="flex-col-center">
-            <div className="w-1/2">
+            <div className="w-full">
                 <TextGroup
                     textBlocks={[
                         {
@@ -14,7 +14,7 @@ const Blog = ({ mediaBlocks }: FunProps) => {
                             text: "Sorry 🙏🏻, I am yet to add my tech-blogs.:br: But here are some non-tech blogs that I'm sure you'll love! 🤗",
                         },
                     ]}
-                    className="my-28"
+                    className="my-10 px-6"
                 />
                 <FunProjects mediaBlocks={mediaBlocks} />
             </div>

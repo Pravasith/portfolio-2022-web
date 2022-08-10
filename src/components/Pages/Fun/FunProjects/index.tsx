@@ -11,7 +11,7 @@ import { ETextAlign } from "@lib/api/textGroups/interface"
 
 const FunProjects = ({ mediaBlocks }: FunProps) => {
     return (
-        <div className="grid grid-cols-2 gap-2 my-20">
+        <div className="grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36">
             {mediaBlocks.map((item, i) => {
                 return (
                     <Link
@@ -25,7 +25,7 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
                                 item.hyperlink && "cursor-pointer"
                             }`}
                         >
-                            <div className="w-full mb-1 relative">
+                            <div className="w-full mb-1 relative mt-10">
                                 {item.type === ESrcType.IMAGE ? (
                                     <ImageBlock
                                         link={item.hyperlink}

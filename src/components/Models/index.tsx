@@ -1,16 +1,15 @@
+import useMouseMove from "@hooks/useMouseMove"
 import { useGLTF } from "@react-three/drei"
-import { useEffect, useRef, useState } from "react"
-import { Object3D, Vector3 } from "three"
-import * as THREE from "three"
+import { useFrame, useThree } from "@react-three/fiber"
 import { findMeshByName } from "@utils/index"
 import gsap, { Sine } from "gsap"
-import useMouseMove from "@hooks/useMouseMove"
-import { useFrame, useThree } from "@react-three/fiber"
+import { useEffect, useRef, useState } from "react"
+import * as THREE from "three"
+import { Object3D, Vector3 } from "three"
 import { FlamingoLightsProps, TableLightsProps } from "./interface"
 
-import useScrollTrigger from "@hooks/useScrollTrigger"
 import { MouseMoveValues } from "@hooks/useMouseMove/interface"
-import useMobileScreen from "@hooks/useMobileScreen"
+import useScrollTrigger from "@hooks/useScrollTrigger"
 
 const TableLights = ({
     parentObjectForSpotlight,
@@ -403,10 +402,10 @@ export const Table = () => {
         init()
     }, [gltf])
 
-    const isMobile = useMobileScreen()
-
     useScrollTrigger(
         gsapX => {
+            const isMobile = window.innerWidth < 720
+
             const scrollTrigger = {
                 trigger: ".section-1-container",
                 start: "top top",
@@ -421,7 +420,7 @@ export const Table = () => {
                 x: 2.56,
                 y: 4.86,
                 z: 5.86,
-                duration: isMobile ? 0.2 : 1,
+                duration: isMobile ? 0.2 : 2,
             })
         },
         [gltf]
