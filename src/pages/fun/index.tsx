@@ -8,10 +8,7 @@ import api from "@services/api"
 import { metaData } from "@utils/constants"
 import { BlogsType } from "@lib/api/blogs/interface"
 import { BASE_URLS } from "@services/routes"
-
-interface FunPageProps {
-    mediaBlocks: MediaBlockType[]
-}
+import { FunPageProps } from "./interface"
 
 const FunPage: NextPage<FunPageProps> = ({ mediaBlocks }) => {
     return (

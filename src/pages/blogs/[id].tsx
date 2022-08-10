@@ -11,12 +11,7 @@ import api from "@services/api"
 import { TextGroupType } from "@lib/api/textGroups/interface"
 import { MediaGroupType } from "@lib/api/mediaGroups/interface"
 import { BASE_URLS } from "@services/routes"
-
-interface BlogProps {
-    blogData: BlogsType
-    textGroup: TextGroupType
-    mediaGroup: MediaGroupType
-}
+import { BlogProps } from "./interface"
 
 const Blog: NextPage<BlogProps> = ({ blogData, textGroup, mediaGroup }) => {
     const blogMetaData = blogData.metaData ?? metaData
@@ -59,8 +54,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         ),
     ])
         .then(([blogs, textBlocks, mediaBlocks]) => {
-            // console.log(blogs, textBlocks, mediaBlocks)
-
             blogData.push(...blogs)
             textGroup.push(...textBlocks)
             mediaGroup.push(...mediaBlocks)
