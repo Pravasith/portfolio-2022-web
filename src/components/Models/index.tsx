@@ -9,6 +9,7 @@ import { useFrame, useThree } from "@react-three/fiber"
 import { FlamingoLightsProps, TableLightsProps } from "./interface"
 
 import useScrollTrigger from "@hooks/useScrollTrigger"
+import { MouseMoveValues } from "@hooks/useMouseMove/interface"
 
 const TableLights = ({
     parentObjectForSpotlight,
@@ -223,33 +224,31 @@ export const Table = () => {
         {}
     )
 
-    // const animateDeskLamp = (mouseData: MouseMoveValues) => {
-    //     if (!!Object.keys(models).length) {
-    //         const { lampNeck, lampPivot3, lampPivot2, lampPivot1, lampBase } =
-    //             models
+    const animateDeskLamp = (mouseData: MouseMoveValues) => {
+        if (!!Object.keys(models).length) {
+            const { lampNeck, lampPivot3, lampPivot2, lampPivot1, lampBase } =
+                models
 
-    //         gsap.to(lampNeck.rotation, { y: mouseData[0], duration: 1 })
+            gsap.to(lampNeck.rotation, { y: mouseData[0], duration: 1 })
 
-    //         gsap.to(lampPivot3.rotation, {
-    //             y: -mouseData[1] * 1.5 + 0.5,
-    //             duration: 1,
-    //         })
-    //         gsap.to(lampPivot2.rotation, {
-    //             y: -mouseData[1] * 0.5 + 1.5,
-    //             duration: 1,
-    //         })
-    //         gsap.to(lampPivot1.rotation, {
-    //             y: -mouseData[1] * 0.25 + 0.75,
-    //             duration: 1,
-    //         })
+            gsap.to(lampPivot3.rotation, {
+                y: -mouseData[1] * 1.5 + 0.5,
+                duration: 1,
+            })
+            gsap.to(lampPivot2.rotation, {
+                y: -mouseData[1] * 0.5 + 1.5,
+                duration: 1,
+            })
+            gsap.to(lampPivot1.rotation, {
+                y: -mouseData[1] * 0.25 + 0.75,
+                duration: 1,
+            })
 
-    //         gsap.to(lampBase.rotation, { y: -mouseData[0], duration: 1 })
-    //     }
-    // }
+            gsap.to(lampBase.rotation, { y: -mouseData[0], duration: 1 })
+        }
+    }
 
-    // useMouseMove(animateDeskLamp)
-
-    console.log(models)
+    useMouseMove(animateDeskLamp)
 
     const { camera } = useThree()
 

@@ -91,7 +91,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     >
                         <div
                             ref={ref}
-                            className="absolute w-full h-[175%] -bottom-[40%]"
+                            className="absolute w-full h-[160%] -bottom-[25%]"
                         >
                             <Canvas
                                 linear={false}
@@ -114,7 +114,8 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 </Suspense>
                             </Canvas>
                         </div>
-                        <div className="absolute w-full h-full"></div>
+
+                        <div className=" absolute w-full h-[160%] -bottom-[25%]"></div>
                     </div>
 
                     {/* TRIANGLES */}
