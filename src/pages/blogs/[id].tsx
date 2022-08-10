@@ -11,7 +11,12 @@ import api from "@services/api"
 import { TextGroupType } from "@lib/api/textGroups/interface"
 import { MediaGroupType } from "@lib/api/mediaGroups/interface"
 import { BASE_URLS } from "@services/routes"
-import { BlogProps } from "./interface"
+
+interface BlogProps {
+    blogData: BlogsType
+    textGroup: TextGroupType
+    mediaGroup: MediaGroupType
+}
 
 const Blog: NextPage<BlogProps> = ({ blogData, textGroup, mediaGroup }) => {
     const blogMetaData = blogData.metaData ?? metaData
