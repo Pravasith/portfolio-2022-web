@@ -70,7 +70,7 @@ const MenuBar = () => {
     }
 
     return (
-        <div className="z-10 md:fixed md:bottom-1/4 md:right-0 md:w-1/5">
+        <div className="z-10 md:fixed md:bottom-[30%] md:right-0 md:w-[15%]">
             <ul className="flex-col-center">
                 {pages.map((page, index) => (
                     <Link

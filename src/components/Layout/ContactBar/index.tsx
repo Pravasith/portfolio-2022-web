@@ -14,7 +14,7 @@ const ContactBar = () => {
     ]
 
     return (
-        <div className="md:w-1/5 top-1/4 z-10 md:fixed ">
+        <div className=" top-1/4 z-10 md:fixed md:w-[15%]">
             <div className="flex-row-center md:flex-col-center">
                 {linkContent.map((item, i) => (
                     <Link key={`contact-link-${i}`} href={item.link}>

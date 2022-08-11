@@ -15,7 +15,12 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             </div>
 
             {/* TEXT BLOCK */}
-            <div className="flex-col-center px-6 w-full">
+            <div
+                className={`
+                flex-col-center px-6 w-full
+                md:px-1/5
+            `}
+            >
                 <div className="section-3-text-block">
                     <TextGroup
                         textAlign={ETextAlign.LEFT}
@@ -31,7 +36,10 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
 
             {/* OTHER FUN PROJECTS */}
             <TextGroup
-                className="my-10 px-6"
+                className={`
+                    my-10 px-6
+                    md:px-1/5
+                `}
                 textBlocks={[
                     {
                         text: ":ln>🔖 If you're a designer, checkout my other fun projects:ln:/fun<ln:",

@@ -50,6 +50,7 @@ const Layout: React.FC = ({ children }) => {
         localStorageTheme &&
             localStorageTheme === EThemes.LIGHT &&
             setLightTheme(dispatch)
+
         localStorageTheme &&
             localStorageTheme === EThemes.DARK &&
             setDarkTheme(dispatch)
@@ -66,7 +67,7 @@ const Layout: React.FC = ({ children }) => {
     }, [state.currentTheme])
 
     return (
-        <div ref={background} className={`absolute z-10 w-full`}>
+        <div ref={background} className="absolute z-10 w-full">
             <ThemeContext.Provider
                 value={{
                     state,
@@ -82,7 +83,7 @@ const Layout: React.FC = ({ children }) => {
                     <header>
                         {/* Things that go in the top bar, like Navbar */}
                         {/* Banners, notification strips... etc. */}
-                        <PhoneMenu />
+                        {isMobile && <PhoneMenu />}
                         <Topbar />
                     </header>
                 </MenuContext.Provider>

@@ -6,11 +6,26 @@ import { ETextAlign } from "@lib/api/textGroups/interface"
 
 const Section2 = ({ textBlocks }: SectionProps) => {
     return (
-        <div className=" min-h-screen">
-            <div className="section-2-container w-full ">
-                <div className="justify-between flex flex-col w-full">
+        <div className="min-h-screen">
+            <div
+                className={`
+                section-2-container w-full
+                md:h-screen
+            `}
+            >
+                <div
+                    className={`
+                    justify-between flex flex-col w-full
+                    md:h-full
+                `}
+                >
                     {/* TEXT */}
-                    <div className="flex-col-west px-6">
+                    <div
+                        className={`
+                        flex-col-west px-6
+                        md:px-1/5 md:mt-6
+                    `}
+                    >
                         <TextGroup
                             textAlign={ETextAlign.LEFT}
                             textBlocks={textBlocks}
@@ -20,7 +35,12 @@ const Section2 = ({ textBlocks }: SectionProps) => {
                     </div>
 
                     {/* SVG */}
-                    <div className=" section-2-curved-text w-full flex-col-south ">
+                    <div
+                        className={`
+                        section-2-curved-text w-full flex-col-south
+                        md:h-[55%] 
+                    `}
+                    >
                         <CurvedText />
                     </div>
                 </div>

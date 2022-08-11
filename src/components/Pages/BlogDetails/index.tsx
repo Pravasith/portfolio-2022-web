@@ -91,7 +91,12 @@ const BlogDetails = ({ details }: BlogProps) => {
 
     return (
         <div className="flex-row-center">
-            <div className="w-full px-6">
+            <div
+                className={`
+                    w-full px-6
+                    md:px-1/5
+                `}
+            >
                 <header className="my-10">
                     <div className="flex flex-row items-center justify-between">
                         <TextGroup

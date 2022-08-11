@@ -32,7 +32,12 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                     id="yellow-footer-svg"
                     className="absolute overflow-hidden w-full bottom-0 h-1/3 -z-10"
                 >
-                    <div className="relative w-[500%] h-full">
+                    <div
+                        className={`
+                            relative w-[500%] h-full
+                            md:w-[250%]
+                        `}
+                    >
                         <div className="absolute left-0 bottom-0 w-full">
                             <YellowBackground />
                         </div>
@@ -51,12 +56,6 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                             // onCreated={state => state.gl.setClearColor("#CCC")}
                         >
                             {!inView && <DisableRender />}
-                            {/* <OrbitControls
-
-                        // enableZoom={false}
-                        // enableRotate={false}
-                        // enablePan={false}
-                        /> */}
 
                             <Suspense fallback={null}>
                                 <Doflamingo />
@@ -65,11 +64,21 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                         </Canvas>
                     </div>
 
-                    <div className="absolute w-72 bottom-2 left-[35%] -z-10">
+                    <div
+                        className={`
+                        absolute w-72 bottom-2 left-[35%] -z-10
+                        md:left-[45%]
+                    `}
+                    >
                         <WaterPuddle />
                     </div>
 
-                    <div className="absolute w-36 top-[20%] -z-10 -left-[5%]">
+                    <div
+                        className={`
+                        absolute w-36 top-[20%] -z-10 -left-[5%]
+                        md:left-[17.5%] md:top-[15%]
+                    `}
+                    >
                         <Plants />
                     </div>
 

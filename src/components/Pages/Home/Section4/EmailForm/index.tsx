@@ -66,7 +66,13 @@ const EmailForm = (props: EmailFormType) => {
     }
 
     return (
-        <div id="home-section-4-email-form" className="w-full px-6">
+        <div
+            id="home-section-4-email-form"
+            className={`
+                w-full px-6
+                md:px-1/5
+            `}
+        >
             {!emailSent ? (
                 <div className="w-full email-form">
                     <div>
@@ -108,7 +114,7 @@ const EmailForm = (props: EmailFormType) => {
                                 }
                             />
 
-                            <div className="mx-5">
+                            <div className="mx-1">
                                 {
                                     <Button
                                         disabled={!isFormValidated}

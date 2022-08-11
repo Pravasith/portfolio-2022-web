@@ -14,7 +14,10 @@ const Blog = ({ mediaBlocks }: FunProps) => {
                             text: "Sorry 🙏🏻, I am yet to add my tech-blogs.:br: But here are some non-tech blogs that I'm sure you'll love! 🤗",
                         },
                     ]}
-                    className="my-10 px-6"
+                    className={`
+                        my-10 px-6
+                        md:px-1/5
+                    `}
                 />
                 <FunProjects mediaBlocks={mediaBlocks} />
             </div>

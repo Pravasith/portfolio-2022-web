@@ -11,7 +11,12 @@ import { ETextAlign } from "@lib/api/textGroups/interface"
 
 const FunProjects = ({ mediaBlocks }: FunProps) => {
     return (
-        <div className="grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36">
+        <div
+            className={`
+                grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36
+                 md:px-1/5
+            `}
+        >
             {mediaBlocks.map((item, i) => {
                 return (
                     <Link

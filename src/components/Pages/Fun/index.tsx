@@ -71,7 +71,10 @@ const Fun = ({ mediaBlocks }: FunProps) => {
                 <TextGroup
                     textAlign={ETextAlign.LEFT}
                     textBlocks={textBlock}
-                    className="my-10 px-6"
+                    className={`
+                        my-10 px-6
+                        md:px-1/5
+                    `}
                 />
                 <FunProjects mediaBlocks={mediaBlocks} />
             </div>

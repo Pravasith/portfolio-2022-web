@@ -19,7 +19,6 @@ import { random20Id } from "@utils/index"
 import { useContext } from "react"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
-import useMobileScreen from "@hooks/useMobileScreen"
 
 const ProjectSection = ({ projects }: ProjectSectionProps) => {
     // const [projects] = useState<ProjectType[]>(() => [
@@ -74,7 +73,6 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
     // ])
 
     const { state } = useContext(ThemeContext)
-    const isMobile = useMobileScreen()
 
     const Projects = projects.projects.map((item, i) => {
         const projectTextBlocks = [
@@ -125,20 +123,24 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                     )}
 
                     <div
-                        className={`${
-                            !isMobile && "border-8"
-                        } overflow-clip  ${"bg-gray-200"} mx-6`}
+                        className={`
+                            overflow-clip bg-gray-200 mx-6
+                            md:border-8 md:mx-1/5
+                        `}
                     >
                         <ImageBlock imageBlock={item.media} />
                     </div>
                 </div>
 
                 <div
-                    className={`flex-col-west px-6 ${
-                        isMobile && state?.currentTheme === EThemes.LIGHT
-                            ? "bg-white/80"
-                            : "bg-black/80"
-                    }`}
+                    className={`
+                        flex-col-west px-6 ${
+                            state?.currentTheme === EThemes.LIGHT
+                                ? "bg-white/80"
+                                : "bg-black/80"
+                        }
+                        md:mx-1/5
+                    `}
                 >
                     <div className="my-2">
                         <TextGroup
