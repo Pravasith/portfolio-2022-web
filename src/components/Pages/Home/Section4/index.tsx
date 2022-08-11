@@ -36,8 +36,8 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                     </div>
                 </div>
 
-                <div className="relative w-full h-1/2">
-                    <div ref={ref} className="w-full h-full">
+                <div className="relative w-full">
+                    <div ref={ref} className="w-full">
                         <Canvas
                             linear={false}
                             shadows

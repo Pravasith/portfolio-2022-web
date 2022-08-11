@@ -13,6 +13,7 @@ import FontsCopyright from "./FontsCopyright"
 
 import { EThemeActions } from "@utils/reducers/interface"
 import { EColors } from "@lib/themes/interface"
+import Topbar from "./Topbar"
 
 const Layout: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(
@@ -55,7 +56,7 @@ const Layout: React.FC = ({ children }) => {
                 <header>
                     {/* Things that go in the top bar, like Navbar */}
                     {/* Banners, notification strips... etc. */}
-                    {/* <TopBar /> */}
+                    <Topbar />
                 </header>
 
                 <aside>
@@ -64,7 +65,7 @@ const Layout: React.FC = ({ children }) => {
                     <FontsCopyright />
                 </aside>
 
-                <article className="pt-[100px]">
+                <article className="md:pt-[100px]">
                     {/* Children */}
                     {children}
                 </article>

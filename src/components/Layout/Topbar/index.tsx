@@ -13,9 +13,9 @@ const Topbar = () => {
     const toggleTheme = useToggleTheme()
 
     return (
-        <>
-            <div id="main-logo-icon" className="w-1/5 fixed z-10">
-                <div className="flex-col-center h-40 h-24 h-32">
+        <div className="w-full flex flex-row justify-between">
+            <div id="main-logo-icon" className="w-1/5 z-10 md:fixed">
+                <div className="flex-col-center h-32">
                     <Link href={"/"}>
                         <a>
                             <Icon
@@ -31,14 +31,17 @@ const Topbar = () => {
                 </div>
             </div>
 
-            <div id="sun-moon-icon" className="w-1/5 fixed z-10 right-0 mx-3">
-                <div className="flex-col-center h-40 h-24 h-32">
+            <div
+                id="sun-moon-icon"
+                className="w-1/5  z-10 right-0 mx-3 md:fixed"
+            >
+                <div className="flex-col-center h-32">
                     <Icon onClick={toggleTheme} iconSize={EIconSizes.lg}>
                         <SunMoon />
                     </Icon>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
