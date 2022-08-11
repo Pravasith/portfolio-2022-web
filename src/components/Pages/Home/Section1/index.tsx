@@ -70,7 +70,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                 {/* GRAPHICS BLOCK */}
                 <div
                     id="home-section-1-svgs-bgd"
-                    className="section-1-graphics-block h-1/2 w-full relative -z-10"
+                    className="section-1-graphics-block min-h-[30rem] h-1/2 w-full relative -z-10"
                 >
                     {/* SVG */}
                     <div className="absolute w-full overflow-x-clip top-1/10 left-1/2 -translate-x-1/2 px-1/5">

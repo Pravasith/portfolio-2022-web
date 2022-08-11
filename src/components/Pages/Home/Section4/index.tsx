@@ -22,21 +22,24 @@ const Section4 = ({ textBlocks }: SectionProps) => {
     }
 
     return (
-        <div className="section-4-container flex-col-center w-full h-screen">
+        <div className="section-4-container flex-col-center w-full min-h-screen">
             <div className="w-full h-full flex-col-south ">
                 <div className="section-4 w-full">
                     <EmailForm emailFormTextBlocks={textBlocks} />
                 </div>
 
-                <div className="absolute overflow-hidden w-full bottom-0 h-1/3 -z-10">
-                    <div className="relative w-full h-full">
+                <div
+                    id="yellow-footer-svg"
+                    className="absolute overflow-hidden w-full bottom-0 h-1/3 -z-10"
+                >
+                    <div className="relative w-[500%] h-full">
                         <div className="absolute left-0 bottom-0 w-full">
                             <YellowBackground />
                         </div>
                     </div>
                 </div>
 
-                <div className="relative w-full h-1/2">
+                <div className="section-3-three-elements relative w-full h-[24.5rem] min-h-[24.5rem] overflow-x-clip ">
                     <div ref={ref} className="w-full h-full">
                         <Canvas
                             linear={false}
@@ -62,11 +65,11 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                         </Canvas>
                     </div>
 
-                    <div className="absolute w-72 bottom-2 left-1/5 -z-10">
+                    <div className="absolute w-72 bottom-2 left-[35%] -z-10">
                         <WaterPuddle />
                     </div>
 
-                    <div className="absolute w-36 top-1/5 right-2/3">
+                    <div className="absolute w-36 top-[20%] -z-10 -left-[5%]">
                         <Plants />
                     </div>
 

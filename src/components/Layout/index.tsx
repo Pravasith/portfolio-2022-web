@@ -1,19 +1,33 @@
 import React, { useEffect, useReducer, useRef } from "react"
 
+import gsap from "gsap"
+
+import FontsCopyright from "@components/Layout/FontsCopyright"
+import Topbar from "@components/Layout/Topbar"
+import PhoneMenu from "@components/Layout/PhoneMenu"
+import MenuBar from "@components/Layout/MenuBar"
+import ContactBar from "@components/Layout/ContactBar"
+
+import { EColors } from "@lib/themes/interface"
+
+import { setDarkTheme, setLightTheme } from "@utils/actions/themeActions"
+
+import {
+    MenuContext,
+    menuContextDefaultValues,
+} from "@utils/contexts/menuContext"
+
 import {
     ThemeContext,
     themeContextDefaultValues,
 } from "@utils/contexts/themeContext"
 
-import { themeReducer } from "@utils/reducers"
 import { EThemes } from "@utils/contexts/themeContext/interface"
-import gsap from "gsap"
 
-import FontsCopyright from "./FontsCopyright"
+import { menuReducer } from "@utils/reducers/menuReducer"
+import { themeReducer } from "@utils/reducers/themeReducer"
 
-import { EThemeActions } from "@utils/reducers/interface"
-import { EColors } from "@lib/themes/interface"
-import Topbar from "./Topbar"
+import useMobileScreen from "@hooks/useMobileScreen"
 
 const Layout: React.FC = ({ children }) => {
     const [state, dispatch] = useReducer(
@@ -21,18 +35,24 @@ const Layout: React.FC = ({ children }) => {
         themeContextDefaultValues
     )
 
+    const [menuState, menuDispatch] = useReducer(
+        menuReducer,
+        menuContextDefaultValues
+    )
+
     const background = useRef<HTMLDivElement>(null)
+
+    const isMobile = useMobileScreen()
 
     useEffect(() => {
         const localStorageTheme = localStorage.getItem("theme") as EThemes
 
         localStorageTheme &&
-            dispatch({
-                type:
-                    localStorageTheme === EThemes.LIGHT
-                        ? EThemeActions.LIGHT_THEME_SELECTED
-                        : EThemeActions.DARK_THEME_SELECTED,
-            })
+            localStorageTheme === EThemes.LIGHT &&
+            setLightTheme(dispatch)
+        localStorageTheme &&
+            localStorageTheme === EThemes.DARK &&
+            setDarkTheme(dispatch)
     }, [])
 
     useEffect(() => {
@@ -53,15 +73,23 @@ const Layout: React.FC = ({ children }) => {
                     dispatch,
                 }}
             >
-                <header>
-                    {/* Things that go in the top bar, like Navbar */}
-                    {/* Banners, notification strips... etc. */}
-                    <Topbar />
-                </header>
+                <MenuContext.Provider
+                    value={{
+                        state: menuState,
+                        dispatch: menuDispatch,
+                    }}
+                >
+                    <header>
+                        {/* Things that go in the top bar, like Navbar */}
+                        {/* Banners, notification strips... etc. */}
+                        <PhoneMenu />
+                        <Topbar />
+                    </header>
+                </MenuContext.Provider>
 
                 <aside>
                     {/* Twitter Stuff */}
-                    {/* <ContactBar /> */}
+                    {!isMobile && <ContactBar />}
                     <FontsCopyright />
                 </aside>
 
@@ -72,7 +100,7 @@ const Layout: React.FC = ({ children }) => {
 
                 <aside>
                     {/* Navbar */}
-                    {/* <MenuBar /> */}
+                    {!isMobile && <MenuBar />}
                 </aside>
 
                 <footer>

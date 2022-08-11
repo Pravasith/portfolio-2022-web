@@ -1,8 +1,9 @@
-import { Action, EThemeActions } from "./interface"
+import { EThemeActions } from "./interface"
 import {
     EThemes,
     ThemeContextState,
 } from "@utils/contexts/themeContext/interface"
+import { Action } from "@utils/reducers/interface"
 
 export const themeReducer = (
     _state: ThemeContextState,

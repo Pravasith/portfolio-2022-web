@@ -1,0 +1,29 @@
+.hamburger {
+    @apply w-20;
+}
+
+.barWrap {
+    @apply w-full;
+}
+
+.bars {
+    @apply w-full h-1 rounded-full bg-gray-800;
+    margin: 0.3em 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.hide {
+    @apply -left-full;
+}
+
+.closeBarT {
+    @apply origin-center;
+    transform: translateY(0.6em) rotateZ(45deg);
+}
+.closeBarM {
+    @apply origin-center w-0;
+}
+.closeBarB {
+    @apply origin-center;
+    transform: translateY(-0.6em) rotateZ(-45deg);
+}

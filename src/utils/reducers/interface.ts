@@ -1,8 +1,8 @@
-export enum EThemeActions {
-    LIGHT_THEME_SELECTED = "LIGHT_THEME_SELECTED",
-    DARK_THEME_SELECTED = "DARK_THEME_SELECTED",
-}
+import { EMenuActions } from "@utils/reducers/menuReducer/interface"
+import { EThemeActions } from "@utils/reducers/themeReducer/interface"
 
-export type Action = { type: EThemeActions }
+export type Action =
+    | { type: EThemeActions }
+    | { type: EMenuActions; payload: boolean }
 // | { type: "success"; results: HNResponse }
 // | { type: "failure"; error: string }

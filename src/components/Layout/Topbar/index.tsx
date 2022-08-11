@@ -6,15 +6,23 @@ import TopbarIcons from "./Icons"
 import useToggleTheme from "@hooks/useToggleTheme"
 import Link from "next/link"
 import { EColors } from "@lib/themes/interface"
+import { useContext } from "react"
+import { MenuContext } from "@utils/contexts/menuContext"
 
 const { SunMoon, MainLogo } = TopbarIcons
 
 const Topbar = () => {
     const toggleTheme = useToggleTheme()
+    const { state } = useContext(MenuContext)
 
     return (
-        <div className="w-full flex flex-row justify-between">
-            <div id="main-logo-icon" className="w-1/5 z-10 md:fixed">
+        <div className="w-full flex flex-row justify-between overflow-x-clip">
+            <div
+                id="main-logo-icon"
+                className={`w-1/5 z-20 ${
+                    state?.showMenu ? "fixed" : "h-32"
+                } md:fixed`}
+            >
                 <div className="flex-col-center h-32">
                     <Link href={"/"}>
                         <a>
@@ -33,7 +41,9 @@ const Topbar = () => {
 
             <div
                 id="sun-moon-icon"
-                className="w-1/5  z-10 right-0 mx-3 md:fixed"
+                className={`w-1/5 z-20 right-0 mx-3 ${
+                    state?.showMenu ? "fixed" : ""
+                } md:fixed`}
             >
                 <div className="flex-col-center h-32">
                     <Icon onClick={toggleTheme} iconSize={EIconSizes.lg}>

@@ -1,6 +1,6 @@
+import { setDarkTheme, setLightTheme } from "@utils/actions/themeActions"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
-import { EThemeActions } from "@utils/reducers/interface"
 import { useContext } from "react"
 
 const useToggleTheme = () => {
@@ -8,12 +8,9 @@ const useToggleTheme = () => {
 
     const toggleTheme = () => {
         if (state?.currentTheme && dispatch) {
-            dispatch({
-                type:
-                    state.currentTheme === EThemes.LIGHT
-                        ? EThemeActions.DARK_THEME_SELECTED
-                        : EThemeActions.LIGHT_THEME_SELECTED,
-            })
+            state.currentTheme === EThemes.LIGHT
+                ? setDarkTheme(dispatch)
+                : setLightTheme(dispatch)
 
             localStorage.setItem(
                 "theme",
