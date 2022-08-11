@@ -4,10 +4,10 @@ import { Dispatch } from "react"
 
 export const showMenuScreen = (
     dispatch: Dispatch<Action>,
-    showMenu: boolean
+    showMobileMenu: boolean
 ) => {
     dispatch({
         type: EMenuActions.SHOW_MENU,
-        payload: showMenu,
+        payload: showMobileMenu,
     })
 }
