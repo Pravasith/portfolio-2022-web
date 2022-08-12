@@ -74,6 +74,10 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
 
     const { state } = useContext(ThemeContext)
 
+    const themeBackground =
+        (state?.currentTheme === EThemes.LIGHT ? "bg-white" : "bg-gray-800") +
+        " lg:bg-transparent"
+
     const Projects = projects.projects.map((item, i) => {
         const projectTextBlocks = [
             {
@@ -92,13 +96,24 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
             <div
                 id={`home-section-3-project-${i + 1}`}
                 key={random20Id()}
-                className="flex-col-west py-10 w-full"
+                className={`
+                    flex-col-west py-10 w-full
+                    lg:flex-row-center lg:px-1/8
+                `}
             >
-                <div className="relative min-w-1/2 w-full overflow-x-clip">
+                <div
+                    className={`
+                        relative min-w-1/2 w-full overflow-x-clip
+                        lg:min-w-[60%] lg:w-2/3
+                    `}
+                >
                     {i === 0 && (
                         <div
                             key={`svg-bgd-01`}
-                            className={`absolute w-130% top-1/2 -left-1/5 -z-10`}
+                            className={`
+                                absolute w-130% top-1/2 -left-1/5 -z-10
+                                md:w-[85%] md:left-[7.5%] md:top-[90%] 
+                            `}
                         >
                             {<SVGBackground1 />}
                         </div>
@@ -107,7 +122,10 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                     {i === 2 && (
                         <div
                             key={`svg-bgd-02`}
-                            className={`absolute w-full top-1/5 -left-1/5 -z-10`}
+                            className={`
+                                absolute w-full top-1/5 -left-1/5 -z-10
+                                md:w-2/3 md:-top-auto md:-bottom-[140%] md:left-1/4 md:rotate-180
+                            `}
                         >
                             {<SVGBackground2 />}
                         </div>
@@ -116,7 +134,10 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                     {i === 0 && (
                         <div
                             key={`svg-bgd-03`}
-                            className={`absolute w-1/2 -top-1/3 -left-1/4 -z-10`}
+                            className={`
+                                absolute w-1/2 -top-1/3 -left-1/4 -z-10
+                                md:w-1/3 md:top-0 md:-left-[5%] 
+                            `}
                         >
                             {<SVGBackground3 />}
                         </div>
@@ -124,8 +145,9 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
 
                     <div
                         className={`
-                            overflow-clip bg-gray-200 mx-6
-                            md:border-8 md:mx-1/5
+                            overflow-clip ${themeBackground} mx-6 rounded-t-[3rem]
+                            md:mx-1/5
+                            lg:mx-0 lg:rounded-[3rem]
                         `}
                     >
                         <ImageBlock imageBlock={item.media} />
@@ -134,22 +156,25 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
 
                 <div
                     className={`
-                        flex-col-west px-6 ${
-                            state?.currentTheme === EThemes.LIGHT
-                                ? "bg-white/80"
-                                : "bg-black/80"
-                        }
+                        flex-col-west mx-6 px-6 rounded-b-[3rem]
+                        ${themeBackground}
                         md:mx-1/5
+                        lg:mx-0 
                     `}
                 >
-                    <div className="my-2">
+                    <div
+                        className={`
+                            my-2 w-full
+                            lg:my-0
+                        `}
+                    >
                         <TextGroup
                             textAlign={ETextAlign.LEFT}
                             textBlocks={projectTextBlocks}
                         />
                     </div>
 
-                    <div className="flex flex-row mb-5">
+                    <div className="flex flex-row mb-10">
                         {item.liveLink && (
                             <Link href={item.liveLink}>
                                 <a className="m-3" target={"_blank"}>

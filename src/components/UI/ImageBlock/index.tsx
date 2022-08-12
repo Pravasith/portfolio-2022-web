@@ -10,14 +10,14 @@ const ImageBlock = (props: ImageBlockProps) => {
         <div
             className={`flex-col-center ${styles.imageBlock} ${props.className}`}
         >
-            <div className="relative">
+            <div className="relative text-[0]">
                 <div className="z-10 absolute w-full h-full"></div>
                 <Image
                     src={props.imageBlock.src}
                     alt={props.imageBlock.alt}
                     width={props.imageBlock.width}
                     height={props.imageBlock.height}
-                    objectFit={"contain"}
+                    objectFit="contain"
                 />
             </div>
 
