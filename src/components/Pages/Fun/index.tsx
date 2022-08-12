@@ -74,6 +74,7 @@ const Fun = ({ mediaBlocks }: FunProps) => {
                     className={`
                         my-10 px-6
                         md:px-1/5
+                        lg:px-[25%]
                     `}
                 />
                 <FunProjects mediaBlocks={mediaBlocks} />

@@ -17,8 +17,9 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             {/* TEXT BLOCK */}
             <div
                 className={`
-                flex-col-center px-6 w-full
+                flex-col-west px-6 w-full
                 md:px-1/5
+                lg:px-[25%]
             `}
             >
                 <div className="section-3-text-block">
@@ -39,6 +40,7 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
                 className={`
                     my-10 px-6
                     md:px-1/5
+                    lg:px-[25%]
                 `}
                 textBlocks={[
                     {

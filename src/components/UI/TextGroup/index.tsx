@@ -54,7 +54,7 @@ const TextGroup = ({
                     case ETextTypes.H1:
                         return (
                             <h1
-                                className={`${strongClassName} ${textAlign} my-6 w-full ${textClassName}`}
+                                className={`${strongClassName} ${textAlign} my-6  ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedAndLinkifiedText text={item.text} />
@@ -65,7 +65,7 @@ const TextGroup = ({
                     case ETextTypes.H3:
                         return (
                             <h3
-                                className={`${strongClassName} ${textAlign} my-6 w-full ${textClassName}`}
+                                className={`${strongClassName} ${textAlign} my-6  ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedAndLinkifiedText text={item.text} />
@@ -75,7 +75,7 @@ const TextGroup = ({
                     case ETextTypes.P:
                         return (
                             <p
-                                className={`${textColorClassName} ${textAlign} my-6 w-full ${textClassName}`}
+                                className={`${textColorClassName} ${textAlign} my-6  ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedAndLinkifiedText text={item.text} />

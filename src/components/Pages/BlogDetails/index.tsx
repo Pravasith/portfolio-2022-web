@@ -95,6 +95,7 @@ const BlogDetails = ({ details }: BlogProps) => {
                 className={`
                     w-full px-6
                     md:px-1/5
+                    lg:px-[25%]
                 `}
             >
                 <header className="my-10">

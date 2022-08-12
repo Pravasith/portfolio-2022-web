@@ -8,13 +8,24 @@ import Link from "next/link"
 import { random20Id } from "@utils/index"
 import { FunProps } from "@components/Pages/Fun/interface"
 import { ETextAlign } from "@lib/api/textGroups/interface"
+import { useContext } from "react"
+import { ThemeContext } from "@utils/contexts/themeContext"
+import { EThemes } from "@utils/contexts/themeContext/interface"
 
 const FunProjects = ({ mediaBlocks }: FunProps) => {
+    const { state } = useContext(ThemeContext)
+
+    const themeBackground =
+        (state?.currentTheme === EThemes.LIGHT ? "bg-white" : "bg-gray-800") +
+        " xl:bg-transparent"
+
     return (
         <div
             className={`
                 grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36
-                 md:px-1/5
+                md:px-1/5
+                lg:px-[25%] 
+                lg:grid-cols-2
             `}
         >
             {mediaBlocks.map((item, i) => {
@@ -26,22 +37,31 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
                         <a
                             target={"_blank"}
                             key={random20Id() + "-" + i}
-                            className={`w-full flex-col-west ${
-                                item.hyperlink && "cursor-pointer"
-                            }`}
+                            className={`
+                                w-full flex-col-west 
+                                ${item.hyperlink && "cursor-pointer"}
+                            `}
                         >
-                            <div className="w-full mb-1 relative mt-10">
+                            <div
+                                className={`
+                                    w-full mb-1 relative mt-10 rounded-3xl overflow-clip
+                                    ${themeBackground} 
+                                    border-4 hover:border-theme-orange border-transparent
+                                `}
+                            >
                                 {item.type === ESrcType.IMAGE ? (
                                     <ImageBlock
                                         link={item.hyperlink}
                                         alignCaptionText={ETextAlign.LEFT}
                                         imageBlock={item}
+                                        textClassName="mx-3"
                                     />
                                 ) : (
                                     <VideoBlock
                                         link={item.hyperlink}
                                         alignCaptionText={ETextAlign.LEFT}
                                         videoBlock={item as VideoBlockType}
+                                        textClassName="mx-3"
                                     />
                                 )}
 

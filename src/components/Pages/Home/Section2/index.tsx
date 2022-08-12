@@ -24,6 +24,7 @@ const Section2 = ({ textBlocks }: SectionProps) => {
                         className={`
                         flex-col-west px-6
                         md:px-1/5 md:mt-6
+                        lg:px-[25%] lg:mt-0
                     `}
                     >
                         <TextGroup

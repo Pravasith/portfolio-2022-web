@@ -76,7 +76,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
 
     const themeBackground =
         (state?.currentTheme === EThemes.LIGHT ? "bg-white" : "bg-gray-800") +
-        " lg:bg-transparent"
+        " xl:bg-transparent"
 
     const Projects = projects.projects.map((item, i) => {
         const projectTextBlocks = [
@@ -98,13 +98,13 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                 key={random20Id()}
                 className={`
                     flex-col-west py-10 w-full
-                    lg:flex-row-center lg:px-1/8
+                    xl:flex-row-center xl:px-1/8
                 `}
             >
                 <div
                     className={`
                         relative min-w-1/2 w-full overflow-x-clip
-                        lg:min-w-[60%] lg:w-2/3
+                        xl:min-w-[60%] xl:w-2/3
                     `}
                 >
                     {i === 0 && (
@@ -147,7 +147,8 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                         className={`
                             overflow-clip ${themeBackground} mx-6 rounded-t-[3rem]
                             md:mx-1/5
-                            lg:mx-0 lg:rounded-[3rem]
+                            lg:mx-[25%]
+                            xl:mx-0 xl:rounded-[3rem]
                         `}
                     >
                         <ImageBlock imageBlock={item.media} />
@@ -159,13 +160,14 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                         flex-col-west mx-6 px-6 rounded-b-[3rem]
                         ${themeBackground}
                         md:mx-1/5
-                        lg:mx-0 
+                        lg:mx-[25%]
+                        xl:mx-0 
                     `}
                 >
                     <div
                         className={`
-                            my-2 w-full
-                            lg:my-0
+                            my-2 w-full px-3
+                            xl:my-0
                         `}
                     >
                         <TextGroup
