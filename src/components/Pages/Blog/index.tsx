@@ -18,6 +18,7 @@ const Blog = ({ mediaBlocks }: FunProps) => {
                         my-10 px-6
                         md:px-1/5
                         lg:px-[25%]
+                        xl:px-[30%]
                     `}
                 />
                 <FunProjects mediaBlocks={mediaBlocks} />

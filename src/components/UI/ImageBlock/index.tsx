@@ -3,13 +3,9 @@ import Image from "next/image"
 import { ETextAlign, ETextTypes } from "@lib/api/textGroups/interface"
 import { ImageBlockProps } from "./interface"
 
-import styles from "./index.module.scss"
-
 const ImageBlock = (props: ImageBlockProps) => {
     return (
-        <div
-            className={`flex-col-center ${styles.imageBlock} ${props.className}`}
-        >
+        <div className={`flex-col-center ${props.className}`}>
             <div className="relative text-[0]">
                 <div className="z-10 absolute w-full h-full"></div>
                 <Image
@@ -23,9 +19,7 @@ const ImageBlock = (props: ImageBlockProps) => {
 
             {props.imageBlock.showCaption && props.imageBlock.caption && (
                 <TextGroup
-                    textClassName={`${props.link && styles.imageCaption} ${
-                        props.textClassName
-                    } my-0`}
+                    textClassName={`${props.link} ${props.textClassName} my-0`}
                     textAlign={props.alignCaptionText ?? ETextAlign.CENTER}
                     textBlocks={[
                         {

@@ -96,6 +96,7 @@ const BlogDetails = ({ details }: BlogProps) => {
                     w-full px-6
                     md:px-1/5
                     lg:px-[25%]
+                    xl:px-[30%]
                 `}
             >
                 <header className="my-10">

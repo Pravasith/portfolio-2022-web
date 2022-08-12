@@ -92,12 +92,12 @@ export const SVGBackground2 = () => {
                         transform="rotate(90 458.149 378.164)"
                     ></path>
                     <path
-                        fill="#5BCBF1"
+                        fill="#FCF7BD"
                         d="M-124.84 269.2H599.88V488.21H-124.84z"
                         transform="rotate(90 237.525 378.704)"
                     ></path>
                     <path
-                        fill="#52C4C6"
+                        fill="#FAED24"
                         d="M-331.7 268.86H393.7V487.87H-331.7z"
                         transform="rotate(90 30.998 378.364)"
                     ></path>

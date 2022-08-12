@@ -72,6 +72,7 @@ const EmailForm = (props: EmailFormType) => {
                 w-full px-6
                 md:px-1/5
                 lg:px-[25%]
+                xl:px-[30%]
             `}
         >
             {!emailSent ? (

@@ -66,6 +66,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                         flex-col-center px-6
                         md:px-1/5 md:mt-6
                         lg:px-[25%] lg:mt-0
+                        xl:px-[30%]
                     `}
                 >
                     <div className="section-1-text-block w-full">
@@ -85,6 +86,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 flex-row-center w-[250%] -translate-x-[30%] -translate-y-[10%]
                                 md:w-[150%] md:-translate-x-[20%]
                                 lg:w-full lg:translate-x-0 lg:-translate-y-[2%]
+                                xl:w-[85%] xl:translate-x-[5%]
                             `}
                         >
                             <div className="section-1-bgd-beach-0 w-full relative">
@@ -106,6 +108,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                             className={`
                                 absolute w-full h-[160%] -bottom-[25%]
                                 lg:h-[180%] lg:-bottom-[40.5%]
+                                xl:h-[185%] xl:-bottom-[50.5%]
                             `}
                         >
                             <Canvas

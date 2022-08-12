@@ -16,16 +16,15 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
     const { state } = useContext(ThemeContext)
 
     const themeBackground =
-        (state?.currentTheme === EThemes.LIGHT ? "bg-white" : "bg-gray-800") +
-        " xl:bg-transparent"
+        state?.currentTheme === EThemes.LIGHT ? "bg-white" : "bg-gray-800"
 
     return (
         <div
             className={`
                 grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36
                 md:px-1/5
-                lg:px-[25%] 
-                lg:grid-cols-2
+                lg:px-[25%] lg:grid-cols-2
+                xl:px-[30%]
             `}
         >
             {mediaBlocks.map((item, i) => {
@@ -44,29 +43,38 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
                         >
                             <div
                                 className={`
-                                    w-full mb-1 relative mt-10 rounded-3xl overflow-clip
+                                    w-full mb-1 relative mt-10 rounded-3xl 
                                     ${themeBackground} 
                                     border-4 hover:border-theme-orange border-transparent
                                 `}
                             >
-                                {item.type === ESrcType.IMAGE ? (
-                                    <ImageBlock
-                                        link={item.hyperlink}
-                                        alignCaptionText={ETextAlign.LEFT}
-                                        imageBlock={item}
-                                        textClassName="mx-3"
-                                    />
-                                ) : (
-                                    <VideoBlock
-                                        link={item.hyperlink}
-                                        alignCaptionText={ETextAlign.LEFT}
-                                        videoBlock={item as VideoBlockType}
-                                        textClassName="mx-3"
-                                    />
-                                )}
+                                <div className="overflow-clip rounded-3xl ">
+                                    {item.type === ESrcType.IMAGE ? (
+                                        <ImageBlock
+                                            link={item.hyperlink}
+                                            alignCaptionText={ETextAlign.LEFT}
+                                            imageBlock={item}
+                                            textClassName="mx-3"
+                                        />
+                                    ) : (
+                                        <VideoBlock
+                                            link={item.hyperlink}
+                                            alignCaptionText={ETextAlign.LEFT}
+                                            videoBlock={item as VideoBlockType}
+                                            textClassName="mx-3"
+                                        />
+                                    )}
+                                </div>
 
                                 {i === 1 && (
-                                    <div className="absolute w-72 h-72 -top-1/2 -right-1/4 -z-10">
+                                    <div
+                                        className={`
+                                            absolute w-72 h-72 -top-1/2 -right-1/4 -z-10
+                                            md:-top-[20%] md:left-[45%]
+                                            lg:-top-[25%] lg:left-[25%]
+                                            xl:-top-[32.5%] xl:left-[30%] xl:w-[110%]
+                                        `}
+                                    >
                                         <Spirals />
                                     </div>
                                 )}

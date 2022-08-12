@@ -98,13 +98,14 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                 key={random20Id()}
                 className={`
                     flex-col-west py-10 w-full
-                    xl:flex-row-center xl:px-1/8
+                    xl:flex-row-center xl:px-1/5 xl:py-0 xl:pb-40
                 `}
             >
                 <div
                     className={`
                         relative min-w-1/2 w-full overflow-x-clip
-                        xl:min-w-[60%] xl:w-2/3
+                        xl:min-w-[52%] xl:w-[52%]
+                        xl:overflow-visible
                     `}
                 >
                     {i === 0 && (
@@ -112,7 +113,8 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             key={`svg-bgd-01`}
                             className={`
                                 absolute w-130% top-1/2 -left-1/5 -z-10
-                                md:w-[85%] md:left-[7.5%] md:top-[90%] 
+                                md:w-[85%] md:left-[7.5%] md:top-[90%]
+                                xl:w-[150%] xl:-left-[30%] xl:top-[30%]
                             `}
                         >
                             {<SVGBackground1 />}
@@ -125,6 +127,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             className={`
                                 absolute w-full top-1/5 -left-1/5 -z-10
                                 md:w-2/3 md:-top-auto md:-bottom-[140%] md:left-1/4 md:rotate-180
+                                xl:w-[75%] xl:-bottom-[30%] xl:left-[35%]
                             `}
                         >
                             {<SVGBackground2 />}
@@ -136,7 +139,8 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             key={`svg-bgd-03`}
                             className={`
                                 absolute w-1/2 -top-1/3 -left-1/4 -z-10
-                                md:w-1/3 md:top-0 md:-left-[5%] 
+                                md:w-1/3 md:top-0 md:-left-[5%]
+                                xl:-top-[40%] xl:-left-[20%] xl:w-1/2
                             `}
                         >
                             {<SVGBackground3 />}
@@ -161,13 +165,13 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                         ${themeBackground}
                         md:mx-1/5
                         lg:mx-[25%]
-                        xl:mx-0 
+                        xl:mx-0 xl:px-0 xl:ml-10
                     `}
                 >
                     <div
                         className={`
                             my-2 w-full px-3
-                            xl:my-0
+                            xl:pr-0 xl:mt-10
                         `}
                     >
                         <TextGroup

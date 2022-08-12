@@ -97,7 +97,8 @@
 @layer base {
     h1 {
         @apply font-calibre-bold underline decoration-2 
-        underline-offset-2 text-[3.5rem] leading-[3.25rem];
+        underline-offset-2 text-[3.5rem] leading-[3.25rem]
+        lg:text-[3.25rem] lg:leading-[3rem];
     }
 
     h3 {

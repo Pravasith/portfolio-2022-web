@@ -36,6 +36,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                         className={`
                             relative w-[500%] h-full
                             md:w-[250%]
+                            xl:w-[180%]
                         `}
                     >
                         <div className="absolute left-0 bottom-0 w-full">
@@ -77,6 +78,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                         className={`
                         absolute w-36 top-[20%] -z-10 -left-[5%]
                         md:left-[17.5%] md:top-[15%]
+                        xl:left-[32%]
                     `}
                     >
                         <Plants />

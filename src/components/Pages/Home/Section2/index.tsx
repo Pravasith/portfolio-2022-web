@@ -22,10 +22,11 @@ const Section2 = ({ textBlocks }: SectionProps) => {
                     {/* TEXT */}
                     <div
                         className={`
-                        flex-col-west px-6
-                        md:px-1/5 md:mt-6
-                        lg:px-[25%] lg:mt-0
-                    `}
+                            flex-col-west px-6
+                            md:px-1/5 md:mt-6
+                            lg:px-[25%] lg:mt-0
+                            xl:px-[30%]
+                        `}
                     >
                         <TextGroup
                             textAlign={ETextAlign.LEFT}
