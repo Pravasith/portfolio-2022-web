@@ -96,19 +96,17 @@
 
 @layer base {
     h1 {
-        @apply font-calibre-bold underline decoration-2 underline-offset-2;
-        font-size: 3.5rem;
-        line-height: 3.25rem;
+        @apply font-calibre-bold underline decoration-2 
+        underline-offset-2 text-[3.5rem] leading-[3.25rem];
     }
 
     h3 {
-        @apply font-calibre-bold underline-offset-2 leading-10;
-        font-size: 2rem;
+        @apply font-calibre-bold underline-offset-2
+        text-3xl;
     }
 
     p,
     li {
-        @apply leading-6 py-1;
-        font-size: 1.125rem;
+        @apply text-base leading-5 py-1;
     }
 }

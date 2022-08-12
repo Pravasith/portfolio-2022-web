@@ -38,14 +38,14 @@ const MenuBar = () => {
 
         if (routeNameToHighlight?.name) {
             gsap.to(
-                `#menuBar-item-${routeNameToHighlight.name} .menuBar-item-background`,
+                `#menubar-item-${routeNameToHighlight.name} .menubar-item-background`,
                 {
                     scaleX: 1,
                     duration: 0.2,
                 }
             )
 
-            gsap.to(`#menuBar-item-${routeNameToHighlight.name} p`, {
+            gsap.to(`#menubar-item-${routeNameToHighlight.name} p`, {
                 fontFamily: EFonts.CALIBRE_BOLD,
                 duration: 0.2,
             })
@@ -61,7 +61,7 @@ const MenuBar = () => {
     const handleHover = (mouseAction: EMouseAction, pageName: RouteNames) => {
         const mouseEntered = mouseAction === EMouseAction.ENTER
 
-        gsap.to(`#menuBar-item-${pageName} .menuBar-item-background`, {
+        gsap.to(`#menubar-item-${pageName} .menubar-item-background`, {
             scaleX: Number(mouseEntered),
             duration: 0.2,
         })
@@ -70,7 +70,13 @@ const MenuBar = () => {
     }
 
     return (
-        <div className="z-10 md:fixed md:bottom-[30%] md:right-0 md:w-[15%]">
+        <div
+            className={`
+                z-10 md:fixed md:bottom-[30%]
+                md:right-0 md:w-[15%]
+                lg:w-1/5
+            `}
+        >
             <ul className="flex-col-center">
                 {pages.map((page, index) => (
                     <Link
@@ -79,7 +85,12 @@ const MenuBar = () => {
                         key={"whore-menu-" + index}
                     >
                         <a>
-                            <li className="my-2 cursor-pointer">
+                            <li
+                                className={`
+                                    my-2 cursor-pointer
+                                    lg:my-1
+                                `}
+                            >
                                 <div
                                     onMouseEnter={() =>
                                         handleHover(
@@ -94,11 +105,11 @@ const MenuBar = () => {
                                         )
                                     }
                                     className="relative"
-                                    id={`menuBar-item-${page.name}`}
+                                    id={`menubar-item-${page.name}`}
                                 >
                                     <div
                                         className={`
-                                        menuBar-item-background
+                                        menubar-item-background
                                         absolute -z-10 w-full rounded origin-center h-2/3 top-1/2 scale-x-0
                                         ${
                                             state?.currentTheme ===

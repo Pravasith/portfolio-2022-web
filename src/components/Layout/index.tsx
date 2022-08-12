@@ -94,7 +94,12 @@ const Layout: React.FC = ({ children }) => {
                     <FontsCopyright />
                 </aside>
 
-                <article className="md:pt-[100px]">
+                <article
+                    className={`
+                        md:pt-[5rem]
+                        lg:pt-[3rem]
+                    `}
+                >
                     {/* Children */}
                     {children}
                 </article>

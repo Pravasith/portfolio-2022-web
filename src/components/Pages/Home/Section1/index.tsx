@@ -63,9 +63,10 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                 {/* TEXT BLOCK */}
                 <div
                     className={`
-                    flex-col-center px-6
-                    md:px-1/5 md:mt-6
-                `}
+                        flex-col-center px-6
+                        md:px-1/5 md:mt-6
+                        lg:px-[25%] lg:mt-0
+                    `}
                 >
                     <div className="section-1-text-block w-full">
                         <TextGroup textBlocks={textBlocks} />
@@ -81,9 +82,10 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     <div className="absolute w-full overflow-x-clip top-1/10 left-1/2 -translate-x-1/2 px-1/5">
                         <div
                             className={`
-                            flex-row-center w-[250%] -translate-x-[30%] -translate-y-[10%]
-                            md:w-[150%] md:-translate-x-[20%]
-                        `}
+                                flex-row-center w-[250%] -translate-x-[30%] -translate-y-[10%]
+                                md:w-[150%] md:-translate-x-[20%]
+                                lg:w-full lg:translate-x-0 lg:-translate-y-[2%]
+                            `}
                         >
                             <div className="section-1-bgd-beach-0 w-full relative">
                                 <Section1BgdBeach />
@@ -101,7 +103,10 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     >
                         <div
                             ref={ref}
-                            className="absolute w-full h-[160%] -bottom-[25%]"
+                            className={`
+                                absolute w-full h-[160%] -bottom-[25%]
+                                lg:h-[180%] lg:-bottom-[40.5%]
+                            `}
                         >
                             <Canvas
                                 linear={false}
@@ -125,7 +130,12 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                             </Canvas>
                         </div>
 
-                        <div className=" absolute w-full h-[160%] -bottom-[25%]"></div>
+                        <div
+                            className={`
+                                absolute w-full h-[160%] -bottom-[25%]
+                                lg:h-[180%] lg:-bottom-[35%]
+                            `}
+                        ></div>
                     </div>
 
                     {/* TRIANGLES */}
@@ -134,6 +144,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                         className={`
                             section-1-red-triangle absolute w-60 h-1/5 bottom-1/5 -left-[10%] mx-8
                             md:left-[15%]
+                            lg:left-1/4
                         `}
                     >
                         <Section1RedTriangles />
