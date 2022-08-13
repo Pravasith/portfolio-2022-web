@@ -35,7 +35,7 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
                         href={item.hyperlink || "/not-found"}
                     >
                         <a
-                            target={"_blank"}
+                            // target={"_blank"}
                             key={random20Id() + "-" + i}
                             className={`
                                 w-full flex-col-west 

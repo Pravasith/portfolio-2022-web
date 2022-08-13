@@ -99,6 +99,8 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                 className={`
                     flex-col-west py-10 w-full
                     xl:flex-row-center xl:px-1/5 xl:py-0 xl:pb-40
+                    2xl:px-[25%] 2xl:pb-20
+                    3xl:pb-36
                 `}
             >
                 <div
@@ -115,6 +117,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                                 absolute w-130% top-1/2 -left-1/5 -z-10
                                 md:w-[85%] md:left-[7.5%] md:top-[90%]
                                 xl:w-[150%] xl:-left-[30%] xl:top-[30%]
+                                2xl:w-[120%] 2xl:-left-[15%]
                             `}
                         >
                             {<SVGBackground1 />}
@@ -128,6 +131,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                                 absolute w-full top-1/5 -left-1/5 -z-10
                                 md:w-2/3 md:-top-auto md:-bottom-[140%] md:left-1/4 md:rotate-180
                                 xl:w-[75%] xl:-bottom-[30%] xl:left-[35%]
+                                2xl:-bottom-[40%]
                             `}
                         >
                             {<SVGBackground2 />}
@@ -141,6 +145,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                                 absolute w-1/2 -top-1/3 -left-1/4 -z-10
                                 md:w-1/3 md:top-0 md:-left-[5%]
                                 xl:-top-[40%] xl:-left-[20%] xl:w-1/2
+                                2xl:w-[40%] 2xl:-top-[25%]
                             `}
                         >
                             {<SVGBackground3 />}

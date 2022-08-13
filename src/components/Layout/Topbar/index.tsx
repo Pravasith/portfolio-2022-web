@@ -16,7 +16,12 @@ const Topbar = () => {
     const { state } = useContext(MenuContext)
 
     return (
-        <div className="w-full flex flex-row justify-between overflow-x-clip">
+        <div
+            className={`
+                w-full flex flex-row justify-between overflow-x-clip
+                3xl:my-4
+            `}
+        >
             <div
                 id="main-logo-icon"
                 className={`

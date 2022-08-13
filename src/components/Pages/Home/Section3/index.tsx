@@ -43,7 +43,7 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
                     md:px-1/5
                     lg:px-[25%]
                     xl:px-[30%] xl:mb-40
-                    2xl:px-[33.33%]
+                    2xl:px-[33.33%] 2xl:mb-20
                 `}
                 textBlocks={[
                     {

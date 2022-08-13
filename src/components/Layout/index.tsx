@@ -98,6 +98,7 @@ const Layout: React.FC = ({ children }) => {
                     className={`
                         md:pt-[5rem]
                         lg:pt-[3rem]
+                        xl:pt-[0]
                     `}
                 >
                     {/* Children */}

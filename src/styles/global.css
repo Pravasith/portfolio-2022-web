@@ -99,7 +99,7 @@
         @apply font-calibre-bold underline decoration-2 
             underline-offset-2 text-[3.5rem] leading-[3.25rem]
         lg:text-[3.25rem] lg:leading-[3rem]
-        2xl:text-[3.75rem] 2xl:leading-[3.5rem];
+        3xl:text-[3.75rem] 3xl:leading-[3.5rem];
     }
 
     h3 {

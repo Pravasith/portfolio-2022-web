@@ -37,6 +37,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                             relative w-[500%] h-full
                             md:w-[250%]
                             xl:w-[180%]
+                            2xl:w-[150%]
                         `}
                     >
                         <div className="absolute left-0 bottom-0 w-full">
@@ -69,6 +70,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                         className={`
                         absolute w-72 bottom-2 left-[35%] -z-10
                         md:left-[45%]
+                        2xl:left-[48.5%]
                     `}
                     >
                         <WaterPuddle />
@@ -79,6 +81,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                         absolute w-36 top-[20%] -z-10 -left-[5%]
                         md:left-[17.5%] md:top-[15%]
                         xl:left-[32%]
+                        2xl:left-[36.5%]
                     `}
                     >
                         <Plants />

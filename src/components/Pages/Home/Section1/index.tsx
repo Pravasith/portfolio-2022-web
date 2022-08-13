@@ -89,6 +89,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 lg:w-full lg:translate-x-0 lg:-translate-y-[2%]
                                 xl:w-[85%] xl:translate-x-[5%]
                                 2xl:w-[80%] 2xl:translate-x-[10%] 2xl:translate-y-[10%]
+                                3xl:w-[72.5%] 3xl:translate-x-[15%] 3xl:translate-y-0
                             `}
                         >
                             <div className="section-1-bgd-beach-0 w-full relative">
@@ -152,7 +153,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 md:left-[15%] md:bottom-[27.5%]
                                 lg:left-[18.5%] lg:w-72 lg:bottom-[35%]
                                 xl:left-[23.5%] xl:bottom-[28.5%]
-                                2xl:left-[28.5%] 2xl:bottom-[10%]
+                                2xl:left-[31%] 2xl:bottom-[15%]
                             `}
                         >
                             <Section1RedTriangles />
