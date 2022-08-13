@@ -69,6 +69,10 @@ module.exports = {
             rounded: {
                 xxl: "1.25rem",
             },
+
+            screens: {
+                "3xl": "1600px",
+            },
         },
     },
     plugins: [],

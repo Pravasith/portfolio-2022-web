@@ -67,6 +67,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                         md:px-1/5 md:mt-6
                         lg:px-[25%] lg:mt-0
                         xl:px-[30%]
+                        2xl:px-[33.33%] 2xl:mt-8
                     `}
                 >
                     <div className="section-1-text-block w-full">
@@ -87,6 +88,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 md:w-[150%] md:-translate-x-[20%]
                                 lg:w-full lg:translate-x-0 lg:-translate-y-[2%]
                                 xl:w-[85%] xl:translate-x-[5%]
+                                2xl:w-[80%] 2xl:translate-x-[10%] 2xl:translate-y-[10%]
                             `}
                         >
                             <div className="section-1-bgd-beach-0 w-full relative">
@@ -107,8 +109,10 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                             ref={ref}
                             className={`
                                 absolute w-full h-[160%] -bottom-[25%]
+                                md:-bottom-[35.5%]
                                 lg:h-[180%] lg:-bottom-[40.5%]
                                 xl:h-[185%] xl:-bottom-[50.5%]
+                                2xl:h-[220%] 2xl:-bottom-[80%]
                             `}
                         >
                             <Canvas
@@ -139,18 +143,20 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                                 lg:h-[180%] lg:-bottom-[35%]
                             `}
                         ></div>
-                    </div>
 
-                    {/* TRIANGLES */}
-                    <div
-                        id="home-section-1-svgs-red"
-                        className={`
-                            section-1-red-triangle absolute w-60 h-1/5 bottom-1/5 -left-[10%] mx-8
-                            md:left-[15%]
-                            lg:left-1/4
-                        `}
-                    >
-                        <Section1RedTriangles />
+                        {/* TRIANGLES */}
+                        <div
+                            id="home-section-1-svgs-red"
+                            className={`
+                                section-1-red-triangle absolute w-60 h-1/5 bottom-[40%] -left-[10%] mx-8
+                                md:left-[15%] md:bottom-[27.5%]
+                                lg:left-[18.5%] lg:w-72 lg:bottom-[35%]
+                                xl:left-[23.5%] xl:bottom-[28.5%]
+                                2xl:left-[28.5%] 2xl:bottom-[10%]
+                            `}
+                        >
+                            <Section1RedTriangles />
+                        </div>
                     </div>
                 </div>
             </div>

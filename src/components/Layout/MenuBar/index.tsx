@@ -75,6 +75,7 @@ const MenuBar = () => {
                 z-10 md:fixed md:bottom-[30%]
                 md:right-0 md:w-[15%]
                 lg:w-1/5
+                xl:w-[15%] 
             `}
         >
             <ul className="flex-col-center">

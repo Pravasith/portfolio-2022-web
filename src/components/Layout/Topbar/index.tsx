@@ -23,6 +23,7 @@ const Topbar = () => {
                     w-1/5 z-20 ${state?.showMenu ? "fixed" : "h-32"}
                     md:fixed md:w-[15%] md:mx-2
                     lg:w-1/5
+                    xl:w-[15%] 
                 `}
             >
                 <div className="flex-col-center h-32">
@@ -47,6 +48,7 @@ const Topbar = () => {
                     w-1/5 z-20 right-0 mx-3 ${state?.showMenu ? "fixed" : ""}
                     md:fixed md:mx-0 md:w-[15%]
                     lg:w-1/5
+                    xl:w-[15%] 
                 `}
             >
                 <div className="flex-col-center h-32">
