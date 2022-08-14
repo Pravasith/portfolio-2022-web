@@ -2,8 +2,14 @@
 
 const nextConfig = {
     reactStrictMode: true,
+
     eslint: {
         dirs: ["."], //or ['pages', 'hooks']
+    },
+
+    publicRuntimeConfig: {
+        // Will be available on both server and client
+        googleAnalyticsConfig: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
     },
 
     images: {
