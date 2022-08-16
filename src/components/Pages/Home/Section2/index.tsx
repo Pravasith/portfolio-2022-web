@@ -3,6 +3,7 @@ import TextGroup from "@components/UI/TextGroup"
 import Button from "@components/UI/Button"
 import { SectionProps } from "@components/Pages/Home/interface"
 import { ETextAlign } from "@lib/api/textGroups/interface"
+import { RESUME_LINK } from "@lib/api/database"
 
 const Section2 = ({ textBlocks }: SectionProps) => {
     return (
@@ -35,7 +36,11 @@ const Section2 = ({ textBlocks }: SectionProps) => {
                             textBlocks={textBlocks}
                         />
 
-                        <Button text={"Resume"} />
+                        <Button
+                            text={"Resume"}
+                            linkTo={RESUME_LINK}
+                            target={"_blank"}
+                        />
                     </div>
 
                     {/* SVG */}

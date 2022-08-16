@@ -1,7 +1,7 @@
 export const metaData = {
-    pageTitle: "Pravasith - Full Stack Developer 🔶 🟨 🟢 🔹",
+    pageTitle: "Pravasith - Creative Full Stack Developer 🔶 🟨 🟢 🔹",
     ogSiteName: "pravasith.design",
-    ogTitle: "Pravasith - Full Stack Developer 🔶 🟨 🟢 🔹",
+    ogTitle: "Pravasith - Creative Full Stack Developer 🔶 🟨 🟢 🔹",
     ogType: "website",
     ogUrl: "https://pravasith.com/",
     twitterCreator: "@pravasith",
@@ -11,9 +11,10 @@ export const metaData = {
         "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹SpringBoot🔹GraphQL🔹RestAPI🔹MongoDB🔹",
     ogDescription:
         "A Full Stack TypeScript/JavaScript/Java Developer living in Toronto, Canada. 🇨🇦. ReactJS🔹NodeJS🔹NextJS🔹SpringBoot🔹GraphQL🔹RestAPI🔹MongoDB🔹",
-    ogImageAlt: "An Illustration of a Creative Web Developer",
-    twitterImageAlt: "An Illustration of a Creative Web Developer",
-    // TODO: CHANGE IMAGES
-    ogImage: "https://cassie.codes/images/meta.jpg",
-    twitterImage: "https://cassie.codes/images/meta.jpg",
+    ogImageAlt: "An Illustration of a Creative Full Stack Web Developer",
+    twitterImageAlt: "An Illustration of a Creative Full Stack Web Developer",
+    ogImage:
+        "https://res.cloudinary.com/pravasith/image/upload/v1660596444/Portfolio%202022/og_images/OG_image.png",
+    twitterImage:
+        "https://res.cloudinary.com/pravasith/image/upload/v1660596444/Portfolio%202022/og_images/OG_image.png",
 }

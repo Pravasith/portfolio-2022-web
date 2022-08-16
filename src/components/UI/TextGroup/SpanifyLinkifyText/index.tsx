@@ -51,9 +51,10 @@ const SpanifyLinkifyText = ({
                 >
                     <a
                         className={`${linkClassName} 
-                            after:bg-theme-yellow after:absolute after:w-full 
+                            text-theme-orange
+                            after:bg-theme-orange after:absolute after:w-full 
                             after:h-half after:left-0 after:-bottom-half after:-z-10 
-                            hover:after:bg-theme-orange after:transition hover:text-theme-orange transition
+                            hover:after:bg-theme-blue after:transition hover:text-theme-blue transition
                         relative`}
                     >
                         {arrayOfElements}

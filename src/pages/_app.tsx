@@ -4,15 +4,11 @@ import "@styles/global.css"
 
 import type { AppProps } from "next/app"
 import Script from "next/script"
-import { useEffect } from "react"
+
 import getConfig from "next/config"
 
 const App = ({ Component, pageProps }: AppProps) => {
     const { publicRuntimeConfig } = getConfig()
-
-    useEffect(() => {
-        console.log(publicRuntimeConfig.googleAnalyticsConfig)
-    }, [])
 
     return (
         <>

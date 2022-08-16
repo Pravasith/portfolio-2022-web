@@ -15,6 +15,7 @@ export interface ImageBlockType {
     height: number
     type?: ESrcType.IMAGE
     alt?: string
+    id?: string
     caption?: string
     showCaption?: boolean
     hyperlink?: string
