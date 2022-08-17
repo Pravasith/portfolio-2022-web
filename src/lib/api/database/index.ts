@@ -25,11 +25,11 @@ export const INDEX_PAGE_DATA: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "My short story",
+                    text: "About me",
                 },
                 {
                     type: ETextTypes.P,
-                    text: "In my :st>five years<st: of professional experience, I've helped :st>start-ups<st: solve user problems with technology. I started as a :st>designer<st:, and absolutely loved building products, so much so that I desired the skills to build them myself. So I transitioned into :st>tech<st:, and loved it even more. My :st>resume<st: below shows all the skills I’ve acquired until now, please have a look. 😇",
+                    text: "In my :st>five years<st: of professional experience, I've helped :st>start-ups<st: solve user problems with technology. I started as a :st>designer<st: and loved building products, so much so that I desired the skills to build them myself. So I transitioned into :st>tech<st: and loved my job even more 😇. My :st>resume<st: mentions all the skills I’ve acquired until now, have a look!",
                 },
             ],
         },
@@ -43,7 +43,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 },
                 {
                     type: ETextTypes.P,
-                    text: "What excites me the most in tech is the thrill you feel after finding a solution to a problem, and the satisfaction you attain after you build something beautiful.:br::br:Like many other awesome developers out there, I often try to do side projects often to learn new technologies. Since I’m lucky enough to possess the ability to design, I get to evolve the design of the product as I go 😁. Here are a few projects that I had loads of fun working on ✨.",
+                    text: "What excites me the most in tech is the thrill you feel after finding a solution to a problem, and the satisfaction you attain after you build something beautiful.:br::br:Like many other awesome developers out there, I often try to do side projects to learn new technologies. Since I’m lucky enough to possess the ability to design, I get to evolve the design of the product as I go 😁. Here are a few projects that I had loads of fun working on ✨.",
                 },
             ],
         },
@@ -57,7 +57,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 },
                 {
                     type: ETextTypes.P,
-                    text: "I’d really appreciate it if you wrote me something, be it about my work or suggestions or even just a hi! I am :st>currently looking for new Full-Stack opportunities<st: in Canada, and if you are hiring, please send me a message 🙂 ",
+                    text: "I’d appreciate it if you wrote to me, be it about my work/feedback or even just a hi! I am :st>currently looking for new Full-Stack opportunities<st: in :st>Canada<st:, and if you are hiring, let me know if I have a shot :)",
                 },
             ],
         },
@@ -67,7 +67,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
             name: "all-projects",
             projects: [
                 {
-                    title: "My old portfolio website",
+                    title: "Old portfolio website",
                     description:
                         "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
                     gitHubLink: "https://github.com/Pravasith",
@@ -85,7 +85,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 {
                     title: "Spotifinder",
                     description:
-                        "A Spotify clone app with an unnecessarily complicated backend. I used Spotify endpoints to make an aggregated backend that serves data via GraphQL. I used :st>TypeScript, NodeJS, TypeGraphQL, Apollo, ExpressJS, HowlerJS, NextJS/ReactJS<st: and :st>Illustrator<st: for UX Design.",
+                        "A Spotify clone app with an unnecessarily complicated backend. I used Spotify endpoints to make an aggregated backend that serves data via :st>GraphQL<st:. I used :st>TypeScript, NodeJS, TypeGraphQL, Apollo, ExpressJS, HowlerJS, NextJS/ReactJS<st: and :st>Illustrator<st: for UX Design.",
                     gitHubLink:
                         "https://github.com/stars/Pravasith/lists/spotifinder",
                     liveLink: "https://spotifinder.vercel.app/",
@@ -102,7 +102,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 {
                     title: "Into The Void",
                     description:
-                        "My first attempt at building a 3D game on the browser. Even though I didn’t focus much on the optimisation, I really wanted to build an Open World game. I used :st>NextJS/ReactJS, ThreeJS; Blender<st: for modelling, and :st>Illustrator<st: for UX Design.",
+                        "My first attempt at building a first-person 3D Open World game that runs on the browser. I used :st>NextJS/ReactJS, ThreeJS; Blender<st: for modelling, and :st>Illustrator<st: for UX Design.",
                     gitHubLink: "https://github.com/Pravasith/into-the-void",
                     liveLink:
                         "https://bootes-void.vercel.app/bootes-space-mine",
