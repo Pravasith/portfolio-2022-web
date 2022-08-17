@@ -21,7 +21,7 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
     return (
         <div
             className={`
-                grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36
+                grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36 items-start
                 md:px-1/5
                 lg:px-[25%] lg:grid-cols-2
                 xl:px-[30%]
