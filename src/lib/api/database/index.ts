@@ -43,7 +43,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 },
                 {
                     type: ETextTypes.P,
-                    text: "Some projects I did in the past ✨. Be sure to check out the live links!",
+                    text: "What excites me the most in tech is the thrill you feel after finding a solution to a problem, and the satisfaction you attain after you build something beautiful.:br::br:Like many other awesome developers out there, I often try to do side projects often to learn new technologies. Since I’m lucky enough to possess the ability to design, I get to evolve the design of the product as I go 😁. Here are a few projects that I had loads of fun working on ✨.",
                 },
             ],
         },
@@ -55,6 +55,10 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                     type: ETextTypes.H1,
                     text: "Write to me!",
                 },
+                {
+                    type: ETextTypes.P,
+                    text: "I’d really appreciate it if you wrote me something, be it about my work or suggestions or even just a hi! I am :st>currently looking for new Full-Stack opportunities<st: in Canada, and if you are hiring, please send me a message 🙂 ",
+                },
             ],
         },
     ],
@@ -65,7 +69,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 {
                     title: "My old portfolio website",
                     description:
-                        "Old portfolio built using :st>NextJS, ThreeJS, Express, Firebase<st:; hosted on a DigitalOcean droplet using :st>Ngnix, and PM2.<st:",
+                        "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
                     gitHubLink: "https://github.com/Pravasith",
                     liveLink: "https://pravasdesign.com",
                     media: {
@@ -81,7 +85,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 {
                     title: "Spotifinder",
                     description:
-                        "A Spotify clone app built using :st>NextJS, Apollo, GraphQL<st: on the frontend; :st>Express, TypeGraphQL<st: on the backend. Make sure to check the GitHub code for this!",
+                        "A Spotify clone app with an unnecessarily complicated backend. I used Spotify endpoints to make an aggregated backend that serves data via GraphQL. I used :st>TypeScript, NodeJS, TypeGraphQL, Apollo, ExpressJS, HowlerJS, NextJS/ReactJS<st: and :st>Illustrator<st: for UX Design.",
                     gitHubLink:
                         "https://github.com/stars/Pravasith/lists/spotifinder",
                     liveLink: "https://spotifinder.vercel.app/",
@@ -98,7 +102,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 {
                     title: "Into The Void",
                     description:
-                        "A first person 3D game built using :st>ThreeJS and NextJS<st:. (in progress)",
+                        "My first attempt at building a 3D game on the browser. Even though I didn’t focus much on the optimisation, I really wanted to build an Open World game. I used :st>NextJS/ReactJS, ThreeJS; Blender<st: for modelling, and :st>Illustrator<st: for UX Design.",
                     gitHubLink: "https://github.com/Pravasith/into-the-void",
                     liveLink:
                         "https://bootes-void.vercel.app/bootes-space-mine",
