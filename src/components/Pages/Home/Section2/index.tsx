@@ -48,6 +48,12 @@ const Section2 = ({ textBlocks }: SectionProps) => {
                         className={`
                         section-2-curved-text w-full flex-col-south
                         md:h-[55%] 
+
+                        mx-6
+                        md:w-[60%] md:mx-1/5
+                        lg:w-[50%] lg:mx-[25%]
+                        xl:w-[35%] xl:mx-[32.5%]
+                        2xl:w-[25%] 2xl:mx-[37.5%]
                     `}
                     >
                         <CurvedText />
