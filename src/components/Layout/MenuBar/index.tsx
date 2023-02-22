@@ -72,10 +72,10 @@ const MenuBar = () => {
     return (
         <div
             className={`
-                z-10 md:fixed md:bottom-[30%]
-                md:right-0 md:w-[15%]
-                lg:w-1/5
-                xl:w-[15%] 
+                z-10 tablet:fixed tablet:bottom-[30%]
+                tablet:right-0 tablet:w-[15%]
+                laptop:w-1/5
+                desktop:w-[15%] 
             `}
         >
             <ul className="flex-col-center">
@@ -89,7 +89,7 @@ const MenuBar = () => {
                             <li
                                 className={`
                                     my-2 cursor-pointer
-                                    lg:my-1
+                                    laptop:my-1
                                 `}
                             >
                                 <div

@@ -76,7 +76,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
 
     const themeBackground =
         (state?.currentTheme === EThemes.LIGHT ? "bg-white" : "bg-gray-800") +
-        " xl:bg-transparent"
+        " desktop:bg-transparent"
 
     const Projects = projects.projects.map((item, i) => {
         const projectTextBlocks = [
@@ -98,16 +98,16 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                 key={random20Id()}
                 className={`
                     flex-col-west py-10 w-full
-                    xl:flex-row-center xl:px-1/5 xl:py-0 xl:pb-40
-                    2xl:px-[25%] 2xl:pb-20
-                    3xl:pb-36
+                    desktop:flex-row-center desktop:px-1/5 desktop:py-0 desktop:pb-40
+                    full-hd:px-[25%] full-hd:pb-20
+                    full:pb-36
                 `}
             >
                 <div
                     className={`
                         relative min-w-1/2 w-full overflow-x-clip
-                        xl:min-w-[52%] xl:w-[52%]
-                        xl:overflow-visible
+                        desktop:min-w-[52%] desktop:w-[52%]
+                        desktop:overflow-visible
                     `}
                 >
                     {i === 0 && (
@@ -115,9 +115,9 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             key={`svg-bgd-01`}
                             className={`
                                 absolute w-130% top-1/2 -left-1/5 -z-10
-                                md:w-[85%] md:left-[7.5%] md:top-[90%]
-                                xl:w-[150%] xl:-left-[30%] xl:top-[30%]
-                                2xl:w-[120%] 2xl:-left-[15%]
+                                tablet:w-[85%] tablet:left-[7.5%] tablet:top-[90%]
+                                desktop:w-[150%] desktop:-left-[30%] desktop:top-[30%]
+                                full-hd:w-[120%] full-hd:-left-[15%]
                             `}
                         >
                             {<SVGBackground1 />}
@@ -129,9 +129,9 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             key={`svg-bgd-02`}
                             className={`
                                 absolute w-full top-1/5 -left-1/5 -z-10
-                                md:w-2/3 md:-top-auto md:-bottom-[140%] md:left-1/4 md:rotate-180
-                                xl:w-[75%] xl:-bottom-[30%] xl:left-[35%]
-                                2xl:-bottom-[40%]
+                                tablet:w-2/3 tablet:-top-auto tablet:-bottom-[140%] tablet:left-1/4 tablet:rotate-180
+                                desktop:w-[75%] desktop:-bottom-[30%] desktop:left-[35%]
+                                full-hd:-bottom-[40%]
                             `}
                         >
                             {<SVGBackground2 />}
@@ -143,9 +143,9 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             key={`svg-bgd-03`}
                             className={`
                                 absolute w-1/2 -top-1/3 -left-1/4 -z-10
-                                md:w-1/3 md:top-0 md:-left-[5%]
-                                xl:-top-[40%] xl:-left-[20%] xl:w-1/2
-                                2xl:w-[40%] 2xl:-top-[25%]
+                                tablet:w-1/3 tablet:top-0 tablet:-left-[5%]
+                                desktop:-top-[40%] desktop:-left-[20%] desktop:w-1/2
+                                full-hd:w-[40%] full-hd:-top-[25%]
                             `}
                         >
                             {<SVGBackground3 />}
@@ -155,9 +155,9 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                     <div
                         className={`
                             overflow-clip ${themeBackground} mx-6 rounded-t-[3rem]
-                            md:mx-1/5
-                            lg:mx-[25%]
-                            xl:mx-0 xl:rounded-[3rem]
+                            tablet:mx-1/5
+                            laptop:mx-[25%]
+                            desktop:mx-0 desktop:rounded-[3rem]
                         `}
                     >
                         <ImageBlock imageBlock={item.media} />
@@ -168,15 +168,15 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                     className={`
                         flex-col-west mx-6 px-6 rounded-b-[3rem]
                         ${themeBackground}
-                        md:mx-1/5
-                        lg:mx-[25%]
-                        xl:mx-0 xl:px-0 xl:ml-10
+                        tablet:mx-1/5
+                        laptop:mx-[25%]
+                        desktop:mx-0 desktop:px-0 desktop:ml-10
                     `}
                 >
                     <div
                         className={`
                             my-2 w-full px-3
-                            xl:pr-0 xl:mt-10
+                            desktop:pr-0 desktop:mt-10
                         `}
                     >
                         <TextGroup

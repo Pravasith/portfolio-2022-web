@@ -15,13 +15,11 @@ const PhoneMenu = () => {
     return (
         <div className="w-full">
             <div
-                className={`menu-items z-20 fixed w-screen h-screen transition ${
-                    themeState?.currentTheme === EThemes.DARK
-                        ? "bg-gray-800"
-                        : "bg-gray-50"
-                } ${
-                    menuState?.showMenu ? "translate-x-0" : "translate-x-full"
-                }`}
+                className={`menu-items z-20 fixed w-screen h-screen transition ${themeState?.currentTheme === EThemes.DARK
+                    ? "bg-gray-800"
+                    : "bg-gray-50"
+                    } ${menuState?.showMenu ? "translate-x-0" : "translate-x-full"
+                    }`}
             >
                 <div className="flex-col-center h-full w-full">
                     <div className="my-20">
@@ -33,13 +31,17 @@ const PhoneMenu = () => {
 
             <div
                 id="hamburger-menu"
-                className="w-1/5 z-20 right-0 bottom-0 mx-3 fixed md:fixed"
+                className="w-1/5 z-20 right-0 bottom-0 mx-3 fixed tablet:fixed"
             >
-                <div className="flex-col-center h-32">
+                <div
+                    className={`
+                        mobile:flex-col-center mobile:h-32
+                    `}
+                >
                     <Hamburger />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

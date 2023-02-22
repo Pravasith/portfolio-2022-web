@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+ 
+@import url('https://fonts.cdnfonts.com/css/noe-display');
 
 @layer utilities {
     /* CENTER CHILDREN IN A ROW */
@@ -96,10 +98,14 @@
 
 @layer base {
     h1 {
-        @apply font-calibre-bold underline decoration-2 
-            underline-offset-2 text-[3.5rem] leading-[3.25rem]
-        lg:text-[3.25rem] lg:leading-[3rem]
-        3xl:text-[3.75rem] 3xl:leading-[3.5rem];
+        @apply font-calibre-bold font-noe-display decoration-2 
+        text-[2.5rem] leading-[2.5rem]
+
+        tablet:text-[3.5rem] tablet:leading-[3.25rem]
+        desktop:text-[3.25rem] desktop:leading-[3rem]
+        true-hd:text-[3.75rem] true-hd:leading-[3.5rem];
+
+        font-family: "Noe Display";
     }
 
     h3 {
@@ -109,7 +115,7 @@
 
     p,
     li {
-        @apply text-base leading-5 py-1
-        2xl:text-lg 2xl:leading-6;
+        @apply font-calibre text-base leading-5 py-1
+        true-hd:text-xl true-hd:leading-6;
     }
 }

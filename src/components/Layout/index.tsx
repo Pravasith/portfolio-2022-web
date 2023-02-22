@@ -96,9 +96,9 @@ const Layout: React.FC = ({ children }) => {
 
                 <article
                     className={`
-                        md:pt-[5rem]
-                        lg:pt-[3rem]
-                        xl:pt-[0]
+                        tablet:pt-[5rem]
+                        laptop:pt-[3rem]
+                        desktop:pt-[0]
                     `}
                 >
                     {/* Children */}

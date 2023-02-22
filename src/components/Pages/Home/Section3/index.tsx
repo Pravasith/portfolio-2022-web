@@ -18,9 +18,9 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             <div
                 className={`
                     flex-col-west px-6 w-full
-                    md:px-1/5
-                    lg:px-[25%]
-                    xl:px-[30%]
+                    tablet:px-1/5
+                    laptop:px-[25%]
+                    desktop:px-[30%]
                 `}
             >
                 <div className="section-3-text-block">
@@ -40,10 +40,10 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             <TextGroup
                 className={`
                     my-10 px-6
-                    md:px-1/5
-                    lg:px-[25%]
-                    xl:px-[30%] xl:mb-40
-                    2xl:px-[33.33%] 2xl:mb-20
+                    tablet:px-1/5
+                    laptop:px-[25%]
+                    desktop:px-[30%] desktop:mb-40
+                    full-hd:px-[33.33%] full-hd:mb-20
                 `}
                 textBlocks={[
                     {

@@ -12,7 +12,7 @@ const Hamburger = () => {
 
     return (
         <div
-            className={`${styles.hamburger} flex-col-center bg-theme-yellow rounded-3xl w-15 h-15 p-5`}
+            className={`${styles.hamburger} flex-col-center bg-theme-yellow rounded-3xl w-12 h-12 p-5`}
             onClick={menuDisplayHandler}
         >
             <div className={`${styles.barWrap}  relative`}>

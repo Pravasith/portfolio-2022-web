@@ -70,10 +70,10 @@ const EmailForm = (props: EmailFormType) => {
             id="home-section-4-email-form"
             className={`
                 w-full px-6
-                md:px-1/5
-                lg:px-[25%]
-                xl:px-[30%]
-                2xl:px-[33.33%]
+                tablet:px-1/5
+                laptop:px-[25%]
+                desktop:px-[30%]
+                full-hd:px-[33.33%]
             `}
         >
             {!emailSent ? (

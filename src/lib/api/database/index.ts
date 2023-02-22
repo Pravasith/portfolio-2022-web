@@ -11,12 +11,15 @@ export const INDEX_PAGE_DATA: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "A Designer :br:turned :br:Software Engineer.",
+                    text: "I make your brand stand-out by building a stunning website✨.",
                 },
-                {
-                    type: ETextTypes.P,
-                    text: "Hi 👋🏼 I’m Pravas, a :st>Full Stack TypeScript/JavaScript/Java<st: Developer currently in :st>Toronto, CA 🇨🇦<st:. I am passionate about building great products. I love working more on the backend 🚀 than on the frontend 🎨 (surprisingly). In my spare time, I design 3D models, design/develop nerdy things. These days, I’m having great fun solving :st>leetcode<st: problems.",
-                },
+                // {
+                //     type: ETextTypes.P,
+                //     // text: "Hi 👋🏼 I’m Pravas, a :st>Full Stack TypeScript/JavaScript/Java<st: Developer currently in :st>Toronto, CA 🇨🇦<st:. I am passionate about building great products. I love working more on the backend 🚀 than on the frontend 🎨 (surprisingly). In my spare time, I design 3D models, design/develop nerdy things. These days, I’m having great fun solving :st>leetcode<st: problems.",
+                //     text: `
+                //         Hi,
+                //     `
+                // },
             ],
         },
         {
@@ -25,12 +28,21 @@ export const INDEX_PAGE_DATA: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "About me",
+                    text: "Hi 👋, I'm Prav,:br:a freelance Designer, and a Developer",
                 },
+                // {
+                //     type: ETextTypes.P,
+                //     text: "In my :st>five years<st: of professional experience, I've helped :st>start-ups<st: solve user problems with technology. I started as a :st>designer<st: and loved building products, so much so that I desired the skills to build them myself. So I transitioned into :st>tech<st: and loved my job even more 😇. My :st>resume<st: mentions all the skills I’ve acquired until now, have a look!",
+                // },
                 {
                     type: ETextTypes.P,
-                    text: "In my :st>five years<st: of professional experience, I've helped :st>start-ups<st: solve user problems with technology. I started as a :st>designer<st: and loved building products, so much so that I desired the skills to build them myself. So I transitioned into :st>tech<st: and loved my job even more 😇. My :st>resume<st: mentions all the skills I’ve acquired until now, have a look!",
-                },
+                    text: `
+                        Nice to meet you 😁, I have been a Creative Developer at highly funded start-ups 
+                        and Award-winning Digital production studios for over 6 years, 
+                        specializing in creating dynamic webpages with the latest and powerful frontend technologies. 
+
+                    `
+                }
             ],
         },
         {

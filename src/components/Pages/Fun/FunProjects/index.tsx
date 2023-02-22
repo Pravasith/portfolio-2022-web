@@ -22,10 +22,10 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
         <div
             className={`
                 grid grid-cols-1 gap-2 overflow-x-clip px-6 mb-36 items-start
-                md:px-1/5
-                lg:px-[25%] lg:grid-cols-2
-                xl:px-[30%]
-                2xl:px-[33.33%]
+                tablet:px-1/5
+                laptop:px-[25%] laptop:grid-cols-2
+                desktop:px-[30%]
+                full-hd:px-[33.33%]
             `}
         >
             {mediaBlocks.map((item, i) => {
@@ -71,9 +71,9 @@ const FunProjects = ({ mediaBlocks }: FunProps) => {
                                     <div
                                         className={`
                                             absolute w-72 h-72 -top-1/2 -right-1/4 -z-10
-                                            md:-top-[20%] md:left-[45%]
-                                            lg:-top-[25%] lg:left-[25%]
-                                            xl:-top-[32.5%] xl:left-[30%] xl:w-[110%]
+                                            tablet:-top-[20%] tablet:left-[45%]
+                                            laptop:-top-[25%] laptop:left-[25%]
+                                            desktop:-top-[32.5%] desktop:left-[30%] desktop:w-[110%]
                                         `}
                                     >
                                         <Spirals />
