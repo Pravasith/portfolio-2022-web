@@ -1,5 +1,6 @@
 import { TextBlockType } from "@lib/api/textGroups/interface"
-import React from "react"
+import { useEffect } from "react"
+import { registerHomePageAnimations } from "./animations"
 import { HomeProps, HomeSections } from "./interface"
 import Section1 from "./Section1"
 import Section2 from "./Section2"
@@ -29,6 +30,10 @@ const Home = ({ textSections, projects }: HomeProps) => {
         textSections.find(section => section.name === "home-section-4")
             ?.textBlocks ?? []
     )
+
+    useEffect(() => {
+        registerHomePageAnimations()
+    }, [])
 
     return (
         <div className={`flex flex-col justify-center w-full h-full`}>

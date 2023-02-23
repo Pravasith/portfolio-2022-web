@@ -80,7 +80,7 @@ const Layout: React.FC = ({ children }) => {
                         dispatch: menuDispatch,
                     }}
                 >
-                    <header>
+                    <header className="absolute">
                         {/* Things that go in the top bar, like Navbar */}
                         {/* Banners, notification strips... etc. */}
                         {isMobile && <PhoneMenu />}
@@ -94,13 +94,7 @@ const Layout: React.FC = ({ children }) => {
                     <FontsCopyright />
                 </aside>
 
-                <article
-                    className={`
-                        tablet:pt-[5rem]
-                        laptop:pt-[3rem]
-                        desktop:pt-[0]
-                    `}
-                >
+                <article>
                     {/* Children */}
                     {children}
                 </article>

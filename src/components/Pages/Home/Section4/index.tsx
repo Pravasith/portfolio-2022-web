@@ -13,7 +13,10 @@ import { Vector3 } from "three"
 import { SectionProps } from "@components/Pages/Home/interface"
 import EmailForm from "@components/Pages/Home/Section4/EmailForm"
 
-const DisableRender = () => useFrame(() => null, 1000)
+const DisableRender = () =>
+    useFrame(() => {
+        return null
+    }, 1000)
 
 const Section4 = ({ textBlocks }: SectionProps) => {
     const { ref, inView } = useInView()
@@ -49,7 +52,7 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                 <div className="section-3-three-elements relative w-full h-[24.5rem] min-h-[24.5rem] overflow-x-clip ">
                     <div ref={ref} className="w-full h-full">
                         <Canvas
-                            linear={false}
+                            // linear={false}
                             shadows
                             camera={{
                                 position: cameraPosition.initial,
@@ -58,6 +61,8 @@ const Section4 = ({ textBlocks }: SectionProps) => {
                             // onCreated={state => state.gl.setClearColor("#CCC")}
                         >
                             {!inView && <DisableRender />}
+
+                            {/* <OrbitControls /> */}
 
                             <Suspense fallback={null}>
                                 <Doflamingo />

@@ -187,22 +187,28 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
 
                     <div className="flex flex-row mb-10">
                         {item.liveLink && (
-                            <Link href={item.liveLink}>
-                                <a className="m-3" target={"_blank"}>
-                                    <Icon iconSize={EIconSizes.xs}>
-                                        <OpenLinkIcon />
-                                    </Icon>
-                                </a>
+                            <Link
+                                href={item.liveLink}
+                                className="m-3"
+                                target={"_blank"}
+                                passHref
+                            >
+                                <Icon iconSize={EIconSizes.xs}>
+                                    <OpenLinkIcon />
+                                </Icon>
                             </Link>
                         )}
 
                         {item.gitHubLink && (
-                            <Link href={item.gitHubLink}>
-                                <a className="m-3" target={"_blank"}>
-                                    <Icon iconSize={EIconSizes.xs}>
-                                        <GithubIcon />
-                                    </Icon>
-                                </a>
+                            <Link
+                                href={item.gitHubLink}
+                                className="m-3"
+                                target={"_blank"}
+                                passHref
+                            >
+                                <Icon iconSize={EIconSizes.xs}>
+                                    <GithubIcon />
+                                </Icon>
                             </Link>
                         )}
                     </div>

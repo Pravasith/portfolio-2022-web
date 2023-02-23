@@ -19,7 +19,7 @@ const Topbar = () => {
         <div
             className={`
                 w-full flex flex-row justify-between overflow-x-clip
-                true-hd:my-4
+                
             `}
         >
             <div
@@ -37,17 +37,13 @@ const Topbar = () => {
                         tablet:flex-col-center tablet:h-32
                     `}
                 >
-                    <Link href={"/"}>
-                        <a>
-                            <Icon
-                                iconSize={EIconSizes.sm}
-                                iconBackground={
-                                    EColors.ICON_BACKGROUND_YELLOW_100
-                                }
-                            >
-                                <MainLogo />
-                            </Icon>
-                        </a>
+                    <Link passHref href={"/"}>
+                        <Icon
+                            iconSize={EIconSizes.sm}
+                            iconBackground={EColors.ICON_BACKGROUND_YELLOW_100}
+                        >
+                            <MainLogo />
+                        </Icon>
                     </Link>
                 </div>
             </div>

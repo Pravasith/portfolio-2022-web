@@ -22,13 +22,13 @@ export const randoInt = (min: number, max: number) => {
 }
 
 export const findMeshByName = (
-    threeObject: GLTF & ObjectMap,
+    threeObject: GLTF | ObjectMap,
     meshName: string,
     noShadowInAllMeshes?: boolean
 ) => {
     let mesh = new THREE.Object3D()
 
-    threeObject.scene.traverse(o => {
+    ;(threeObject as GLTF).scene.traverse(o => {
         !noShadowInAllMeshes &&
             ((o.castShadow = true), (o.receiveShadow = true))
 

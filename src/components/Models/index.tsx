@@ -5,11 +5,11 @@ import { findMeshByName } from "@utils/index"
 import gsap, { Sine } from "gsap"
 import { useEffect, useRef, useState } from "react"
 import * as THREE from "three"
-import { Object3D, Vector3 } from "three"
+import { Group, MathUtils, Object3D, Vector2, Vector3 } from "three"
 import { FlamingoLightsProps, TableLightsProps } from "./interface"
 
 import { MouseMoveValues } from "@hooks/useMouseMove/interface"
-import useScrollTrigger from "@hooks/useScrollTrigger"
+import { registerTableAnimations } from "./animations"
 
 const TableLights = ({
     parentObjectForSpotlight,
@@ -252,6 +252,10 @@ export const Table = () => {
 
     const { camera } = useThree()
 
+    useEffect(() => {
+        registerTableAnimations(camera)
+    }, [])
+
     const clockHands = useRef<Object3D<THREE.Event>[]>()
 
     const animateClock = (date: Date) => {
@@ -273,6 +277,45 @@ export const Table = () => {
     useFrame(() => {
         const date = new Date()
         animateClock(date)
+    })
+
+    const tableRef = useRef<Group>(null)
+
+    const mouse = useRef<Vector2>(new Vector2(0.5, 0.5))
+
+    useEffect(() => {
+        const handleMouse = (e: PointerEvent) => {
+            mouse.current.set(
+                (e.pageX / window.innerWidth) * 2 - 1,
+                -(e.pageY / window.innerHeight) * 2 + 1
+            )
+
+            console.log(camera.position)
+        }
+        window.addEventListener("pointermove", handleMouse)
+
+        return () => {
+            window.removeEventListener("pointermove", handleMouse)
+        }
+    }, [])
+
+    useFrame((_, delta) => {
+        if (tableRef.current) {
+            tableRef.current.rotation.x = MathUtils.damp(
+                tableRef.current.rotation.x,
+                -mouse.current.y * 0.02,
+                2,
+                delta
+            )
+
+            tableRef.current.rotation.y = MathUtils.damp(
+                tableRef.current.rotation.y,
+                mouse.current.x * 0.1,
+                2,
+                delta
+            )
+            tableRef.current.rotation.order = "YZX"
+        }
     })
 
     const init = async () => {
@@ -402,29 +445,29 @@ export const Table = () => {
         init()
     }, [gltf])
 
-    useScrollTrigger(
-        gsapX => {
-            const isMobile = window.innerWidth < 720
+    // useScrollTrigger(
+    //     gsapX => {
+    //         const isMobile = window.innerWidth < 720
 
-            const scrollTrigger = {
-                trigger: ".section-1-container",
-                start: "top top",
-                end: "bottom center",
-                // markers: true,
-                scrub: 0.5,
-                pin: true,
-            }
+    //         const scrollTrigger = {
+    //             trigger: ".section-1-container",
+    //             start: "top top",
+    //             end: "bottom center",
+    //             // markers: true,
+    //             scrub: 0.5,
+    //             pin: true,
+    //         }
 
-            gsapX.to(camera.position, {
-                scrollTrigger,
-                x: 2.56,
-                y: 4.86,
-                z: 5.86,
-                duration: isMobile ? 0.2 : 2,
-            })
-        },
-        [gltf]
-    )
+    //         gsapX.to(camera.position, {
+    //             scrollTrigger,
+    //             x: 2.56,
+    //             y: 4.86,
+    //             z: 5.86,
+    //             duration: isMobile ? 0.2 : 2,
+    //         })
+    //     },
+    //     [gltf]
+    // )
 
     return (
         <>
@@ -436,7 +479,13 @@ export const Table = () => {
             )}
 
             {/* MODEL BELOW: */}
-            <primitive position={[0, 0, 0]} object={gltf.scene} scale={2.125} />
+            <group ref={tableRef} rotation={[0.0, 0.0, 0.0]}>
+                <primitive
+                    position={[0, 0, 0]}
+                    object={gltf.scene}
+                    scale={2.125}
+                />
+            </group>
         </>
     )
 }

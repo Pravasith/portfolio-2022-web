@@ -24,10 +24,14 @@ const ContactBar = () => {
         >
             <div className="flex-row-center tablet:flex-col-center">
                 {linkContent.map((item, i) => (
-                    <Link key={`contact-link-${i}`} href={item.link}>
-                        <a className="m-3" target={"_blank"}>
-                            <Icon iconSize={EIconSizes.xs}>{item.icon}</Icon>
-                        </a>
+                    <Link
+                        key={`contact-link-${i}`}
+                        href={item.link}
+                        className="m-3"
+                        target={"_blank"}
+                        passHref
+                    >
+                        <Icon iconSize={EIconSizes.xs}>{item.icon}</Icon>
                     </Link>
                 ))}
             </div>

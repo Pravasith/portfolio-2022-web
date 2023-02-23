@@ -34,10 +34,12 @@ const Button = (props: ButtonProps) => {
                 {props.showLoading ? (
                     <Loader />
                 ) : !!props.linkTo ? (
-                    <Link href={props.linkTo}>
-                        <a target={props.target ?? "_self"}>
-                            <p className={`font-calibre-bold`}>{props.text}</p>
-                        </a>
+                    <Link
+                        passHref
+                        href={props.linkTo}
+                        target={props.target ?? "_self"}
+                    >
+                        <p className={`font-calibre-bold`}>{props.text}</p>
                     </Link>
                 ) : (
                     <p className={`font-calibre-bold`}>{props.text}</p>

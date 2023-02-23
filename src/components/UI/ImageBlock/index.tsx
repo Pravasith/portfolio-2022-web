@@ -10,10 +10,10 @@ const ImageBlock = (props: ImageBlockProps) => {
                 <div className="z-10 absolute w-full h-full"></div>
                 <Image
                     src={props.imageBlock.src}
-                    alt={props.imageBlock.alt}
+                    alt={props.imageBlock.alt || ""}
                     width={props.imageBlock.width}
                     height={props.imageBlock.height}
-                    objectFit="contain"
+                    // objectFit="contain"
                 />
             </div>
 

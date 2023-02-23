@@ -13,7 +13,7 @@ import {
 import { Vector3 } from "three"
 
 import { Table } from "@models/index"
-import useScrollTrigger from "@hooks/useScrollTrigger"
+// import useScrollTrigger from "@hooks/useScrollTrigger"
 
 import { SectionProps } from "@components/Pages/Home/interface"
 import TextGroup from "@components/UI/TextGroup"
@@ -23,37 +23,13 @@ const DisableRender = () => useFrame(() => null, 1000)
 
 const Section1 = ({ textBlocks }: SectionProps) => {
     const cameraPosition = {
-        initial: new Vector3(-3.3, 1, 4.8),
+        initial: new Vector3(-2.4, 1.59, 4.76),
+        //         {
+        //     "x": -2.507023254003685,
+        //     "y": 1.594228266739427,
+        //     "z": 4.764199370032023
+        // }
     }
-
-    useScrollTrigger(gsapX => {
-        const scrollTrigger = {
-            trigger: ".section-1-container",
-            start: "top top",
-            end: "bottom center",
-            // markers: true,
-            scrub: 0.5,
-            pin: true,
-        }
-
-        gsapX.to(".section-1-red-triangle", {
-            scrollTrigger,
-            y: 100,
-            scale: 1.085,
-            yoyo: true,
-        })
-        gsapX.to(".section-1-bgd-beach-0", {
-            scrollTrigger,
-            y: 20,
-            scale: 1.05,
-            yoyo: true,
-        })
-        gsapX.to(".section-1-bgd-beach-1", {
-            scrollTrigger,
-            y: -100,
-            yoyo: true,
-        })
-    }, [])
 
     const { ref, inView } = useInView()
 
@@ -103,8 +79,10 @@ const Section1 = ({ textBlocks }: SectionProps) => {
 
                     {/* THREE */}
                     <div
-                        id="home-section-1-three"
-                        className="my-10 relative w-full h-full"
+                        // id="home-section-1-three"
+                        className={`
+                            my-10 relative w-full h-[36rem]
+                        `}
                     >
                         <div
                             ref={ref}
@@ -121,19 +99,20 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                             `}
                         >
                             <Canvas
-                                linear={false}
+                                // linear={false}
                                 shadows
                                 camera={{
                                     position: cameraPosition.initial,
                                     fov: 50,
-                                    zoom: 1.05,
+                                    // zoom: 1.05,
                                 }}
                             >
                                 {!inView && <DisableRender />}
+
                                 <OrbitControls
-                                    enableZoom={false}
-                                    enableRotate={false}
-                                    enablePan={false}
+                                // enableZoom={false}
+                                // enableRotate={false}
+                                // enablePan={false}
                                 />
 
                                 <Suspense fallback={<CanvasLoader />}>
@@ -142,12 +121,12 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                             </Canvas>
                         </div>
 
-                        <div
+                        {/* <div
                             className={`
                                 absolute w-full h-[160%] -bottom-[25%]
                                 laptop:h-[180%] laptop:-bottom-[35%]
                             `}
-                        ></div>
+                        ></div> */}
 
                         {/* TRIANGLES */}
                         <div

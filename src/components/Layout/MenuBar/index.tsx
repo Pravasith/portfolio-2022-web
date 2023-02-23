@@ -82,34 +82,27 @@ const MenuBar = () => {
                 {pages.map((page, index) => (
                     <Link
                         href={page.route}
-                        // passHref
+                        passHref
                         key={"whore-menu-" + index}
                     >
-                        <a>
-                            <li
-                                className={`
-                                    my-2 cursor-pointer
-                                    laptop:my-1
-                                `}
+                        <li
+                            className={`
+                                my-2 cursor-pointer
+                                laptop:my-1
+                            `}
+                        >
+                            <div
+                                onMouseEnter={() =>
+                                    handleHover(EMouseAction.ENTER, page.name)
+                                }
+                                onMouseLeave={() =>
+                                    handleHover(EMouseAction.LEAVE, page.name)
+                                }
+                                className="relative"
+                                id={`menubar-item-${page.name}`}
                             >
                                 <div
-                                    onMouseEnter={() =>
-                                        handleHover(
-                                            EMouseAction.ENTER,
-                                            page.name
-                                        )
-                                    }
-                                    onMouseLeave={() =>
-                                        handleHover(
-                                            EMouseAction.LEAVE,
-                                            page.name
-                                        )
-                                    }
-                                    className="relative"
-                                    id={`menubar-item-${page.name}`}
-                                >
-                                    <div
-                                        className={`
+                                    className={`
                                         menubar-item-background
                                         absolute -z-10 w-full rounded origin-center h-2/3 top-1/2 scale-x-0
                                         ${
@@ -119,21 +112,19 @@ const MenuBar = () => {
                                                 : EColorClassNames.ICON_BACKGROUND_ORANGE_200
                                         }
                                     `}
-                                    ></div>
+                                ></div>
 
-                                    <p
-                                        className={`px-3 text-xl  ${
-                                            state?.currentTheme ===
-                                            EThemes.LIGHT
-                                                ? ETextColorClassNames.LIGHT_THEME_TEXT_100
-                                                : ETextColorClassNames.DARK_THEME_TEXT_100
-                                        }`}
-                                    >
-                                        {page.name}
-                                    </p>
-                                </div>
-                            </li>
-                        </a>
+                                <p
+                                    className={`px-3 text-xl  ${
+                                        state?.currentTheme === EThemes.LIGHT
+                                            ? ETextColorClassNames.LIGHT_THEME_TEXT_100
+                                            : ETextColorClassNames.DARK_THEME_TEXT_100
+                                    }`}
+                                >
+                                    {page.name}
+                                </p>
+                            </div>
+                        </li>
                     </Link>
                 ))}
             </ul>

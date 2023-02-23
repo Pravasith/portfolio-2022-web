@@ -1,4 +1,6 @@
 import gsap from "gsap"
+import Observer from "gsap/dist/Observer"
+gsap.registerPlugin(Observer)
 
 import { useEffect } from "react"
 import { MouseMoveValues, OnMouseMove } from "./interface"
@@ -17,10 +19,9 @@ const useMouseMove = (onMouseMove: OnMouseMove) => {
 
     useEffect(() => {
         const init = async () => {
-            const { Observer } = await import("gsap/Observer")
+            // const { Observer } = await import("gsap/Observer")
 
-            gsap.registerPlugin(Observer)
-
+            // gsap.registerPlugin(Observer)
             Observer.create({
                 type: "touch,pointer",
                 onMove: observer => {

@@ -1,4 +1,7 @@
 import gsap from "gsap"
+import Observer from "gsap/dist/Observer"
+
+gsap.registerPlugin(Observer)
 
 import { useEffect, useState } from "react"
 import { useDebounce } from "use-debounce"
@@ -10,10 +13,6 @@ const useMouseScroll = () => {
 
     useEffect(() => {
         const init = async () => {
-            const { Observer } = await import("gsap/Observer")
-
-            gsap.registerPlugin(Observer)
-
             Observer.create({
                 type: "wheel,touch,pointer",
                 onUp: o => {

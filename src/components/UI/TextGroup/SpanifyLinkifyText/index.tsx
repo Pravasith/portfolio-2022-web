@@ -48,17 +48,14 @@ const SpanifyLinkifyText = ({
                         "/404-oops-not-found"
                     }
                     key={`text-element-${random20Id()}`}
-                >
-                    <a
-                        className={`${linkClassName} 
+                    className={`${linkClassName} 
                             text-theme-orange
                             after:bg-theme-orange after:absolute after:w-full 
                             after:h-half after:left-0 after:-bottom-half after:-z-10 
                             hover:after:bg-theme-blue after:transition hover:text-theme-blue transition
                         relative`}
-                    >
-                        {arrayOfElements}
-                    </a>
+                >
+                    {arrayOfElements}
                 </Link>
             )
         } else if (nextFourChars === TextMarkers.STRONG_END_MARK) {

@@ -1,4 +1,4 @@
-import useScrollTrigger from "@hooks/useScrollTrigger"
+// import useScrollTrigger from "@hooks/useScrollTrigger"
 
 import { ThemeContext } from "@utils/contexts/themeContext"
 
@@ -58,28 +58,28 @@ export const CurvedText = () => {
             toggleTheme(iconPath.current, state.currentTheme)
     }, [state?.currentTheme])
 
-    useScrollTrigger(
-        gsapX => {
-            if (curvedText1.current) {
-                const scrollTrigger = {
-                    trigger: ".section-2-container",
-                    start: "top top",
-                    end: "bottom 25%",
-                    // markers: true,
-                    scrub: 0.5,
-                    pin: true,
-                }
+    // useScrollTrigger(
+    //     gsapX => {
+    //         if (curvedText1.current) {
+    //             const scrollTrigger = {
+    //                 trigger: ".section-2-container",
+    //                 start: "top top",
+    //                 end: "bottom 25%",
+    //                 // markers: true,
+    //                 scrub: 0.5,
+    //                 pin: true,
+    //             }
 
-                gsapX.to(curvedText1.current, {
-                    scrollTrigger,
-                    attr: { startOffset: "50%" },
-                    yoyo: true,
-                    duration: 5,
-                })
-            }
-        },
-        [curvedText1.current]
-    )
+    //             gsapX.to(curvedText1.current, {
+    //                 scrollTrigger,
+    //                 attr: { startOffset: "50%" },
+    //                 yoyo: true,
+    //                 duration: 5,
+    //             })
+    //         }
+    //     },
+    //     [curvedText1.current]
+    // )
 
     return (
         <svg
