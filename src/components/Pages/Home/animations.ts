@@ -43,10 +43,16 @@ export const registerHomePageAnimations = () => {
     ScrollTrigger.create({
         animation: tl2,
         trigger: ".section-2-container",
-        start: "top top",
-        end: "bottom 25%",
-        markers: true,
+        start: "25% 80%",
+        end: "bottom 80%",
+        // markers: true,
         scrub: true,
+    })
+
+    tl2.to(".curved-text-1", {
+        attr: { startOffset: "50%" },
+        yoyo: true,
+        duration: 5,
     })
 
     // tl2.to(".section-1-red-triangle", {

@@ -108,7 +108,7 @@ const EmailForm = (props: EmailFormType) => {
 
                             <TextArea
                                 name="message"
-                                placeholder="Hey Pravas, I think your work is okay. But I'd like to get in touch with you for..."
+                                placeholder="Hey Prav, I'd like to chat with you..."
                                 onChange={handler}
                                 rows={4}
                                 className={"w-full"}

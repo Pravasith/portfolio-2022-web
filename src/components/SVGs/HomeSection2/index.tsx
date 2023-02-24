@@ -8,24 +8,20 @@ import { toggleTheme } from "../factories"
 export const CurvedText = () => {
     const getText = () => {
         const words = [
-            "NGINX",
-            "SVG MAGIC",
-            "NODE.JS",
+            "GRAPHICS",
 
-            "AWS",
+            "DESIGN",
 
-            "GRAPHQL",
+            "ONLINE",
+            "LOGO",
+            "E COMMERCE",
 
-            "WEBGL",
-            "JAVA",
-
-            "NEXT.JS",
-            "REACT.JS",
-            "THREE.JS",
-            "SPRING BOOT",
-            "POSTGRES",
-            "MONGODB",
-            "DOCKER",
+            "DESIGN",
+            "3D WESBSITES",
+            "VISUAL DESIGN",
+            "SEO",
+            "BRAND",
+            "UI/UX",
         ]
 
         return words.map((word, i) => {
@@ -33,7 +29,8 @@ export const CurvedText = () => {
                 return (
                     <tspan
                         className="curlyTextBold"
-                        fontSize={"1.5rem"}
+                        fontSize={"1.75rem"}
+                        fontStretch={"1rem"}
                         key={"word" + i}
                     >
                         &nbsp;{word}&nbsp;&nbsp;

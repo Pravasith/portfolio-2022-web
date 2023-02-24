@@ -11,7 +11,7 @@ export const registerTableAnimations = (camera: Camera) => {
         trigger: ".section-1-container",
         start: "top top",
         end: "bottom 25%",
-        markers: true,
+        // markers: true,
         scrub: true,
     })
 

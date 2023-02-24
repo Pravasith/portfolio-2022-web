@@ -37,12 +37,14 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 {
                     type: ETextTypes.P,
                     text: `
-                        Nice to meet you 😁, I have been a Creative Developer at highly funded start-ups 
+                        Nice to meet you 😁, I have been a :st>Creative Developer<st: at highly funded start-ups 
                         and Award-winning Digital production studios for over 6 years, 
                         specializing in creating dynamic webpages with the latest and powerful frontend technologies. 
-
-                    `
-                }
+                        I started freelancing to use my passion and skills to make an impact on businesses like yours.
+                        Ultimately, I thrive to represent your business in the best way possible so that your
+                        business gets more reach online and increase your leads dramatically.
+                    `,
+                },
             ],
         },
         {
@@ -51,11 +53,20 @@ export const INDEX_PAGE_DATA: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "Some tech projects 🍓",
+                    text: "What I Do 🍓",
                 },
                 {
                     type: ETextTypes.P,
-                    text: "What excites me the most in tech is the thrill you feel after finding a solution to a problem, and the satisfaction you attain after you build something beautiful.:br::br:Like many other awesome developers out there, I often try to do side projects to learn new technologies. Since I’m lucky enough to possess the ability to design, I get to evolve the design of the product as I go 😁. Here are a few projects that I had loads of fun working on ✨.",
+                    text: `
+                        I help your business 
+                        stand out from the crowd and attract potential customers. 
+                        My designs are tailored to your specific needs and crafted to make 
+                        sure you are getting the most out of your website. 
+                        My designs are optimized for the best performance and 
+                        usability to ensure your users have a great experience. 
+
+                        Here are some of my personal Projects -
+                    `,
                 },
             ],
         },
@@ -65,11 +76,19 @@ export const INDEX_PAGE_DATA: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "Write to me!",
+                    text: "I'm Available For A Chat!",
                 },
                 {
                     type: ETextTypes.P,
-                    text: "I’d appreciate it if you wrote to me, be it about my work/feedback or even just a hi! I am :st>currently looking for new Full-Stack opportunities<st: in :st>Canada<st:, and if you are hiring, let me know if I have a shot :)",
+                    // text: "I’d appreciate it if you wrote to me, be it about my work/feedback or even just a hi! I am :st>currently looking for new Full-Stack opportunities<st: in :st>Canada<st:, and if you are hiring, let me know if I have a shot :)",
+                    text: `
+                        Whether you're looking to boost your online presence, generate more leads, or increase sales, 
+                        I can help you achieve your goals. My websites are designed with your target audience in mind, 
+                        ensuring that every aspect of your site resonates with your customers and encourages them to take action.
+                        So if you're ready to take your business to the next level, let's chat! 
+                        Fill out the form below and tell me a little bit about yourself and your project. 
+                        I can't wait to hear from you and start creating something amazing together!
+                    `,
                 },
             ],
         },
@@ -78,6 +97,22 @@ export const INDEX_PAGE_DATA: IndexPageData = {
         {
             name: "all-projects",
             projects: [
+                {
+                    title: "Old portfolio website",
+                    description:
+                        "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+                    gitHubLink: "https://github.com/Pravasith",
+                    liveLink: "https://pravasdesign.com",
+                    media: {
+                        src: "/img/pravasith-portfolio-website.png",
+                        alt: "pravasith-portfolio-thumbnail",
+                        type: ESrcType.IMAGE,
+                        id: "pravasith-portfolio-thumbnail",
+                        width: 1000,
+                        height: 574,
+                        caption: "Pravasith's old portfolio site",
+                    },
+                },
                 {
                     title: "Old portfolio website",
                     description:

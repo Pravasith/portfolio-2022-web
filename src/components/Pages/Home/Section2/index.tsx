@@ -7,11 +7,12 @@ import { ETextAlign } from "@lib/api/textGroups/interface"
 
 const Section2 = ({ textBlocks }: SectionProps) => {
     return (
-        <div className="min-h-screen">
+        <div
+        // className="min-h-screen"
+        >
             <div
                 className={`
                 section-2-container w-full
-                tablet:h-screen
             `}
             >
                 <div

@@ -80,7 +80,7 @@ const Layout: React.FC = ({ children }) => {
                         dispatch: menuDispatch,
                     }}
                 >
-                    <header className="absolute">
+                    <header className="absolute w-full">
                         {/* Things that go in the top bar, like Navbar */}
                         {/* Banners, notification strips... etc. */}
                         {isMobile && <PhoneMenu />}

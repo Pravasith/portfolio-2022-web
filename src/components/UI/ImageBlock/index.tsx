@@ -11,8 +11,8 @@ const ImageBlock = (props: ImageBlockProps) => {
                 <Image
                     src={props.imageBlock.src}
                     alt={props.imageBlock.alt || ""}
-                    width={props.imageBlock.width}
-                    height={props.imageBlock.height}
+                    width={props.imageBlock.width ?? 1024}
+                    height={props.imageBlock.height ?? 640}
                     // objectFit="contain"
                 />
             </div>

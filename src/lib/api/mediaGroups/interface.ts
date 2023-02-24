@@ -11,8 +11,8 @@ export enum BlockType {
 }
 export interface ImageBlockType {
     src: string
-    width: number
-    height: number
+    width?: number
+    height?: number
     type?: ESrcType.IMAGE
     alt?: string
     id?: string
