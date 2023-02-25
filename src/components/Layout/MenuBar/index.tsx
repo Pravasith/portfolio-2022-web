@@ -115,11 +115,16 @@ const MenuBar = () => {
                                 ></div>
 
                                 <p
-                                    className={`px-3 text-xl  ${
-                                        state?.currentTheme === EThemes.LIGHT
-                                            ? ETextColorClassNames.LIGHT_THEME_TEXT_100
-                                            : ETextColorClassNames.DARK_THEME_TEXT_100
-                                    }`}
+                                    className={`
+                                        px-3 text-xl 
+                                        ${
+                                            state?.currentTheme ===
+                                            EThemes.LIGHT
+                                                ? ETextColorClassNames.LIGHT_THEME_TEXT_100
+                                                : ETextColorClassNames.DARK_THEME_TEXT_100
+                                        }
+                                        tv:text-3xl
+                                     `}
                                 >
                                     {page.name}
                                 </p>

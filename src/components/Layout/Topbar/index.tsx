@@ -35,6 +35,7 @@ const Topbar = () => {
                     className={`
                         flex-col-center h-24
                         tablet:flex-col-center tablet:h-32
+                        tv:h-52
                     `}
                 >
                     <Link passHref href={"/"}>
@@ -65,6 +66,7 @@ const Topbar = () => {
                     className={`
                         flex-col-center h-24
                         tablet:flex-col-center tablet:h-32
+                        tv:h-52
                     `}
                 >
                     <Icon onClick={toggleTheme} iconSize={EIconSizes.lg}>

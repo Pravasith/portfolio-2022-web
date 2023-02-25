@@ -42,9 +42,11 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                         flex-col-center px-6
                         mt-20 mb-10
                         tablet:px-1/5 tablet:mt-20
-                        laptop:px-[25%] laptop:mt-0
+                        laptop:px-[25%] laptop:mt-20
                         desktop:px-[30%]
                         full-hd:px-[33.33%] full-hd:mt-8
+                        true-hd:12
+                        tv:mt-20
                     `}
                 >
                     <div className="section-1-text-block w-full">
