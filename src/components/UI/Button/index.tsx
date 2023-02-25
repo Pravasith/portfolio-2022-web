@@ -11,10 +11,11 @@ const Button = (props: ButtonProps) => {
     return (
         <>
             <button
+                onClick={props.onClick}
                 disabled={props.disabled}
                 className={`
                     my-3
-                    px-5 py-2
+                    overflow-clip 
                     border-2 border-solid rounded-2xl
                     bg-opacity-30
                     active:bg-button-bgd-1 bg-150%
@@ -42,7 +43,19 @@ const Button = (props: ButtonProps) => {
                         <p className={`font-calibre-bold`}>{props.text}</p>
                     </Link>
                 ) : (
-                    <p className={`font-calibre-bold`}>{props.text}</p>
+                    <p
+                        className={`
+                            font-calibre-bold
+                            ${
+                                state?.currentTheme === EThemes.LIGHT
+                                    ? "bg-gray-50/50"
+                                    : "bg-slate-800/60"
+                            }
+                             px-5 py-2
+                        `}
+                    >
+                        {props.text}
+                    </p>
                 )}
             </button>
         </>

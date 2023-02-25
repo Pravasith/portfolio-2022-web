@@ -10,8 +10,16 @@ import {
     VideoBlockType,
 } from "@lib/api/mediaGroups/interface"
 import VideoBlock from "@components/UI/VideoBlock"
+import Button from "@components/UI/Button"
+import { useState } from "react"
 
 const Section3New = ({ textBlocks, projects }: Section3Props) => {
+    const [showMoreItems, setShowMoreItems] = useState<boolean>(false)
+
+    const toggleShowMoreItems = () => {
+        setShowMoreItems(!showMoreItems)
+    }
+
     return (
         <div className="section-3-container flex-col-center">
             <div className="flex-col-center w-full mt-10 mb-44">
@@ -37,11 +45,28 @@ const Section3New = ({ textBlocks, projects }: Section3Props) => {
                 </div>
             </div>
 
-            <div className="px-[15%]">
-                <div className="masonry-container rounded-xl bg-white">
+            <div
+                className={`
+                    mt-20
+                    ${showMoreItems ? "" : "max-h-[95vh]"}
+                    overflow-clip rounded-2xl
+                    px-6 w-full
+                    tablet:px-1/5
+                    laptop:px-[25%]
+                    desktop:px-[15%]
+                `}
+            >
+                <div
+                    className={`
+                        masonry-container 
+                    `}
+                >
                     {projects.map((project, i) => {
                         return (
-                            <div className="masonry-item" key={"project-" + i}>
+                            <div
+                                className="masonry-item rounded-2xl overflow-clip bg-white"
+                                key={"project-" + i}
+                            >
                                 {project.media.type === ESrcType.IMAGE ? (
                                     <ImageBlock
                                         imageBlock={
@@ -59,6 +84,13 @@ const Section3New = ({ textBlocks, projects }: Section3Props) => {
                         )
                     })}
                 </div>
+            </div>
+
+            <div className="w-full h-32 flex-row-center">
+                <Button
+                    text={showMoreItems ? "Show less" : "Show more projects"}
+                    onClick={toggleShowMoreItems}
+                />
             </div>
 
             {/* OTHER FUN PROJECTS */}

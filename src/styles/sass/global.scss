@@ -45,13 +45,11 @@ body {
     // scroll-behavior: smooth;
     ::-moz-selection {
         /* Code for Firefox */
-        color: red;
-        background: yellow;
+        @apply text-theme-orange bg-theme-yellow;
     }
 
     ::selection {
-        color: red;
-        background: yellow;
+        @apply text-theme-orange bg-theme-yellow;
     }
 }
 
@@ -75,18 +73,16 @@ strong {
 }
 
 .masonry-container {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
 
-    -webkit-column-gap: 0;
-    -moz-column-gap: 0;
-    column-gap: 0;
+    @apply columns-1 tablet:columns-2;
 
-
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
 }
 
 .masonry-item {
     // display: inline-block;
+    margin-bottom: 1rem;
     width: 100%;
 }

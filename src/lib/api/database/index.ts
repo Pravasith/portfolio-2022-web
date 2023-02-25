@@ -223,6 +223,7 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 caption: "Have Some Chicken",
             },
         },
+
         {
             title: "Gift Box",
             description:
@@ -351,25 +352,20 @@ export const INDEX_PAGE_DATA: IndexPageData = {
                 caption: "Have Some Chicken",
             },
         },
-        // {
-        //     title: "Into The Void",
-        //     description:
-        //         "My first attempt at building a first-person 3D Open World game that runs on the browser. I used :st>NextJS/ReactJS, ThreeJS; Blender<st: for modelling, and :st>Illustrator<st: for UX Design.",
-        //     gitHubLink: "https://github.com/Pravasith/into-the-void",
-        //     liveLink:
-        //         "https://bootes-void.vercel.app/bootes-space-mine",
-        //     media: {
-        //         src: "/img/space-mine-game.png",
-        //         alt: "spacemine thumbimage",
-        //         type: ESrcType.IMAGE,
-        //         id: "spacemine-thumbnail",
-        //         width: 1000,
-        //         height: 574,
-        //         caption: "A 3D game - Into the Void",
-        //     },
-        // },
     ],
 }
+
+const projects = []
+
+for (let i = 0; i < INDEX_PAGE_DATA.projects.length; i++) {
+    if (i % 2 === 0) projects.push(INDEX_PAGE_DATA.projects[i])
+}
+
+for (let i = 0; i < INDEX_PAGE_DATA.projects.length; i++) {
+    if (i % 2 !== 0) projects.push(INDEX_PAGE_DATA.projects[i])
+}
+
+INDEX_PAGE_DATA.projects = projects
 
 export const RESUME_LINK =
     "https://drive.google.com/file/d/1x1nEsUpEDcLoAm3JUHJnCSUcffC5bGVY/view?usp=sharing"
