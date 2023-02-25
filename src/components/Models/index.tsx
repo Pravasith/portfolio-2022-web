@@ -10,6 +10,7 @@ import { FlamingoLightsProps, TableLightsProps } from "./interface"
 
 import { MouseMoveValues } from "@hooks/useMouseMove/interface"
 import { registerTableAnimations } from "./animations"
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader"
 
 const TableLights = ({
     parentObjectForSpotlight,
@@ -215,7 +216,7 @@ const FlamingoLights = ({ spotlightTarget }: FlamingoLightsProps) => {
 }
 
 export const Table = () => {
-    const gltf = useGLTF("/gltfs/table.gltf")
+    const gltf = useGLTF("/gltfs/table.gltf") as GLTF
 
     const [deskLightParent, setDeskLightParent] = useState<Object3D>()
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
@@ -560,7 +561,7 @@ export const Doflamingo = () => {
 }
 
 export const StreetSign = () => {
-    const gltf = useGLTF("/gltfs/streetboard.gltf")
+    const gltf = useGLTF("/gltfs/streetboard.gltf") as GLTF
     const [spotLightTarget, setSpotLightTarget] = useState<Object3D>()
     const { scene } = useThree()
 
