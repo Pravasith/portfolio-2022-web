@@ -6,7 +6,7 @@ import Home from "@components/Pages/Home"
 
 import { TextSectionType } from "@lib/api/textGroups/interface"
 
-import { ProjectsType } from "@lib/api/projects/interface"
+import { ProjectsType, ProjectType } from "@lib/api/projects/interface"
 import { metaData } from "@utils/constants"
 
 import { INDEX_PAGE_DATA } from "@lib/api/database"
@@ -29,7 +29,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ textSections, projects }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
     const textSections: TextSectionType[] = [],
-        projects: ProjectsType[] = []
+        projects: ProjectType[] = []
 
     textSections.push(...INDEX_PAGE_DATA.textSections)
     projects.push(...INDEX_PAGE_DATA.projects)
