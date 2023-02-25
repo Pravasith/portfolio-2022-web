@@ -18,3 +18,5 @@ export const metaData = {
     twitterImage:
         "https://res.cloudinary.com/pravasith/image/upload/v1660596444/Portfolio%202022/og_images/OG_image.png",
 }
+
+export const TABLET_MAX_SCREEN_SIZE = 768

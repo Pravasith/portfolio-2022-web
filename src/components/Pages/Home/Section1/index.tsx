@@ -40,7 +40,8 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                 <div
                     className={`
                         flex-col-center px-6
-                        tablet:px-1/5 tablet:mt-6
+                        mt-20 mb-10
+                        tablet:px-1/5 tablet:mt-20
                         laptop:px-[25%] laptop:mt-0
                         desktop:px-[30%]
                         full-hd:px-[33.33%] full-hd:mt-8
