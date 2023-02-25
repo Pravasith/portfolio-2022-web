@@ -29,7 +29,11 @@ import { themeReducer } from "@utils/reducers/themeReducer"
 
 import useMobileScreen from "@hooks/useMobileScreen"
 
-const Layout: React.FC = ({ children }: any) => {
+interface LayoutProps {
+    children: React.ReactNode
+}
+
+const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
     const [state, dispatch] = useReducer(
         themeReducer,
         themeContextDefaultValues
@@ -96,7 +100,7 @@ const Layout: React.FC = ({ children }: any) => {
 
                 <article>
                     {/* Children */}
-                    {children}
+                    {props.children}
                 </article>
 
                 <aside>
