@@ -1,3 +1,4 @@
+import { INDEX_PAGE_DATA } from "@lib/api/database"
 import { TextBlockType } from "@lib/api/textGroups/interface"
 import { useEffect } from "react"
 import { registerHomePageAnimations } from "./animations"
@@ -49,8 +50,8 @@ HomeProps) => {
                     textBlocks={homeSections.get(HomeSections.SECTION_2) ?? []}
                 />
                 <Section3New
-                // textBlocks={homeSections.get(HomeSections.SECTION_3) ?? []}
-                // projects={projects}
+                    textBlocks={homeSections.get(HomeSections.SECTION_3) ?? []}
+                    projects={INDEX_PAGE_DATA.projects}
                 />
                 <Section4
                     textBlocks={homeSections.get(HomeSections.SECTION_4) ?? []}

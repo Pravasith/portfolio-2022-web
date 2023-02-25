@@ -1,4 +1,4 @@
-import { ProjectsType } from "@lib/api/projects/interface"
+import { ProjectsType, ProjectType } from "@lib/api/projects/interface"
 import { TextSectionType, TextBlockType } from "@lib/api/textGroups/interface"
 
 export interface HomeProps {
@@ -11,7 +11,7 @@ export interface SectionProps {
 }
 
 export interface Section3Props extends SectionProps {
-    projects: ProjectsType
+    projects: ProjectType[]
 }
 
 export enum HomeSections {

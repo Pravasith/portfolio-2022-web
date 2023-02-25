@@ -12,8 +12,6 @@ import Link from "next/link"
 import { GithubIcon, OpenLinkIcon } from "@components/SVGs/HomeSection2"
 import { EIconSizes } from "@components/UI/Icons/interface"
 
-import ImageBlock from "@components/UI/ImageBlock"
-
 import { ProjectSectionProps } from "./interface"
 import { random20Id } from "@utils/index"
 import { useContext } from "react"
@@ -160,7 +158,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             desktop:mx-0 desktop:rounded-[3rem]
                         `}
                     >
-                        <ImageBlock imageBlock={item.media} />
+                        {/* <ImageBlock imageBlock={item.media} /> */}
                     </div>
                 </div>
 

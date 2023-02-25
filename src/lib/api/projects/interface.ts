@@ -1,11 +1,11 @@
-import { ImageBlockType } from "@lib/api/mediaGroups/interface"
+import { ImageBlockType, VideoBlockType } from "@lib/api/mediaGroups/interface"
 
 export type ProjectType = {
     title: string
     description: string
     gitHubLink: string
     liveLink: string
-    media: ImageBlockType
+    media: ImageBlockType | VideoBlockType
 }
 
 export type ProjectsType = {

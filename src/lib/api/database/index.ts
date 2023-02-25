@@ -93,78 +93,281 @@ export const INDEX_PAGE_DATA: IndexPageData = {
             ],
         },
     ],
+
     projects: [
         {
-            name: "all-projects",
-            projects: [
-                {
-                    title: "Old portfolio website",
-                    description:
-                        "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
-                    gitHubLink: "https://github.com/Pravasith",
-                    liveLink: "https://pravasdesign.com",
-                    media: {
-                        src: "/img/pravasith-portfolio-website.png",
-                        alt: "pravasith-portfolio-thumbnail",
-                        type: ESrcType.IMAGE,
-                        id: "pravasith-portfolio-thumbnail",
-                        width: 1000,
-                        height: 574,
-                        caption: "Pravasith's old portfolio site",
-                    },
-                },
-                {
-                    title: "Old portfolio website",
-                    description:
-                        "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
-                    gitHubLink: "https://github.com/Pravasith",
-                    liveLink: "https://pravasdesign.com",
-                    media: {
-                        src: "/img/pravasith-portfolio-website.png",
-                        alt: "pravasith-portfolio-thumbnail",
-                        type: ESrcType.IMAGE,
-                        id: "pravasith-portfolio-thumbnail",
-                        width: 1000,
-                        height: 574,
-                        caption: "Pravasith's old portfolio site",
-                    },
-                },
-                {
-                    title: "Spotifinder",
-                    description:
-                        "A Spotify clone app with an unnecessarily complicated backend. I used Spotify endpoints to make an aggregated backend that serves data via :st>GraphQL<st:. I used :st>TypeScript, NodeJS, TypeGraphQL, Apollo, ExpressJS, HowlerJS, NextJS/ReactJS<st: and :st>Illustrator<st: for UX Design.",
-                    gitHubLink:
-                        "https://github.com/stars/Pravasith/lists/spotifinder",
-                    liveLink: "https://spotifinder.vercel.app/",
-                    media: {
-                        src: "/img/spotifinder-graphql.png",
-                        alt: "spotifinder thumbimage",
-                        type: ESrcType.IMAGE,
-                        id: "spotifinder-thumbnail",
-                        width: 1000,
-                        height: 574,
-                        caption: "A very cool app with a very cool Backend",
-                    },
-                },
-                {
-                    title: "Into The Void",
-                    description:
-                        "My first attempt at building a first-person 3D Open World game that runs on the browser. I used :st>NextJS/ReactJS, ThreeJS; Blender<st: for modelling, and :st>Illustrator<st: for UX Design.",
-                    gitHubLink: "https://github.com/Pravasith/into-the-void",
-                    liveLink:
-                        "https://bootes-void.vercel.app/bootes-space-mine",
-                    media: {
-                        src: "/img/space-mine-game.png",
-                        alt: "spacemine thumbimage",
-                        type: ESrcType.IMAGE,
-                        id: "spacemine-thumbnail",
-                        width: 1000,
-                        height: 574,
-                        caption: "A 3D game - Into the Void",
-                    },
-                },
-            ],
+            title: "Old portfolio website",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/portfolio-pravasith.mp4",
+                alt: "pravasith portfolio screen recording",
+                type: ESrcType.VIDEO,
+                // id: "pravasith-portfolio-thumbnail",
+                width: 1270,
+                height: 720,
+                caption: "Pravasith's old portfolio site",
+            },
         },
+        {
+            title: "Meal Delivery App UX Case Study",
+            description:
+                "A Spotify clone app with an unnecessarily complicated backend. I used Spotify endpoints to make an aggregated backend that serves data via :st>GraphQL<st:. I used :st>TypeScript, NodeJS, TypeGraphQL, Apollo, ExpressJS, HowlerJS, NextJS/ReactJS<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
+            liveLink: "https://spotifinder.vercel.app/",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271503/Portfolio%202022/projects/meal-delivery-app.webp",
+                alt: "Meal Delivery App thumbnail",
+                type: ESrcType.IMAGE,
+                id: "meal-delivery-app-thumbnail",
+                width: 1024,
+                height: 640,
+                caption: "Meal Delivery App UX Case Study",
+            },
+        },
+        {
+            title: "Spotifinder App",
+            description:
+                "A Spotify clone app with an unnecessarily complicated backend. I used Spotify endpoints to make an aggregated backend that serves data via :st>GraphQL<st:. I used :st>TypeScript, NodeJS, TypeGraphQL, Apollo, ExpressJS, HowlerJS, NextJS/ReactJS<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
+            liveLink: "https://spotifinder.vercel.app/",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/spotifinder.mp4",
+                alt: "Spotifinder App thumbnail",
+                type: ESrcType.VIDEO,
+                // id: "spotifinder-thumbnail",
+                width: 1270,
+                height: 720,
+                caption: "Spotifinder App",
+            },
+        },
+        {
+            title: "Bootes Void Space Game",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/bootes-void-game.mp4",
+                alt: "Bootes Void Game Render",
+                type: ESrcType.VIDEO,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1126,
+                height: 650,
+                caption: "Bootes Void Space Game",
+            },
+        },
+        {
+            title: "Have Some Chicken",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271505/Portfolio%202022/projects/have-some-chicken.mp4",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.VIDEO,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1600,
+                height: 1200,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Architecture Sketch",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271503/Portfolio%202022/projects/architecture-sketch.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1024,
+                height: 689,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Toddlers Table",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271504/Portfolio%202022/projects/toddlers-table.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1163,
+                height: 825,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Glasmet Game Asset",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271504/Portfolio%202022/projects/glasmet.mp4",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.VIDEO,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1920,
+                height: 1080,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Gift Box",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271504/Portfolio%202022/projects/gift-box.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1024,
+                height: 726,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Brochure Design",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271504/Portfolio%202022/projects/rolling-logs-brochure.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1024,
+                height: 589,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Preloader Design",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271504/Portfolio%202022/projects/preloader.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 752,
+                height: 500,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Landing Page Design",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271504/Portfolio%202022/projects/rolling-logs.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1024,
+                height: 589,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Pedal Wash",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271503/Portfolio%202022/projects/pedal-wash.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1024,
+                height: 726,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Profile Page Design",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271503/Portfolio%202022/projects/archibuddy-profile.mp4",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.VIDEO,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1040,
+                height: 650,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Landing Page Design",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271503/Portfolio%202022/projects/archibuddy-home.mp4",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.VIDEO,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 1126,
+                height: 650,
+                caption: "Have Some Chicken",
+            },
+        },
+        {
+            title: "Funky Table Design",
+            description:
+                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
+            gitHubLink: "https://github.com/Pravasith",
+            liveLink: "https://pravasdesign.com",
+            media: {
+                src: "https://res.cloudinary.com/pravasith/image/upload/v1677271503/Portfolio%202022/projects/funky-table.webp",
+                alt: "Video render of 2 fried chicken legs on a plate",
+                type: ESrcType.IMAGE,
+                // id: "pravasith-portfolio-thmbnail",
+                width: 600,
+                height: 600,
+                caption: "Have Some Chicken",
+            },
+        },
+        // {
+        //     title: "Into The Void",
+        //     description:
+        //         "My first attempt at building a first-person 3D Open World game that runs on the browser. I used :st>NextJS/ReactJS, ThreeJS; Blender<st: for modelling, and :st>Illustrator<st: for UX Design.",
+        //     gitHubLink: "https://github.com/Pravasith/into-the-void",
+        //     liveLink:
+        //         "https://bootes-void.vercel.app/bootes-space-mine",
+        //     media: {
+        //         src: "/img/space-mine-game.png",
+        //         alt: "spacemine thumbimage",
+        //         type: ESrcType.IMAGE,
+        //         id: "spacemine-thumbnail",
+        //         width: 1000,
+        //         height: 574,
+        //         caption: "A 3D game - Into the Void",
+        //     },
+        // },
     ],
 }
 

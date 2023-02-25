@@ -3,9 +3,10 @@ import TextGroup from "@components/UI/TextGroup"
 import { ETextAlign, ETextTypes } from "@lib/api/textGroups/interface"
 
 import { Section3Props } from "@components/Pages/Home/interface"
-import ProjectSection from "./ProjectSection"
+// import ProjectSection from "./ProjectSection"
 
-const Section3 = ({ textBlocks, projects }: Section3Props) => {
+const Section3 = ({ textBlocks }: Section3Props) => {
+    // projects
     return (
         <div className="section-3-container flex-col-center">
             <div className="flex-col-center w-full mt-10 mb-44">
@@ -33,7 +34,7 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
 
             {/* PROJECT SECTION */}
             <div className="w-full my-10">
-                <ProjectSection projects={projects} />
+                {/* <ProjectSection projects={projects} /> */}
             </div>
 
             {/* OTHER FUN PROJECTS */}

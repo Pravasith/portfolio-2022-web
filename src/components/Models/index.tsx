@@ -289,8 +289,6 @@ export const Table = () => {
                 (e.pageX / window.innerWidth) * 2 - 1,
                 -(e.pageY / window.innerHeight) * 2 + 1
             )
-
-            console.log(camera.position)
         }
         window.addEventListener("pointermove", handleMouse)
 
