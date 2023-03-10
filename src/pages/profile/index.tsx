@@ -9,10 +9,7 @@ import { TextSectionType } from "@lib/api/textGroups/interface"
 import { ProjectType } from "@lib/api/projects/interface"
 import { metaData } from "@utils/constants"
 
-import {
-    INDEX_PAGE_DATA_DEV,
-    // INDEX_PAGE_DATA_FREELANCE,
-} from "@lib/api/database"
+import { INDEX_PAGE_DATA_FREELANCE } from "@lib/api/database"
 
 interface IndexPageProps {
     textSections: TextSectionType[]
@@ -24,11 +21,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ textSections, projects }) => {
         <main>
             <Meta {...metaData} />
             <Layout>
-                <Home
-                    textSections={textSections}
-                    projects={projects}
-                    isDevProfile
-                />
+                <Home textSections={textSections} projects={projects} />
             </Layout>
         </main>
     )
@@ -38,8 +31,8 @@ export const getStaticProps: GetStaticProps = async () => {
     const textSections: TextSectionType[] = [],
         projects: ProjectType[] = []
 
-    textSections.push(...INDEX_PAGE_DATA_DEV.textSections)
-    projects.push(...INDEX_PAGE_DATA_DEV.projects)
+    textSections.push(...INDEX_PAGE_DATA_FREELANCE.textSections)
+    projects.push(...INDEX_PAGE_DATA_FREELANCE.projects)
 
     // TODO: Change this for BE data
     // await Promise.all([

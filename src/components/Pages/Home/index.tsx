@@ -1,17 +1,14 @@
-import { INDEX_PAGE_DATA } from "@lib/api/database"
 import { TextBlockType } from "@lib/api/textGroups/interface"
 import { useEffect } from "react"
 import { registerHomePageAnimations } from "./animations"
 import { HomeProps, HomeSections } from "./interface"
 import Section1 from "./Section1"
 import Section2 from "./Section2"
+import Section3 from "./Section3"
 import Section3New from "./Section3New"
 import Section4 from "./Section4"
 
-const Home = ({
-    textSections,
-}: // projects
-HomeProps) => {
+const Home = ({ textSections, projects, isDevProfile }: HomeProps) => {
     const homeSections = new Map<HomeSections, TextBlockType[]>()
 
     homeSections.set(
@@ -49,10 +46,21 @@ HomeProps) => {
                 <Section2
                     textBlocks={homeSections.get(HomeSections.SECTION_2) ?? []}
                 />
-                <Section3New
-                    textBlocks={homeSections.get(HomeSections.SECTION_3) ?? []}
-                    projects={INDEX_PAGE_DATA.projects}
-                />
+                {isDevProfile ? (
+                    <Section3
+                        textBlocks={
+                            homeSections.get(HomeSections.SECTION_3) ?? []
+                        }
+                        projects={projects}
+                    />
+                ) : (
+                    <Section3New
+                        textBlocks={
+                            homeSections.get(HomeSections.SECTION_3) ?? []
+                        }
+                        projects={projects}
+                    />
+                )}
                 <Section4
                     textBlocks={homeSections.get(HomeSections.SECTION_4) ?? []}
                 />

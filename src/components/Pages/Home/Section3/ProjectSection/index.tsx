@@ -19,6 +19,8 @@ import { random20Id } from "@utils/index"
 import { useContext } from "react"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
+import ImageBlock from "@components/UI/ImageBlock"
+import { ImageBlockType } from "@lib/api/mediaGroups/interface"
 
 const ProjectSection = ({ projects }: ProjectSectionProps) => {
     // const [projects] = useState<ProjectType[]>(() => [
@@ -78,7 +80,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
         (state?.currentTheme === EThemes.LIGHT ? "bg-white" : "bg-gray-800") +
         " desktop:bg-transparent"
 
-    const Projects = projects.projects.map((item, i) => {
+    const Projects = projects.map((item, i) => {
         const projectTextBlocks = [
             {
                 type: ETextTypes.H3,
@@ -160,7 +162,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             desktop:mx-0 desktop:rounded-[3rem]
                         `}
                     >
-                        {/* <ImageBlock imageBlock={item.media} /> */}
+                        <ImageBlock imageBlock={item.media as ImageBlockType} />
                     </div>
                 </div>
 

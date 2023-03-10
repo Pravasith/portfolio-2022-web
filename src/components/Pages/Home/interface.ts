@@ -1,9 +1,10 @@
-import { ProjectsType, ProjectType } from "@lib/api/projects/interface"
+import { ProjectType } from "@lib/api/projects/interface"
 import { TextSectionType, TextBlockType } from "@lib/api/textGroups/interface"
 
 export interface HomeProps {
     textSections: TextSectionType[]
-    projects: ProjectsType
+    projects: ProjectType[]
+    isDevProfile?: boolean
 }
 
 export interface SectionProps {

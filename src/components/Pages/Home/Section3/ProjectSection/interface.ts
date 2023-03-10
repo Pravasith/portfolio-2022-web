@@ -1,4 +1,4 @@
-import { ProjectsType } from "@lib/api/projects/interface"
+import { ProjectType } from "@lib/api/projects/interface"
 export interface ProjectSectionProps {
-    projects: ProjectsType
+    projects: ProjectType[]
 }
