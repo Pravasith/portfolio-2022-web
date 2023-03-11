@@ -5,9 +5,13 @@ import { ThemeContext } from "@utils/contexts/themeContext"
 import React, { useContext, useEffect, useRef } from "react"
 import { toggleTheme } from "../factories"
 
-export const CurvedText = () => {
+interface CurvedTextProps {
+    isDev?: boolean
+}
+
+export const CurvedText = ({ isDev }: CurvedTextProps) => {
     const getText = () => {
-        const words = [
+        const freelanceWords = [
             "GRAPHICS",
 
             "DESIGN",
@@ -24,7 +28,25 @@ export const CurvedText = () => {
             "UI/UX",
         ]
 
-        return words.map((word, i) => {
+        const devWords = [
+            "NODE.JS",
+
+            "AWS",
+
+            "POSTGRES",
+
+            "JAVA",
+
+            "NEXT.JS",
+            "WEBGL",
+            "REACT.JS",
+            "SPRING BOOT",
+            "GRAPH QL",
+            "MONGODB",
+            "DOCKER",
+        ]
+
+        return (isDev ? devWords : freelanceWords).map((word, i) => {
             if (i % 2 === 0) {
                 return (
                     <tspan

@@ -363,11 +363,15 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "A Designer turned Developer",
+                    text: "A Designer turned:br: Full-Stack Developer",
                 },
                 {
                     type: ETextTypes.P,
-                    text: "Hi 👋🏼 I’m Pravas, a :st>Full Stack TypeScript/JavaScript/Java<st: Developer currently in :st>Toronto, CA 🇨🇦<st:. I am passionate about building great products. I love working more on the backend 🚀 than on the frontend 🎨 (surprisingly). In my spare time, I design 3D models, design/develop nerdy things. These days, I’m having great fun solving :st>leetcode<st: problems.",
+                    text: `Hi 👋🏼 I'm Prav, living in :st>Toronto 🇨🇦<st:. 
+                        With over :st>6 years<st: of experience in building highly scalable 
+                        web & mobile apps, I am well versed in 
+                        both :st>object-oriented programming<st: and :st>functional programming<st:. 
+                        I am proficient in :st>JavaScript, TypeScript, Java, and Python.<st:`,
                 },
             ],
         },
@@ -377,11 +381,35 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "About me",
+                    text: "Who am I?",
+                },
+
+                // An adaptable problem-solver.
+                // A detail-oriented team player.
+                // A passionate lifelong learner.
+                // Okay, fancy stuff aside, I'm just a human who likes to evoke
+                // emotions in other humans through the products I build.
+
+                {
+                    type: ETextTypes.P,
+                    text: `
+                        I am someone who likes to :st>build products, systems<st: and write
+                        efficient and :st>clean code<st:.
+                        I've worked as a :st>Product Designer<st: for a year, and taught myself
+                        how to code early in my career. I worked as a :st>Senior Developer<st:
+                        at tech companies in India and Canada where I built products 
+                        used by thousands and generated :st>millions<st: in revenue.
+                    `,
                 },
                 {
                     type: ETextTypes.P,
-                    text: "In my :st>five years<st: of professional experience, I've helped :st>start-ups<st: solve user problems with technology. I started as a :st>designer<st: and loved building products, so much so that I desired the skills to build them myself. So I transitioned into :st>tech<st: and loved my job even more 😇. My :st>resume<st: mentions all the skills I’ve acquired until now, have a look!",
+                    text: `
+                        I enjoy watching anime, taking a hike in the woods, making 3D art,
+                        cooking, and listening to music. These days, I started learning 
+                        how to build :st>videogames<st: in C# and Unity, I aspire to be a full-time
+                        indie game-dev one day!
+                        
+                    `,
                 },
             ],
         },
@@ -391,11 +419,27 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "Some tech projects 🍓",
+                    text: "My Craft 🍓",
                 },
                 {
                     type: ETextTypes.P,
-                    text: "What excites me the most in tech is the thrill you feel after finding a solution to a problem, and the satisfaction you attain after you build something beautiful.:br::br:Like many other awesome developers out there, I often try to do side projects to learn new technologies. Since I’m lucky enough to possess the ability to design, I get to evolve the design of the product as I go 😁. Here are a few projects that I had loads of fun working on ✨.",
+                    // text: `
+                    //     What excites me the most in tech is the thrill you
+                    //     feel after finding a solution to a problem, and the
+                    //     satisfaction you attain after you build something beautiful.
+                    //     :br::br:Like many other awesome developers out there, I often
+                    //     try to do side projects to learn new technologies.
+                    //     Since I’m lucky enough to possess the ability to design,
+                    //     I get to evolve the design of the product as I go 😁.
+                    //     Here are a few projects that I had loads of fun working on ✨.
+                    // `,
+                    text: `
+                        I specialize in :st>TypeScript, JavaScript<st: but over the course my career,
+                        I got my hands dirty with :st>Java, Python, and even C#.<st:
+                        I'm more experienced with :st>functional programming<st: since I started programming
+                        with ES6 JavaScript, but there's something about :st>OOP<st: that fascinates me.
+                        Anyway, here are some side projects I made a long time ago.
+                    `,
                 },
             ],
         },
@@ -405,11 +449,14 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "Write to me!",
+                    text: "Let's work magic together!",
                 },
                 {
                     type: ETextTypes.P,
-                    text: "I’d appreciate it if you wrote to me, be it about my work/feedback or even just a hi! I am :st>currently looking for new Full-Stack opportunities<st: in :st>Canada<st:, and if you are hiring, let me know if I have a shot :)",
+                    text: `
+                        I am :st>currently looking for new Full-Stack developer
+                        opportunities<st: in :st>Canada<st:, and if you are hiring, send me a Hi!
+                    `,
                 },
             ],
         },

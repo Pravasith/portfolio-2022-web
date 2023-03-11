@@ -45,7 +45,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                         laptop:px-[25%] laptop:mt-20
                         desktop:px-[30%]
                         full-hd:px-[33.33%] full-hd:mt-8
-                        true-hd:12
+                        true-hd:12 full-hd:mb-6
                         tv:mt-20
                     `}
                 >
@@ -84,7 +84,7 @@ const Section1 = ({ textBlocks }: SectionProps) => {
                     <div
                         // id="home-section-1-three"
                         className={`
-                            my-10 relative w-full h-[36rem]
+                            my-8 relative w-full h-[36rem]
                         `}
                     >
                         <div

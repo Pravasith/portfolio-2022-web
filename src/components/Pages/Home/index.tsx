@@ -45,6 +45,7 @@ const Home = ({ textSections, projects, isDevProfile }: HomeProps) => {
                 />
                 <Section2
                     textBlocks={homeSections.get(HomeSections.SECTION_2) ?? []}
+                    isDevProfile={isDevProfile}
                 />
                 {isDevProfile ? (
                     <Section3

@@ -9,6 +9,7 @@ export interface HomeProps {
 
 export interface SectionProps {
     textBlocks: TextBlockType[]
+    isDevProfile?: boolean
 }
 
 export interface Section3Props extends SectionProps {

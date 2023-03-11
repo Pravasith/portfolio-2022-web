@@ -5,7 +5,7 @@ import { SectionProps } from "@components/Pages/Home/interface"
 import { ETextAlign } from "@lib/api/textGroups/interface"
 // import { RESUME_LINK } from "@lib/api/database"
 
-const Section2 = ({ textBlocks }: SectionProps) => {
+const Section2 = ({ textBlocks, isDevProfile }: SectionProps) => {
     return (
         <div
         // className="min-h-screen"
@@ -56,7 +56,7 @@ const Section2 = ({ textBlocks }: SectionProps) => {
                         full-hd:w-[25%] full-hd:mx-[37.5%]
                     `}
                     >
-                        <CurvedText />
+                        <CurvedText isDev={isDevProfile} />
                     </div>
                 </div>
             </div>

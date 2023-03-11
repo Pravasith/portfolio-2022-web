@@ -22,6 +22,7 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
                     tablet:px-1/5
                     laptop:px-[25%]
                     desktop:px-[30%]
+                    full-hd:px-[33.33%]
                 `}
             >
                 <div className="section-3-text-block">
