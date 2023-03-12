@@ -1,13 +1,13 @@
 import Layout from "@components/Layout"
 import Blog from "@components/Pages/Blog"
-import { FunProps } from "@components/Pages/Fun/interface"
+import { BlogProps } from "@components/Pages/Fun/interface"
 import { BlogsType } from "@lib/api/blogs/interface"
 import { ESrcType, MediaBlockType } from "@lib/api/mediaGroups/interface"
 import api from "@services/api"
 import { BASE_URLS } from "@services/routes"
 import { GetStaticProps } from "next"
 
-const BlogsPage = ({ mediaBlocks }: FunProps) => {
+const BlogsPage = ({ mediaBlocks }: BlogProps) => {
     return (
         <main>
             {/* <Meta {...metaData} /> */}

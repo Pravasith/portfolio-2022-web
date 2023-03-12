@@ -1,9 +1,9 @@
 import TextGroup from "@components/UI/TextGroup"
 import { ETextTypes } from "@lib/api/textGroups/interface"
-import { FunProps } from "@components/Pages/Fun/interface"
+import { BlogProps } from "@components/Pages/Fun/interface"
 import FunProjects from "@components/Pages/Fun/FunProjects"
 
-const Blog = ({ mediaBlocks }: FunProps) => {
+const Blog = ({ mediaBlocks }: BlogProps) => {
     return (
         <div className="flex-col-center">
             <div className="w-full">

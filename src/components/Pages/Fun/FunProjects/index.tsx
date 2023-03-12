@@ -6,13 +6,13 @@ import VideoBlock from "@components/UI/VideoBlock"
 
 import Link from "next/link"
 import { random20Id } from "@utils/index"
-import { FunProps } from "@components/Pages/Fun/interface"
+import { BlogProps } from "@components/Pages/Fun/interface"
 import { ETextAlign } from "@lib/api/textGroups/interface"
 import { useContext } from "react"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
 
-const FunProjects = ({ mediaBlocks }: FunProps) => {
+const FunProjects = ({ mediaBlocks }: BlogProps) => {
     const { state } = useContext(ThemeContext)
 
     const themeBackground =
