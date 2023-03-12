@@ -8,21 +8,27 @@ import api from "@services/api"
 import { metaData } from "@utils/constants"
 import { BlogsType } from "@lib/api/blogs/interface"
 import { BASE_URLS } from "@services/routes"
+import { INDEX_PAGE_DATA_FREELANCE } from "@lib/api/database"
 
 interface FunPageProps {
     mediaBlocks: MediaBlockType[]
 }
 
-const FunPage: NextPage<FunPageProps> = ({ mediaBlocks }) => {
-    return (
-        <main>
-            <Meta {...metaData} />
-            <Layout>
-                <Fun mediaBlocks={mediaBlocks} />
-            </Layout>
-        </main>
-    )
-}
+const FunPage: NextPage<FunPageProps> = () =>
+    // { mediaBlocks }
+    {
+        return (
+            <main>
+                <Meta {...metaData} />
+                <Layout>
+                    <Fun
+                        // mediaBlocks={mediaBlocks}
+                        projects={INDEX_PAGE_DATA_FREELANCE.projects}
+                    />
+                </Layout>
+            </main>
+        )
+    }
 
 export const getStaticProps: GetStaticProps = async () => {
     let funPageMediaBlocks: MediaBlockType[] = []
