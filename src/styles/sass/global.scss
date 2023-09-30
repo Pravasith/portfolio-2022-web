@@ -69,7 +69,23 @@ tspan.curlyTextBold {
 }
 
 strong {
-    @apply font-calibre-semibold font-medium;
+    @apply font-courier-new font-bold 
+}
+
+.strong-dark-text {
+    @apply text-black bg-theme-yellow
+}
+
+.strong-light-text {
+    @apply text-theme-blue;
+}
+
+.light-text {
+    @apply text-gray-200;
+}
+
+.dark-text {
+    @apply text-gray-800;
 }
 
 .masonry-container {

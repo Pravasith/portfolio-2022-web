@@ -363,15 +363,16 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "A Designer turned:br: Full-Stack Developer",
+                    text: "I ✍ write Software for the Web",
                 },
                 {
                     type: ETextTypes.P,
-                    text: `Hi 👋🏼 I'm Prav, living in :st>Toronto 🇨🇦<st:. 
-                        With over :st>6 years<st: of experience in building highly scalable 
-                        web & mobile apps, I am well versed in 
-                        both :st>object-oriented programming<st: and :st>functional programming<st:. 
-                        I am proficient in :st>JavaScript, TypeScript, Java, and Python.<st:`,
+                    text: `Hi 👋🏼 I'm Prav. I live in :st>Toronto, Canada<st:. I
+                    spent the last :st>6 years<st: building :st>Big Corporate Web and 
+                    Mobile Products<st:.
+                    I also love making :st>cool side projects<st: and :st>internal tools<st: in my free time. 
+                    `,
+
                 },
             ],
         },
@@ -381,24 +382,15 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "Who am I?",
+                    text: "For Recruiters",
                 },
-
-                // An adaptable problem-solver.
-                // A detail-oriented team player.
-                // A passionate lifelong learner.
-                // Okay, fancy stuff aside, I'm just a human who likes to evoke
-                // emotions in other humans through the products I build.
 
                 {
                     type: ETextTypes.P,
                     text: `
-                        I am someone who likes to :st>build products, systems<st: and write
-                        efficient and :st>clean code<st:.
-                        I've worked as a :st>Product Designer<st: for a year, and taught myself
-                        how to code early in my career. I worked as a :st>Senior Developer<st:
-                        at tech companies in India and Canada where I built products 
-                        used by thousands and generated :st>millions<st: in revenue.
+                    I'm really flexible when it comes to :st>programming languages<st:.
+                    
+
                     `,
                 },
                 {
