@@ -127,6 +127,4 @@
     .dots-bgd-img {
         @apply bg-dots bg-repeat w-full h-full bg-[2rem] bg-opacity-25; 
     }
-
-    
 }

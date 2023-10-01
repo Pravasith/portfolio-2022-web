@@ -4,6 +4,7 @@ import { ThemeContext } from "@utils/contexts/themeContext"
 
 import React, { useContext, useEffect, useRef } from "react"
 import { toggleTheme } from "../factories"
+import { Turbulence } from "../SvgFilters"
 
 interface CurvedTextProps {
     isDev?: boolean
@@ -55,13 +56,13 @@ export const CurvedText = ({ isDev }: CurvedTextProps) => {
                         fontStretch={"1rem"}
                         key={"word" + i}
                     >
-                        &nbsp;{word}&nbsp;&nbsp;
+                        &nbsp;{word}
                     </tspan>
                 )
             } else
                 return (
                     <tspan fontSize={"1.25rem"} key={"word" + i}>
-                        &nbsp;{word}&nbsp;&nbsp;
+                        &nbsp;{word}
                     </tspan>
                 )
         })
@@ -160,6 +161,49 @@ export const CurvedText = ({ isDev }: CurvedTextProps) => {
             </g>
         </svg>
     )
+}
+
+export const Blob2 = () => {
+    return  <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="484.72"
+      height="378.43"
+      data-name="Layer 1"
+      viewBox="0 0 484.72 378.43"
+    >
+      <defs>
+        <Turbulence />
+        <clipPath id="clippath0AS">
+          <path fill="none" d="M0 0H484.72V378.43H0z"></path>
+        </clipPath>
+      </defs>
+      <g filter="url(#displacementFilter)" strokeMiterlimit="10" clipPath="url(#clippath0AS)">
+        <path
+          fill="#fcf7bd"
+          stroke="#f9ed32"
+          strokeWidth="6"
+          d="M153.85 169.37s56.12-77.48 99.07-59.17 59.53 86.88 61.39 110.36c2.06 26.06-12.56 63.4-74.42 46.02-45.49-12.78-116.28-50.72-86.04-97.21z"
+        ></path>
+        <path
+          fill="#f6a1a6"
+          stroke="#ed1c24"
+          strokeWidth="5"
+          d="M188.92 178.44s30.45-42.05 53.76-32.11c22.72 9.68 32.31 47.15 33.32 59.89 1.12 14.14-6.81 34.4-40.38 24.97-24.69-6.93-63.1-27.52-46.69-52.75z"
+        ></path>
+        <path
+          fill="#f58f9a"
+          stroke="#ed1c24"
+          strokeWidth="5"
+          d="M210.24 183.96s14.85-20.51 26.22-15.66c11.08 4.72 15.76 22.99 16.25 29.21.55 6.9-3.32 16.78-19.69 12.18-12.04-3.38-30.77-13.42-22.77-25.73z"
+        ></path>
+        <path
+          fill="none"
+          stroke="#6fccdd"
+          strokeWidth="8"
+          d="M174.63 115.03s28.09-32.32 42.93-37.61 31.8-5.88 45.05 1.18c13.25 7.05 38.69 50.54 50.88 54.65 12.19 4.11 24.91 5.29 25.97 18.22 1.06 12.93-22.79 23.51-18.55 41.14s25.97 65.23 8.48 82.86c-17.49 17.63-50.88 19.98-62.01 17.63s-55.65-15.87-78.97 2.94c-23.32 18.8-63.07 8.81-55.65-35.85 7.42-44.66-20.67-82.27 41.87-145.15z"
+        ></path>
+      </g>
+    </svg>
 }
 
 export const OpenLinkIcon = () => {

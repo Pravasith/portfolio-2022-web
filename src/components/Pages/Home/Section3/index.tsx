@@ -1,17 +1,20 @@
-import { Spikes } from "@components/SVGs/HomeSection3"
+// import { Spikes } from "@components/SVGs/HomeSection3"
 import TextGroup from "@components/UI/TextGroup"
 import { ETextAlign, ETextTypes } from "@lib/api/textGroups/interface"
 
 import { Section3Props } from "@components/Pages/Home/interface"
 import ProjectSection from "./ProjectSection"
+import { Blob2 } from "@components/SVGs/HomeSection2"
 
 const Section3 = ({ textBlocks, projects }: Section3Props) => {
     // projects
     return (
         <div className="section-3-container flex-col-center">
             <div className="flex-col-center w-full mt-10 mb-44">
-                <div className="w-80">
-                    <Spikes />
+                <div className="h-0 relative w-full">
+                <div className="absolute bottom-0 translate-y-1/3  left-1/2 -translate-x-1/2 -z-10">
+                    <Blob2/>
+                </div>
                 </div>
             </div>
 

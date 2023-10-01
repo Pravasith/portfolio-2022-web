@@ -382,24 +382,21 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "For Recruiters",
+                    text: "Languages 🎭",
                 },
 
                 {
                     type: ETextTypes.P,
                     text: `
-                    I'm really flexible when it comes to :st>programming languages<st:.
-                    
-
+                        I worked with :st>TypeScript, JavaScript, and Java<st:
+                        the most in my career. Recently, I started learning :st>C++<st:  
+                        to build a multiplayer web game. I've also frequently used 
+                        Python here and there to automate stuff.
                     `,
                 },
                 {
                     type: ETextTypes.P,
                     text: `
-                        I enjoy watching anime, taking a hike in the woods, making 3D art,
-                        cooking, and listening to music. These days, I started learning 
-                        how to build :st>videogames<st: in C# and Unity, I aspire to be a full-time
-                        indie game-dev one day!
                         
                     `,
                 },

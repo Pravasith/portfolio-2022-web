@@ -63,8 +63,12 @@ img {
 }
 
 tspan.curlyTextBold {
-    @apply font-calibre-semibold;
-    font-family: "Noe Display";
+    @apply font-calibre-semibold font-courier-new font-bold;
+    letter-spacing: 0.1rem;
+}
+
+tspan{
+    @apply font-calibre-semibold font-courier-new font-bold;
     letter-spacing: 0.1rem;
 }
 
