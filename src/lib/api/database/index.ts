@@ -363,7 +363,7 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "I ✍ write Software for the Web",
+                    text: "I ✍ write Software for the Web 📟",
                 },
                 {
                     type: ETextTypes.P,
@@ -391,13 +391,7 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
                         I worked with :st>TypeScript, JavaScript, and Java<st:
                         the most in my career. Recently, I started learning :st>C++<st:  
                         to build a multiplayer web game. I've also frequently used 
-                        Python here and there to automate stuff.
-                    `,
-                },
-                {
-                    type: ETextTypes.P,
-                    text: `
-                        
+                        :st>Python<st: here and there to automate stuff.
                     `,
                 },
             ],
@@ -408,26 +402,26 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "My Craft 🍓",
+                    text: "My Evolution 🌱",
                 },
                 {
                     type: ETextTypes.P,
-                    // text: `
-                    //     What excites me the most in tech is the thrill you
-                    //     feel after finding a solution to a problem, and the
-                    //     satisfaction you attain after you build something beautiful.
-                    //     :br::br:Like many other awesome developers out there, I often
-                    //     try to do side projects to learn new technologies.
-                    //     Since I’m lucky enough to possess the ability to design,
-                    //     I get to evolve the design of the product as I go 😁.
-                    //     Here are a few projects that I had loads of fun working on ✨.
-                    // `,
                     text: `
-                        I specialize in :st>TypeScript, JavaScript<st: but over the course my career,
-                        I got my hands dirty with :st>Java, Python, and even C#.<st:
-                        I'm more experienced with :st>functional programming<st: since I started programming
-                        with ES6 JavaScript, but there's something about :st>OOP<st: that fascinates me.
-                        Anyway, here are some side projects I made a long time ago.
+                        I love making things. Ever since I was a child 
+                        I was fond of making :ln>weird DIY stuff:ln:/blogs/three-way-transformer/<ln:.  
+                        I went to an Architecture school where I built 3D models,  
+                        learnt how to code, and made :st>Web-Games with Flash<st:.
+                        In my first job, I learnt how to make websites with
+                        JavaScript, AngularJS, and NodeJS. Anyway, I went on to 
+                        create super-complex apps on the web using all sorts of 
+                        technologies for 6 years. 
+                    `,
+                },
+                {
+                    type: ETextTypes.P,
+                    text: `
+                       But I really enjoy working on personal projects. 
+                       Here are :st>some of my personal projects -<st: 
                     `,
                 },
             ],
@@ -453,29 +447,40 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
 
     projects: [
         {
-            title: "Old portfolio website",
-            description:
-                "I built a personal website 2 years ago, and the technologies I used are, :st>NextJS/ReactJS, ThreeJS NodeJS, ExpressJS, Firebase Firestore, AWS S3, DigitalOcean Droplets, Nginx, PM2,<st: and :st>Illustrator<st: for UX Design.",
-            gitHubLink: "https://github.com/Pravasith",
-            liveLink: "https://pravasdesign.com",
+            title: "A Web-Game with my own Physics (W.I.P. 🚧)",
+            description: `
+               I'm currently working on a multiplayer 
+               Web-Game with a procedurally generated world
+               using :st>C++, TypeScript,
+               ThreeJS, WebRTC.<st:. 
+               Plan is to make it run superfast on the 
+               browser by leveraging
+               the power of modern web technologies.
+                
+            `,
+            gitHubLink: "https://github.com/Pravasith/3d-web-game",
+            liveLink: "https://particles-fun.vercel.app/",
             media: {
-                src: "/img/pravasith-portfolio-website.png",
-                alt: "pravasith-portfolio-thumbnail",
-                type: ESrcType.IMAGE,
-                id: "pravasith-portfolio-thumbnail",
+                // src: "/img/pravasith-portfolio-website.png",
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1696199843/Portfolio%202022/projects/space-game-prav.mp4",
+                alt: "A dolphin like creature with guns on it's each side ",
+                type: ESrcType.VIDEO,
+                // id: "pravasith-portfolio-thumbnail",
                 width: 1000,
                 height: 574,
-                caption: "Pravasith's old portfolio site",
+                // caption: "Pravasith's old portfolio site",
             },
         },
         {
-            title: "Spotifinder",
-            description:
-                "A Spotify clone app with an unnecessarily complicated backend. I used Spotify endpoints to make an aggregated backend that serves data via :st>GraphQL<st:. I used :st>TypeScript, NodeJS, TypeGraphQL, Apollo, ExpressJS, HowlerJS, NextJS/ReactJS<st: and :st>Illustrator<st: for UX Design.",
+            title: "Into the Void",
+            description: `
+                My first attempt at building a first-person 3D Open World game that runs on the browser.
+                You can check the code out but Spaghetti-Code 🍝 warning has been issued.
+            `,
             gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
             liveLink: "https://spotifinder.vercel.app/",
             media: {
-                src: "/img/spotifinder-graphql.png",
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/bootes-void-game.mp4",
                 alt: "spotifinder thumbimage",
                 type: ESrcType.IMAGE,
                 id: "spotifinder-thumbnail",
@@ -491,7 +496,7 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             gitHubLink: "https://github.com/Pravasith/into-the-void",
             liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
             media: {
-                src: "/img/space-mine-game.png",
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/portfolio-pravasith.mp4",
                 alt: "spacemine thumbimage",
                 type: ESrcType.IMAGE,
                 id: "spacemine-thumbnail",

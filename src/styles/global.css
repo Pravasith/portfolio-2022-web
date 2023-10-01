@@ -112,7 +112,7 @@
     }
 
     h3 {
-        @apply font-calibre-bold underline-offset-2
+        @apply font-calibre-bold font-courier-new font-extrabold underline-offset-2
         text-3xl;
     }
 
