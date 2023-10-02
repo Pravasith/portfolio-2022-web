@@ -98,27 +98,33 @@
 
 @layer base {
     h1 {
-        @apply font-calibre-bold font-noe-display decoration-2 
-        text-[2.5rem] leading-[2.75rem]
+        @apply font-calibre-bold font-noe-display font-courier-new 
+        decoration-2 text-[2.5rem] leading-[2.75rem]
 
         tablet:text-[3.5rem] tablet:leading-[3.5rem]
         desktop:text-[3.25rem] desktop:leading-[3.25rem]
         true-hd:text-[3.75rem] true-hd:leading-[3.75rem]
-        tv:text-[4.75rem] tv:leading-[4.5rem];
+        tv:text-[4.75rem] tv:leading-[4.5rem]
 
-        font-family: "Noe Display";
+        font-extrabold
+
+        /* font-family: "Noe Display"; */
     }
 
     h3 {
-        @apply font-calibre-bold underline-offset-2
+        @apply font-calibre-bold font-courier-new font-extrabold underline-offset-2
         text-3xl;
     }
 
     p,
     li {
-        @apply font-calibre text-base leading-5 py-1
+        @apply font-courier-new font-extrabold text-base leading-5 py-1
         desktop:text-lg desktop:leading-6
         true-hd:text-xl true-hd:leading-6
         tv:text-2xl tv:leading-7;
+    }
+
+    .dots-bgd-img {
+        @apply bg-dots bg-repeat w-full h-full bg-[2rem] bg-opacity-25 min-h-screen; 
     }
 }

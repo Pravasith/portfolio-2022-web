@@ -24,10 +24,13 @@ const TextGroup = ({
                         ? ETextColorClassNames.LIGHT_THEME_TEXT_100
                         : ETextColorClassNames.DARK_THEME_TEXT_100
 
-                const strongClassName =
-                    state?.currentTheme === EThemes.LIGHT
-                        ? "text-gray-800"
-                        : "text-gray-200"
+                // const strongClassName =
+                //     state?.currentTheme === EThemes.LIGHT
+                //         ? "text-bg"
+                //         : "text-gray-200"
+
+                const strongColorClassName =
+                    state?.currentTheme === EThemes.LIGHT ? "strong-dark-text": "strong-light-text"
 
                 const linkColorClassName =
                     state?.currentTheme === EThemes.LIGHT
@@ -35,9 +38,7 @@ const TextGroup = ({
                         : ETextColorClassNames.DARK_THEME_TEXT_100
 
                 const textColorClassName =
-                    state?.currentTheme === EThemes.LIGHT
-                        ? ETextColorClassNames.LIGHT_THEME_TEXT_200
-                        : ETextColorClassNames.DARK_THEME_TEXT_200
+                    state?.currentTheme === EThemes.LIGHT ? "dark-text": "light-text"
 
                 const SpanifiedAndLinkifiedText = ({
                     text,
@@ -45,7 +46,7 @@ const TextGroup = ({
                     <SpanifyLinkifyText
                         linkClassName={linkColorClassName}
                         spanClassName={spanColorClassName}
-                        strongClassName={strongClassName}
+                        strongClassName={strongColorClassName}
                         text={text}
                     />
                 )
@@ -54,7 +55,7 @@ const TextGroup = ({
                     case ETextTypes.H1:
                         return (
                             <h1
-                                className={`${strongClassName} ${textAlign} my-6  ${textClassName}`}
+                                className={`${textColorClassName} ${textAlign} my-6  ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedAndLinkifiedText text={item.text} />
@@ -65,7 +66,7 @@ const TextGroup = ({
                     case ETextTypes.H3:
                         return (
                             <h3
-                                className={`${strongClassName} ${textAlign} my-6  ${textClassName}`}
+                                className={`${textColorClassName} ${textAlign} my-6  ${textClassName}`}
                                 key={`textblock-${random20Id()}-${i}`}
                             >
                                 <SpanifiedAndLinkifiedText text={item.text} />

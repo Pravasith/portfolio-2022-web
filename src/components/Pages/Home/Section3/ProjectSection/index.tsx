@@ -19,8 +19,9 @@ import { random20Id } from "@utils/index"
 import { useContext } from "react"
 import { ThemeContext } from "@utils/contexts/themeContext"
 import { EThemes } from "@utils/contexts/themeContext/interface"
-import ImageBlock from "@components/UI/ImageBlock"
-import { ImageBlockType } from "@lib/api/mediaGroups/interface"
+// import ImageBlock from "@components/UI/ImageBlock"
+import {  VideoBlockType } from "@lib/api/mediaGroups/interface"
+import VideoBlock from "@components/UI/VideoBlock"
 
 const ProjectSection = ({ projects }: ProjectSectionProps) => {
     // const [projects] = useState<ProjectType[]>(() => [
@@ -162,7 +163,8 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
                             desktop:mx-0 desktop:rounded-[3rem]
                         `}
                     >
-                        <ImageBlock imageBlock={item.media as ImageBlockType} />
+                        <VideoBlock videoBlock={item.media as VideoBlockType} />
+                        {/* <ImageBlock imageBlock={item.media as ImageBlockType} /> */}
                     </div>
                 </div>
 

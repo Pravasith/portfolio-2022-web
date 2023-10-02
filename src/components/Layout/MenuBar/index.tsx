@@ -23,10 +23,10 @@ const MenuBar = () => {
             route: Routes.FUN,
             name: RouteNames.FUN,
         },
-        {
-            route: Routes.BLOGS,
-            name: RouteNames.BLOGS,
-        },
+        // {
+        //     route: Routes.BLOGS,
+        //     name: RouteNames.BLOGS,
+        // },
     ]
 
     const router = useRouter()

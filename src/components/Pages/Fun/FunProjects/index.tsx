@@ -34,7 +34,7 @@ const FunProjects = ({ mediaBlocks }: BlogProps) => {
                         key={"media-block-fun-" + i}
                         href={item.hyperlink || "/not-found"}
                     >
-                        <a
+                        <div
                             // target={"_blank"}
                             key={random20Id() + "-" + i}
                             className={`
@@ -80,7 +80,7 @@ const FunProjects = ({ mediaBlocks }: BlogProps) => {
                                     </div>
                                 )}
                             </div>
-                        </a>
+                        </div>
                     </Link>
                 )
             })}

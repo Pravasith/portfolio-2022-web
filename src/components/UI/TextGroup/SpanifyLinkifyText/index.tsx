@@ -55,7 +55,9 @@ const SpanifyLinkifyText = ({
                             hover:after:bg-theme-blue after:transition hover:text-theme-blue transition
                         relative`}
                 >
+                    <>
                     {arrayOfElements}
+                    </>
                 </Link>
             )
         } else if (nextFourChars === TextMarkers.STRONG_END_MARK) {

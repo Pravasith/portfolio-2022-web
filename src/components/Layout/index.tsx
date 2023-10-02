@@ -72,6 +72,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
 
     return (
         <div ref={background} className="absolute z-10 w-full">
+            <div className="dots-bgd-img">
             <ThemeContext.Provider
                 value={{
                     state,
@@ -113,6 +114,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
                     {/* maybe a game */}
                 </footer>
             </ThemeContext.Provider>
+            </div>
         </div>
     )
 }

@@ -41,7 +41,10 @@ module.exports = {
                 calibre: "Calibre",
                 "calibre-bold": "Calibre Bold",
                 "calibre-semibold": "Calibre SemiBold",
-                'noe-display': 'noe-display'
+                'noe-display': 'noe-display',
+                'roboto': 'Roboto',
+                'courier': 'Courier',
+                'courier-new': 'Courier New',
             },
 
             spacing: {
@@ -57,6 +60,7 @@ module.exports = {
             backgroundImage: {
                 "button-bgd-1": "url('/img/button-background-01.svg')",
                 "button-bgd-2": "url('/img/button-background-02.svg')",
+                "dots": "url('/img/dot.png')",
             },
 
             backgroundSize: {

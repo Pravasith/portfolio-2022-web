@@ -1,22 +1,34 @@
+import type { GetStaticProps, NextPage } from "next"
+
+import Meta from "@components/Meta"
 import Layout from "@components/Layout"
-import Blog from "@components/Pages/Blog"
-import { BlogProps } from "@components/Pages/Fun/interface"
-import { BlogsType } from "@lib/api/blogs/interface"
+import Fun from "@components/Pages/Fun"
 import { ESrcType, MediaBlockType } from "@lib/api/mediaGroups/interface"
 import api from "@services/api"
+import { metaData } from "@utils/constants"
+import { BlogsType } from "@lib/api/blogs/interface"
 import { BASE_URLS } from "@services/routes"
-import { GetStaticProps } from "next"
+import { INDEX_PAGE_DATA_FREELANCE } from "@lib/api/database"
 
-const BlogsPage = ({ mediaBlocks }: BlogProps) => {
-    return (
-        <main>
-            {/* <Meta {...metaData} /> */}
-            <Layout>
-                <Blog mediaBlocks={mediaBlocks} />
-            </Layout>
-        </main>
-    )
+interface FunPageProps {
+    mediaBlocks: MediaBlockType[]
 }
+
+const FunPage: NextPage<FunPageProps> = () =>
+    // { mediaBlocks }
+    {
+        return (
+            <main>
+                <Meta {...metaData} />
+                <Layout>
+                    <Fun
+                        // mediaBlocks={mediaBlocks}
+                        projects={INDEX_PAGE_DATA_FREELANCE.projects}
+                    />
+                </Layout>
+            </main>
+        )
+    }
 
 export const getStaticProps: GetStaticProps = async () => {
     let funPageMediaBlocks: MediaBlockType[] = []
@@ -32,7 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
                 alt: blog.title,
                 caption: blog.title,
                 showCaption: true,
-                hyperlink: "/blogs/" + blog.page,
+                hyperlink: "/fun/" + blog.page,
             }))
         })
         .catch(err => {
@@ -46,4 +58,4 @@ export const getStaticProps: GetStaticProps = async () => {
     }
 }
 
-export default BlogsPage
+export default FunPage
