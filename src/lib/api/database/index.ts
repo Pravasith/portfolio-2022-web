@@ -432,13 +432,17 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             textBlocks: [
                 {
                     type: ETextTypes.H1,
-                    text: "Let's work magic together!",
+                    text: "I'm looking for work!",
                 },
                 {
                     type: ETextTypes.P,
                     text: `
-                        I am :st>currently looking for new Full-Stack developer
-                        opportunities<st: in :st>Canada<st:, and if you are hiring, send me a Hi!
+                        I am actually looking for new Full-Stack developer 
+                        opportunities in Canada.
+                        If you are hiring, please reach out to me on 
+                        :ln>LinkedIn:ln:https://www.linkedin.com/in/pravasith/<ln:
+                         or :ln>Twitter:ln:https://twitter.com/Pravasith<ln: just 
+                         fill out the form below and I'll get back to you.
                     `,
                 },
             ],
@@ -474,32 +478,37 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
         {
             title: "Into the Void",
             description: `
-                My first attempt at building a first-person 3D Open World game that runs on the browser.
+                This is pandemic time project. I tried building a 3D game 
+                while learning how to model in Blender and how to use ThreeJS.
                 You can check the code out but Spaghetti-Code 🍝 warning has been issued.
             `,
-            gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
-            liveLink: "https://spotifinder.vercel.app/",
+            gitHubLink: "https://github.com/Pravasith/into-the-void",
+            liveLink: "https://bootes-void.vercel.app/bootes-space-mine", 
+          
             media: {
                 src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/bootes-void-game.mp4",
-                alt: "spotifinder thumbimage",
                 type: ESrcType.IMAGE,
-                id: "spotifinder-thumbnail",
                 width: 1000,
                 height: 574,
-                caption: "A very cool app with a very cool Backend",
+                caption: "",
+                alt: "spacemine thumbimage",
+                id: "spacemine-thumbnail",
             },
         },
         {
-            title: "Into The Void",
-            description:
-                "My first attempt at building a first-person 3D Open World game that runs on the browser. I used :st>NextJS/ReactJS, ThreeJS; Blender<st: for modelling, and :st>Illustrator<st: for UX Design.",
-            gitHubLink: "https://github.com/Pravasith/into-the-void",
-            liveLink: "https://bootes-void.vercel.app/bootes-space-mine",
+            title: "Spotifinder",
+            description: `
+                I made this a long time ago - an App with a complicated backend. Made this one 
+                while I was learning :st>GraphQL<st:. 
+                I used Spotify endpoints to make an :st>aggregated backend<st: that serves data via GraphQL.
+            `,
+             gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
+            liveLink: "https://spotifinder.vercel.app/",
             media: {
-                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/portfolio-pravasith.mp4",
-                alt: "spacemine thumbimage",
+                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/spotifinder.mp4",
                 type: ESrcType.IMAGE,
-                id: "spacemine-thumbnail",
+                alt: "spotifinder thumbimage",
+                id: "spotifinder-thumbnail",
                 width: 1000,
                 height: 574,
                 caption: "A 3D game - Into the Void",

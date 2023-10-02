@@ -1,6 +1,6 @@
 // import { Spikes } from "@components/SVGs/HomeSection3"
 import TextGroup from "@components/UI/TextGroup"
-import { ETextAlign, ETextTypes } from "@lib/api/textGroups/interface"
+import { ETextAlign } from "@lib/api/textGroups/interface"
 
 import { Section3Props } from "@components/Pages/Home/interface"
 import ProjectSection from "./ProjectSection"
@@ -42,7 +42,7 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
             </div>
 
             {/* OTHER FUN PROJECTS */}
-            <TextGroup
+            {/* <TextGroup
                 className={`
                     my-10 px-6
                     tablet:px-1/5
@@ -56,7 +56,7 @@ const Section3 = ({ textBlocks, projects }: Section3Props) => {
                         type: ETextTypes.H3,
                     },
                 ]}
-            />
+            /> */}
         </div>
     )
 }
