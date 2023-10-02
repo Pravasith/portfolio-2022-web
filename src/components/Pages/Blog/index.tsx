@@ -4,16 +4,18 @@ import { BlogProps } from "@components/Pages/Fun/interface"
 import FunProjects from "@components/Pages/Fun/FunProjects"
 
 const Blog = ({ mediaBlocks }: BlogProps) => {
+    // console.log(mediaBlocks)
     return (
         <div className="flex-col-center">
-            <div className="w-full">
+            <div className="w-full pt-40">
                 <TextGroup
                     textBlocks={[
                         {
                             type: ETextTypes.H3,
-                            text: "Sorry 🙏🏻, I am yet to add my tech-blogs.:br: But here are some non-tech blogs that I'm sure you'll love! 🤗",
+                            text: "Some of my fun DIY projects",
                         },
                     ]}
+
                     className={`
                         my-10 px-6
                         tablet:px-1/5

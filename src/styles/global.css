@@ -125,6 +125,6 @@
     }
 
     .dots-bgd-img {
-        @apply bg-dots bg-repeat w-full h-full bg-[2rem] bg-opacity-25; 
+        @apply bg-dots bg-repeat w-full h-full bg-[2rem] bg-opacity-25 min-h-screen; 
     }
 }

@@ -79,9 +79,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // Call an external API endpoint to get posts
     // const res = await fetch("https://.../posts")
     const posts = [
-        "meal-delivery-app",
+        // "meal-delivery-app",
         "three-way-transformer",
-        "glasmet",
+        // "glasmet",
         "rain-bag",
     ]
 

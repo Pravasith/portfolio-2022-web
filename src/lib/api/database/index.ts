@@ -368,9 +368,9 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
                 {
                     type: ETextTypes.P,
                     text: `Hi 👋🏼 I'm Prav. I live in :st>Toronto, Canada<st:. I
-                    spent the last :st>6 years<st: building :st>Big Corporate Web and 
-                    Mobile Products<st:.
-                    I also love making :st>cool side projects<st: and :st>internal tools<st: in my free time. 
+                        spent the last :st>6 years<st: building :st>Big Corporate Web and 
+                        Mobile Products<st:.
+                        I also love making :st>cool side projects<st: and :st>internal tools<st: in my free time. 
                     `,
 
                 },
@@ -408,7 +408,7 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
                     type: ETextTypes.P,
                     text: `
                         I love making things. Ever since I was a child 
-                        I was fond of making :ln>weird DIY stuff:ln:/blogs/three-way-transformer/<ln:.  
+                        I was fond of making :ln>weird DIY stuff:ln:/fun/<ln:.  
                         I went to an Architecture school where I built 3D models,  
                         learnt how to code, and made :st>Web-Games with Flash<st:.
                         In my first job, I learnt how to make websites with
