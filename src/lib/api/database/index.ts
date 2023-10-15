@@ -466,7 +466,8 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             liveLink: "https://particles-fun.vercel.app/",
             media: {
                 // src: "/img/pravasith-portfolio-website.png",
-                src: "https://res.cloudinary.com/pravasith/video/upload/v1696199843/Portfolio%202022/projects/space-game-prav.mp4",
+                // src: "https://res.cloudinary.com/pravasith/video/upload/v1696199843/Portfolio%202022/projects/space-game-prav.mp4",
+                src: "https://prav-portfolio-2023.s3.amazonaws.com/space-game-prav.mp4",
                 alt: "A dolphin like creature with guns on it's each side ",
                 type: ESrcType.VIDEO,
                 // id: "pravasith-portfolio-thumbnail",
@@ -486,7 +487,8 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
             liveLink: "https://bootes-void.vercel.app/bootes-space-mine", 
           
             media: {
-                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/bootes-void-game.mp4",
+                // src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/bootes-void-game.mp4",
+                src: "https://prav-portfolio-2023.s3.amazonaws.com/bootes-void-game.mp4",
                 type: ESrcType.IMAGE,
                 width: 1000,
                 height: 574,
@@ -505,7 +507,8 @@ export const INDEX_PAGE_DATA_DEV: IndexPageData = {
              gitHubLink: "https://github.com/stars/Pravasith/lists/spotifinder",
             liveLink: "https://spotifinder.vercel.app/",
             media: {
-                src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/spotifinder.mp4",
+                // src: "https://res.cloudinary.com/pravasith/video/upload/v1677271507/Portfolio%202022/projects/spotifinder.mp4",
+                src: "https://prav-portfolio-2023.s3.amazonaws.com/spotifinder.mp4",
                 type: ESrcType.IMAGE,
                 alt: "spotifinder thumbimage",
                 id: "spotifinder-thumbnail",
