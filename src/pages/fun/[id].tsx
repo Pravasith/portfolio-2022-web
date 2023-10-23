@@ -11,7 +11,7 @@ import api from "@services/api"
 import { TextGroupType } from "@lib/api/textGroups/interface"
 import { MediaGroupType } from "@lib/api/mediaGroups/interface"
 import { BASE_URLS } from "@services/routes"
-import { createClient } from "next-sanity"
+// import { createClient } from "next-sanity"
 
 interface BlogProps {
     blogData: BlogsType
@@ -49,19 +49,19 @@ const Blog: NextPage<BlogProps> = ({ blogData, textGroup, mediaGroup , dummyStri
     )
 }
 
-const client = createClient({
-    projectId: "svub722h",
-    dataset: "production",
-    apiVersion: "2023-10-23",
-    useCdn: false
-});
+// const client = createClient({
+//     projectId: "svub722h",
+//     dataset: "production",
+//     apiVersion: "2023-10-23",
+//     useCdn: false
+// });
 
 export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
     const blogData: BlogsType[] = [],
         textGroup: TextGroupType[] = [],
         mediaGroup: MediaGroupType[] = [];
 
-    const blog = await client.fetch(`*[_type == "blog"]`);
+    // const blog = await client.fetch(`*[_type == "blog"]`);
 
     await Promise.all([
         api.GET<BlogsType[]>(BASE_URLS.BLOG + "?page=" + params?.id),
@@ -82,7 +82,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
             blogData: blogData[0],
             textGroup: textGroup[0],
             mediaGroup: mediaGroup[0],
-            dummyString: blog[0].name,
+            dummyString: 'blog[0].name',
         },
     }
 }
