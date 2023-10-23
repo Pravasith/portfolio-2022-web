@@ -25,6 +25,8 @@ const BlogDetails = ({ details }: BlogProps) => {
     const { title, timestamp, userDetails, tags, textGroup, mediaGroup } =
         details
 
+        console.log(details.dummyString)
+
     const sections = new Map<string, (TextBlockType | MediaBlockType)[]>()
 
     const sectionsJSX: JSX.Element[] = []
