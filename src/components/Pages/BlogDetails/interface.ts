@@ -13,5 +13,6 @@ export interface BlogProps {
         tags: string[]
         textGroup: TextGroupType
         mediaGroup: MediaGroupType
+        dummyString: string
     }
 }
